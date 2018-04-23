@@ -11,15 +11,15 @@
 */
 // The author of the mission; the name will be shown above the loadScreen
 // displayed as “by <author>”
-author = “Dave”;
+author = “SaberSnack”;
 // Name of the mission shown in a larger font above the loadScreen
-onLoadName = “Takistan Mujahideen”;
+onLoadName = “Takistan Mujahideen Insurgency”;
 /* Mission Overview details */
 // Image displayed during Mission Selection. Image should be .paa format and
 // in 2:1 aspect ratio.
 overviewPicture = “”;
 // Description of the mission displayed during Mission Selection
-overviewText = “”;
+overviewText = “Kill the Communist invaders!”;
 // Game Type settings
 class Header {
  gameType = CTI;
