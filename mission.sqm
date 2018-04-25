@@ -13,9 +13,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={5981.3037,481.02194,11330.09};
-		dir[]={-0.20037688,-0.87360346,0.44364348};
-		up[]={-0.35958445,0.48668781,0.7961387};
-		aside[]={0.91143405,4.0276063e-008,0.41166079};
+		dir[]={-0.31040546,-0.94574326,-0.096885584};
+		up[]={-0.90275007,0.3250398,-0.28177088};
+		aside[]={-0.29797795,1.3325916e-007,0.95467365};
 	};
 };
 binarizationWanted=0;
@@ -31,14 +31,13 @@ addons[]=
 	"alive_civ_placement",
 	"alive_mil_logistics",
 	"alive_mil_ato",
-	"A3_Ui_F",
-	"WW2_Core_c_IF_Gui_c"
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=12;
+		items=11;
 		class Item0
 		{
 			className="ALiVE_mil_OPCOM";
@@ -108,11 +107,6 @@ class AddonsMetaData
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item11
-		{
-			className="WW2_Core_c_IF_Gui_c";
-			name="WW2_Core_c_IF_Gui_c";
 		};
 	};
 };
@@ -303,7 +297,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -398,7 +392,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -417,7 +411,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="NONE";
+							value="OPF_G_F";
 						};
 					};
 				};
@@ -1076,7 +1070,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -1490,7 +1484,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -1903,7 +1897,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -2316,7 +2310,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -2730,7 +2724,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -3088,7 +3082,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -3446,7 +3440,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -3804,7 +3798,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -4162,7 +4156,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -4521,7 +4515,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -4879,7 +4873,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -5235,7 +5229,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -5649,7 +5643,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
@@ -6306,7 +6300,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="OPF_F";
+							value="O_USSRSovietArmy_OKSVA";
 						};
 					};
 				};
