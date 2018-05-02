@@ -13,9 +13,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={7244.3198,426.49677,8572.4033};
-		dir[]={-0.012295371,-0.71161455,0.70246667};
-		up[]={-0.012453343,0.70256853,0.71150666};
-		aside[]={0.99984956,-6.3183734e-008,0.017500643};
+		dir[]={-0.25750393,-0.86442006,0.43183824};
+		up[]={-0.44271851,0.50276846,0.74244547};
+		aside[]={0.8588981,-6.0739694e-007,0.51215917};
 	};
 };
 binarizationWanted=0;
@@ -9506,7 +9506,7 @@ class Mission
 			name="CQB_3";
 			id=76;
 			type="ALiVE_mil_cqb";
-			atlOffset=-0.058998108;
+			atlOffset=-0.058990479;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -10479,11 +10479,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=24;
+			nextID=26;
 		};
 		class Links
 		{
-			items=24;
+			items=26;
 			class Item0
 			{
 				linkID=0;
@@ -10719,6 +10719,26 @@ class Mission
 				linkID=23;
 				item0=56;
 				item1=13;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item24
+			{
+				linkID=24;
+				item0=56;
+				item1=22;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item25
+			{
+				linkID=25;
+				item0=56;
+				item1=12;
 				class CustomData
 				{
 					type="Sync";
