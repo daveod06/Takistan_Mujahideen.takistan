@@ -8,14 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=80;
+		nextID=363;
+	};
+	class LayerIndexProvider
+	{
+		nextID=11;
 	};
 	class Camera
 	{
-		pos[]={7244.3198,426.49677,8572.4033};
-		dir[]={-0.012295371,-0.71161455,0.70246667};
-		up[]={-0.012453343,0.70256853,0.71150666};
-		aside[]={0.99984956,-6.3183734e-008,0.017500643};
+		pos[]={6734.7676,313.90076,8821.2002};
+		dir[]={-0.35721681,-0.77471578,0.52178097};
+		up[]={-0.43765086,0.63229632,0.63927001};
+		aside[]={0.82517391,-9.206633e-007,0.56492358};
 	};
 };
 binarizationWanted=0;
@@ -453,7 +457,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5960.6152,82.428825,11262.834};
-				angles[]={6.2671871,0,6.2336264};
+				angles[]={6.2671809,0,6.2336178};
 			};
 			id=6;
 			type="ALiVE_sys_profile";
@@ -493,7 +497,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="2000";
+							value="1500";
 						};
 					};
 				};
@@ -550,7 +554,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="6000";
+							value="4000";
 						};
 					};
 				};
@@ -588,7 +592,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="3000";
+							value="2500";
 						};
 					};
 				};
@@ -9506,7 +9510,7 @@ class Mission
 			name="CQB_3";
 			id=76;
 			type="ALiVE_mil_cqb";
-			atlOffset=-0.058998108;
+			atlOffset=-0.058990479;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -10448,7 +10452,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=2;
+							value=0;
 						};
 					};
 				};
@@ -10479,11 +10483,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=24;
+			nextID=26;
 		};
 		class Links
 		{
-			items=24;
+			items=26;
 			class Item0
 			{
 				linkID=0;
@@ -10719,6 +10723,26 @@ class Mission
 				linkID=23;
 				item0=56;
 				item1=13;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item24
+			{
+				linkID=24;
+				item0=56;
+				item1=22;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item25
+			{
+				linkID=25;
+				item0=56;
+				item1=12;
 				class CustomData
 				{
 					type="Sync";
