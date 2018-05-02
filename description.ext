@@ -19,7 +19,7 @@ onLoadName = “Takistan Mujahideen Insurgency”;
 // in 2:1 aspect ratio.
 overviewPicture = “”;
 // Description of the mission displayed during Mission Selection
-overviewText = “Kill the Communist invaders!”;
+overviewText = “The Soviet 40th Army has invaded Takistan to support the puppet communist government they installed last year.”;
 // Game Type settings
 class Header {
  gameType = CTI;
@@ -28,14 +28,14 @@ class Header {
 };
 /* Intro Loading details */
 // The description displayed while the Intro is loading
-onLoadIntro = “”;
+onLoadIntro = “Kill the communist invaders!”;
 // Whether to display time and date while the Intro loads
 // 1 = visible; 0 = hidden
 onLoadIntroTime = 1;
 /* Mission Loading details */
 // The description displayed in the mission browser and while the Mission is
 // loading
-onLoadMission = “Takistan Mujahideen Insurgency”;
+onLoadMission = “Kill the communist invaders!”;
 // Whether to display time and date while the Mission loads
 // 1 = visible; 0 = hidden
 onLoadMissionTime = 1;
@@ -67,3 +67,58 @@ respawnDialog = 0;
 respawnOnStart = 0;
 // Respawn templates for things like custom camera modes
 respawnTemplates[] = {};
+
+/* Basic Revive settings */
+
+// Time it takes (in seconds) to revive a unit
+reviveDelay = 8;
+
+// Time it takes (in seconds) for an incapacitated unit to force respawn
+reviveForceRespawnDelay = 20;
+
+// Time it takes (in seconds) for a unit to bleed out
+reviveBleedOutDelay = 120;
+
+
+/* AI settings */
+
+// Enables or disables AI for playable units
+// 1 = AI will control playable units,
+// 0 = playable units will not spawn until a player joins in that slot
+disabledAI = 0;
+
+// Disable scorelist for AI
+aiKills = 0;
+
+// Enable debug console
+// 0 - Available only in editor
+// 1 - Available in SP and for hosts / admins
+// 2 - Available for everyone
+enableDebugConsole = 1;
+
+// Disable manual team switch
+enableTeamSwitch = 0;
+
+// Disable group indicators
+showGroupIndicator = 1;
+
+/* Custom Functions */
+class CfgFunctions
+{
+    // All functions built from default path which is
+    // missionRoot/functions/categoryName/functionName
+    class UPR
+    {
+        class arsenal
+        {
+            class arsenalInit {
+                preInit = 0;
+                postInit = 0;
+                preStart = 0;
+                recompile = 0;
+                ext = ".sqf";
+                headerType = -1;
+            };
+        };
+    };
+};
