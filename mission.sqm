@@ -8,14 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=80;
+		nextID=363;
+	};
+	class LayerIndexProvider
+	{
+		nextID=11;
 	};
 	class Camera
 	{
-		pos[]={7244.3198,426.49677,8572.4033};
-		dir[]={-0.25750393,-0.86442006,0.43183824};
-		up[]={-0.44271851,0.50276846,0.74244547};
-		aside[]={0.8588981,-6.0739694e-007,0.51215917};
+		pos[]={6734.7676,313.90076,8821.2002};
+		dir[]={-0.35721681,-0.77471578,0.52178097};
+		up[]={-0.43765086,0.63229632,0.63927001};
+		aside[]={0.82517391,-9.206633e-007,0.56492358};
 	};
 };
 binarizationWanted=0;
@@ -453,7 +457,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5960.6152,82.428825,11262.834};
-				angles[]={6.2671871,0,6.2336264};
+				angles[]={6.2671809,0,6.2336178};
 			};
 			id=6;
 			type="ALiVE_sys_profile";
@@ -493,7 +497,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="2000";
+							value="1500";
 						};
 					};
 				};
@@ -550,7 +554,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="6000";
+							value="4000";
 						};
 					};
 				};
@@ -588,7 +592,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="3000";
+							value="2500";
 						};
 					};
 				};
@@ -10448,7 +10452,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=2;
+							value=0;
 						};
 					};
 				};
