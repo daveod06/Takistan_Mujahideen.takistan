@@ -20,8 +20,7 @@ clearBackpackCargo _container;
 // Enable these backpacks in the Arsenal
 [_container,[
 	"rhs_sidor",
-	"rhs_rpg_empty",
-	"RD_54_69_R148"
+	"rhs_rpg_empty"
 ],true] call BIS_fnc_addVirtualBackpackCargo;
 
 // Enable these weapons in the Arsenal
