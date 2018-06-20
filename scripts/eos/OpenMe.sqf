@@ -17,7 +17,7 @@ EXAMPLE CALL - EOS
  null=[["M1","M2","M3"],[HOUSE GROUPS,SIZE OF GROUPS,PROBABILITY],[PATROL GROUPS,SIZE OF GROUPS,PROBABILITY],[LIGHT VEHICLES,SIZE OF CARGO,PROBABILITY],[ARMOURED VEHICLES,PROBABILITY], [STATIC VEHICLES,PROBABILITY],[HELICOPTERS,SIZE OF HELICOPTER CARGO,PROBABILITY],[FACTION,MARKERTYPE,DISTANCE,SIDE,HEIGHTLIMIT,DEBUG]] call EOS_Spawn;
 
 EXAMPLE CALL - BASTION
- null = [["BAS_zone_1"],[3,1],[2,1],[2],[0,0],[0,0,EAST,false,false],[10,2,480,TRUE,TRUE]] call Bastion_Spawn;
+ null = [["BAS_zone_1"],[3,1],[2,1],[2],[0,0],[0,0,EAST,false,false],[10,2,120,TRUE,TRUE]] call Bastion_Spawn;
  null=[["M1","M2","M3"],[PATROL GROUPS,SIZE OF GROUPS],[LIGHT VEHICLES,SIZE OF CARGO],[ARMOURED VEHICLES],[HELICOPTERS,SIZE OF HELICOPTER CARGO],[FACTION,MARKERTYPE,SIDE,HEIGHTLIMIT,DEBUG],[INITIAL PAUSE, NUMBER OF WAVES, DELAY BETWEEN WAVES, INTEGRATE EOS, SHOW HINTS]] call Bastion_Spawn;
 */
 VictoryColor="colorGreen";	// Colour of marker after completion
@@ -28,8 +28,8 @@ EOS_KILLCOUNTER=false;		// Counts killed units
 EOS_USE_FLASHLIGHTS=true;   // Attempts to make spawned units use flashlights
 EOS_SUICIDE_CHANCE=0.0;     // Attemps to % of units as suicide bombers 0.0 -1.0
 
-//null = [["EOSzone_1"],[3,5,80],[5,4,75],[2,5,60],[0],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
-//null = [["EOSzone_2"],[1,3,80],[1,4,75],[0,0],[0],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
-//null = [["EOSzone_3"],[1,3,80],[1,4,75],[0,0],[0],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
+null = [["EOSzone_1"],[3,2,80],[5,1,50],[2,1,60],[1],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
+null = [["EOSzone_2"],[2,2,60],[1,1,75],[0,0],[0],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
+null = [["EOSzone_3"],[2,2,60],[1,1,75],[0,0],[0],[0],[0,0],[5,1,350,EAST,TRUE]] call EOS_Spawn;
 //null = [["EOSmot_1","EOSmot_2"],[0,0],[0,0],[3,1,90],[2,60],[0],[1,0,90],[0,0,350,EAST,FALSE]] call EOS_Spawn;
-null = [["BAS_defend_marker_0"],["BAS_spawn_marker_0",10],[2,2,50],[5,2,80],[2],[0,0],[5,0,EAST],[3*60,5,5*60,FALSE,TRUE]] call Bastion_Spawn;
+//null = [["BAS_zone_1"],[0,1],[0,2],[0],[1,2],[0,0,EAST,TRUE],[0,2,120,TRUE,FALSE]] call Bastion_Spawn;
