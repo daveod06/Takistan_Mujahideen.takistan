@@ -1,14 +1,27 @@
-// F3 - Disable Saving and Auto Saving
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+//check if HC1 is present
+HC1Present = if (isNil "HC1") then{False} else{True};
+HC2Present = if (isNil "HC2") then{False} else{True};
+HC3Present = if (isNil "HC3") then{False} else{True};
 
-enableSaving [false, false];
 
-// F3 - Mute Orders and Reports
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+[] execVM "Convoy\ConvoyInit.sqf";
+sleep 1.0;
 
-enableSentences false;
+if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
+{
+    hint "Calling fnc_spawnConvoy.";
+    [] spawn Saber_fnc_ConvoySpawnVehicles;
+}
+else
+{
+    if(isServer) then
+    {
+        hint "Calling fnc_spawnConvoy.";
+        [] spawn Saber_fnc_ConvoySpawnVehicles;
+    };
+};
 
-// F3 - Briefing
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-f_script_briefing = [] execVM "f\briefing\briefing.sqf";
+//if (isServer) then 
+//{
+//	_handle = [["convoy_route_0","convoy_route_1","convoy_route_2","convoy_route_3","convoy_route_4"],[v_1,v_2,v_3], 35, 500, 1, "NORMAL", "CARELESS"] spawn Saber_fnc_ConvoyMove; 
+//};

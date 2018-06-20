@@ -10,16 +10,16 @@
  * https://community.bistudio.com/wiki/Arma_3_Mission_Parameters
 */
 // The author of the mission; the name will be shown above the loadScreen
-// displayed as “by <author>”
-author = “SaberSnack”;
+// displayed as "by <author>"
+author = "SaberSnack";
 // Name of the mission shown in a larger font above the loadScreen
-onLoadName = “Takistan Mujahideen Insurgency”;
+onLoadName = "Takistan Mujahideen Insurgency";
 /* Mission Overview details */
 // Image displayed during Mission Selection. Image should be .paa format and
 // in 2:1 aspect ratio.
-overviewPicture = “”;
+overviewPicture = "";
 // Description of the mission displayed during Mission Selection
-overviewText = “The Soviet 40th Army has invaded Takistan to support the puppet communist government they installed last year.”;
+overviewText = "The Soviet 40th Army has invaded Takistan to support the puppet communist government they installed last year.";
 // Game Type settings
 class Header {
  gameType = CTI;
@@ -28,30 +28,30 @@ class Header {
 };
 /* Intro Loading details */
 // The description displayed while the Intro is loading
-onLoadIntro = “Kill the communist invaders!”;
+onLoadIntro = "Kill the communist invaders!";
 // Whether to display time and date while the Intro loads
 // 1 = visible; 0 = hidden
 onLoadIntroTime = 1;
 /* Mission Loading details */
 // The description displayed in the mission browser and while the Mission is
 // loading
-onLoadMission = “Kill the communist invaders!”;
+onLoadMission = "Kill the communist invaders!";
 // Whether to display time and date while the Mission loads
 // 1 = visible; 0 = hidden
 onLoadMissionTime = 1;
 // The image to display while the Mission loads; the path is relative to the
 // mission folder. Image must be in PAA file format with 2:1 aspect ratio,
 // ideally 1024x512 pixels. Different aspect are rendered correctly as well,
-// but won’t cover the whole area.
-loadScreen = “”;
+// but won't cover the whole area.
+loadScreen = "";
 /* Respawn settings */
-// Respawn mode — can be any of:
-// 0 or “NONE” : No respawn
-// 1 or “BIRD” : Respawn as a seagull
-// 2 or “INSTANT” : Respawn exactly where you died
-// 3 or “BASE” : Respawn on markers set by mission maker
-// 4 or “GROUP” : Respawn into an AI unit in your group, otherwise seagull
-// 5 or “SIDE” : Respawn into an AI unit on your side, otherwise seagull
+// Respawn mode can be any of:
+// 0 or "NONE" : No respawn
+// 1 or "BIRD" : Respawn as a seagull
+// 2 or "INSTANT" : Respawn exactly where you died
+// 3 or "BASE" : Respawn on markers set by mission maker
+// 4 or "GROUP" : Respawn into an AI unit in your group, otherwise seagull
+// 5 or "SIDE" : Respawn into an AI unit on your side, otherwise seagull
 respawn = 3;
 // Respawn timer for players, in seconds
 respawnDelay = 5;
@@ -121,4 +121,20 @@ class CfgFunctions
             };
         };
     };
+    // Compile function myTag_fnc_myFunction from the following file: %ROOT%\myPath\fn_myFunction.sqf
+    //class Saber // myTag
+    //{
+    //    class Convoy // myCategory
+    //    {
+    //        file = "Convoy"; // myPath 
+    //        class ConvoyMaxSpeed{}; // myFunction
+     //       class ConvoyAmbush{};
+      //      class ConvoyMove{};
+       //     class ConvoyRestart{};
+        //    class ConvoyEnd{};
+         //   class ConvoyEnemy{};
+          //  class ConvoySearch{};
+          //  class ConvoySpawnVehicles{};
+        //};
+    //};
 };
