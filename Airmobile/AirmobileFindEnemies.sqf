@@ -12,3 +12,13 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 ({alive _x && side _x == east} count thisList) <= ((({alive _x && side _x == east} count thisList))*0.5);
 ({not alive _x && side _x == east} count thisList) <= ((({alive _x && side _x == east} count thisList))*0.5);
+
+
+
+private _markerArray            = _this select 0;
+private _triggerArray           = _this select 1;
+private _helipadArray           = _this select 2;
+
+
+
+

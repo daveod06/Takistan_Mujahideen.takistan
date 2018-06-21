@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=267;
+		nextID=310;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7264.6089,304.98364,330.46072};
-		dir[]={0.15366009,-0.34302539,-0.92680395};
-		up[]={0.056112926,0.93921256,-0.33847189};
-		aside[]={-0.98656952,6.9942635e-006,-0.16358222};
+		pos[]={7634.9189,600.77441,4363.5322};
+		dir[]={0.98176348,-0.059391182,-0.18085021};
+		up[]={0.058430832,0.99823129,-0.010764149};
+		aside[]={-0.18116905,-2.5723239e-007,-0.98349535};
 	};
 };
 binarizationWanted=0;
@@ -115,7 +115,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=179;
+		items=184;
 		class Item0
 		{
 			dataType="Object";
@@ -239,7 +239,7 @@ class Mission
 		class Item7
 		{
 			dataType="Trigger";
-			position[]={6007.9302,111.34816,9271.167};
+			position[]={6351.707,257.07452,6965.9106};
 			class Attributes
 			{
 				name="helizone_0";
@@ -407,7 +407,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={1844.3939,342.70459,10576.404};
-			angle=3.3553073;
+			angle=3.3553069;
 			class Attributes
 			{
 				name="helizone_2";
@@ -563,7 +563,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={928.9585,588.14374,10652.722};
-			angle=0.21823587;
+			angle=0.21823584;
 			class Attributes
 			{
 				name="helizone_3";
@@ -1190,7 +1190,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={3085.1226,226.11174,7840.5405};
-			angle=2.5004976;
+			angle=2.5004971;
 			class Attributes
 			{
 				name="helizone_7";
@@ -1803,7 +1803,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8749.5664,287.651,4983.0264};
-			angle=0.23604202;
+			angle=0.23604195;
 			class Attributes
 			{
 				name="helizone_11";
@@ -2113,7 +2113,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={7912.1484,516.73889,5909.7534};
-			angle=5.1757741;
+			angle=5.1757727;
 			class Attributes
 			{
 				name="helizone_13";
@@ -2578,7 +2578,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={9481.5264,586.7973,3808.1138};
-			angle=5.8396902;
+			angle=5.8396897;
 			class Attributes
 			{
 				name="small_helizone_3";
@@ -2644,8 +2644,8 @@ class Mission
 		class Item147
 		{
 			dataType="Trigger";
-			position[]={7564.4341,463.29025,5276.9355};
-			angle=5.1566048;
+			position[]={7908.2109,341.49927,2971.6792};
+			angle=5.1566043;
 			class Attributes
 			{
 				name="small_helizone_4";
@@ -2711,7 +2711,7 @@ class Mission
 			type="rectangle";
 			a=5;
 			b=10;
-			angle=343.56277;
+			angle=343.56274;
 			id=238;
 		};
 		class Item152
@@ -2747,7 +2747,7 @@ class Mission
 			type="rectangle";
 			a=5;
 			b=10;
-			angle=4.6533575;
+			angle=4.653357;
 			id=241;
 		};
 		class Item155
@@ -2907,16 +2907,17 @@ class Mission
 			side="East";
 			class Entities
 			{
-				items=1;
+				items=3;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7284.8032,287.61868,305.7522};
+						position[]={7800.5576,483.54898,7799.8071};
+						angles[]={0,2.4262338,0};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						name="s1";
@@ -2924,6 +2925,7 @@ class Mission
 					};
 					id=255;
 					type="OKSVA_AT_Operator_RPG_26_Spetsnaz";
+					atlOffset=238.74133;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2967,11 +2969,57 @@ class Mission
 						nAttributes=2;
 					};
 				};
+				class Item1
+				{
+					dataType="Waypoint";
+					position[]={7877.729,542.28607,4194.394};
+					type="GetOut";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=279;
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					position[]={7871.6621,540.11981,4184.6016};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=280;
+					type="Move";
+					atlOffset=-6.1035156e-005;
+				};
 			};
 			class Attributes
 			{
 			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=255;
+						item1=269;
+						class CustomData
+						{
+							role=3;
+							cargoIndex=0;
+						};
+					};
+				};
+			};
 			id=254;
+			atlOffset=237.91299;
 		};
 		class Item168
 		{
@@ -3724,6 +3772,588 @@ class Mission
 			id=266;
 			type="OKSVA_MI8MT";
 			atlOffset=-0.0009765625;
+		};
+		class Item179
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7800.5576,483.54898,7799.8071};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					flags=2;
+					class Attributes
+					{
+					};
+					id=270;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=238.74133;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7800.5576,483.54898,7799.8071};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=271;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=238.74133;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7800.5576,483.54898,7799.8071};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=272;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=238.74133;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7800.5576,483.54898,7799.8071};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=273;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=238.74133;
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					position[]={7823.874,585.24597,7515.5981};
+					speed="FULL";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=274;
+					type="Move";
+					atlOffset=303.57999;
+				};
+				class Item5
+				{
+					dataType="Waypoint";
+					position[]={7872.8213,493.61047,4640.9888};
+					speed="FULL";
+					expCond="call{true}";
+					expActiv="call{this limitSpeed 160; this flyInHeight 25; this forceSpeed 45;}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=275;
+					type="Move";
+					atlOffset=51.88092;
+				};
+				class Item6
+				{
+					dataType="Waypoint";
+					position[]={7877.5908,575.59241,4363.5581};
+					speed="LIMITED";
+					combat="CARELESS";
+					expCond="call{true}";
+					expActiv="call{this limitSpeed 50; this flyInHeight 25; this forceSpeed 14;}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=276;
+					type="Move";
+					atlOffset=89.128967;
+				};
+				class Item7
+				{
+					dataType="Waypoint";
+					position[]={7884.5352,543.41772,4198.1738};
+					type="TransportUnload";
+					speed="FULL";
+					expCond="call{true}";
+					expActiv="call{this LAND ""land"";}";
+					class Effects
+					{
+					};
+					timeoutMin=3;
+					timeoutMid=3;
+					timeoutMax=3;
+					showWP="NEVER";
+					id=277;
+					atlOffset=0.5;
+					class AttachedTo
+					{
+						id=156;
+						offset[]={0,0.5,0};
+					};
+				};
+				class Item8
+				{
+					dataType="Waypoint";
+					position[]={7882.9551,642.57733,4001.835};
+					speed="FULL";
+					expCond="call{true}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=278;
+					type="Move";
+					atlOffset=169.92801;
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={7843.2046,354.63593,2997.2771};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=294;
+					type="Move";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=4;
+				};
+				class Links
+				{
+					items=4;
+					class Item0
+					{
+						linkID=0;
+						item0=270;
+						item1=269;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=271;
+						item1=269;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=272;
+						item1=269;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={1};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=273;
+						item1=269;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={2};
+						};
+					};
+				};
+			};
+			id=268;
+			atlOffset=237.91299;
+		};
+		class Item180
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7799.0679,486.14075,7800.1514};
+				angles[]={0,2.4262338,0};
+			};
+			side="East";
+			flags=2;
+			class Attributes
+			{
+			};
+			id=269;
+			type="OKSVA_MI8MT";
+			atlOffset=237.91299;
+		};
+		class Item181
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7919.895,426.52026,7821.6064};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					flags=2;
+					class Attributes
+					{
+					};
+					id=297;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=237.60609;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7919.895,426.52026,7821.6064};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=298;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=237.60609;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7919.895,426.52026,7821.6064};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=299;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=237.60609;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7919.895,426.52026,7821.6064};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=300;
+					type="OKSVA_Helicopter_Pilot_FA";
+					atlOffset=237.60609;
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					position[]={7943.8037,535.56146,7536.8857};
+					speed="FULL";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=301;
+					type="Move";
+					atlOffset=302.95752;
+				};
+				class Item5
+				{
+					dataType="Waypoint";
+					position[]={7992.751,511.51587,4662.2759};
+					speed="FULL";
+					expCond="call{true}";
+					expActiv="call{this limitSpeed 160; this flyInHeight 25; this forceSpeed 45;}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=302;
+					type="Move";
+					atlOffset=51.024475;
+				};
+				class Item6
+				{
+					dataType="Waypoint";
+					position[]={7997.5205,593.36749,4384.8452};
+					speed="LIMITED";
+					combat="CARELESS";
+					expCond="call{true}";
+					expActiv="call{this limitSpeed 50; this flyInHeight 25; this forceSpeed 14;}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=303;
+					type="Move";
+					atlOffset=88.786133;
+				};
+				class Item7
+				{
+					dataType="Waypoint";
+					position[]={7991.3101,542.93817,4221.2788};
+					type="TransportUnload";
+					speed="FULL";
+					expCond="call{true}";
+					expActiv="call{this LAND ""land"";}";
+					class Effects
+					{
+					};
+					timeoutMin=3;
+					timeoutMid=3;
+					timeoutMax=3;
+					showWP="NEVER";
+					id=304;
+					atlOffset=1;
+					class AttachedTo
+					{
+						id=159;
+						offset[]={0,1,0};
+					};
+				};
+				class Item8
+				{
+					dataType="Waypoint";
+					position[]={8002.8848,646.64703,4023.1221};
+					speed="FULL";
+					expCond="call{true}";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=305;
+					type="Move";
+					atlOffset=169.52902;
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={7963.1343,328.64432,3018.5645};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=306;
+					type="Move";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=4;
+				};
+				class Links
+				{
+					items=4;
+					class Item0
+					{
+						linkID=0;
+						item0=297;
+						item1=309;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=298;
+						item1=309;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=299;
+						item1=309;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={1};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=300;
+						item1=309;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={2};
+						};
+					};
+				};
+			};
+			id=296;
+			atlOffset=236.92659;
+		};
+		class Item182
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7919.895,426.52026,7821.6064};
+						angles[]={0,2.4262338,0};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						name="s1_1";
+					};
+					id=308;
+					type="OKSVA_AT_Operator_RPG_26_Spetsnaz";
+					atlOffset=237.60609;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male05RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=308;
+						item1=309;
+						class CustomData
+						{
+							role=3;
+							cargoIndex=0;
+						};
+					};
+				};
+			};
+			id=307;
+			atlOffset=236.92659;
+		};
+		class Item183
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7918.9976,429.39606,7821.4385};
+				angles[]={0,2.4262338,0};
+			};
+			side="East";
+			flags=2;
+			class Attributes
+			{
+			};
+			id=309;
+			type="OKSVA_MI8MT";
+			atlOffset=236.92659;
 		};
 	};
 };
