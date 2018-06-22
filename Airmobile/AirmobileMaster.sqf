@@ -24,32 +24,11 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-// _handle = [["pos_1","pos_2","pos_3","pos_4"],[v_1,v_2,v_3], 35, 500, 1, "NORMAL", "CARELESS"] spawn Saber_fnc_ConvoyMove;
-private _markerArray            = _this select 0;
-private _convoyArray            = _this select 1;
-private _ConvoySpeedLimit       = _this select 2;
-private _ConvoySearchRange      = _this select 3;
-private _ConvoyID               = _this select 4;
-private _ConvoySpeedMode        = _this select 5;
-private _ConvoyBehaviour        = _this select 6;
-private _StopConvoy             = false;
-private _marker                 = _markerArray select 0;
-private _leadVcl                = _convoyArray select 0;
-private _markersRemaining       = _markerArray;
-private _all_groups             = [];
-private _inf_groups             = [];
-private _arm_groups             = [];
-private _arm_vehicles           = [];
-private _aliveConvoy            = [];
-private _c                      = 0;
-private _i                      = 0;
-private _ConvoyDestination      = false;
-private _SplitArmored           = objNull;
-private _tmpGroup               = [];
-private _BaseGroup              = objNull;
-private _group                  = objNull;
-private _crew                   = objNull;
-private _vehicle                = objNull;
-private _enemySides             = _leadVcl call BIS_fnc_enemySides;
+private _LZ_marker_array = [""];
+private _side = east;
+private _faction = "";
+private _transport_type = "";
+private _squad_type = "";
+//private _
 
-
+_handle = [_LZ_marker_array] spawn Saber_fnc_AirmobileLzInit;
