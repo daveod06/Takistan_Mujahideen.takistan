@@ -44,3 +44,4 @@ private _LZHelipads = [];
 _lzInitOutput = [_lzTriggerArray,_lzBaseArray] spawn Saber_fnc_AirmobileLzInit;
 // _lzInitOutput = [_totalHelicoptersToSpawn,_BaseHelipads,_LZHelipads]
 _spawnOutput = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileSpawn;
+_waypointsOutput = [lzInitOutput, spawnOutput] spawn Saber_fnc_AirmobileWaypoints;
