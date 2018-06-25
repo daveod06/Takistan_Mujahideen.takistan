@@ -24,11 +24,22 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-private _LZ_marker_array = [""];
+private _lzTriggerArray = [""];
+private _lzBaseArray = [""];
 private _side = east;
-private _faction = "";
-private _transport_type = "";
-private _squad_type = "";
-//private _
+private _faction = "SovietArmy_OKSVA";
+private _transportType = "OKSVA_MI8MT";
+private _attackType = "OKSVA_Mi8MTV3";
+private _squadType = "SovietArmy_OKSVA_infantry_rifle_squad";
+private _spawnAttackHelis = true;
+private _spawnInAir = true;
+//
+//
 
-_handle = [_LZ_marker_array] spawn Saber_fnc_AirmobileLzInit;
+private _totalHelicoptersToSpawn = 0;
+private _BaseHelipads = [];
+private _LZHelipads = []; 
+
+_lzInitOutput = [_lzTriggerArray,_lzBaseArray] spawn Saber_fnc_AirmobileLzInit;
+// _lzInitOutput = [_totalHelicoptersToSpawn,_BaseHelipads,_LZHelipads]
+_spawnOutput = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileSpawn;

@@ -13,167 +13,201 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-private _btr_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_R142",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _bmp_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BMP1K",
-"OKSVA_BMP1",
-"OKSVA_BMP1",
-"OKSVA_BMP1",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_R142",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _truck_convoy = [
-"OKSVA_UAZ_Open",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66_Ammo"
-];
-
-private _bmd_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BMD1K",
-"OKSVA_BMD1",
-"OKSVA_BMD1",
-"OKSVA_BMD1",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _tank_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_T72B_1984",
-"OKSVA_T72B_1984",
-"OKSVA_T72B_1984",
-"OKSVA_Ural_Fuel",
-"OKSVA_GAZ66_Repair",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _armed_supply_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_GAZ66_ZU23",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_BRDM2"
-];
-
-private _unarmed_supply_convoy = [
-"OKSVA_UAZ",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_GAZ66"
-];
-
-private _small_supply_convoy = [
-"OKSVA_UAZ",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel"
-];
-
-
-
-private _convoy_route = ["convoy_route_0","convoy_route_1","convoy_route_2","convoy_route_3","convoy_route_4"];
-private _convoy_spawn_points = ["convoy_pos_0","convoy_pos_1","convoy_pos_2","convoy_pos_3","convoy_pos_4","convoy_pos_5","convoy_pos_6","convoy_pos_7","convoy_pos_8"];
-private _convoy_side = east;
-private _enemy_side = resistance;
-
-_possible_convoys=[_btr_convoy,_bmd_convoy,_truck_convoy,_tank_convoy,_armed_supply_convoy,_unarmed_supply_convoy,_small_supply_convoy];
-_pos_names = ["convoy_pos_"];
-vehCounterGlobal = 0;
-convoyCounterGlobal = 0;
-private _pos_prefix = "";
-private _veh_name = "";
-private _convoy_to_spawn = [];
-private _pos_name = "";
-private _spawned_vehicles = [];
-private _marker_color = "";
-publicVariable "vehCounterGlobal";
-publicVariable "convoyCounterGlobal";
-
-
 { _x setmarkerAlpha 0; } forEach _convoy_route;
 { _x setmarkerAlpha 0; } forEach _convoy_spawn_points;
 
-fnc_spawnConvoy = {
-    _convoy_to_spawn = selectRandom _possible_convoys;
-    _spawned_vehicles = [];
-    _pos_prefix = (_pos_names select 0);
-    _EastHQ = createCenter _convoy_side;
-    _IndHQ = createCenter _enemy_side;
-    {
-        _pos_name = _pos_prefix + str _forEachIndex ;//str _vehCounterLocal;
-        //sleep 2.0;
-        //hint (str _veh_name);
-        //sleep 2.0;
-        //hint (str _pos_name);
-        _marker_color = getMarkerColor _pos_name;
-        if(_marker_color != "") then // unit doesn't exist and marker does exist
-        {
-            _vecarray =[getMarkerPos _pos_name, markerDir _pos_name, _x, _convoy_side] call bis_fnc_spawnvehicle;
-            _veh_name = _vecarray select 0;
-            vehCounterGlobal = vehCounterGlobal + 1;
-            _spawned_vehicles pushBack _veh_name;
-        }
-        else
-        {
-            sleep 1.0;
-            if(_marker_color != "") then
-            {
-                hint "Marker doesn't exist!!!!";
-            };
-        };
-        sleep 0.5;
-    }
-    forEach _convoy_to_spawn;
-    convoyCounterGlobal = convoyCounterGlobal + 1;
-    publicVariable "vehCounterGlobal";
-    publicVariable "convoyCounterGlobal";
-    
-    _spawned_vehicles;
+fnc_AirmobileSpawn = {
+	private _side = _this select 0;
+	private _faction = _this select 1;
+	private _transportType = _this select 2;
+	private _attackType = _this select 3;
+	private _squadType = _this select 4;
+	private _spawnAttackHelis = _this select 5;
+	private _spawnInAir = _this select 6;
+	private _lzInitOutput = _this select 7;
+	private _totalHelicoptersToSpawn = _lzInitOutput select 0;
+	private _BaseHelipads = _lzInitOutput select 1;
+	private _LZHelipads = _lzInitOutput select 2;
+
+	// figure out how many helicopters to spawn
+	private _attackHeliToSpawn = 0;
+	private _transportHeliToSpawn = 0;
+	if (_spawnAttackHelis) then
+	{
+		if (_totalHelicoptersToSpawn < 3) then // no attack helis
+		{
+			_attackHeliToSpawn = 0;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn;
+		};
+		if (_totalHelicoptersToSpawn = 3) then // 1 attack heli, 2 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 2;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
+		};
+		if (_totalHelicoptersToSpawn = 4) then // 1 attack heli, 3 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 3;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
+		};
+		if (_totalHelicoptersToSpawn = 5) then // 1 attack heli, 4 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 4;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
+		};
+		if (_totalHelicoptersToSpawn = 6) then // 2 attack heli, 4 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 4;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
+		};
+		if (_totalHelicoptersToSpawn = 7) then // 2 attack heli, 5 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 5;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
+		};
+		if (_totalHelicoptersToSpawn = 8) then // 2 attack heli, 6 transport
+		{
+			_attackHeliToSpawn = _totalHelicoptersToSpawn - 6;
+			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
+		};
+	}
+	else
+	{
+		_attackHeliToSpawn = 0;
+		_transportHeliToSpawn = _totalHelicoptersToSpawn;
+	};
+	
+	// Basic Setup
+	private _iterator = 0;
+    private _AirmobileHQ = createCenter _side;
+    private _spawnedVehicles = [];
+    private _spawnedGroups = [];
+    private _spawnPos = [0,0,0];
+    private _spawnDir = 0;
+    private _spawnClass = "";
+    private _vehArray = [];
+    private _vehName ="";
+    private _spawnedAttackHelis = [];
+    private _spawnedTransportHelis = [];
+    private _spawnedTroopGroups = [];
+    private _sideStr = "";
+    private _spawnSide = east;
+    private _group = "group";
+    private _heli = "heli";
+    private _numMen = 0;
+    private _totalSeats = 0;
+	private _crewSeats = 0;
+	private _cargoSeats = 0;
+	private _toDelete = 0;
+	
+	// Spawn Attack Helicopters
+	for "_a" from 0 to _attackHeliToSpawn do
+	{
+		// Get spawn parameters
+		_spawnPos = getPosATL (_BaseHelipads select _a);
+		if _spawnInAir then
+		{
+			_spawnPos set [2, (_spawnPos select 2) + 200 - _iterator*10]
+		};
+		_spawnDir = getDir (_BaseHelipads select _a);
+		_spawnClass = _attackType;
+		_spawnSide = _side;
+		
+		// Spawn Helicopter
+		_vehArray =[_spawnPos, _spawnDir, _spawnClass, _spawnSide] call bis_fnc_spawnvehicle;
+        //_vehName 	= _vehArray select 0;
+        //_vehCrew 	= _vehArray select 1;
+        //_vehGroup 	= _vehArray select 2;
+		_spawnedAttackHelis pushBack _vehArray;
+		_iterator = _iterator + 1;
+	};
+	
+	// Spawn Transport Helicopters
+	for "_t" from 0 to _transportHeliToSpawn do
+	{
+		// Get spawn parameters
+		_spawnPos = getPosATL (_BaseHelipads select _t + _attackHeliToSpawn);
+		if _spawnInAir then
+		{
+			_spawnPos set [2, (_spawnPos select 2) + 250 - _iterator*10]
+		};
+		_spawnDir = getDir (_BaseHelipads select _t + _attackHeliToSpawn);
+		_spawnClass = _transportType;
+		_spawnSide = _side;
+		
+		// Spawn Helicopter
+		_vehArray =[_spawnPos, _spawnDir, _spawnClass, _spawnSide] call bis_fnc_spawnvehicle;
+        //_vehName 	= _vehArray select 0;
+        //_vehCrew 	= _vehArray select 1;
+        //_vehGroup 	= _vehArray select 2;
+		_spawnedTransportHelis pushBack _vehArray;
+		_iterator = _iterator + 1;
+	};
+	
+	// Spawn Troop Squads
+	for "_s" from 0 to _transportHeliToSpawn do
+	{
+		// Get spawn parameters
+		_spawnPos = [0,0,0];
+		_spawnClass = _squadType;
+		_spawnSide = _side;
+		
+		// Get side string
+		if (_spawnSide == east) then
+		{
+			_sideStr = "East"
+		};
+		if (_spawnSide == west) then
+		{
+			_sideStr = "East"
+		};
+		if (_spawnSide == resistance) then
+		{
+			_sideStr = "Resistance"
+		};
+		
+		// Spawn Troops
+		//[pos, side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
+		//[ _spawnPos, _spawnSide, (configFile >> "CfgGroups" >> _sideStr >> _faction >> "Infantry" >> _spawnClass)] call BIS_fnc_spawnGroup;
+		_group = [ _spawnPos, _spawnSide, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
+		_group deleteGroupWhenEmpty true;
+		_spawnedTroopGroups pushBack _group;
+		_numMen = units _group;
+		
+		// remove extra troops
+		_heli = _spawnedTransportHelis select _s;
+		_totalSeats = [_heli, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
+		_crewSeats = [_heli, false] call BIS_fnc_crewCount; // Number of crew seats only
+		_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
+		if (_numMen > _cargoSeats) then
+		{
+			for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
+			{
+				deleteVehicle (units _group select _d);
+			};
+		};
+		
+		// put troops in heli
+		{
+			_x moveInCargo _heli;
+		} forEach units _group;
+	};
 };
 
 
+
+// _this = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,[_totalHelicoptersToSpawn, _BaseHelipads, _LZHelipads]];
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    hint "Calling fnc_spawnConvoy.";
+    hint "Calling fnc_AirmobileSpawn.";
     sleep 1.0;
-    _vehicles = call fnc_spawnConvoy;
-    _handle = [_convoy_route,_vehicles, 55, 400, 1, "NORMAL", "CARELESS"] spawn Saber_fnc_ConvoyMove;
+    _output = [_this] call fnc_AirmobileSpawn;
 }
 else
 {
     if(isServer) then
     {
-        hint "Calling fnc_spawnConvoy.";
+        hint "Calling fnc_AirmobileSpawn.";
         sleep 1.0;
-        _vehicles = call fnc_spawnConvoy;
-        _handle = [_convoy_route,_vehicles, 55, 400, 1, "NORMAL", "CARELESS"] spawn Saber_fnc_ConvoyMove;
+        _output = [_this] call fnc_AirmobileSpawn;
     };
 };
