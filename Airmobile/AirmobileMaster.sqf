@@ -31,6 +31,7 @@ private _faction = "SovietArmy_OKSVA";
 private _transportType = "OKSVA_MI8MT";
 private _attackType = "OKSVA_Mi8MTV3";
 private _squadType = "SovietArmy_OKSVA_infantry_rifle_squad";
+//(configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")
 private _spawnAttackHelis = true;
 private _spawnInAir = true;
 //

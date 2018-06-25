@@ -13,9 +13,6 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-{ _x setmarkerAlpha 0; } forEach _convoy_route;
-{ _x setmarkerAlpha 0; } forEach _convoy_spawn_points;
-
 fnc_AirmobileSpawn = {
 	private _side = _this select 0;
 	private _faction = _this select 1;
@@ -144,7 +141,7 @@ fnc_AirmobileSpawn = {
 	};
 	
 	// Spawn Troop Squads
-	for "_s" from 0 to _transportHeliToSpawn do
+	for "_s" from 0 to (count _spawnedTransportHelis) do
 	{
 		// Get spawn parameters
 		_spawnPos = [0,0,0];
