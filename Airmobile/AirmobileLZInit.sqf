@@ -8,17 +8,22 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 fnc_AirmobileLZInit =
 {
-	private _lzTriggerArray            = _this select 0;
-	private _baseTriggerArray         = _this select 1;
-	private _return                   = [];
-	private _lzTrigger = _lzTriggerArray select 0;
-	private _baseTrigger = _baseTriggerArray select 0;
+	_lzTriggerArray            = _this select 0;
+	_baseTriggerArray         = _this select 1;
+	_return                   = [];
+	_lzTrigger = _lzTriggerArray select 0;
+	_baseTrigger = _baseTriggerArray select 0;
 	
 	// Get LZ Helipad count
 	private _numLZHelipads = 0;
 	private _lzHelipads = [];
 	private _message = "";
 	private _objectsInsideLZ = list _lzTrigger;
+	
+	//private _message = format ["%1 objects in %2. %3",count _objectsInsideLZ, _lzTrigger, _objectsInsideLZ];
+	//hint _message;
+	//sleep 20.0;
+	
 	{
 		if (typeOf  _x == "Land_HelipadEmpty_F") then
 		{
@@ -85,6 +90,9 @@ else
 {
     if(isServer) then
     {
+		private _message = format ["_this: %1",_this];
+		hint _message;
+		sleep 5.0;
         hint "Calling fnc_AirmobileLZInit.";
         sleep 1.0;
         _output = [_this] call fnc_AirmobileLZInit;

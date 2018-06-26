@@ -24,8 +24,8 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-private _lzTriggerArray = [""];
-private _baseTriggerArray = [""];
+private _lzTriggerArray = ["helizone_10"];
+private _baseTriggerArray = ["spawn_helizone_0"];
 private _side = east;
 private _faction = "SovietArmy_OKSVA";
 private _transportType = "OKSVA_MI8MT";
@@ -37,9 +37,15 @@ private _spawnInAir = true;
 
 
 _lzInitOutput = [_lzTriggerArray,_baseTriggerArray] spawn Saber_fnc_AirmobileLzInit;
+
+private _message = format ["_lzInitOutput: %1",_lzInitOutput];
+hint _message;
+sleep 10.0;
+
+
 // _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
-_spawnOutput = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileSpawn;
+//_spawnOutput = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileSpawn;
 // _spawnOutput = [_spawnedAttackHelis,_spawnedTransportHelis,_spawnedTroopGroups]
-_heliWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileHeliWaypoints;
-_troopWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileTroopWaypoints;
+//_heliWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileHeliWaypoints;
+//_troopWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileTroopWaypoints;
 

@@ -5,19 +5,22 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 
 [] execVM "Convoy\ConvoyInit.sqf";
+[] execVM "Airmobile\AirmobileInit.sqf";
 sleep 1.0;
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    hint "Calling fnc_spawnConvoy.";
-    [] spawn Saber_fnc_ConvoySpawnVehicles;
+    //hint "Calling fnc_spawnConvoy.";
+    //[] spawn Saber_fnc_ConvoySpawnVehicles;
+    [] spawn Saber_fnc_AirmobileMaster;
 }
 else
 {
     if(isServer) then
     {
-        hint "Calling fnc_spawnConvoy.";
-        [] spawn Saber_fnc_ConvoySpawnVehicles;
+        //hint "Calling fnc_spawnConvoy.";
+        //[] spawn Saber_fnc_ConvoySpawnVehicles;
+        [] spawn Saber_fnc_AirmobileMaster;
     };
 };
 

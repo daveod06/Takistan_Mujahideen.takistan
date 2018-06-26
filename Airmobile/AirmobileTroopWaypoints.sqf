@@ -9,6 +9,14 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_AirmobileTroopWaypoints = {
 	private _lzOutput = _this select 0;
 	private _spawnOutput = _this select 1;
+	
+	private _message = format ["_lzOutput: %1",_lzOutput];
+	hint _message;
+	sleep 3.0;
+	private _message = format ["_spawnOutput: %1",_spawnOutput];
+	hint _message;
+	sleep 3.0;
+	
 	private _lzHelipads = _lzOutput select 2;
 	private _lzTrigger = _lzOutput select 4;
 	private _spawnedAttackHelis = _spawnOutput select 0;
