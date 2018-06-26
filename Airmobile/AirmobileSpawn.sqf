@@ -36,32 +36,32 @@ fnc_AirmobileSpawn = {
 			_attackHeliToSpawn = 0;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn;
 		};
-		if (_totalHelicoptersToSpawn = 3) then // 1 attack heli, 2 transport
+		if (_totalHelicoptersToSpawn == 3) then // 1 attack heli, 2 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 2;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
 		};
-		if (_totalHelicoptersToSpawn = 4) then // 1 attack heli, 3 transport
+		if (_totalHelicoptersToSpawn == 4) then // 1 attack heli, 3 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 3;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
 		};
-		if (_totalHelicoptersToSpawn = 5) then // 1 attack heli, 4 transport
+		if (_totalHelicoptersToSpawn == 5) then // 1 attack heli, 4 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 4;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 1;
 		};
-		if (_totalHelicoptersToSpawn = 6) then // 2 attack heli, 4 transport
+		if (_totalHelicoptersToSpawn == 6) then // 2 attack heli, 4 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 4;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
 		};
-		if (_totalHelicoptersToSpawn = 7) then // 2 attack heli, 5 transport
+		if (_totalHelicoptersToSpawn == 7) then // 2 attack heli, 5 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 5;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
 		};
-		if (_totalHelicoptersToSpawn = 8) then // 2 attack heli, 6 transport
+		if (_totalHelicoptersToSpawn == 8) then // 2 attack heli, 6 transport
 		{
 			_attackHeliToSpawn = _totalHelicoptersToSpawn - 6;
 			_transportHeliToSpawn = _totalHelicoptersToSpawn - 2;
@@ -94,14 +94,14 @@ fnc_AirmobileSpawn = {
     private _totalSeats = 0;
 	private _crewSeats = 0;
 	private _cargoSeats = 0;
-	private _toDelete = 0;
+    private _output = [];
 	
 	// Spawn Attack Helicopters
-	for "_a" from 0 to _attackHeliToSpawn do
+	for "_a" from 0 to (_attackHeliToSpawn - 1) do
 	{
 		// Get spawn parameters
 		_spawnPos = getPosATL (_BaseHelipads select _a);
-		if _spawnInAir then
+		if (_spawnInAir) then
 		{
 			_spawnPos set [2, (_spawnPos select 2) + 200 - _iterator*10]
 		};
@@ -113,17 +113,21 @@ fnc_AirmobileSpawn = {
 		_vehArray =[_spawnPos, _spawnDir, _spawnClass, _spawnSide] call bis_fnc_spawnvehicle;
         //_vehName 	= _vehArray select 0;
         //_vehCrew 	= _vehArray select 1;
-        //_vehGroup 	= _vehArray select 2;
+        _vehGroup 	= _vehArray select 2;
+        _vehGroup setFormation 'WEDGE';
+        _vehGroup setBehaviour 'CARELESS';
+        _vehGroup setSpeedMode 'NORMAL';
+        _vehGroup deleteGroupWhenEmpty true;
 		_spawnedAttackHelis pushBack _vehArray;
 		_iterator = _iterator + 1;
 	};
 	
 	// Spawn Transport Helicopters
-	for "_t" from 0 to _transportHeliToSpawn do
+	for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	{
 		// Get spawn parameters
 		_spawnPos = getPosATL (_BaseHelipads select _t + _attackHeliToSpawn);
-		if _spawnInAir then
+		if (_spawnInAir) then
 		{
 			_spawnPos set [2, (_spawnPos select 2) + 250 - _iterator*10]
 		};
@@ -135,13 +139,17 @@ fnc_AirmobileSpawn = {
 		_vehArray =[_spawnPos, _spawnDir, _spawnClass, _spawnSide] call bis_fnc_spawnvehicle;
         //_vehName 	= _vehArray select 0;
         //_vehCrew 	= _vehArray select 1;
-        //_vehGroup 	= _vehArray select 2;
+        _vehGroup 	= _vehArray select 2;
+        _vehGroup setFormation 'WEDGE';
+        _vehGroup setBehaviour 'CARELESS';
+        _vehGroup setSpeedMode 'NORMAL';
+        _vehGroup deleteGroupWhenEmpty true;
 		_spawnedTransportHelis pushBack _vehArray;
 		_iterator = _iterator + 1;
 	};
 	
 	// Spawn Troop Squads
-	for "_s" from 0 to (count _spawnedTransportHelis) do
+	for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	{
 		// Get spawn parameters
 		_spawnPos = [0,0,0];
@@ -167,6 +175,9 @@ fnc_AirmobileSpawn = {
 		//[ _spawnPos, _spawnSide, (configFile >> "CfgGroups" >> _sideStr >> _faction >> "Infantry" >> _spawnClass)] call BIS_fnc_spawnGroup;
 		_group = [ _spawnPos, _spawnSide, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 		_group deleteGroupWhenEmpty true;
+		_group setFormation 'WEDGE';
+        _group setBehaviour 'AWARE';
+        _group setSpeedMode 'NORMAL';
 		_spawnedTroopGroups pushBack _group;
 		_numMen = units _group;
 		
@@ -188,6 +199,9 @@ fnc_AirmobileSpawn = {
 			_x moveInCargo _heli;
 		} forEach units _group;
 	};
+
+    _output = [_spawnedAttackHelis,_spawnedTransportHelis,_spawnedTroopGroups];
+    _output;
 };
 
 
