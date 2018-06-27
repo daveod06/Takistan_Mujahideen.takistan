@@ -19,7 +19,8 @@ private _faction                    = _this select 1;
 //private _transportType              = _this select 2;
 //private _attackType                 = _this select 3;
 private _squadType                  = _this select 2;
-private _spawnHeliOutput        = _this select 3;
+private _spawnHeliOutput            = _this select 3;
+private _category                   = _this select 4;
 //private _spawnInAir                 = _this select 6;
 //private _lzInitOutput               = _this select 7;
 //private _totalHelicoptersToSpawn    = 0;
@@ -106,8 +107,8 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	// Spawn Troops
 	hint format ["Trying to spawn troops. (%1)", _s];
 	//[pos, side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
-	//[ _spawnPos, _spawnSide, (configFile >> "CfgGroups" >> _sideStr >> _faction >> "Infantry" >> _spawnClass)] call BIS_fnc_spawnGroup;
-	_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
+	_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> _sideStr >> _faction >> _category >> _spawnClass)] call BIS_fnc_spawnGroup;
+	//_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 	_group deleteGroupWhenEmpty true;
 	_group setFormation 'WEDGE';
     _group setBehaviour 'CARELESS';

@@ -8,23 +8,12 @@ sleep 4.0;
 [] execVM "Airmobile\AirmobileInit.sqf";
 sleep 1.0;
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-{
-    //hint "Calling Saber_fnc_ConvoySpawnVehicles.";
-    //[] spawn Saber_fnc_ConvoySpawnVehicles;
-    hint "Calling Saber_fnc_AirmobileMaster.";
-    [] spawn Saber_fnc_AirmobileMaster;
-}
-else
-{
-    if(isServer) then
-    {
-        //hint "Calling Saber_fnc_ConvoySpawnVehicles.";
-        //[] spawn Saber_fnc_ConvoySpawnVehicles;
-        hint "Calling Saber_fnc_AirmobileMaster.";
-        [] spawn Saber_fnc_AirmobileMaster;
-    };
-};
+
+//hint "Calling Saber_fnc_ConvoySpawnVehicles.";
+//[] spawn Saber_fnc_ConvoySpawnVehicles;
+hint "Spawning Saber_fnc_AirmobileMaster.";
+[] spawn Saber_fnc_AirmobileMaster;
+
 
 //if (isServer) then 
 //{
