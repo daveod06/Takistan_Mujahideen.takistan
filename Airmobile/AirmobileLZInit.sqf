@@ -8,8 +8,8 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 //fnc_AirmobileLZInit =
 //{
-private _lzTriggerArray           = _this select 0;
-private _baseTriggerArray         = _this select 1;
+private _objectsInsideLZ           = _this select 0;
+private _objectsInsideBase         = _this select 1;
 private _lzTrigger                = "";
 private _baseTrigger              = "";
 private _lzHelipads               = [];
@@ -23,8 +23,8 @@ private _totalHelicoptersToSpawn  = 0;
 private _output                   = [];
 
 // Select base and LZ triggers
-_lzTrigger                = _lzTriggerArray select 0;
-_baseTrigger              = _baseTriggerArray select 0;
+//_lzTrigger                = _lzTriggerArray select 0;
+//_baseTrigger              = _baseTriggerArray select 0;
 
 
 
@@ -33,8 +33,8 @@ _baseTrigger              = _baseTriggerArray select 0;
 _numLZHelipads = 0;
 _lzHelipads = [];
 _message = "";
-_objectsInsideLZ = list _lzTrigger;
-_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
+//_objectsInsideLZ = list _lzTrigger;
+//_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
 {
 	if (typeOf _x == "Land_HelipadEmpty_F") then
 	{
@@ -45,14 +45,14 @@ _objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,
 } forEach _objectsInsideLZ;
 _message = format ["%1 Helipads in the LZ.", _numLZHelipads];
 hint _message;
-sleep 2.0;
+sleep 1.0;
 
 // Get Base Helipad count
 _numBaseHelipads = 0;
 _baseHelipads = [];
 _message = "";
-_objectsInsideBase = list _baseTrigger;
-_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
+//_objectsInsideBase = list _baseTrigger;
+//_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
 {
 	if (typeOf _x == "Land_HelipadEmpty_F") then
 	{
@@ -63,7 +63,7 @@ _objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_h
 } forEach _objectsInsideBase;
 _message = format ["%1 Helipads in the base.", _numBaseHelipads];
 hint _message;
-sleep 2.0;
+sleep 1.0;
 
 // Compare Helipad counts
 _totalHelicoptersToSpawn = 0;
@@ -84,6 +84,10 @@ else
 	_message = format ["LZ has same number of helipads (%1) as the Base (%2).", _numLZHelipads, _numBaseHelipads];
 	hint _message;
 	_totalHelicoptersToSpawn = _numLZHelipads;
+	if (_totalHelicoptersToSpawn > 8) then
+	{
+	    _totalHelicoptersToSpawn = 8;
+	};
 };
 
 _output = [_totalHelicoptersToSpawn, _baseHelipads, _lzHelipads,_baseTrigger,_lzTrigger];

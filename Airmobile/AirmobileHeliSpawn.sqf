@@ -48,12 +48,9 @@ private _heli                       = "";
 //private _cargoSeats                 = 0;
 private _output                     = [];
 
-
 _totalHelicoptersToSpawn    = _lzInitOutput select 0;
-//_totalHelicoptersToSpawn = 8;
 _baseHelipads               = _lzInitOutput select 1;
-//_lzHelipads                 = _lzInitOutput select 2;
-_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
+_lzHelipads                 = _lzInitOutput select 2;
 
 
 // figure out how many helicopters to spawn
@@ -148,6 +145,7 @@ for "_a" from 0 to (_attackHeliToSpawn - 1) do
     _vehGroup deleteGroupWhenEmpty true;
 	_spawnedAttackHelis pushBack _vehArray;
 	_iterator = _iterator + 1;
+	sleep 0.3;
 };
 
 // Spawn Transport Helicopters
@@ -173,9 +171,12 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
     _vehGroup deleteGroupWhenEmpty true;
     {(driver _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     {(commander _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
+    _vehName allowCrewInImmobile true; // prevent AI from ejecting
+    _vehName flyInHeight (160 - _iterator*10); // make helis fly in a different heights
     
 	_spawnedTransportHelis pushBack _vehArray;
 	_iterator = _iterator + 1;
+	sleep 0.3;
 };
 
 _output = [_spawnedAttackHelis,_spawnedTransportHelis];

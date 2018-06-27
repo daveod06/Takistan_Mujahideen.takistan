@@ -51,13 +51,14 @@ private _t = _numSpawnedAttackHelis;
     _wp0 setWaypointType "GETOUT";
     _wp0 setWaypointFormation "WEDGE";
     _wp0 setWaypointTimeout [0, 0, 0];
+    _wp0 setWaypointCompletionRadius 3;
     
     // Attack waypoint
     private _attackPos = getPos _enemyPos;
     _wpName = format ["%1_SAD", str _group];
     private _wp1 = _x addWaypoint [_attackPos, 20.0, 1, _wpName];
     _wp1 setWaypointCombatMode "RED";
-    _wp1 setWaypointBehaviour "AWARE";
+    _wp1 setWaypointBehaviour "UNCHANGED";
     _wp1 setWaypointSpeed "FULL";
     _wp1 setWaypointType "SAD";
     _wp1 setWaypointFormation "WEDGE";
@@ -67,14 +68,14 @@ private _t = _numSpawnedAttackHelis;
     private _patrolSuccess = [];
     private _success = [_x, _attackPos, 500.0] call BIS_fnc_taskPatrol;
     private _message = format ["%1 has completed their patrol",_x];
-    _patrolSuccess pushBack [_success,_message,_x];
+    //_patrolSuccess pushBack [_success,_message,_x];
     
     // Pick up waypoint
     private _PickUpPos = getPos _lzHelipad;
     _wpName = format ["%1_Pick_Up", str _group];
     private _wp2 = _x addWaypoint [_PickUpPos, 30.0, 2, _wpName];
     _wp2 setWaypointCombatMode "RED";
-    _wp2 setWaypointBehaviour "AWARE";
+    _wp2 setWaypointBehaviour "UNCHANGED";
     _wp2 setWaypointSpeed "FULL";
     _wp2 setWaypointType "MOVE";
     _wp2 setWaypointFormation "WEDGE";

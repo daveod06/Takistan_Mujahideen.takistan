@@ -77,9 +77,9 @@ _spawnedGroups = [];
 //_output = [];
 
 
-private _message = format ["_spawnedTransportHelis: %1",_spawnedTransportHelis];
-hint _message;
-sleep 5.0;
+//private _message = format ["_spawnedTransportHelis: %1",_spawnedTransportHelis];
+//hint _message;
+//sleep 5.0;
 
 
 // Spawn Troop Squads
@@ -110,35 +110,35 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 	_group deleteGroupWhenEmpty true;
 	_group setFormation 'WEDGE';
-    _group setBehaviour 'AWARE';
+    _group setBehaviour 'CARELESS';
     _group setSpeedMode 'NORMAL';
 	_spawnedTroopGroups pushBack _group;
 	_numMen = units _group;
 	
 	// remove extra troops
-	_heli = _spawnedTransportHelis select _s;
-	//_totalSeats = [_heli, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
-	//_crewSeats = [_heli, false] call BIS_fnc_crewCount; // Number of crew seats only
-	//_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
-	//if (_numMen > _cargoSeats) then
-	//{
-	//	for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
-	//	{
-	//		deleteVehicle (units _group select _d);
-	//	};
-	//};
+	_heli = (_spawnedTransportHelis select _s) select 0;
+	_totalSeats = [_heli, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
+	_crewSeats = [_heli, false] call BIS_fnc_crewCount; // Number of crew seats only
+	_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
+	if (_numMen > _cargoSeats) then
+	{
+		for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
+		{
+			deleteVehicle (units _group select _d);
+		};
+	};
 	
-	hint format ["units _group: %1",units _group];
-	sleep 2.0;
+	//hint format ["units _group: %1",units _group];
+	//sleep 2.0;
 	
-	hint format ["_heli: %1",_heli];
-	sleep 2.0;
+	//hint format ["_heli: %1",_heli];
+	//sleep 2.0;
 	
 	// put troops in heli
 	{
-		_x moveInCargo (_heli select 0);
+		_x moveInCargo _heli;
 	} forEach units _group;
-	sleep 1.0;
+	sleep 0.3;
 };
 
 _output = [_spawnedTroopGroups];
