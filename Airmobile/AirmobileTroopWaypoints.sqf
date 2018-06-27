@@ -84,68 +84,6 @@ fnc_AirmobileTroopWaypoints = {
         _t = _t + 1;
         
 	} forEach _spawnedTroopGroups;
-	
-	private _patrolLoop = true;
-	while {_patrolLoop} do
-	{
-	    sleep 3.0;
-	    {
-	        if (_x select 0) then
-	        {
-	            hint (_x select 1);
-	            _group = (_x select 2);
-                private _groupIsDead = false;
-                if (isNull _group) then
-                {
-                    _groupIsDead = true;
-                };
-                if ({ alive _x } count units _group == 0) then
-                {
-                    _groupIsDead = true;
-                };
-	            
-	            if (!_groupIsDead) then
-	            {
-		            {
-		                _x setCurrentWaypoint [_x, (count (waypoints _x) - 1)];
-		            } forEach _spawnedTroopGroups;
-		            _patrolLoop = false;
-	            };  
-	            
-	        };
-	    } forEach _patrolSuccess;
-	};
-
-    while {true} do
-    {
-        sleep 3.0;
-        if (groupsReadyForPickup) then
-        {
-            {
-                _group = _x;
-                _groupIsDead = false;
-                if (isNull _group) then
-                {
-                    _groupIsDead = true;
-                };
-                if ({ alive _x } count units _group == 0) then
-                {
-                    _groupIsDead = true;
-                };
-                
-                if (!_groupIsDead) then
-                {
-                    //private _smokeObj = "G_40mm_SmokeRed" createVehicle (getPos _lzHelipad);
-                    // call heli dustoff spawn
-                    sleep 1.0;
-                    // call troop dustoff waypoint
-                };
-                
-                
-            } forEach _spawnedTroopGroups;
-        };
-    };
-
 };
 
 

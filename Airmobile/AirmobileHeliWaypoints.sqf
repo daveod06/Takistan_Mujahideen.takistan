@@ -222,6 +222,8 @@ fnc_AirmobileHeliWaypoints = {
         private _postPos = _spawnHelipad getPos [200.0, _baseToLzBearing];
         _postPos = _postPos set [2, (_postPos select 2) + 100];
         _wpName = format ["%1_LZ_Post_Unload", _veh];
+        {(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
+        {(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
         private _wp4 = _group addWaypoint [_postPos, 0.0, 4, _wpName];
         _wp4 setWaypointCombatMode "RED";
         _wp4 setWaypointBehaviour "AWARE";
