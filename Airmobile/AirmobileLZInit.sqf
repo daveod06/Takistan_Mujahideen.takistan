@@ -8,8 +8,10 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 //fnc_AirmobileLZInit =
 //{
-private _objectsInsideLZ           = _this select 0;
-private _objectsInsideBase         = _this select 1;
+private _objectsInsideLZ          = _this select 0;
+private _objectsInsideBase        = _this select 1;
+private _lzTriggerArray           = _this select 2;
+private _baseTriggerArray         = _this select 3;
 private _lzTrigger                = "";
 private _baseTrigger              = "";
 private _lzHelipads               = [];
@@ -23,10 +25,8 @@ private _totalHelicoptersToSpawn  = 0;
 private _output                   = [];
 
 // Select base and LZ triggers
-//_lzTrigger                = _lzTriggerArray select 0;
-//_baseTrigger              = _baseTriggerArray select 0;
-
-
+_lzTrigger                = _lzTriggerArray select 0;
+_baseTrigger              = _baseTriggerArray select 0;
 
 
 // Get LZ Helipad count

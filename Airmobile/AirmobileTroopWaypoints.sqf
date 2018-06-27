@@ -7,19 +7,19 @@ HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
 //fnc_AirmobileTroopWaypoints = {
-private _lzOutput = _this select 0;
+private _lzInitOutput = _this select 0;
 private _spawnHeliOutput = _this select 1;
 private _spawnTroopOutput = _this select 2;
 
-private _message = format ["_lzOutput: %1",_lzOutput];
+private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 hint _message;
 sleep 3.0;
 private _message = format ["_spawnOutput: %1",_spawnOutput];
 hint _message;
 sleep 3.0;
 
-private _lzHelipads = _lzOutput select 2;
-private _lzTrigger = _lzOutput select 4;
+private _lzHelipads = _lzInitOutput select 2;
+//private _lzTrigger = _lzOutput select 4;
 private _spawnedAttackHelis = _spawnHeliOutput select 0;
 private _spawnedTransportHelis = _spawnHeliOutput select 1;
 private _spawnedTroopGroups = _spawnTroopOutput select 0;

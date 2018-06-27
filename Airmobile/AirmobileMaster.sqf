@@ -25,7 +25,8 @@ HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
 
-
+private _lzTriggerArray = [helizone_0]; // FIXME
+private _baseTriggerArray = [base_helizone_0]; // FIXME
 private _zone10Helipads = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
 private _base0Helipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
 
@@ -43,7 +44,7 @@ private _spawnInAir = true;
 private _dustoff = true;
 groupsReadyForPickup = false;
 
-_lzInitOutput = [_objectsInsideLZ,_objectsInsideBase] call Saber_fnc_AirmobileLzInit;
+_lzInitOutput = [_objectsInsideLZ,_objectsInsideBase, _lzTriggerArray, _baseTriggerArray] call Saber_fnc_AirmobileLzInit;
 // _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
 private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 hint _message;
