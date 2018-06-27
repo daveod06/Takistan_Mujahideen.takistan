@@ -50,8 +50,10 @@ private _output                     = [];
 
 
 _totalHelicoptersToSpawn    = _lzInitOutput select 0;
+//_totalHelicoptersToSpawn = 8;
 _baseHelipads               = _lzInitOutput select 1;
 //_lzHelipads                 = _lzInitOutput select 2;
+_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
 
 
 // figure out how many helicopters to spawn

@@ -24,8 +24,8 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-private _lzTriggerArray = ["helizone_10"];
-private _baseTriggerArray = ["spawn_helizone_0"];
+private _lzTriggerArray = [helizone_10];
+private _baseTriggerArray = [spawn_helizone_0];
 private _side = east;
 private _faction = "SovietArmy_OKSVA";
 private _transportType = "OKSVA_MI8MT";
@@ -37,32 +37,32 @@ private _spawnInAir = true;
 private _dustoff = true;
 groupsReadyForPickup = false;
 
-_lzInitOutput = [_lzTriggerArray,_baseTriggerArray] spawn Saber_fnc_AirmobileLzInit;
+_lzInitOutput = [_lzTriggerArray,_baseTriggerArray] call Saber_fnc_AirmobileLzInit;
 // _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
 private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 hint _message;
 sleep 10.0;
-if ((_lzInitOutput select 0 == 0) || (isNull (_lzInitOutput select 1)) || (isNull (_lzInitOutput select 2)) || (_lzInitOutput select 3 == "") || (_lzInitOutput select 4 == "")) exitWith
-{
-    hint "Can't initialize Airmobile scripts.";
-};
+//if ((_lzInitOutput select 0 == 0) || (isNull (_lzInitOutput select 1)) || (isNull (_lzInitOutput select 2)) || (_lzInitOutput select 3 == "") || (_lzInitOutput select 4 == "")) exitWith
+//{
+//    hint "Can't initialize Airmobile scripts.";
+//};
 
 
-//_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileHeliSpawn;
-////_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
-//private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
-//hint _message;
-//sleep 10.0;
+_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] call Saber_fnc_AirmobileHeliSpawn;
+//_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
+private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
+hint _message;
+sleep 10.0;
 
-//_spawnTroopOutput = [_side,_faction,_squadType] spawn Saber_fnc_AirmobileTroopSpawn;
-////_spawnTroopOutput = [_spawnedTroopGroups];
-//private _message = format ["_spawnTroopOutput: %1",_spawnTroopOutput];
-//hint _message;
-//sleep 10.0;
+_spawnTroopOutput = [_side,_faction,_squadType,_spawnHeliOutput] call Saber_fnc_AirmobileTroopSpawn;
+//_spawnTroopOutput = [_spawnedTroopGroups];
+private _message = format ["_spawnTroopOutput: %1",_spawnTroopOutput];
+hint _message;
+sleep 10.0;
 
 
-//_heliWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileHeliWaypoints;
-//_troopWaypointsOutput = [_lzInitOutput, _spawnOutput] spawn Saber_fnc_AirmobileTroopWaypoints;
+_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileHeliWaypoints;
+_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 
 
 

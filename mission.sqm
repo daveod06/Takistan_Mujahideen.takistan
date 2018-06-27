@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=327;
+		nextID=329;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5356.6826,390.37933,11042.872};
-		dir[]={0.61615551,-0.48097056,-0.62376577};
-		up[]={0.33801153,0.87672621,-0.34218681};
-		aside[]={-0.71145356,-5.2095857e-007,-0.702779};
+		pos[]={7710.0405,848.12854,4004.6792};
+		dir[]={-0.82016146,-0.55755812,-0.12887613};
+		up[]={-0.55082071,0.83011669,-0.086551942};
+		aside[]={-0.15524606,-6.318769e-007,0.98794901};
 	};
 };
 binarizationWanted=0;
@@ -232,10 +232,11 @@ class Mission
 		class Item7
 		{
 			dataType="Trigger";
-			position[]={6351.707,257.07452,6965.9106};
+			position[]={6351.707,257.07425,6965.9111};
 			class Attributes
 			{
 				name="helizone_0";
+				condition="call{true;}";
 				sizeA=900;
 				sizeB=900;
 			};
@@ -250,6 +251,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_1";
+				condition="call{true;}";
 				sizeA=750;
 				sizeB=750;
 			};
@@ -394,11 +396,12 @@ class Mission
 		class Item17
 		{
 			dataType="Trigger";
-			position[]={1844.3939,342.70459,10576.404};
+			position[]={1844.394,342.70459,10576.404};
 			angle=3.3553069;
 			class Attributes
 			{
 				name="helizone_2";
+				condition="call{true;}";
 				sizeA=500;
 				sizeB=600;
 				isRectangle=1;
@@ -544,11 +547,12 @@ class Mission
 		class Item26
 		{
 			dataType="Trigger";
-			position[]={928.9585,588.14374,10652.722};
+			position[]={928.95801,588.14392,10652.722};
 			angle=0.21823584;
 			class Attributes
 			{
 				name="helizone_3";
+				condition="call{true;}";
 				sizeA=400;
 				sizeB=600;
 				isRectangle=1;
@@ -694,11 +698,12 @@ class Mission
 		class Item35
 		{
 			dataType="Trigger";
-			position[]={1187.2817,518.88153,9294.833};
-			angle=4.9326735;
+			position[]={1187.282,518.88153,9294.833};
+			angle=4.9326644;
 			class Attributes
 			{
 				name="helizone_4";
+				condition="call{true;}";
 				sizeA=650;
 				sizeB=750;
 				isRectangle=1;
@@ -847,11 +852,12 @@ class Mission
 		class Item44
 		{
 			dataType="Trigger";
-			position[]={1568.2043,371.21808,7681.708};
-			angle=5.044589;
+			position[]={1568.204,371.21817,7681.708};
+			angle=5.0445933;
 			class Attributes
 			{
 				name="helizone_5";
+				condition="call{true;}";
 				sizeA=450;
 				sizeB=700;
 				isRectangle=1;
@@ -1003,10 +1009,11 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={1263.1,409.43906,6804.5059};
-			angle=-1.2766602;
+			angle=5.0065293;
 			class Attributes
 			{
 				name="helizone_6";
+				condition="call{true;}";
 				sizeA=400;
 				sizeB=600;
 				isRectangle=1;
@@ -1154,17 +1161,19 @@ class Mission
 		class Item62
 		{
 			dataType="Trigger";
-			position[]={3085.1226,226.11174,7840.5405};
+			position[]={3085.123,226.11143,7840.541};
 			angle=2.5004971;
 			class Attributes
 			{
 				name="helizone_7";
+				condition="call{true;}";
 				sizeA=500;
 				sizeB=600;
 				isRectangle=1;
 			};
 			id=106;
 			type="EmptyDetectorAreaR250";
+			atlOffset=-1.5258789e-005;
 		};
 		class Item63
 		{
@@ -1190,6 +1199,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_8";
+				condition="call{true;}";
 				sizeA=350;
 				sizeB=500;
 				isRectangle=1;
@@ -1455,11 +1465,12 @@ class Mission
 		class Item80
 		{
 			dataType="Trigger";
-			position[]={2953.5662,60.519142,9895.4414};
-			angle=0.35545644;
+			position[]={2953.5659,60.519142,9895.4414};
+			angle=0.35545358;
 			class Attributes
 			{
 				name="helizone_9";
+				condition="call{true;}";
 				sizeA=600;
 				sizeB=800;
 				isRectangle=1;
@@ -1599,10 +1610,12 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={7874.6958,538.76831,4173.5132};
-			angle=-2.2288485;
+			angle=4.0543289;
 			class Attributes
 			{
 				name="helizone_10";
+				condition="call{true;}";
+				onActivation="call{helizone_10_objects = thisList;}";
 				sizeA=250;
 				sizeB=600;
 				isRectangle=1;
@@ -1741,17 +1754,19 @@ class Mission
 		class Item98
 		{
 			dataType="Trigger";
-			position[]={8749.5664,287.651,4983.0264};
-			angle=0.23604195;
+			position[]={8749.5664,287.65106,4983.0259};
+			angle=0.23603825;
 			class Attributes
 			{
 				name="helizone_11";
+				condition="call{true;}";
 				sizeA=250;
 				sizeB=500;
 				isRectangle=1;
 			};
 			id=160;
 			type="EmptyDetectorAreaR250";
+			atlOffset=3.0517578e-005;
 		};
 		class Item99
 		{
@@ -1904,11 +1919,12 @@ class Mission
 		class Item108
 		{
 			dataType="Trigger";
-			position[]={8865.4521,471.16757,3773.8877};
-			angle=4.2824907;
+			position[]={8865.4521,471.1676,3773.8879};
+			angle=4.2824955;
 			class Attributes
 			{
 				name="helizone_12";
+				condition="call{true;}";
 				sizeA=600;
 				sizeB=300;
 				isRectangle=1;
@@ -2037,11 +2053,12 @@ class Mission
 		class Item116
 		{
 			dataType="Trigger";
-			position[]={7912.1484,516.73889,5909.7534};
+			position[]={7912.1479,516.73865,5909.7529};
 			angle=5.1757727;
 			class Attributes
 			{
 				name="helizone_13";
+				condition="call{true;}";
 				sizeA=300;
 				sizeB=500;
 				isRectangle=1;
@@ -2187,10 +2204,11 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8361.8848,416.13434,6545.417};
-			angle=0.57795763;
+			angle=0.57796568;
 			class Attributes
 			{
 				name="helizone_14";
+				condition="call{true;}";
 				sizeA=600;
 				sizeB=400;
 				isRectangle=1;
@@ -2344,11 +2362,12 @@ class Mission
 		class Item134
 		{
 			dataType="Trigger";
-			position[]={9291.6064,428.51501,4940.6685};
-			angle=0.252882;
+			position[]={9291.6064,428.51486,4940.668};
+			angle=0.25288075;
 			class Attributes
 			{
 				name="small_helizone_0";
+				condition="call{true;}";
 				sizeA=250;
 				sizeB=400;
 				isRectangle=1;
@@ -2396,6 +2415,7 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_1";
+				condition="call{true;}";
 				sizeA=300;
 				sizeB=300;
 				isRectangle=1;
@@ -2443,10 +2463,11 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={10358.916,722.84241,4626.7231};
-			angle=-0.46696433;
+			angle=5.8162198;
 			class Attributes
 			{
 				name="small_helizone_2";
+				condition="call{true;}";
 				sizeA=250;
 				sizeB=500;
 				isRectangle=1;
@@ -2489,11 +2510,12 @@ class Mission
 		class Item143
 		{
 			dataType="Trigger";
-			position[]={9481.5264,586.7973,3808.1138};
-			angle=5.8396897;
+			position[]={9481.5264,586.7973,3808.114};
+			angle=5.8396945;
 			class Attributes
 			{
 				name="small_helizone_3";
+				condition="call{true;}";
 				sizeA=250;
 				sizeB=400;
 				isRectangle=1;
@@ -2554,11 +2576,12 @@ class Mission
 		class Item147
 		{
 			dataType="Trigger";
-			position[]={7908.2109,341.49927,2971.6792};
-			angle=5.1566043;
+			position[]={7908.2109,341.49924,2971.679};
+			angle=5.1566086;
 			class Attributes
 			{
 				name="small_helizone_4";
+				condition="call{true;}";
 				sizeA=400;
 				sizeB=700;
 				isRectangle=1;
@@ -4266,152 +4289,145 @@ class Mission
 		};
 		class Item184
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={5662.2212,83.040001,11353.612};
-				angles[]={-0,0.80552179,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="spawn_helipad0_0";
-			};
-			id=311;
-			type="Land_HelipadSquare_F";
-		};
-		class Item185
-		{
 			dataType="Trigger";
-			position[]={5616.8765,83.040001,11281.519};
+			position[]={5616.876,83.040001,11281.519};
 			class Attributes
 			{
 				name="spawn_helizone_0";
+				condition="call{true;}";
 				sizeA=900;
 				sizeB=900;
 			};
 			id=319;
 			type="EmptyDetectorAreaR250";
 		};
+		class Item185
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5624.4268,83.040001,11315.29};
+				angles[]={0,0.80552179,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="spawn_helipad0_2";
+			};
+			id=321;
+			type="Land_HelipadEmpty_F";
+		};
 		class Item186
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5692.7588,83.040001,11323.799};
-				angles[]={-0,0.80552179,0};
+				position[]={5652.5508,83.040001,11283.43};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_1";
+				name="spawn_helipad0_3";
 			};
-			id=320;
-			type="Land_HelipadSquare_F";
+			id=322;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item187
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5624.4268,83.040001,11315.29};
-				angles[]={-0,0.80552179,0};
+				position[]={5585.4429,83.040001,11276.476};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_2";
+				name="spawn_helipad0_4";
 			};
-			id=321;
-			type="Land_HelipadSquare_F";
+			id=323;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item188
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5652.5508,83.040001,11283.43};
-				angles[]={-0,0.80552179,0};
+				position[]={5616.5693,83.040001,11246.662};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_3";
+				name="spawn_helipad0_5";
 			};
-			id=322;
-			type="Land_HelipadSquare_F";
+			id=324;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item189
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5585.4429,83.040001,11276.476};
-				angles[]={-0,0.80552179,0};
+				position[]={5550.0615,83.040001,11242.153};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_4";
+				name="spawn_helipad0_6";
 			};
-			id=323;
-			type="Land_HelipadSquare_F";
+			id=325;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item190
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5616.5693,83.040001,11246.662};
-				angles[]={-0,0.80552179,0};
+				position[]={5581.373,83.040001,11211.233};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_5";
+				name="spawn_helipad0_7";
 			};
-			id=324;
-			type="Land_HelipadSquare_F";
+			id=326;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item191
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5550.0615,83.040001,11242.153};
-				angles[]={-0,0.80552179,0};
+				position[]={5692.7588,83.040001,11323.799};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_6";
+				name="spawn_helipad0_1";
 			};
-			id=325;
-			type="Land_HelipadSquare_F";
+			id=327;
+			type="Land_HelipadEmpty_F";
 		};
 		class Item192
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5581.373,83.040001,11211.233};
-				angles[]={-0,0.80552179,0};
+				position[]={5662.2212,83.040001,11353.612};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
-				name="spawn_helipad0_7";
+				name="spawn_helipad0_0";
 			};
-			id=326;
-			type="Land_HelipadSquare_F";
+			id=328;
+			type="Land_HelipadEmpty_F";
 		};
 	};
 };

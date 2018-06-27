@@ -26,11 +26,15 @@ private _output                   = [];
 _lzTrigger                = _lzTriggerArray select 0;
 _baseTrigger              = _baseTriggerArray select 0;
 
+
+
+
 // Get LZ Helipad count
 _numLZHelipads = 0;
 _lzHelipads = [];
 _message = "";
 _objectsInsideLZ = list _lzTrigger;
+_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
 {
 	if (typeOf _x == "Land_HelipadEmpty_F") then
 	{
@@ -48,6 +52,7 @@ _numBaseHelipads = 0;
 _baseHelipads = [];
 _message = "";
 _objectsInsideBase = list _baseTrigger;
+_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
 {
 	if (typeOf _x == "Land_HelipadEmpty_F") then
 	{

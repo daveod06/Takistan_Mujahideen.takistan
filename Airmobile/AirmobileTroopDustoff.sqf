@@ -92,6 +92,7 @@ fnc_AirmobileTroopDustoff = {
         _heliWaypoints = waypoints _vehGroup;
         _heliLoadWp = _heliWaypoints select _loadWpIndex;
         _wp1 waypointAttachVehicle _vehName;
+        _wp1 synchronizeWaypoint [_heliLoadWp];
         
         _smokeObj = "G_40mm_SmokeRed" createVehicle (getPos _lzHelipad);
         
