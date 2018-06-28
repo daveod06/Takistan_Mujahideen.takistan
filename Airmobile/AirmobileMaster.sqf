@@ -64,12 +64,13 @@ fnc_AirmobileMaster =
 	sleep 1.0;
 	
 	_spawnTroopOutput = [_side,_faction,_squadType,_spawnHeliOutput,_category] call Saber_fnc_AirmobileTroopSpawn;
-	//_spawnTroopOutput = [_spawnedTroopGroups];
+	//_spawnTroopOutput = [_spawnedTroopGroups]
 	private _message = format ["_spawnTroopOutput: %1",_spawnTroopOutput];
 	hint _message;
 	sleep 1.0;
 	
 	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileHeliWaypoints;
+	[_spawnHeliOutput] spawn Saber_fnc_AirmobileEnableCollision;
 	_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
 	//if _dustoff then

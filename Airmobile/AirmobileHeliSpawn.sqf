@@ -47,6 +47,9 @@ private _heli                       = "";
 //private _crewSeats                  = 0;
 //private _cargoSeats                 = 0;
 private _output                     = [];
+private _aVeh                       = objNull;
+private _tVeh                       = objNull;
+
 
 _totalHelicoptersToSpawn    = _lzInitOutput select 0;
 _baseHelipads               = _lzInitOutput select 1;
@@ -178,6 +181,16 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	_iterator = _iterator + 1;
 	sleep 0.3;
 };
+
+// Prevent collisions initially
+{
+    _aVeh = _x select 0;
+    {
+        _tVeh = _x select 0;
+        _aVeh disableCollisionWith _tVeh;
+        _tVeh disableCollisionWith _aVeh;
+    } forEach _spawnedTransportHelis;
+} forEach _spawnedAttackHelis;
 
 _output = [_spawnedAttackHelis,_spawnedTransportHelis];
 _output;
