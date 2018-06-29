@@ -14,7 +14,7 @@ private _spawnTroopOutput = _this select 2;
 private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 hint _message;
 sleep 3.0;
-private _message = format ["_spawnOutput: %1",_spawnOutput];
+private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
 hint _message;
 sleep 3.0;
 
@@ -32,6 +32,7 @@ private _t = _numSpawnedAttackHelis;
 {
     // Assign helipad
     _lzHelipad = _lzHelipads select _t;
+    _group = _x;
     
     // Find nearest enemies
     private _enemyPos = _lzHelipad findNearestEnemy (getPos _lzHelipad);
@@ -42,7 +43,7 @@ private _t = _numSpawnedAttackHelis;
     
     // Get out waypoint
     private _getOutPos = getPos _lzHelipad;
-    _getOutPos = _getOutPos set [2, (_getOutPos select 2) + 100];
+    //_getOutPos = _getOutPos set [2, (_getOutPos select 2) + 100];
     _wpName = format ["%1_Get_Out", str _group];
     private _wp0 = _x addWaypoint [_getOutPos, 5.0, 0, _wpName];
     _wp0 setWaypointCombatMode "RED";
@@ -54,7 +55,7 @@ private _t = _numSpawnedAttackHelis;
     _wp0 setWaypointCompletionRadius 3;
     
     // Attack waypoint
-    private _attackPos = getPos _enemyPos;
+    private _attackPos = _enemyPos;
     _wpName = format ["%1_SAD", str _group];
     private _wp1 = _x addWaypoint [_attackPos, 20.0, 1, _wpName];
     _wp1 setWaypointCombatMode "RED";
@@ -81,7 +82,7 @@ private _t = _numSpawnedAttackHelis;
     _wp2 setWaypointFormation "WEDGE";
     _wp2 setWaypointTimeout [0, 0, 0];
     private _command = format ["groupsReadyForPickup = true;"];
-    _wp2 setWaypointStatements [true,_command];
+    _wp2 setWaypointStatements ["true",_command];
     
     _t = _t + 1;
     

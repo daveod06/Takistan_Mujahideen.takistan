@@ -15,7 +15,7 @@ private _aGroup = objNull;
 private _tVeh = objNull;
 
 // Enable collisions
-while (_checkHelis) do
+while {_checkHelis} do
 {
 	{
 	    _aVeh = _x select 0;

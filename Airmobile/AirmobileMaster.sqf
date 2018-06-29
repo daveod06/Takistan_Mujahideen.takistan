@@ -27,7 +27,7 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_AirmobileMaster =
 {
     private _lzTriggerArray = [helizone_0]; // FIXME
-	private _baseTriggerArray = [base_helizone_0]; // FIXME
+	private _baseTriggerArray = [spawn_helizone_0]; // FIXME
 	private _zone10Helipads = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
 	private _base0Helipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
 	
@@ -70,7 +70,7 @@ fnc_AirmobileMaster =
 	sleep 1.0;
 	
 	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileHeliWaypoints;
-	[_spawnHeliOutput] spawn Saber_fnc_AirmobileEnableCollision;
+	//[_spawnHeliOutput] spawn Saber_fnc_AirmobileEnableCollision;
 	_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
 	//if _dustoff then
@@ -85,7 +85,7 @@ if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     hint "Calling fnc_AirmobileMaster.";
     sleep 1.0;
-    _handle = [] call fnc_AirmobileMaster;
+    [] call fnc_AirmobileMaster;
 }
 else
 {
@@ -93,7 +93,7 @@ else
     {
         hint "Calling fnc_AirmobileMaster.";
         sleep 1.0;
-        _handle = [] call fnc_AirmobileMaster;
+        [] call fnc_AirmobileMaster;
     };
 };
 

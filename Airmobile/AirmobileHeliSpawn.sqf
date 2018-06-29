@@ -183,14 +183,14 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 };
 
 // Prevent collisions initially
-{
-    _aVeh = _x select 0;
-    {
-        _tVeh = _x select 0;
-        _aVeh disableCollisionWith _tVeh;
-        _tVeh disableCollisionWith _aVeh;
-    } forEach _spawnedTransportHelis;
-} forEach _spawnedAttackHelis;
+//{
+//    _aVeh = _x select 0;
+//    {
+//        _tVeh = _x select 0;
+//        _aVeh disableCollisionWith _tVeh;
+//        _tVeh disableCollisionWith _aVeh;
+//    } forEach _spawnedTransportHelis;
+//} forEach _spawnedAttackHelis;
 
 _output = [_spawnedAttackHelis,_spawnedTransportHelis];
 _output;
