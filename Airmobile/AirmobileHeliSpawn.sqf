@@ -170,12 +170,12 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
     _vehGroup 	= _vehArray select 2;
     _vehGroup setFormation 'WEDGE';
     _vehGroup setBehaviour 'CARELESS';
-    _vehGroup setSpeedMode 'NORMAL';
+    _vehGroup setSpeedMode 'FULL';
     _vehGroup deleteGroupWhenEmpty true;
-    {(driver _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
-    {(commander _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
+    //{(driver _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
+    //{(commander _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     _vehName allowCrewInImmobile true; // prevent AI from ejecting
-    _vehName flyInHeight (160 - _iterator*10); // make helis fly in a different heights
+    //_vehName flyInHeight (160 - _iterator*10); // make helis fly in a different heights
     
 	_spawnedTransportHelis pushBack _vehArray;
 	_iterator = _iterator + 1;

@@ -111,7 +111,7 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	//_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 	_group deleteGroupWhenEmpty true;
 	_group setFormation 'WEDGE';
-    _group setBehaviour 'CARELESS';
+    _group setBehaviour 'AWARE';
     _group setSpeedMode 'NORMAL';
 	_spawnedTroopGroups pushBack _group;
 	_numMen = units _group;

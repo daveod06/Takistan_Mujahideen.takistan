@@ -95,7 +95,9 @@ private _convoy_spawn_points = ["convoy_pos_0","convoy_pos_1","convoy_pos_2","co
 private _convoy_side = east;
 private _enemy_side = resistance;
 
-_possible_convoys=[_btr_convoy,_bmd_convoy,_truck_convoy,_tank_convoy,_armed_supply_convoy,_unarmed_supply_convoy,_small_supply_convoy];
+_possible_convoys=[_btr_convoy,_truck_convoy,_armed_supply_convoy,_unarmed_supply_convoy,_small_supply_convoy];
+
+
 _pos_names = ["convoy_pos_"];
 vehCounterGlobal = 0;
 convoyCounterGlobal = 0;

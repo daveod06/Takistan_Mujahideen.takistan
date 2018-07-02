@@ -138,3 +138,11 @@ class CfgFunctions
         //};
     //};
 };
+
+
+// LOP_Weap_LeeEnfield
+// LOP_10rnd_77mm_mag
+// rhs_weap_m38
+// rhsgref_5Rnd_762x54_m38
+// rhs_weap_m76
+// rhsgref_10Rnd_792x57_m76
