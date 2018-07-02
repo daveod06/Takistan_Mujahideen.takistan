@@ -1,0 +1,37 @@
+1. start outside 1 of 3 soviet outposts
+2. helicopter lands and/or unloads sling load of weapons and supplies
+3. attack outpost and get better weapons
+4. set up ambush on road
+5. ambush supply convoy
+6. take even more weapons
+7. generate another convoy 10 min later
+8. ambush 2nd convoy
+9. fend off helicopter attack
+10. retreat
+
+
+
+-add soviets at airbase guarding it
+-add parked soviet aircraft
+-add ambient soviet aircraft coming and going from the base
+-add soviet artillery support
+-add soviet CAS support
+-add civilians
+-add civilian vehicles
+-add spawn points to all members of player's squad
+-add soviet mortar camps on hills overlooking the airfield - reuse mortar script from ISIS raid
+-add boxes of IEDs for IND
+-add weapon caches
+-add hiluxes for IND use
+-add IND ambush spots that are randomly selected
+-add sector control???
+
+-export mission to sqf script
+https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_script_form/
+
+
+
+-make convoy vehicles a targeted objective
+-detect when convoy vehicles are dead
+-after they're dead or convoy complete, create new convoy
+

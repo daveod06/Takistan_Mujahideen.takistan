@@ -1,7 +1,7 @@
 //check if HC1 is present
-HC1Present = if (isNil "HC1") then{False} else{True};
-HC2Present = if (isNil "HC2") then{False} else{True};
-HC3Present = if (isNil "HC3") then{False} else{True};
+//HC1Present = if (isNil "HC1") then{False} else{True};
+//HC2Present = if (isNil "HC2") then{False} else{True};
+//HC3Present = if (isNil "HC3") then{False} else{True};
 
 sleep 4.0;
 [] execVM "Convoy\ConvoyInit.sqf";
