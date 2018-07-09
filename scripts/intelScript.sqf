@@ -1,1 +1,0 @@
-deleteVehicle secret_docs;

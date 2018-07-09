@@ -102,9 +102,23 @@ _tempArray=[];
 	_crewPool=	["CUP_O_TK_Crew"];
 	_heliCrew=	["CUP_O_TK_Crew","CUP_O_TK_Pilot"];};
 	
-// ADD CLASSNAMES 	
+// OKSVA SOVIETS FACTION 	
 	if (_faction==7) then {
-	_InfPool=	[];	
+	_InfPool=	["OKSVA_Rifleman_MSV","OKSVA_Rifleman_GP_25_MSV","OKSVA_Junior_Officer_MSV","OKSVA_Officer_MSV","OKSVA_Senior_Technician_MSV","OKSVA_Machine_Gunner_RPK_74_MSV","OKSVA_Machine_Gunner_PKM_MSV","OKSVA_Machine_Gunner_Assistant_PKM_MSV","OKSVA_Marksman_MSV","OKSVA_Medic_MSV","OKSVA_Grenadier_RPG_7V_MSV","OKSVA_Grenadier_Assistant_RPG_7V_MSV","OKSVA_AT_Operator_RPG_26_MSV","OKSVA_Mechanic_MSV","OKSVA_Engineer_MSV"];	
+	_ArmPool=	["OKSVA_2S3","OKSVA_T72B_1984","OKSVA_T72B_1985","OKSVA_T72B_1989","OKSVA_T80","OKSVA_ZSU23_4"];
+	_MotPool=	["OKSVA_UAZ","OKSVA_UAZ_Open","OKSVA_GAZ66","OKSVA_GAZ66_Ammo","OKSVA_BRDM2","OKSVA_BRDM2UM","OKSVA_BRDM2_9P148","OKSVA_BRDM2UM_Armed","OKSVA_BTR60PB","OKSVA_BTR70","OKSVA_BTR80","OKSVA_BMP1","OKSVA_BMP1D","OKSVA_BMP1K","OKSVA_BMP1P","OKSVA_BMP2","OKSVA_BMP2K","OKSVA_BMP2D","OKSVA_BRM1K","OKSVA_BMD1","OKSVA_BMD1K","OKSVA_BMD1PK","OKSVA_BMD2","OKSVA_BMD2K"];
+	_ACHPool=	["OKSVA_MI24P","OKSVA_MI24V","OKSVA_MI24VT","OKSVA_Mi8MTV3"];
+	_CHPool=	["OKSVA_MI8MT","OKSVA_Mi6A","OKSVA_Mi6T"];
+	_uavPool=	[];
+	_stPool=	["OKSVA_2B14","OKSVA_ZU23","OKSVA_NSV","OKSVA_AGS30","OKSVA_SPG9M","OKSVA_9K38","OKSVA_9K115_2"];
+	_shipPool=	[];
+	_diverPool=	[];
+	_crewPool=	["OKSVA_Crew_MSV"];
+	_heliCrew=	["OKSVA_Aircrew_FA"];};
+	
+// ADD CLASSNAMES 	
+	if (_faction==8) then {
+	_InfPool=	;	
 	_ArmPool=	[];
 	_MotPool=	[];
 	_ACHPool=	[];
@@ -115,7 +129,7 @@ _tempArray=[];
 	_diverPool=	[];
 	_crewPool=	[];
 	_heliCrew=	[];};
-	
+
 ////////////////////////////////////////////////////////////////////////////////////////
 if (_type==0) then {
 		for "_i" from 0 to 5 do{
