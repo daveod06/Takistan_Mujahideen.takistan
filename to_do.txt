@@ -1,5 +1,5 @@
-1. start outside 1 of 3 soviet outposts
-2. helicopter lands and/or unloads sling load of weapons and supplies
+1. start in 1 of 3 villages
+2. heli attacks your village
 3. attack outpost and get better weapons
 4. set up ambush on road
 5. ambush supply convoy
@@ -8,6 +8,9 @@
 8. ambush 2nd convoy
 9. fend off helicopter attack
 10. retreat
+
+https://forums.bohemia.net/forums/topic/188027-force-jet-to-attack-infantry-in-open-and-in-buildings-with-missiles-and-bombs/
+https://forums.bohemia.net/forums/topic/197326-ai-heli/
 
 
 
