@@ -13,6 +13,12 @@ https://forums.bohemia.net/forums/topic/188027-force-jet-to-attack-infantry-in-o
 https://forums.bohemia.net/forums/topic/197326-ai-heli/
 
 
+spawn heli 1000m away
+move waypoint
+
+_muz = currentMuzzle attack_heli0g;
+hint format ["current gunner muzzle: %1 ",_muz];
+"rhs_weap_fab250"
 
 -add soviets at airbase guarding it
 -add parked soviet aircraft
@@ -37,4 +43,74 @@ https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_scri
 -make convoy vehicles a targeted objective
 -detect when convoy vehicles are dead
 -after they're dead or convoy complete, create new convoy
+
+
+
+
+
+
+
+
+
+
+
+this addItemToUniform "rhs_10rnd_9x39mm_SP5";
+this addItemToUniform "rhs_20rnd_9x39mm_SP5";
+this addItemToUniform "rhs_10rnd_9x39mm_SP6";
+this addItemToUniform "rhs_20rnd_9x39mm_SP6";
+
+comment "Add weapons";
+this addWeapon "rhs_weap_vss";
+this addPrimaryWeaponItem "rhs_acc_pgo7v_asval";
+this addPrimaryWeaponItem "rhs_acc_pso1m2_asval";
+this addPrimaryWeaponItem "rhs_acc_1pn93_1";
+
+
+this addItemToUniform "rhs_mag_762x25_8";
+this addItemToUniform "rhsgref_5Rnd_762x54_m38";
+this addWeapon "rhs_weap_m38";
+this addWeapon "rhs_weap_tt33";
+
+
+
+
+
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+
+this addItemToUniform "FirstAidKit";
+for "_i" from 1 to 6 do {this addItemToUniform "rhsgref_5Rnd_762x54_m38";};
+
+
+comment "Add weapons";
+this addWeapon "rhs_weap_m38";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+
+
+
+
+
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+
+this addItemToUniform "FirstAidKit";
+for "_i" from 1 to 6 do {this addItemToUniform "rhs_mag_762x25_8";};
+
+comment "Add weapons";
+this addWeapon "rhs_weap_tt33";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
 
