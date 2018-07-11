@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=5990;
+		nextID=6036;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=191;
+		nextID=221;
 	};
 	class Camera
 	{
-		pos[]={9720.3213,619.45642,4258.9956};
-		dir[]={0.75564933,-0.59052759,0.28377098};
-		up[]={0.55287749,0.80697215,0.20762356};
-		aside[]={0.35159561,9.3701237e-007,-0.93627948};
+		pos[]={9811.8867,628.19647,4299.6304};
+		dir[]={-0.40622574,-0.36835486,0.83638531};
+		up[]={-0.16098902,0.9295997,0.3314549};
+		aside[]={0.89961308,-2.6024281e-006,0.43693396};
 	};
 };
 binarizationWanted=0;
@@ -75,14 +75,13 @@ addons[]=
 	"A3_Structures_F_Civ_Constructions",
 	"A3_Static_F_Mortar_01",
 	"A3_Modules_F",
-	"po_factions_me",
-	"CUP_CAStructures_E_HouseK"
+	"po_factions_me"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=29;
+		items=28;
 		class Item0
 		{
 			className="A3_Structures_F_Mil";
@@ -263,11 +262,6 @@ class AddonsMetaData
 			name="po_factions_me";
 			author="Leight, Keeway";
 		};
-		class Item28
-		{
-			className="CUP_CAStructures_E_HouseK";
-			name="CUP_CAStructures_E_HouseK";
-		};
 	};
 };
 class DynamicSimulation
@@ -280,6 +274,10 @@ class ScenarioData
 	author="SaberSnack";
 	respawn=3;
 	respawnDelay=3.3798983;
+	class Header
+	{
+		gameType="Zeus";
+	};
 	wreckManagerMode=1;
 	wreckLimit=30;
 	wreckRemovalMaxTime=3600;
@@ -393,7 +391,26 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=3;
+		class Attribute3
+		{
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=4;
 	};
 };
 class Mission
@@ -420,7 +437,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=374;
+		items=377;
 		class Item0
 		{
 			dataType="Object";
@@ -16215,23 +16232,24 @@ class Mission
 			side="East";
 			class Entities
 			{
-				items=7;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8671.0918,558.7981,5608.5439};
+						position[]={9199.4346,623.64771,5007.5049};
+						angles[]={0,2.5763154,0};
 					};
 					side="East";
 					flags=2;
 					class Attributes
 					{
-						name="attack_heli0D";
+						name="attack_heli0d";
 					};
-					id=5971;
-					type="OKSVA_Helicopter_Pilot_FA";
-					atlOffset=220.41995;
+					id=6003;
+					type="OKSVA_Helicopter_Pilot_armored_FA";
+					atlOffset=219.71088;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16249,7 +16267,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="RHS_Male01RUS";
+									value="RHS_Male05RUS";
 								};
 							};
 						};
@@ -16268,30 +16286,11 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.95999998;
+									value=1.04;
 								};
 							};
 						};
-						class Attribute2
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="";
-								};
-							};
-						};
-						nAttributes=3;
+						nAttributes=2;
 					};
 				};
 				class Item1
@@ -16299,15 +16298,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8671.0918,558.7981,5608.5439};
+						position[]={9199.4346,623.64771,5007.5049};
+						angles[]={0,2.5763154,0};
 					};
 					side="East";
 					class Attributes
 					{
+						name="attack_heli0g";
 					};
-					id=5972;
-					type="OKSVA_Helicopter_Pilot_FA";
-					atlOffset=220.41995;
+					id=6004;
+					type="OKSVA_Helicopter_Pilot_armored_FA";
+					atlOffset=219.71088;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16325,7 +16326,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="RHS_Male03RUS";
+									value="RHS_Male05RUS";
 								};
 							};
 						};
@@ -16348,106 +16349,56 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="";
-								};
-							};
-						};
-						nAttributes=3;
+						nAttributes=2;
 					};
 				};
 				class Item2
 				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8671.0918,558.7981,5608.5439};
-					};
-					side="East";
-					class Attributes
+					dataType="Waypoint";
+					position[]={9610.0146,561.51947,4605.1362};
+					expCond="call{true}";
+					expActiv="call{attack_heli0 reveal [target_0, 4];" \n "attack_heli0 doTarget target_0;" \n "attack_heli0 doFire target_0;" \n "attack_heli0 fireAtTarget [target_0, ""rhs_weap_fab250""];}";
+					class Effects
 					{
 					};
-					id=5973;
-					type="OKSVA_Helicopter_Pilot_FA";
-					atlOffset=220.41995;
+					showWP="NEVER";
+					id=5992;
+					type="Move";
+					atlOffset=138.91583;
 				};
 				class Item3
 				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8671.0918,558.7981,5608.5439};
-					};
-					side="East";
-					class Attributes
-					{
-					};
-					id=5974;
-					type="OKSVA_Helicopter_Pilot_FA";
-					atlOffset=220.41995;
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={8671.0918,558.7981,5608.5439};
-					};
-					side="East";
-					class Attributes
-					{
-						name="attack_heli0G";
-					};
-					id=5975;
-					type="OKSVA_Helicopter_Pilot_FA";
-					atlOffset=220.41995;
-				};
-				class Item5
-				{
 					dataType="Waypoint";
-					position[]={9908.0889,496.17609,4327.0239};
+					position[]={9900.9053,495.60843,4320.02};
 					type="Destroy";
+					expCond="call{true}";
+					expActiv="call{deleteVehicle laserT0;" \n "attack_heli0 reveal [target_1, 4];" \n "attack_heli0 doTarget target_1;" \n "attack_heli0 doFire target_1;" \n "attack_heli0 fireAtTarget [target_1, ""rhs_weap_fab250""];}";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=5976;
-					atlOffset=0.5;
-					class AttachedTo
-					{
-						id=5989;
-						offset[]={0,0.5,0};
-					};
+					atlOffset=0.72399902;
 				};
-				class Item6
+				class Item4
 				{
 					dataType="Waypoint";
-					position[]={9889.4102,500.62024,4176.6519};
+					position[]={7353.896,310.07507,8601.8135};
+					expCond="call{true}";
+					expActiv="call{{deleteVehicle _x} forEach units attack_heli_group0;" \n "deleteVehicle attack_heli0;" \n "deleteGroup attack_heli_group0;}";
 					class Effects
 					{
 					};
 					showWP="NEVER";
-					id=5977;
+					id=6020;
 					type="Move";
+					atlOffset=167.49599;
 				};
 			};
 			class Attributes
 			{
 				name="attack_heli_group0";
+				garbageCollect=1;
 				combatMode="RED";
 				behaviour="COMBAT";
 				speedMode="FULL";
@@ -16456,16 +16407,16 @@ class Mission
 			{
 				class LinkIDProvider
 				{
-					nextID=5;
+					nextID=2;
 				};
 				class Links
 				{
-					items=5;
+					items=2;
 					class Item0
 					{
 						linkID=0;
-						item0=5971;
-						item1=5970;
+						item0=6003;
+						item1=6002;
 						class CustomData
 						{
 							role=1;
@@ -16474,51 +16425,18 @@ class Mission
 					class Item1
 					{
 						linkID=1;
-						item0=5972;
-						item1=5970;
+						item0=6004;
+						item1=6002;
 						class CustomData
 						{
 							role=2;
 							turretPath[]={0};
 						};
 					};
-					class Item2
-					{
-						linkID=2;
-						item0=5973;
-						item1=5970;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={1};
-						};
-					};
-					class Item3
-					{
-						linkID=3;
-						item0=5974;
-						item1=5970;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={2};
-						};
-					};
-					class Item4
-					{
-						linkID=4;
-						item0=5975;
-						item1=5970;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={3};
-						};
-					};
 				};
 			};
 			id=5969;
-			atlOffset=220.41995;
+			atlOffset=219.71094;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -16548,7 +16466,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8671.4678,561.62683,5607.521};
+				position[]={9198.625,626.13739,5007.7573};
+				angles[]={0,2.5763154,0};
 			};
 			side="East";
 			flags=2;
@@ -16556,15 +16475,15 @@ class Mission
 			{
 				name="attack_heli0";
 			};
-			id=5970;
-			type="OKSVA_Mi8MTV3";
-			atlOffset=220.41995;
+			id=6002;
+			type="OKSVA_MI24P";
+			atlOffset=219.71094;
 			class CustomAttributes
 			{
 				class Attribute0
 				{
 					property="rhs_decalNumber_type";
-					expression="if(_value != 'NoChange')then{ _this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cRHSAIRMI8NumberPlaces, _value]]] call rhs_fnc_decalsInit}";
+					expression="if(_value != 'NoChange')then{ _this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cRHSAIRMI24NumberPlaces, _value]]] call rhs_fnc_decalsInit}";
 					class Value
 					{
 						class data
@@ -16589,6 +16508,214 @@ class Mission
 			side="Independent";
 			class Entities
 			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9872.499,490.74979,4294.7368};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n "for ""_i"" from 1 to 6 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_tt33""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
+					};
+					id=6021;
+					type="LOP_AM_Infantry_Corpsman";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9906.8057,498.04276,4298.897};
+						angles[]={0.090950049,5.5944257,0.22340493};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n "for ""_i"" from 1 to 6 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_tt33""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
+						name="target_0G";
+					};
+					id=6025;
+					type="LOP_AM_Infantry_Rifleman";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9871.5859,490.00626,4301.2959};
+						angles[]={0.070284404,4.7893405,0.21272072};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=6030;
+					type="LOP_AM_Infantry_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				garbageCollect=1;
+				combatMode="RED";
+				behaviour="SAFE";
+				speedMode="LIMITED";
+				dynamicSimulation=1;
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=6025;
+						item1=6024;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=6030;
+						item1=6028;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=6016;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Starting Village Rebels";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item373
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
 				items=5;
 				class Item0
 				{
@@ -16601,6 +16728,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n " " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
 						name="i0";
 						isPlayer=1;
 					};
@@ -16660,6 +16788,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n " " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
 						name="i1";
 					};
 					id=5980;
@@ -16718,6 +16847,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n " " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
 						name="i2";
 					};
 					id=5981;
@@ -16770,55 +16900,251 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9853.8789,487.54144,4274.9048};
+						position[]={9853.8789,487.54141,4274.9048};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n " " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
 					};
 					id=5982;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=6.1035156e-005;
+					atlOffset=3.0517578e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9855.1826,488.15802,4270.1064};
+						position[]={9855.1826,488.15781,4270.1069};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n " " \n "this addItemToUniform ""FirstAidKit""; " \n " " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch"";}";
 					};
 					id=5983;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=0.00021362305;
+					atlOffset=3.0517578e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
 			{
+				garbageCollect=1;
+				combatMode="RED";
+				behaviour="SAFE";
+				speedMode="LIMITED";
 			};
 			id=5978;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Mujahideen Recruits";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
-		class Item373
+		class Item374
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9908.0889,495.75143,4327.0239};
-				angles[]={0,1.6790417,0};
+				position[]={9906.8408,499.64673,4298.7178};
+				angles[]={0.090950049,5.5944257,0.22340493};
+			};
+			side="Independent";
+			flags=4;
+			class Attributes
+			{
+				lock="UNLOCKED";
+				init="call{laserT0 = ""LaserTargetE"" createVehicle getposatl target_0; " \n "laserT0 attachTo [target_0,[0,0,0]];}";
+				name="target_0";
+			};
+			id=6024;
+			type="LOP_AM_Static_DSHKM";
+			atlOffset=-0.072937012;
+		};
+		class Item375
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9874.7432,490.72223,4303.2202};
+				angles[]={0.076654866,3.2066412,0.20661208};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="target_house";
 			};
-			id=5989;
-			type="Land_House_K_5_EP1";
+			id=6027;
+			type="Soviet_Basic_Weapons_70s_80s";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""rhs_weap_kar98k"",""rhs_weap_m38"",""rhs_weap_tt33""],[1,1,5]],[[""rhsgref_5Rnd_762x54_m38"",""rhsgref_5Rnd_792x57_kar98k"",""rhs_mag_762x25_8""],[15,15,15]],[[""Binocular""],[5]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item376
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9871.168,491.93845,4301.3906};
+				angles[]={0.070284404,4.7893405,0.21272072};
+			};
+			side="Independent";
+			flags=6;
+			class Attributes
+			{
+				init="call{laserT1 = ""LaserTargetE"" createVehicle getposatl target_1; " \n "laserT1 attachTo [target_1,[0,0,0]];}";
+				name="target_1";
+			};
+			id=6028;
+			type="LOP_AM_Nissan_PKM";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
