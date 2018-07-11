@@ -1,6 +1,7 @@
 1. start in 1 of 3 villages
 2. heli attacks your village
 3. attack outpost and get better weapons
+3.5. meet up with 
 4. set up ambush on road
 5. ambush supply convoy
 6. take even more weapons

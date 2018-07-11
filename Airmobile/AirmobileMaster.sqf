@@ -26,28 +26,23 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 fnc_AirmobileMaster =
 {
-    private _lzTriggerArray = [helizone_0]; // FIXME
-	private _baseTriggerArray = [spawn_helizone_0]; // FIXME
-	private _zone10Helipads = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];
-	private _base0Helipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];
-	
-	private _objectsInsideLZ = _zone10Helipads;
-	private _objectsInsideBase = _base0Helipads;
-	private _side = east;
-	private _faction = "SovietArmy_OKSVA";
-	private _category = "Infantry";
-	private _transportType = "OKSVA_MI8MT";
-	private _attackType = "OKSVA_Mi8MTV3";
-	private _squadType = "SovietArmy_OKSVA_infantry_rifle_squad";
+    private _lzTriggerArray = _this select 0;
+	private _baseTriggerArray = _this select 1;
+	private _side = _this select 2;
+	private _faction = _this select 3;
+	private _category = _this select 4;
+	private _transportType = _this select 5;
+	private _attackType = _this select 6;
+	private _squadType = _this select 7;
+	private _spawnAttackHelis = _this select 8;
+	private _spawnInAir = _this select 9;
+	private _dustoff = _this select 10;
+    //groupsReadyForPickup = false;
 	//(configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")
 	//(configFile >> "CfgGroups" >> _side >> _faction >> _category >> _squadType)
-	private _spawnAttackHelis = true;
-	private _spawnInAir = true;
-	private _dustoff = false;
-    groupsReadyForPickup = false;
     
     
-	_lzInitOutput = [_objectsInsideLZ,_objectsInsideBase, _lzTriggerArray, _baseTriggerArray] call Saber_fnc_AirmobileLzInit;
+	_lzInitOutput = [_lzTriggerArray, _baseTriggerArray] call Saber_fnc_AirmobileLzInit;
 	// _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
 	private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 	hint _message;
@@ -80,12 +75,12 @@ fnc_AirmobileMaster =
 	//};
 };
 
-// _this = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,[_totalHelicoptersToSpawn, _baseHelipads, _lzHelipads]];
+//_this = [_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     hint "Calling fnc_AirmobileMaster.";
     sleep 1.0;
-    [] call fnc_AirmobileMaster;
+    [_this] call fnc_AirmobileMaster;
 }
 else
 {
@@ -93,7 +88,7 @@ else
     {
         hint "Calling fnc_AirmobileMaster.";
         sleep 1.0;
-        [] call fnc_AirmobileMaster;
+        [_this] call fnc_AirmobileMaster;
     };
 };
 
