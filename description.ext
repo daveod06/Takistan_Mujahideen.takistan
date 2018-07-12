@@ -64,7 +64,7 @@ respawnDialog = 0;
 // 1 will respawn the player and run the respawn script
 // 0 will not respawn the player but will run the respawn script
 // -1 will not respawn the player nor will it run the respawn script
-respawnOnStart = 0;
+respawnOnStart = -1;
 // Respawn templates for things like custom camera modes
 respawnTemplates[] = {};
 
@@ -121,22 +121,6 @@ class CfgFunctions
             };
         };
     };
-    // Compile function myTag_fnc_myFunction from the following file: %ROOT%\myPath\fn_myFunction.sqf
-    //class Saber // myTag
-    //{
-    //    class Convoy // myCategory
-    //    {
-    //        file = "Convoy"; // myPath 
-    //        class ConvoyMaxSpeed{}; // myFunction
-     //       class ConvoyAmbush{};
-      //      class ConvoyMove{};
-       //     class ConvoyRestart{};
-        //    class ConvoyEnd{};
-         //   class ConvoyEnemy{};
-          //  class ConvoySearch{};
-          //  class ConvoySpawnVehicles{};
-        //};
-    //};
 };
 
 

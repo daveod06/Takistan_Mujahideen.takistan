@@ -4,6 +4,8 @@ HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
 
+"traffic_area" setMarkerAlpha 0.0;
+
 if HC3Present then
 {
 	//EOS Dynamic Combat System
@@ -57,4 +59,4 @@ private _squadType = "SovietArmy_OKSVA_infantry_rifle_squad";
 private _spawnAttackHelis = true;
 private _spawnInAir = true;
 private _dustoff = false;
-[_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;
+//[_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;

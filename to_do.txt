@@ -21,9 +21,21 @@ _muz = currentMuzzle attack_heli0g;
 hint format ["current gunner muzzle: %1 ",_muz];
 "rhs_weap_fab250"
 
+<<<<<<< HEAD
 DONE-add soviets at airbase guarding it
 DONE-add parked soviet aircraft
 DONE-add ambient soviet aircraft coming and going from the base
+=======
+laserT1 = "LaserTargetE" createVehicle getposatl target_1; 
+laserT1 attachTo [target_1,[0,0,0]]
+
+laserT0 = "LaserTargetE" createVehicle getposatl target_0; 
+laserT0 attachTo [target_0,[0,0,0]];
+
+-add soviets at airbase guarding it
+-add parked soviet aircraft
+-add ambient soviet aircraft coming and going from the base
+>>>>>>> c7972d34f7d123c314be1a4d4f0a3fde199331b9
 -add soviet artillery support
 -add soviet CAS support
 DONE-add civilians
