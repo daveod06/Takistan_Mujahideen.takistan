@@ -33,21 +33,21 @@ fnc_AirmobileMaster =
 	//hint _message;
 	//sleep 3.0;
 	
-	_input = _this select 0;
+	private _input = _this select 0;
 	
 	
-	_message = format ["fnc_AirmobileMaster _input: %1",_input];
-	hint _message;
-	sleep 1.0;
+	//_message = format ["fnc_AirmobileMaster _input: %1",_input];
+	//hint _message;
+	//sleep 1.0;
 
-    private _lzTriggerArray = _input select 0;
-    _message = format ["fnc_AirmobileMaster _lzTriggerArray: %1",_lzTriggerArray];
-	hint _message;
-	sleep 1.0;
-	private _baseTriggerArray = _input select 1;
-	_message = format ["fnc_AirmobileMaster _baseTriggerArray: %1",_baseTriggerArray];
-	hint _message;
-	sleep 1.0;
+    private _lzHelipadsArray = _input select 0;
+    //_message = format ["fnc_AirmobileMaster _lzHelipadsArray: %1",_lzHelipadsArray];
+	//hint _message;
+	//sleep 1.0;
+	private _baseHelipadsArray = _input select 1;
+	//_message = format ["fnc_AirmobileMaster _baseHelipadsArray: %1",_baseHelipadsArray];
+	//hint _message;
+	//sleep 1.0;
 	private _side = _input select 2;
 	private _faction = _input select 3;
 	private _category = _input select 4;
@@ -62,7 +62,7 @@ fnc_AirmobileMaster =
 	//(configFile >> "CfgGroups" >> _side >> _faction >> _category >> _squadType)
     
     
-	_lzInitOutput = [_lzTriggerArray, _baseTriggerArray] call Saber_fnc_AirmobileLzInit;
+	_lzInitOutput = [_lzHelipadsArray, _baseHelipadsArray] call Saber_fnc_AirmobileLzInit;
 	// _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
 	private _message = format ["_lzInitOutput: %1",_lzInitOutput];
 	hint _message;
@@ -95,13 +95,12 @@ fnc_AirmobileMaster =
 	//};
 };
 
-//_this = [_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
+//_this = [_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_AirmobileMaster.";
     //sleep 1.0;
-    _input = _this;
-    [_input] call fnc_AirmobileMaster;
+    [_this] call fnc_AirmobileMaster;
 }
 else
 {
@@ -109,8 +108,7 @@ else
     {
         //hint "Calling fnc_AirmobileMaster.";
         //sleep 1.0;
-        _input = _this;
-        [_input] call fnc_AirmobileMaster;
+        [_this] call fnc_AirmobileMaster;
     };
 };
 

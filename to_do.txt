@@ -10,78 +10,77 @@
 9. fend off helicopter attack
 10. retreat
 
+
+
 https://forums.bohemia.net/forums/topic/188027-force-jet-to-attack-infantry-in-open-and-in-buildings-with-missiles-and-bombs/
 https://forums.bohemia.net/forums/topic/197326-ai-heli/
 
-
-spawn heli 1000m away
-move waypoint
 
 _muz = currentMuzzle attack_heli0g;
 hint format ["current gunner muzzle: %1 ",_muz];
 "rhs_weap_fab250"
 
-<<<<<<< HEAD
-DONE-add soviets at airbase guarding it
-DONE-add parked soviet aircraft
-DONE-add ambient soviet aircraft coming and going from the base
-=======
 laserT1 = "LaserTargetE" createVehicle getposatl target_1; 
 laserT1 attachTo [target_1,[0,0,0]]
 
 laserT0 = "LaserTargetE" createVehicle getposatl target_0; 
 laserT0 attachTo [target_0,[0,0,0]];
 
--add soviets at airbase guarding it
--add parked soviet aircraft
--add ambient soviet aircraft coming and going from the base
->>>>>>> c7972d34f7d123c314be1a4d4f0a3fde199331b9
+
+
+
+-use EOS zones to spawn fellow mujahideen
+    -set up small EOS zone at bend in road
+    -try to come up with ambush logic - global behavior?
+-add a few mujahideen to your group after clearing each of the 3 outposts
+    -make them come from marker on other side of mountain??
+    -place down markers
+    -spawn units at marker
+    -develop script to add units to player's group
+-add one mortar at each outpost to hit other outpost with fire
+    -set up triggers
+    -copy and paste mortar from the base and name it
+-add one big mortar zone around the base
+-add triggers to make gunners get out
+    -use concept from isis raid
+    -might be a script alrady written, make it into function and init it
+-add objectives to take out each outpost
+-add objective to kill mortars at base
+-update unit loadout sqf files for EOS mujahideen
+    -use virtual arsenal
+    -get classnames of project opfor men
+    -replace their guns with RHS guns
+-update civilian car classnames
+    -scripts/Engima/traffic/configandstart.sqf
+-update civilian men classnames
+    -scripts/Engima/civilians/configandstart.sqf
+-fix soviet ammo boxes
+    - check configs from AFRF
+    - check model and inheritance
+DONE-add soviets at airbase guarding it
+DONE-add parked soviet aircraft
 -add soviet artillery support
--add soviet CAS support
+    -test out new mortar script
 DONE-add civilians
 DONE-add civilian vehicles
 -add spawn points to all members of player's squad
--add soviet mortar camps on hills overlooking the airfield - reuse mortar script from ISIS raid
--add boxes of IEDs for IND
+    -should be the same as the tanoa raid 
+DONE-add boxes of IEDs for IND
 DONE-add weapon caches
--add hiluxes for IND use
--add IND ambush spots that are randomly selected
--add sector control???
--export mission to sqf script
-https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_script_form/
+DONE-add hiluxes for IND use
+-export mission to sqf script   https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_script_form/
 -make convoy vehicles a targeted objective
 -detect when convoy vehicles are dead
 -after they're dead or convoy complete, create new convoy
--debug new changes to airmobile script
+DONE-debug new changes to airmobile script
 -debug new changes to convoy script
+-make sure all markers aren't visible to players
+-make battery of BM-21s shelling for asthetic effect
+    -use the updated artillery script
 
-
-
-
-
-
-
-
-
-
-this addItemToUniform "rhs_10rnd_9x39mm_SP5";
-this addItemToUniform "rhs_20rnd_9x39mm_SP5";
-this addItemToUniform "rhs_10rnd_9x39mm_SP6";
-this addItemToUniform "rhs_20rnd_9x39mm_SP6";
-
-comment "Add weapons";
-this addWeapon "rhs_weap_vss";
-this addPrimaryWeaponItem "rhs_acc_pgo7v_asval";
-this addPrimaryWeaponItem "rhs_acc_pso1m2_asval";
-this addPrimaryWeaponItem "rhs_acc_1pn93_1";
-
-
-this addItemToUniform "rhs_mag_762x25_8";
-this addItemToUniform "rhsgref_5Rnd_762x54_m38";
-this addWeapon "rhs_weap_m38";
-this addWeapon "rhs_weap_tt33";
-
-
+NA-add ambient soviet aircraft coming and going from the base
+NA-add soviet CAS support
+NA-add sector control???
 
 
 

@@ -1,12 +1,6 @@
 // ConvoyMove.sqf
 // � v.2.5 MARCH 2016 - Devastator_cm
 
-//if (!isServer) exitWith {};
-//check if HC1 is present
-HC1Present = if (isNil "HC1") then{False} else{True};
-HC2Present = if (isNil "HC2") then{False} else{True};
-HC3Present = if (isNil "HC3") then{False} else{True};
-
 private _markerArray 		 	= _this select 0;
 private _convoyArray 		 	= _this select 1;
 private _ConvoySpeedLimit		= _this select 2;
@@ -79,17 +73,7 @@ _i = 0;
 	_x setBehaviour _ConvoyBehaviour;
 	_x setCombatMode "GREEN"; 
 	_x doMove (getMarkerPos _marker);
-	if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-	{
-	    [_x, _markerArray select ((count _markerArray) -1), _convoyArray, _i, _ConvoySearchRange] spawn Saber_fnc_ConvoyMaxSpeed;
-	}
-	else
-	{
-	    if(isServer) then
-	    {
-	        [_x, _markerArray select ((count _markerArray) -1), _convoyArray, _i, _ConvoySearchRange] spawn Saber_fnc_ConvoyMaxSpeed;
-	    };
-	};
+	[_x, _markerArray select ((count _markerArray) -1), _convoyArray, _i, _ConvoySearchRange] spawn Saber_fnc_ConvoyMaxSpeed;
 	_i = _i + 1;
 }	forEach _convoyArray;
 
@@ -132,17 +116,7 @@ while {!_StopConvoy} do
 };
 
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-{
-    if (_ConvoyDestination) then {[_convoyArray, _all_groups, _ConvoyID, _marker] spawn Saber_fnc_ConvoyEnd;};
-}
-else
-{
-    if(isServer) then
-    {
-        if (_ConvoyDestination) then {[_convoyArray, _all_groups, _ConvoyID, _marker] spawn Saber_fnc_ConvoyEnd;};
-    };
-};
+if (_ConvoyDestination) then {[_convoyArray, _all_groups, _ConvoyID, _marker] spawn Saber_fnc_ConvoyEnd;};
 
 {
 	_x setVariable ["DEVAS_ConvoyAmbush",true,false];
@@ -181,15 +155,5 @@ if(!_ConvoyDestination) then
 	} 	forEach _inf_groups;
 	sleep 5; // Wait for infantry to get out
 	
-	if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-	{
-	    [_markersRemaining, _aliveConvoy, _all_groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
-	}
-	else
-	{
-	    if(isServer) then
-	    {
-	        [_markersRemaining, _aliveConvoy, _all_groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
-	    };
-	};
+	[_markersRemaining, _aliveConvoy, _all_groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
 };

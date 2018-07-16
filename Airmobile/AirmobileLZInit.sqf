@@ -8,10 +8,8 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 //fnc_AirmobileLZInit =
 //{
-//private _objectsInsideLZ          = _this select 0; // FIXME
-//private _objectsInsideBase        = _this select 1; // FIXME
-private _lzTriggerArray           = _this select 0;
-private _baseTriggerArray         = _this select 1;
+private _lzHelipadsArray           = _this select 0;
+private _baseHelipadsArray         = _this select 1;
 private _lzTrigger                = "";
 private _baseTrigger              = "";
 private _lzHelipads               = [];
@@ -25,8 +23,8 @@ private _totalHelicoptersToSpawn  = 0;
 private _output                   = [];
 
 // Select base and LZ triggers
-//_lzTrigger                = _lzTriggerArray select 0; // FIXME
-//_baseTrigger              = _baseTriggerArray select 0; // FIXME
+//_lzTrigger                = _lzHelipadsArray select 0; // FIXME
+//_baseTrigger              = _baseHelipadsArray select 0; // FIXME
 //_lzTrigger setTriggerActivation ["ANY", "PRESENT", false];
 //_lzTrigger setTriggerStatements [true, "objectsInsideLZ = thisList", ""] ;
 //_baseTrigger setTriggerActivation ["ANY", "PRESENT", false];
@@ -38,8 +36,8 @@ sleep 1.0;
 //_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7]; // FIXME
 //_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]; // FIXME
 
-_objectsInsideLZ = _lzTriggerArray;
-_objectsInsideBase = _baseTriggerArray;
+_objectsInsideLZ = _lzHelipadsArray;
+_objectsInsideBase = _baseHelipadsArray;
 
 // Get LZ Helipad count
 _numLZHelipads = 0;
@@ -103,7 +101,7 @@ _output;
 //};
 
 
-//// _this = [_lzTriggerArray,_lzBaseArray];
+//// _this = [_lzHelipadsArray,_lzBaseArray];
 //if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 //{
 //    hint "Calling fnc_AirmobileLZInit.";

@@ -100,9 +100,9 @@ fnc_ConvoyMaster =
     private _convoy_type = selectRandom _possible_convoys;
     private _speed_kph = 55;
     private _threat_radius_m = 400;
+    private _convoy_id = 1;
     private _speed_str = "NORMAL";
     private _behavior = "CARELESS";
-
 
     hint "Calling Saber_fnc_ConvoySpawnVehicles.";
     sleep 1.0;
@@ -110,7 +110,7 @@ fnc_ConvoyMaster =
     
     hint "Calling Saber_fnc_ConvoyMove.";
     sleep 1.0;
-    _handle = [_convoy_route,_vehicles, _speed_kph, _threat_radius_m, 1, _speed_str, _behavior] spawn Saber_fnc_ConvoyMove;
+    _handle = [_convoy_route,_vehicles select 0, _speed_kph, _threat_radius_m, _vehicles select 1, _speed_str, _behavior] spawn Saber_fnc_ConvoyMove;
 
 };
 

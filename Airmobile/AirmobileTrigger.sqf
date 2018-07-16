@@ -33,12 +33,12 @@ fnc_AirmobileTrigger =
 	//_message = format ["fnc_AirmobileTrigger _this[0]: %1",_this select 0];
 	//hint _message;
 	//sleep 3.0;
-	_input = _this select 0;
+	private _input = _this select 0;
 
-	private _lzTriggers = _input select 0;
-	private _baseTriggers = _input select 1;
-	private _lzTriggerArray = _lzTriggers;
-	private _baseTriggerArray = _baseTriggers;
+	private _lzHelipads = _input select 0;
+	private _baseHelipads = _input select 1;
+	private _lzHelipadsArray = _lzHelipads;
+	private _baseHelipadsArray = _baseHelipads;
 	private _side = east;
 	private _faction = "SovietArmy_OKSVA";
 	private _category = "Infantry";
@@ -48,7 +48,7 @@ fnc_AirmobileTrigger =
 	private _spawnAttackHelis = true;
 	private _spawnInAir = true;
 	private _dustoff = false;
-	[_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;
+	[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;
 };
 
 //_this = [_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
@@ -56,8 +56,7 @@ if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_AirmobileTrigger.";
     //sleep 1.0;
-    private _input = _this;
-    [_input] call fnc_AirmobileTrigger;
+    [_this] call fnc_AirmobileTrigger;
 }
 else
 {
@@ -65,8 +64,7 @@ else
     {
         //hint "Calling fnc_AirmobileTrigger.";
         //sleep 1.0;
-        private _input = _this;
-        [_input] call fnc_AirmobileTrigger;
+        [_this] call fnc_AirmobileTrigger;
     };
 };
 

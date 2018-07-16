@@ -1,9 +1,5 @@
 // ConvoyAmbush.sqf
 // � v.2.5 MARCH 2016 - Devastator_cm
-HC1Present = if (isNil "HC1") then{False} else{True};
-HC2Present = if (isNil "HC2") then{False} else{True};
-HC3Present = if (isNil "HC3") then{False} else{True};
-
 
 private _markerArray  		= _this select 0;
 private _convoyArray  		= _this select 1;
@@ -62,17 +58,7 @@ while {!_stop_search} do
 
 			if (!(_Enemy_Eval isEqualTo []) && ((_group in _arm_groups) && (_vehicle != _unit) && ((driver _vehicle) == _unit) && _d == 3)) then
 			{ 
-			    if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-			    {
-		    	    _random_enemy 	= [_Enemy_Eval, _vehicle] call Saber_fnc_ConvoyEnemy;
-		    	}
-		    	else
-		    	{
-		    	    if(isServer) then
-		    	    {
-		    	        _random_enemy    = [_Enemy_Eval, _vehicle] call Saber_fnc_ConvoyEnemy;
-		    	    };
-		    	};
+		        _random_enemy 	= [_Enemy_Eval, _vehicle] call Saber_fnc_ConvoyEnemy;
 		    	
 		    	if (isnil "_random_enemy") exitwith {};
 				_posEnemy   	= (_random_enemy getRelPos [random [1,4,8] * 10, random 360]) findEmptyPosition [0,50, typeOf _vehicle];
@@ -130,18 +116,7 @@ while {!_stop_search} do
 _groupsNotNull = (_groups select {_x != grpNull});
 {_inf_units append (units _x select {alive _x});} foreach _groupsNotNull;
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-{
-    [_markerArray, _aliveConvoy, _groupsNotNull, _inf_units, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyRestart;
-}
-else
-{
-    if(isServer) then
-    {
-        [_markerArray, _aliveConvoy, _groupsNotNull, _inf_units, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyRestart;
-    };
-};
-//[_markerArray, _aliveConvoy, _groupsNotNull, _inf_units, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyRestart;
+[_markerArray, _aliveConvoy, _groupsNotNull, _inf_units, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyRestart;
 
 
 

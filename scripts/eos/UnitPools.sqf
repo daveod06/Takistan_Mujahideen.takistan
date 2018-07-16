@@ -116,9 +116,23 @@ _tempArray=[];
 	_crewPool=	["OKSVA_Crew_MSV"];
 	_heliCrew=	["OKSVA_Aircrew_FA"];};
 	
-// ADD CLASSNAMES 	
+// PROJECT OPFOR MIDDLE EASTERN MILITIA 	
 	if (_faction==8) then {
-	_InfPool=	;	
+	_InfPool=	[""];	
+	_ArmPool=	[];
+	_MotPool=	[];
+	_ACHPool=	[];
+	_CHPool=	[];
+	_uavPool=	[];
+	_stPool=	[];
+	_shipPool=	[];
+	_diverPool=	[];
+	_crewPool=	[];
+	_heliCrew=	[];};
+
+// ADD CLASSNAMES 	
+	if (_faction==9) then {
+	_InfPool=	[];	
 	_ArmPool=	[];
 	_MotPool=	[];
 	_ACHPool=	[];

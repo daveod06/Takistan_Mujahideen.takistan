@@ -1,0 +1,21 @@
+EOS_fnc_Spawn = compile preprocessfilelinenumbers "scripts\eos\core\eos_launch.sqf";
+EOS_fnc_Bastion_Spawn= compile preprocessfilelinenumbers "scripts\eos\core\b_launch.sqf";
+EOS_fnc_b_core = "scripts\eos\core\b_core.sqf";
+EOS_fnc_TransportUnload_fnc = "scripts\eos\functions\TransportUnload_fnc.sqf"
+EOS_fnc_Core = "scripts\eos\core\EOS_Core.sqf";
+EOS_fnc_SpawnVehicle = "scripts\eos\functions\eos_SpawnVehicle.sqf";
+EOS_fnc_setSkill = "scripts\eos\functions\setSkill.sqf";
+EOS_fnc_findSafePos.sqf = "scripts\eos\functions\findSafePos.sqf";
+EOS_fnc_infantry_fnc = "scripts\eos\functions\infantry_fnc.sqf";
+EOS_fnc_cargo_fnc = "scripts\eos\functions\cargo_fnc.sqf";
+EOS_fnc_shk_patrol = "scripts\eos\functions\shk_patrol.sqf";
+EOS_fnc_shk_pos = "scripts\eos\functions\shk_pos.sqf";
+EOS_fnc_SHK_buildingpos = "scripts\eos\Functions\SHK_buildingpos.sqf";
+EOS_fnc_UnitPools = "scripts\eos\UnitPools.sqf";
+EOS_fnc_UnitLoadouts = "scripts\eos\UnitLoadouts.sqf";
+EOS_fnc_AI_Skill = "scripts\eos\AI_Skill.sqf";
+EOS_fnc_KillCounter = "scripts\eos\functions\EOS_KillCounter.sqf";
+EOS_fnc_spawn_fnc = "scripts\eos\core\spawn_fnc.sqf";
+EOS_fnc_Markers = "scripts\eos\Functions\EOS_Markers.sqf";
+EOS_fnc_suicideBomber = "scripts\eos\suicideBomber.sqf";
+

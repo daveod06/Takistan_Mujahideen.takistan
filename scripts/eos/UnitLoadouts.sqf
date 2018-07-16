@@ -55,4 +55,4 @@ else
 };
 
 //hint _initString;
-_initString
+_initString;

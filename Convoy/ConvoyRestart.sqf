@@ -1,9 +1,5 @@
 // ConvoyRestart.sqf
 // © v.2.5 MARCH 2016 - Devastator_cm
-//check if HC1 is present
-HC1Present = if (isNil "HC1") then{False} else{True};
-HC2Present = if (isNil "HC2") then{False} else{True};
-HC3Present = if (isNil "HC3") then{False} else{True};
 
 private _markerArray  		= _this select 0;
 private _convoyArray  		= _this select 1;
@@ -82,17 +78,7 @@ if (!_Ambush) then
 	}	foreach (_inf_units select {isNull objectParent _x});
 
 	
-	if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-	{
-	    if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-	}
-	else
-	{
-	    if(isServer) then
-	    {
-	        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-	    };
-	};
+    if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 
 	//GUNNER DRIVER CHECK
 	{
@@ -133,20 +119,8 @@ if (!_Ambush) then
 
 	for "i" from 1 to 30 step 1 do
 	{ 
-	    if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-	    {
-	        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-            sleep 1;
-	    }
-	    else
-	    {
-	        if(isServer) then
-	        {
-	            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-                sleep 1;
-	        };
-	    };
-		
+	    if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
+        sleep 1;
 	};
 
 	_counter = 0;
@@ -157,18 +131,7 @@ if (!_Ambush) then
 		if({isNull objectParent _x} count _units_outside == 0) exitwith {};
 		_counter = _counter + 1;
 		sleep 1;
-		if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-        {
-            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-        }
-        else
-        {
-            if(isServer) then
-            {
-                if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-            };
-        };
-		
+        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 	};
 
 
@@ -214,17 +177,7 @@ if (!_Ambush) then
 		if({isNull objectParent _x} count _units_outside == 0) exitwith {};
 		_counter = _counter + 1;
 		sleep 1;
-		if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-        {
-            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-        }
-        else
-        {
-            if(isServer) then
-            {
-                if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-            };
-        };
+        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 	};
 
 	// 2nd GUNNER DRIVER CHECK
@@ -273,17 +226,7 @@ if (!_Ambush) then
 		if({isNull objectParent _x} count _units_outside == 0) exitwith {};
 		_counter = _counter + 1;
 		sleep 1;
-		if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-        {
-            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-        }
-        else
-        {
-            if(isServer) then
-            {
-                if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-            };
-        };
+        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 	};
 
 	deleteGroup _walking_dead;
@@ -304,17 +247,7 @@ if (!_Ambush) then
 	}
 	else {deleteGroup _walking_dead};
 	
-	if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-    {
-        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-    }
-    else
-    {
-        if(isServer) then
-        {
-            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-        };
-    };
+    if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 	
 	{_convoyArray = _convoyArray - [_x];} foreach (_convoyArray select {isnull(driver _x) || !alive(driver _x)|| !alive _x || !canmove _x || side _x != _side});
 
@@ -322,30 +255,10 @@ if (!_Ambush) then
 	{
 		_counter = _counter - 1;
 		sleep 1;
-		if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-	    {
-	        if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-	    }
-	    else
-	    {
-	        if(isServer) then
-	        {
-	            if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
-	        };
-	    };
+	    if ([_enemySides, _inf_units] call Saber_fnc_ConvoySearch) exitwith {_Ambush = true;breakTo "main"};
 	};
 
-    if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-    {
-        if (count _convoyArray > 0) then {[_markerArray, _convoyArray, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour] spawn Saber_fnc_ConvoyMove;};
-    }
-    else
-    {
-        if(isServer) then
-        {
-            if (count _convoyArray > 0) then {[_markerArray, _convoyArray, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour] spawn Saber_fnc_ConvoyMove;};
-        };
-    };
+    if (count _convoyArray > 0) then {[_markerArray, _convoyArray, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour] spawn Saber_fnc_ConvoyMove;};
 };
 
 if (_Ambush) then 
@@ -386,15 +299,5 @@ if (_Ambush) then
 	 	_x setCombatMode "RED";
 	} 	forEach _inf_groups;
 	sleep 5; // Wait for infantry to get out
-	if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-    {
-        [_markerArray, _convoyArray, _groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
-    }
-    else
-    {
-        if(isServer) then
-        {
-            [_markerArray, _convoyArray, _groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
-        };
-    };
+    [_markerArray, _convoyArray, _groups, _arm_groups, _ConvoySpeedLimit, _ConvoySearchRange, _ConvoyID, _ConvoySpeedMode, _ConvoyBehaviour, _arm_vehicles] spawn Saber_fnc_ConvoyAmbush;
 };

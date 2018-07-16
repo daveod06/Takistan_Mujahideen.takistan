@@ -6,9 +6,6 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 
 
-//{ _x setmarkerAlpha 0; } forEach _convoy_route;
-//{ _x setmarkerAlpha 0; } forEach _convoy_spawn_points;
-
 fnc_spawnConvoy = {
     private _convoy_route = _this select 0;
     private _convoy_spawn_points = _this select 1;
@@ -29,6 +26,15 @@ fnc_spawnConvoy = {
     private _marker_color = "";
     publicVariable "vehCounterGlobal";
     publicVariable "convoyCounterGlobal";
+
+    if (isNil convoyId) then
+    {
+        convoyId = 0;
+    }
+    else
+    {
+        convoyId = convoyId + 1;
+    };
 
     _convoy_to_spawn = _convoy_type;
     _spawned_vehicles = [];
@@ -51,7 +57,7 @@ fnc_spawnConvoy = {
         else
         {
             sleep 1.0;
-            if(_marker_color != "") then
+            if(_marker_color == "") then
             {
                 hint "Marker doesn't exist!!!!";
             };
@@ -62,8 +68,9 @@ fnc_spawnConvoy = {
     convoyCounterGlobal = convoyCounterGlobal + 1;
     publicVariable "vehCounterGlobal";
     publicVariable "convoyCounterGlobal";
+    publicVariable "convoyId";
     
-    _spawned_vehicles;
+    [_spawned_vehicles,convoyId];
 };
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
