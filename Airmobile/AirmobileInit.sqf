@@ -1,6 +1,7 @@
 // ConvoyInit.sqf
 // � v.2.5 MARCH 2016 - Devastator_cm
 
+Saber_fnc_AirmobileTrigger          = Compile preprocessFileLineNumbers "Airmobile\AirmobileTrigger.sqf";
 Saber_fnc_AirmobileMaster           = Compile preprocessFileLineNumbers "Airmobile\AirmobileMaster.sqf";
 Saber_fnc_AirmobileLzInit 	    	= Compile preprocessFileLineNumbers "Airmobile\AirmobileLzInit.sqf";
 Saber_fnc_AirmobileHeliSpawn 		= Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliSpawn.sqf";

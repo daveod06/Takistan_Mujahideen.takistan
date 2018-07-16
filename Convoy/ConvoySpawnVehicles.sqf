@@ -6,8 +6,8 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 
 
-{ _x setmarkerAlpha 0; } forEach _convoy_route;
-{ _x setmarkerAlpha 0; } forEach _convoy_spawn_points;
+//{ _x setmarkerAlpha 0; } forEach _convoy_route;
+//{ _x setmarkerAlpha 0; } forEach _convoy_spawn_points;
 
 fnc_spawnConvoy = {
     private _convoy_route = _this select 0;

@@ -25,8 +25,8 @@ private _totalHelicoptersToSpawn  = 0;
 private _output                   = [];
 
 // Select base and LZ triggers
-_lzTrigger                = _lzTriggerArray select 0; // FIXME
-_baseTrigger              = _baseTriggerArray select 0; // FIXME
+//_lzTrigger                = _lzTriggerArray select 0; // FIXME
+//_baseTrigger              = _baseTriggerArray select 0; // FIXME
 //_lzTrigger setTriggerActivation ["ANY", "PRESENT", false];
 //_lzTrigger setTriggerStatements [true, "objectsInsideLZ = thisList", ""] ;
 //_baseTrigger setTriggerActivation ["ANY", "PRESENT", false];
@@ -35,10 +35,11 @@ sleep 1.0;
 //_objectsInsideLZ = objectsInsideLZ;
 //_objectsInsideBase = objectsInsideBase;
 
-_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7]; // FIXME
-_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]; // FIXME
+//_objectsInsideLZ = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7]; // FIXME
+//_objectsInsideBase = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]; // FIXME
 
-
+_objectsInsideLZ = _lzTriggerArray;
+_objectsInsideBase = _baseTriggerArray;
 
 // Get LZ Helipad count
 _numLZHelipads = 0;

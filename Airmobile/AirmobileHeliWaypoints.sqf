@@ -39,9 +39,9 @@ private _spawnedTroopGroups = _spawnTroopOutput select 0;
 private _kph_to_mps = 0.277778;
 
 // Get distance and direction towards LZ
-private _baseToLzBearing = _baseTrigger getDir _lzTrigger;
-private _lzToBaseBearing = _lzTrigger getDir _baseTrigger;
-private _lzDistance = _baseTrigger distance2D _lzTrigger;
+private _baseToLzBearing = (_baseHelipads select 0) getDir (_lzHelipads select 0);
+private _lzToBaseBearing = (_lzHelipads select 0) getDir (_baseHelipads select 0);
+private _lzDistance = (_baseHelipads select 0) distance2D (_lzHelipads select 0);
 private _takeoffPos = [0,0,0];
 
 // Attack helicopters

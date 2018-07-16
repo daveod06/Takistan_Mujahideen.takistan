@@ -4,95 +4,95 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
-private _btr_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_BTR60PB",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_R142",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _bmp_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BMP1K",
-"OKSVA_BMP1",
-"OKSVA_BMP1",
-"OKSVA_BMP1",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_R142",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _truck_convoy = [
-"OKSVA_UAZ_Open",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66_Ammo"
-];
-
-private _bmd_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_BMD1K",
-"OKSVA_BMD1",
-"OKSVA_BMD1",
-"OKSVA_BMD1",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _tank_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_T72B_1984",
-"OKSVA_T72B_1984",
-"OKSVA_T72B_1984",
-"OKSVA_Ural_Fuel",
-"OKSVA_GAZ66_Repair",
-"OKSVA_BRDM2UM_Armed"
-];
-
-private _armed_supply_convoy = [
-"OKSVA_BRDM2",
-"OKSVA_GAZ66_ZU23",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_BRDM2"
-];
-
-private _unarmed_supply_convoy = [
-"OKSVA_UAZ",
-"OKSVA_GAZ66",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel",
-"OKSVA_GAZ66"
-];
-
-private _small_supply_convoy = [
-"OKSVA_UAZ",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_GAZ66_Ammo",
-"OKSVA_Ural_Fuel",
-"OKSVA_Ural_Fuel"
-];
-
 fnc_ConvoyMaster =
 {
+	private _btr_convoy = [
+	"OKSVA_BRDM2",
+	"OKSVA_BTR60PB",
+	"OKSVA_BTR60PB",
+	"OKSVA_BTR60PB",
+	"OKSVA_BTR60PB",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_R142",
+	"OKSVA_BRDM2UM_Armed"
+	];
+	
+	private _bmp_convoy = [
+	"OKSVA_BRDM2",
+	"OKSVA_BMP1K",
+	"OKSVA_BMP1",
+	"OKSVA_BMP1",
+	"OKSVA_BMP1",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_R142",
+	"OKSVA_BRDM2UM_Armed"
+	];
+	
+	private _truck_convoy = [
+	"OKSVA_UAZ_Open",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66_Ammo"
+	];
+	
+	private _bmd_convoy = [
+	"OKSVA_BRDM2",
+	"OKSVA_BMD1K",
+	"OKSVA_BMD1",
+	"OKSVA_BMD1",
+	"OKSVA_BMD1",
+	"OKSVA_BRDM2UM_Armed"
+	];
+	
+	private _tank_convoy = [
+	"OKSVA_BRDM2",
+	"OKSVA_T72B_1984",
+	"OKSVA_T72B_1984",
+	"OKSVA_T72B_1984",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_GAZ66_Repair",
+	"OKSVA_BRDM2UM_Armed"
+	];
+	
+	private _armed_supply_convoy = [
+	"OKSVA_BRDM2",
+	"OKSVA_GAZ66_ZU23",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_BRDM2"
+	];
+	
+	private _unarmed_supply_convoy = [
+	"OKSVA_UAZ",
+	"OKSVA_GAZ66",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_GAZ66"
+	];
+	
+	private _small_supply_convoy = [
+	"OKSVA_UAZ",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_GAZ66_Ammo",
+	"OKSVA_Ural_Fuel",
+	"OKSVA_Ural_Fuel"
+	];
+
     private _possible_convoys=[_btr_convoy,_truck_convoy,_armed_supply_convoy,_unarmed_supply_convoy,_small_supply_convoy];
     
-    private _convoy_route = ["convoy_route_0","convoy_route_1","convoy_route_2","convoy_route_3","convoy_route_4"];
+    private _convoy_route = ["convoy_route_0","convoy_route_1","convoy_route_2","convoy_route_3"];
     private _convoy_spawn_points = ["convoy_pos_0","convoy_pos_1","convoy_pos_2","convoy_pos_3","convoy_pos_4","convoy_pos_5","convoy_pos_6","convoy_pos_7","convoy_pos_8"];
     private _convoy_side = east;
     private _enemy_side = resistance;

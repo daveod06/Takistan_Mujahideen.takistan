@@ -26,17 +26,37 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 fnc_AirmobileMaster =
 {
-    private _lzTriggerArray = _this select 0;
-	private _baseTriggerArray = _this select 1;
-	private _side = _this select 2;
-	private _faction = _this select 3;
-	private _category = _this select 4;
-	private _transportType = _this select 5;
-	private _attackType = _this select 6;
-	private _squadType = _this select 7;
-	private _spawnAttackHelis = _this select 8;
-	private _spawnInAir = _this select 9;
-	private _dustoff = _this select 10;
+	//_message = format ["fnc_AirmobileMaster input: %1",_this];
+	//hint _message;
+	//sleep 3.0;
+	//_message = format ["fnc_AirmobileMaster _this[0]: %1",_this select 0];
+	//hint _message;
+	//sleep 3.0;
+	
+	_input = _this select 0;
+	
+	
+	_message = format ["fnc_AirmobileMaster _input: %1",_input];
+	hint _message;
+	sleep 1.0;
+
+    private _lzTriggerArray = _input select 0;
+    _message = format ["fnc_AirmobileMaster _lzTriggerArray: %1",_lzTriggerArray];
+	hint _message;
+	sleep 1.0;
+	private _baseTriggerArray = _input select 1;
+	_message = format ["fnc_AirmobileMaster _baseTriggerArray: %1",_baseTriggerArray];
+	hint _message;
+	sleep 1.0;
+	private _side = _input select 2;
+	private _faction = _input select 3;
+	private _category = _input select 4;
+	private _transportType = _input select 5;
+	private _attackType = _input select 6;
+	private _squadType = _input select 7;
+	private _spawnAttackHelis = _input select 8;
+	private _spawnInAir = _input select 9;
+	private _dustoff = _input select 10;
     //groupsReadyForPickup = false;
 	//(configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")
 	//(configFile >> "CfgGroups" >> _side >> _faction >> _category >> _squadType)
@@ -78,17 +98,19 @@ fnc_AirmobileMaster =
 //_this = [_lzTriggerArray,_baseTriggerArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    hint "Calling fnc_AirmobileMaster.";
-    sleep 1.0;
-    [_this] call fnc_AirmobileMaster;
+    //hint "Calling fnc_AirmobileMaster.";
+    //sleep 1.0;
+    _input = _this;
+    [_input] call fnc_AirmobileMaster;
 }
 else
 {
     if(isServer) then
     {
-        hint "Calling fnc_AirmobileMaster.";
-        sleep 1.0;
-        [_this] call fnc_AirmobileMaster;
+        //hint "Calling fnc_AirmobileMaster.";
+        //sleep 1.0;
+        _input = _this;
+        [_input] call fnc_AirmobileMaster;
     };
 };
 
