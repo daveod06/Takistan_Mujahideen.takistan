@@ -8,15 +8,15 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_selectTarget = {
 	private _targetGroupsArray = _this select 0;
     private _targetUnit = objNull;
-    if (!isNull _targetGroupsArray) then // if target array is not empty
-    {
+    //if (!isNull _targetGroupsArray) then // if target array is not empty
+    //{
 	    private _targetGroup = selectRandom _targetGroupsArray;
         private _targetGroupSize = count (units _targetGroup);
-        if ((!isNull _targetGroup) && (_targetGroupSize > 0)) // if target group is not null and has units
+        if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
         {
             _targetUnit = selectRandom (units _targetGroup);
         };
-    };
+    //};
     _targetUnit;
 };
 
@@ -45,6 +45,7 @@ fnc_setAiFireAware = {
 	private _forceFire = _this select 1;
 	private _targetUnit = _this select 2;
     private _artilleryOk = false;
+    private _awareness = 0.0;
     _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
 
     if (_artilleryOk) then
@@ -70,8 +71,9 @@ fnc_setAiFireAware = {
 		//	_gunner disableAI "AUTOTARGET";
 		//	_gunner disableAI "WEAPONAIM";
 		//};
+		_awareness = _gunner knowsAbout _targetUnit;
     };
-    private _awareness = _gunner knowsAbout _targetUnit;
+    _awareness;
 };
 
 fnc_artilleryDoArtilleryFire =
@@ -100,24 +102,35 @@ fnc_artilleryDoArtilleryFire =
     sleep _delay;
 };
 
+//_handle = [[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;
+
+
 fnc_artilleryFireMaster =
 {
-    private _numRounds = _this select 0; // number of round to shoot
-    private _artillery = _this select 1; // artillery object
-    private _targetGroupsArray = _this select 2; // array of possible target units
-    private _errorRadius = _this select 3; // self explanatory
-    private _delay = _this select 4; // seconds delay between shots
-    private _forceFire = _this select 4; // command to fire instead of letting AI figure it out
+
+	_input = _this select 0;
+	_message = format ["fnc_artilleryFireMaster input: %1",_input];
+	hint _message;
+	sleep 3.0;
+
+    private _numRounds = _input select 0; // number of round to shoot
+    private _artillery = _input select 1; // artillery object
+    private _targetGroupsArray = _input select 2; // array of possible target units
+    private _errorRadius = _input select 3; // self explanatory
+    private _delay = _input select 4; // seconds delay between shots
+    private _forceFire = _input select 5; // command to fire instead of letting AI figure it out
+    private _targetUnit = objNull;
+    private _awareness = 0.0;
 
     private _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
     if (_artilleryOk) then
     {
-        private _targetUnit = [_targetGroupsArray] call fnc_selectTarget;
-        private _awareness = [_artillery,_forceFire,_targetUnit] call fnc_setAiFireAware;
+        _targetUnit = [_targetGroupsArray] call fnc_selectTarget;
+        _awareness = [_artillery,_forceFire,_targetUnit,_delay] call fnc_setAiFireAware;
     }
     else
-    {   private _targetUnit = objNull;
-        private _awareness = 0.0;
+    {   _targetUnit = objNull;
+        _awareness = 0.0;
     };
     if (isNull _targetUnit) exitWith {
         hint "Artillery target is null!";

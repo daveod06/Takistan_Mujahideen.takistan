@@ -88,6 +88,10 @@ fnc_AirmobileMaster =
 	//[_spawnHeliOutput] spawn Saber_fnc_AirmobileEnableCollision;
 	_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
+	// if crew leave helicopter
+	// delete remaining waypoints
+	// set to aware
+	
 	//if _dustoff then
 	//{
 	//    _spawnAttackHelis = false;

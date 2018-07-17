@@ -25,7 +25,7 @@ hostileColor="colorRed";	// Default colour when enemies active
 bastionColor="colorOrange";	// Colour for bastion marker
 EOS_DAMAGE_MULTIPLIER=1;	// 1 is default
 EOS_KILLCOUNTER=false;		// Counts killed units
-EOS_USE_FLASHLIGHTS=true;   // Attempts to make spawned units use flashlights
+EOS_USE_FLASHLIGHTS=false;   // Attempts to make spawned units use flashlights
 EOS_SUICIDE_CHANCE=0.0;     // Attemps to % of units as suicide bombers 0.0 -1.0
 
 null = [["EOSzone_1"],[4,2,80],[5,2,60],[2,1,60],[1,50],[1,50],[0,0],[7,1,850,EAST,TRUE]] call EOS_Spawn;
