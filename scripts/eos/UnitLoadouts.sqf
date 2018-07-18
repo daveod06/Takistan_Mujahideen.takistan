@@ -21,7 +21,7 @@ _initString="";
 _fileName = _joinArray joinString "";
 _fileExists = (_fileName call KK_fnc_fileExists);
 
-_addFlashlightString = "removeAllPrimaryWeaponItems this;this addPrimaryWeaponItem ""acc_flashlight"";this addPrimaryWeaponItem ""rhs_acc_2dpZenit"";this addPrimaryWeaponItem ""rhsusf_acc_anpeq15_light"";";
+_addFlashlightString = "_flashlightItem = (primaryWeaponItems this) select 1;this removePrimaryWeaponItem _flashlightItem;this addPrimaryWeaponItem ""acc_flashlight"";this addPrimaryWeaponItem ""rhs_acc_2dpZenit"";this addPrimaryWeaponItem ""rhsusf_acc_anpeq15_light"";";
 _useFlashLightString = "this enablegunlights ""forceOn"";this unassignItem ""NVGoggles"";this removeItem ""NVGoggles"";this unassignItem ""NVGoggles_OPFOR"";this removeItem ""NVGoggles_OPFOR"";";
 _suicideBomberString = "[this,_enemyFactionsArray,""grenadeHand"",20,TRUE,_temp] execVM ""scripts\suicideBomber.sqf"";";
 _initString = "";
