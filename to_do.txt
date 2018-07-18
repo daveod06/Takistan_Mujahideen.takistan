@@ -29,7 +29,7 @@ laserT0 attachTo [target_0,[0,0,0]];
 
 
 
--use EOS zones to spawn fellow mujahideen
+WIP-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?
 -add a few mujahideen to your group after clearing each of the 3 outposts
@@ -37,23 +37,23 @@ laserT0 attachTo [target_0,[0,0,0]];
     -place down markers
     -spawn units at marker
     -develop script to add units to player's group
--add one mortar at each outpost to hit other outpost with fire
+WIP-add one mortar at each outpost to hit other outpost with fire
     -set up triggers
     -copy and paste mortar from the base and name it
--add one big mortar zone around the base
--add triggers to make gunners get out
+WIP-add one big mortar zone around the base
+TEST-add triggers to make gunners get out
     -use concept from isis raid
     -might be a script alrady written, make it into function and init it
 -add objectives to take out each outpost
 -add objective to kill mortars at base
--update unit loadout sqf files for EOS mujahideen
+WIP-update unit loadout sqf files for EOS mujahideen
     -use virtual arsenal
     -get classnames of project opfor men
     -replace their guns with RHS guns
--update civilian car classnames
-    -scripts/Engima/traffic/configandstart.sqf
--update civilian men classnames
-    -scripts/Engima/civilians/configandstart.sqf
+DONE-update civilian car classnames
+    DONE-scripts/Engima/traffic/configandstart.sqf
+DONE-update civilian men classnames
+    DONE-scripts/Engima/civilians/configandstart.sqf
 -fix soviet ammo boxes
     - check configs from AFRF
     - check model and inheritance
