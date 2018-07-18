@@ -12,7 +12,8 @@
 
 _parameters = [
 	["SIDE", civilian],
-	["VEHICLES", ["CUP_C_S1203_CIV","CUP_C_S1203_Ambulance_CIV","CUP_C_Lada_GreenTK_CIV","CUP_C_Lada_TK2_CIV","CUP_C_V3S_Open_TKC","CUP_C_V3S_Covered_TKC","CUP_C_UAZ_Unarmed_TK_CIV","CUP_C_Datsun","CUP_C_Volha_Blue_TKCIV","CUP_C_Volha_Gray_TKCIV","CUP_C_Volha_Limo_TKCIV"]],
+	//["VEHICLES", ["CUP_C_S1203_CIV","CUP_C_S1203_Ambulance_CIV","CUP_C_Lada_GreenTK_CIV","CUP_C_Lada_TK2_CIV","CUP_C_V3S_Open_TKC","CUP_C_V3S_Covered_TKC","CUP_C_UAZ_Unarmed_TK_CIV","CUP_C_Datsun","CUP_C_Volha_Blue_TKCIV","CUP_C_Volha_Gray_TKCIV","CUP_C_Volha_Limo_TKCIV"]],
+	["VEHICLES", ["LOP_TAK_Civ_Landrover","LOP_TAK_Civ_UAZ","LOP_TAK_Civ_UAZ_Open","LOP_TAK_Civ_Ural","LOP_TAK_Civ_Ural_open"]],
 	["VEHICLES_COUNT", 10],
 	["MAX_GROUPS_COUNT", 0],
 	["MIN_SPAWN_DISTANCE", 800],

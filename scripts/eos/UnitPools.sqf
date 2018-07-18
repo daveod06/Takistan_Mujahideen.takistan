@@ -118,21 +118,21 @@ _tempArray=[];
 	
 // PROJECT OPFOR MIDDLE EASTERN MILITIA 	
 	if (_faction==8) then {
-	_InfPool=	[""];	
+	_InfPool=	["LOP_AM_Infantry_Engineer","LOP_AM_Infantry_Corpsman","LOP_AM_Infantry_GL","LOP_AM_Infantry_Rifleman_6","LOP_AM_Infantry_Rifleman","LOP_AM_Infantry_Rifleman_2","LOP_AM_Infantry_Rifleman_4","LOP_AM_Infantry_Rifleman_3","LOP_AM_Infantry_AT","LOP_AM_Infantry_Marksman","LOP_AM_Infantry_AR","LOP_AM_Infantry_AR_Asst","LOP_AM_Infantry_SL"];	
 	_ArmPool=	[];
-	_MotPool=	[];
+	_MotPool=	["LOP_AM_Nissan_PKM","LOP_AM_UAZ_DshKM","LOP_AM_UAZ_Open","LOP_AM_UAZ_SPG"];
 	_ACHPool=	[];
 	_CHPool=	[];
 	_uavPool=	[];
 	_stPool=	[];
 	_shipPool=	[];
-	_diverPool=	[];
-	_crewPool=	[];
+	_diverPool=	["LOP_AM_Infantry_Engineer","LOP_AM_Infantry_Corpsman","LOP_AM_Infantry_GL","LOP_AM_Infantry_Rifleman_6","LOP_AM_Infantry_Rifleman","LOP_AM_Infantry_Rifleman_2","LOP_AM_Infantry_Rifleman_4","LOP_AM_Infantry_Rifleman_3","LOP_AM_Infantry_AT","LOP_AM_Infantry_Marksman","LOP_AM_Infantry_AR","LOP_AM_Infantry_AR_Asst","LOP_AM_Infantry_SL"];
+	_crewPool=	["LOP_AM_Infantry_Engineer","LOP_AM_Infantry_Corpsman","LOP_AM_Infantry_GL","LOP_AM_Infantry_Rifleman_6","LOP_AM_Infantry_Rifleman","LOP_AM_Infantry_Rifleman_2","LOP_AM_Infantry_Rifleman_4","LOP_AM_Infantry_Rifleman_3","LOP_AM_Infantry_AT","LOP_AM_Infantry_Marksman","LOP_AM_Infantry_AR","LOP_AM_Infantry_AR_Asst","LOP_AM_Infantry_SL"];
 	_heliCrew=	[];};
 
 // ADD CLASSNAMES 	
 	if (_faction==9) then {
-	_InfPool=	[];	
+	_InfPool=	[""];	
 	_ArmPool=	[];
 	_MotPool=	[];
 	_ACHPool=	[];
