@@ -39,6 +39,11 @@ sleep 1.0;
 _objectsInsideLZ = _lzHelipadsArray;
 _objectsInsideBase = _baseHelipadsArray;
 
+if ((count _objectsInsideLZ == 0) or (count _objectsInsideBase == 0)) exitWith
+{
+	hint "No helipads in either base or LZ.";
+};
+
 // Get LZ Helipad count
 _numLZHelipads = 0;
 _lzHelipads = [];

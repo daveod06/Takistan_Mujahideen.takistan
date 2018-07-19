@@ -28,8 +28,8 @@ laserT0 attachTo [target_0,[0,0,0]];
 
 
 
-
-WIP-use EOS zones to spawn fellow mujahideen
+-add alive checks all over helicopter script
+TEST-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?
 -add a few mujahideen to your group after clearing each of the 3 outposts
@@ -37,30 +37,30 @@ WIP-use EOS zones to spawn fellow mujahideen
     -place down markers
     -spawn units at marker
     -develop script to add units to player's group
-WIP-add one mortar at each outpost to hit other outpost with fire
-    -set up triggers
-    -copy and paste mortar from the base and name it
+DONE-add one mortar at each outpost to hit other outpost with fire
+    DONE-set up triggers
+    DONE-copy and paste mortar from the base and name it
 WIP-add one big mortar zone around the base
-TEST-add triggers to make gunners get out
-    -use concept from isis raid
-    -might be a script alrady written, make it into function and init it
+DONE-add triggers to make gunners get out
+    DONE-use concept from isis raid
+    DONE-might be a script alrady written, make it into function and init it
 -add objectives to take out each outpost
 -add objective to kill mortars at base
-WIP-update unit loadout sqf files for EOS mujahideen
-    -use virtual arsenal
-    -get classnames of project opfor men
-    -replace their guns with RHS guns
+DONE-update unit loadout sqf files for EOS mujahideen
+    DONE-use virtual arsenal
+    DONE-get classnames of project opfor men
+    DONE-replace their guns with RHS guns
 DONE-update civilian car classnames
     DONE-scripts/Engima/traffic/configandstart.sqf
 DONE-update civilian men classnames
     DONE-scripts/Engima/civilians/configandstart.sqf
--fix soviet ammo boxes
-    - check configs from AFRF
-    - check model and inheritance
+DONE-fix soviet ammo boxes
+    DONE- check configs from AFRF
+    DONE- check model and inheritance
 DONE-add soviets at airbase guarding it
 DONE-add parked soviet aircraft
--add soviet artillery support
-    -test out new mortar script
+TEST-add soviet artillery support
+    FIX-test out new mortar script
 DONE-add civilians
 DONE-add civilian vehicles
 -add spawn points to all members of player's squad
@@ -122,4 +122,48 @@ comment "Add items";
 this linkItem "ItemMap";
 this linkItem "ItemCompass";
 this linkItem "ItemWatch";
+
+
+
+
+
+
+
+comment "Exported from Arsenal by SaberSnack";
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add containers";
+this forceAddUniform "LOP_U_AM_Fatigue_03_3";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+for "_i" from 1 to 2 do {this addItemToUniform "rhs_mag_rgd5";};
+for "_i" from 1 to 4 do {this addItemToUniform "rhs_30Rnd_762x39mm_U";};
+this addVest "LOP_6sh46";
+this addBackpack "rhs_rpg_empty";
+for "_i" from 1 to 4 do {this addItemToBackpack "rhs_rpg7_PG7V_mag";};
+this addHeadgear "LOP_H_Shemag_BLU";
+
+comment "Add weapons";
+this addWeapon "rhs_weap_akmn";
+this addPrimaryWeaponItem "rhs_acc_pbs1";
+this addPrimaryWeaponItem "rhs_acc_1pn93_1";
+this addWeapon "rhs_weap_rpg7";
+this addWeapon "Binocular";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemRadio";
+
+comment "Set identity";
+this setFace "WhiteHead_20";
+this setSpeaker "male03per";
 

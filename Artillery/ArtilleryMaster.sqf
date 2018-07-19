@@ -8,15 +8,15 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_selectTarget = {
 	private _targetGroupsArray = _this select 0;
     private _targetUnit = objNull;
-    //if (!isNull _targetGroupsArray) then // if target array is not empty
-    //{
+    if (count _targetGroupsArray != 0) then // if target array is not empty
+    {
 	    private _targetGroup = selectRandom _targetGroupsArray;
         private _targetGroupSize = count (units _targetGroup);
         if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
         {
             _targetUnit = selectRandom (units _targetGroup);
         };
-    //};
+    };
     _targetUnit;
 };
 
