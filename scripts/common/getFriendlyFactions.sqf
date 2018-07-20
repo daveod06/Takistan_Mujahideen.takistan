@@ -1,16 +1,42 @@
 // [_unit]  execVM "scripts\common\getFriendlyFactions.sqf"
-if (!isServer) exitWith {};
-private ["_unit","_sidesArray","_friendlyFactionsArray","_side"];
-_unit = _this select 0;
+//if (!isServer) exitWith {};
+//check if HC1 is present
+HC1Present = if (isNil "HC1") then{False} else{True};
+HC2Present = if (isNil "HC2") then{False} else{True};
+HC3Present = if (isNil "HC3") then{False} else{True};
 
-_sidesArray = [WEST,EAST,Resistance,Civilian];
-_friendlyFactionsArray = [];
-_side = side _unit;
-
+fnc_getFriendlyFactions =
 {
-    if ([_side, _x] call BIS_fnc_sideIsFriendly) then
+    private ["_unit","_unitOk","_sidesArray","_friendlyFactionsArray","_side"];
+    _unit = _this select 0;
+    _unitOk = [_unit] call Saber_fnc_unitOk;
+    if (!_unitOk) exitWith {};
+    
+    _sidesArray = [WEST,EAST,Resistance,Civilian];
+    _friendlyFactionsArray = [];
+    _side = side _unit;
+    
     {
-        _friendlyFactionsArray append [_x];
+        if ([_side, _x] call BIS_fnc_sideIsFriendly) then
+        {
+            _friendlyFactionsArray append [_x];
+        };
+    } forEach _sidesArray;
+    _friendlyFactionsArray
+};
+
+if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
+{
+    //hint "Calling fnc_getFriendlyFactions.";
+    //sleep 1.0;
+    _return = _this call fnc_getFriendlyFactions;
+}
+else
+{
+    if(isServer) then
+    {
+        //hint "Calling fnc_getFriendlyFactions.";
+        //sleep 1.0;
+        _return = _this call fnc_getFriendlyFactions;
     };
-} forEach _sidesArray;
-_friendlyFactionsArray
+};
