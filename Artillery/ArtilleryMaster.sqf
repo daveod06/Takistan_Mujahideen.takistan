@@ -117,8 +117,9 @@ fnc_artilleryFireMaster =
     private _artillery = _input select 1; // artillery object
     private _targetGroupsArray = _input select 2; // array of possible target units
     private _errorRadius = _input select 3; // self explanatory
-    private _delay = _input select 4; // seconds delay between shots
-    private _forceFire = _input select 5; // command to fire instead of letting AI figure it out
+    private _initialDelay = _input select 4; // seconds delay before shooting starts
+    private _delay = _input select 5; // seconds delay between shots
+    private _forceFire = _input select 6; // command to fire instead of letting AI figure it out
     private _targetUnit = objNull;
     private _awareness = 0.0;
 

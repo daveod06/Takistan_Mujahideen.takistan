@@ -29,6 +29,7 @@ laserT0 attachTo [target_0,[0,0,0]];
 
 
 -add alive checks all over helicopter script
+-adapt arty script for delayed action
 TEST-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?

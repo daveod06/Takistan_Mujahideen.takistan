@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=379;
+		nextID=395;
 	};
 	class Camera
 	{
@@ -1986,7 +1986,7 @@ class Mission
 			{
 				name="helizone_10";
 				condition="call{true;}";
-				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group player],50,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
+				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
 				sizeA=250;
 				sizeB=700;
 				timeout[]={900,900,900};
@@ -2905,7 +2905,7 @@ class Mission
 			{
 				name="small_helizone_3";
 				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger; " \n "[10,bm21_1,[group player],50,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #2"";}";
+				onActivation="call{_handle = [[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger; " \n "[10,bm21_1,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #2"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={10,10,10};
@@ -3243,7 +3243,7 @@ class Mission
 				name="base_defense_zone";
 				text="Base Defense Zone";
 				condition="call{this}";
-				onActivation="call{ind_near_base = true;" \n "[3,bm21_3,[group selectRandom thisList],50,10,true] spawn Saber_fnc_Artillery;}";
+				onActivation="call{ind_near_base = true;" \n "[3,bm21_3,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				onDeactivation="call{ind_near_base = false;}";
 				sizeA=2000;
 				sizeB=2000;
@@ -7501,7 +7501,7 @@ class Mission
 			{
 				name="small_helizone_5";
 				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group player],50,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
+				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={900,900,900};
@@ -19256,7 +19256,7 @@ class Mission
 			{
 				text="Outpost 1 Mortar Zone";
 				condition="call{this}";
-				onActivation="call{[3,mortar_0,[group selectRandom thisList],50,10,true] spawn Saber_fnc_Artillery;}";
+				onActivation="call{[3,mortar_0,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
@@ -19276,7 +19276,7 @@ class Mission
 			{
 				text="Outpost 2 Mortar Zone";
 				condition="call{this}";
-				onActivation="call{[5,mortar_1,[group selectRandom thisList],50,10,true] spawn Saber_fnc_Artillery;}";
+				onActivation="call{[5,mortar_1,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
@@ -19297,7 +19297,7 @@ class Mission
 			{
 				text="Outpost 3 Mortar Zone";
 				condition="call{this}";
-				onActivation="call{[3,mortar_2,[group selectRandom thisList],50,10,true] spawn Saber_fnc_Artillery;}";
+				onActivation="call{[3,mortar_2,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
