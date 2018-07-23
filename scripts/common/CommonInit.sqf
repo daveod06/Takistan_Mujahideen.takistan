@@ -3,7 +3,7 @@
 
 Saber_fnc_unitOk  = Compile preprocessFileLineNumbers "scripts\common\unitOk.sqf";
 Saber_fnc_vehicleOk  = Compile preprocessFileLineNumbers "scripts\common\vehicleOk.sqf";
-Saber_fnc_vehicleOperational  = Compile preprocessFileLineNumbers "scripts\common\vehicleOperational.sqf";
+//Saber_fnc_vehicleOperational  = Compile preprocessFileLineNumbers "scripts\common\vehicleOperational.sqf";
 Saber_fnc_groupOk  = Compile preprocessFileLineNumbers "scripts\common\groupOk.sqf";
 Saber_fnc_getEnemyFactions  = Compile preprocessFileLineNumbers "scripts\common\getEnemyFactions.sqf";
 Saber_fnc_getFriendlyFactions  = Compile preprocessFileLineNumbers "scripts\common\getFriendlyFactions.sqf";

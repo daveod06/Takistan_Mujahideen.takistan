@@ -44,7 +44,7 @@ fnc_groupInVehicle =
                 } forEach _vehicleCrew;
             };
             
-            if _count == (count _aliveUnitsInGroup) then
+            if (_count == (count _aliveUnitsInGroup)) then
             {
                 _groupInVehicle = true;
             }
@@ -62,7 +62,7 @@ fnc_groupInVehicle =
         sleep 1.0;
         _groupInVehicle
     };
-}
+};
 
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then

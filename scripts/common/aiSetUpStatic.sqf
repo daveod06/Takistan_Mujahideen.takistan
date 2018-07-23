@@ -10,6 +10,15 @@ fnc_aiSetUpStatic =
     private ["_group","_groupOk","_watchPos","_nearestEnemy","_assistant","_restofunits","_leader"];
     _group = _this select 0;
 
+    _allowedBackpacks = [
+    ["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"],
+    ["RHS_Metis_Gun_Bag","RHS_Metis_Tripod_Bag"],
+    ["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"],
+    ["RHS_AGS30_Gun_Bag","RHS_AGS30_Tripod_Bag"],
+    ["RHS_DShkM_Gun_Bag","RHS_DShkM_TripodLow_Bag","RHS_DShkM_TripodHigh_Bag"],
+    ["RHS_NSV_Gun_Bag","RHS_NSV_Tripod_Bag"]
+    ];
+
     _groupOk = [_group] call Saber_fnc_groupOk;
     _groupUnits = units _group;
     if (!_groupOk or (count _groupUnits < 3) or ()) exitWith {};
@@ -22,11 +31,39 @@ fnc_aiSetUpStatic =
     _gunnerBackpack = unitBackpack _gunner;
     _assistantBackpack = unitBackpack _assistant;
     if ((isNull _gunnerBackpack) or (isNull _assistantBackpack)) exitWith {};
+
+    _backpacksOk = false;
+    while (_backpacksOk == false) do
+    {
+        {
+            _backpackCombo = _x;
+            if (_gunnerBackpack not in _backpackCombo) then
+            {
+                _backpacksOk = false;
+            }
+            else
+            {
+                if (_assistantBackpack in _backpackCombo) then
+                {
+                    _backpacksOk = true;
+                }
+                else
+                {
+                    _backpacksOk = false;
+                };
+            };
+
+        } forEach _allowedBackpacks;
+    };
+
+    if (_backpacksOk == false) exitWith {};
+
+
     units _group doFollow _leader;
     _group allowFleeing 0;
     
     _nearestEnemy = _leader findNearestEnemy (getPos _leader);
-    if (isNull _nearestEnemy) then
+    if !(isNull _nearestEnemy) then
     {
         _watchPos = getPos _nearestEnemy;
     }

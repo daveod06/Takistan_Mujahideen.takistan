@@ -8,10 +8,15 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_selectTarget = {
 	private _targetGroupsArray = _this select 0;
     private _targetUnit = objNull;
-    if (count _targetGroupsArray != 0) then // if target array is not empty
+    if (count _targetGroupsArray > 0) then // if target array is not empty
     {
-	    private _targetGroup = selectRandom _targetGroupsArray;
+	    _targetGroup = selectRandom _targetGroupsArray;
+        //private _targetGroupSize = count (units _targetGroup);
+        
+        _message = format["_targetGroupsArray: %1 _targetGroup: %2 _targetGroupSize:  _targetUnit: %4 ",_targetGroupsArray,_targetGroup,_targetUnit];
+        hint _message;
         private _targetGroupSize = count (units _targetGroup);
+        
         if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
         {
             _targetUnit = selectRandom (units _targetGroup);
@@ -78,11 +83,11 @@ fnc_setAiFireAware = {
 
 fnc_artilleryDoArtilleryFire =
 {
-    private _targetUnit = _this select 0;
+    private _targetPos = _this select 0;
     private _artillery = _this select 1;
     private _errorRadius = _this select 2;
     private _delay = _this select 3;
-    private _targetPos = getPosAtl _targetUnit;
+    //private _targetPos = getPosAtl _targetUnit;
     private _ammo = getArtilleryAmmo [_artillery] select 0;
     private _correctedTargetPos = [(_targetPos select 0) - _errorRadius + (2 * random _errorRadius), (_targetPos select 1) - _errorRadius + (2 * random _errorRadius), 0];
 
@@ -102,13 +107,13 @@ fnc_artilleryDoArtilleryFire =
     sleep _delay;
 };
 
-//_handle = [[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;
 
-
+//[10,bm21_2,[group player],50,60,10,true] spawn Saber_fnc_Artillery
 fnc_artilleryFireMaster =
 {
 
-	_input = _this select 0;
+	//_input = _this select 0;
+    _input = _this;
 	_message = format ["fnc_artilleryFireMaster input: %1",_input];
 	hint _message;
 	sleep 3.0;
@@ -118,7 +123,7 @@ fnc_artilleryFireMaster =
     private _targetGroupsArray = _input select 2; // array of possible target units
     private _errorRadius = _input select 3; // self explanatory
     private _initialDelay = _input select 4; // seconds delay before shooting starts
-    private _delay = _input select 5; // seconds delay between shots
+    private _shotDelay = _input select 5; // seconds delay between shots
     private _forceFire = _input select 6; // command to fire instead of letting AI figure it out
     private _targetUnit = objNull;
     private _awareness = 0.0;
@@ -127,7 +132,7 @@ fnc_artilleryFireMaster =
     if (_artilleryOk) then
     {
         _targetUnit = [_targetGroupsArray] call fnc_selectTarget;
-        _awareness = [_artillery,_forceFire,_targetUnit,_delay] call fnc_setAiFireAware;
+        _awareness = [_artillery,_forceFire,_targetUnit,_shotDelay] call fnc_setAiFireAware;
     }
     else
     {   _targetUnit = objNull;
@@ -137,6 +142,9 @@ fnc_artilleryFireMaster =
         hint "Artillery target is null!";
     };
 
+    private _targetPos = getPosAtl _targetUnit;
+    sleep _initialDelay;
+
     if (_forceFire) then
     {
         for [{_i=0}, {_i<_numRounds}, {_i=_i+1}] do 
@@ -144,18 +152,18 @@ fnc_artilleryFireMaster =
             _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
             if (_artilleryOk) then
             {
-                [_targetUnit,_artillery,_errorRadius,_delay] call fnc_artilleryDoArtilleryFire;
+                [_targetPos,_artillery,_errorRadius,_shotDelay] call fnc_artilleryDoArtilleryFire;
             };
         };
     };
 };
 
-//_this = [_numRounds,_artillery,_targetGroupsArray,_errorRadius,_delay,_forceFire]
+//_this = [_numRounds,_artillery,_targetGroupsArray,_errorRadius,_shotDelay,_forceFire]
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_artilleryFireMaster.";
     //sleep 1.0;
-    [_this] call fnc_artilleryFireMaster;
+    _this call fnc_artilleryFireMaster;
 }
 else
 {
@@ -163,6 +171,6 @@ else
     {
         //hint "Calling fnc_artilleryFireMaster.";
         //sleep 1.0;
-        [_this] call fnc_artilleryFireMaster;
+        _this call fnc_artilleryFireMaster;
     };
 };

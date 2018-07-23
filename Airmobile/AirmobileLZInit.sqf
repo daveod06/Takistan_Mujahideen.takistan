@@ -49,11 +49,14 @@ _numLZHelipads = 0;
 _lzHelipads = [];
 _message = "";
 {
-	if (typeOf _x == "Land_HelipadEmpty_F") then
+	_message = format ["_objectsInsideLZ: %1 ",_objectsInsideLZ];
+	hint _message;
+	_obj = _x;
+	if (typeOf _obj == "Land_HelipadEmpty_F") then
 	{
 		_numLZHelipads = _numLZHelipads + 1;
 		//_LZHelipads pushBack vehicleVarName _x;
-		_lzHelipads pushBack _x;
+		_lzHelipads pushBack _obj;
 	}; 
 } forEach _objectsInsideLZ;
 _message = format ["%1 Helipads in the LZ.", _numLZHelipads];
