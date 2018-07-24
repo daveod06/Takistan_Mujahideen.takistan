@@ -164,7 +164,7 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	_spawnClass = _transportType;
 	
 	// Spawn Helicopter
-	_vehArray =[_spawnPos, _spawnDir, _spawnClass, _side] call bis_fnc_spawnvehicle;
+	_vehArray = [_spawnPos, _spawnDir, _spawnClass, _side] call bis_fnc_spawnvehicle;
     _vehName 	= _vehArray select 0;
     //_vehCrew 	= _vehArray select 1;
     _vehGroup 	= _vehArray select 2;

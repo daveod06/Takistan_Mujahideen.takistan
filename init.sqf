@@ -3,6 +3,8 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
+Saber_DEBUG = true;
+
 // Enemy Occupation System (EOS) Setup
 if HC3Present then
 {

@@ -14,7 +14,7 @@ fnc_selectTarget = {
         //private _targetGroupSize = count (units _targetGroup);
         
         _message = format["_targetGroupsArray: %1 _targetGroup: %2 _targetGroupSize:  _targetUnit: %4 ",_targetGroupsArray,_targetGroup,_targetUnit];
-        hint _message;
+        if Saber_DEBUG then {hint _message;};
         private _targetGroupSize = count (units _targetGroup);
         
         if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
@@ -96,13 +96,13 @@ fnc_artilleryDoArtilleryFire =
     {
         private _eta = _artillery getArtilleryETA [_correctedTargetPos, _ammo];
         private _message = format ["Artillery target in range with %1 ammunition. ETA %2 seconds.",_ammo,_eta];
-        hint _message;
+        if Saber_DEBUG then {hint _message;};
         _artillery doArtilleryFire [_correctedTargetPos, _ammo, 1];
     }
     else
     {
         private _message = format ["Artillery target not in range with %1 ammunition.",_ammo];
-        hint _message;
+        if Saber_DEBUG then {hint _message;};
     };
     sleep _delay;
 };
@@ -115,7 +115,7 @@ fnc_artilleryFireMaster =
 	//_input = _this select 0;
     _input = _this;
 	_message = format ["fnc_artilleryFireMaster input: %1",_input];
-	hint _message;
+	if Saber_DEBUG then {hint _message;};
 	sleep 3.0;
 
     private _numRounds = _input select 0; // number of round to shoot
@@ -139,7 +139,7 @@ fnc_artilleryFireMaster =
         _awareness = 0.0;
     };
     if (isNull _targetUnit) exitWith {
-        hint "Artillery target is null!";
+        if Saber_DEBUG then {hint "Artillery target is null!";};
     };
 
     private _targetPos = getPosAtl _targetUnit;

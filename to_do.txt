@@ -27,9 +27,11 @@ laserT0 = "LaserTargetE" createVehicle getposatl target_0;
 laserT0 attachTo [target_0,[0,0,0]];
 
 
-
+-use https://community.bistudio.com/wiki/nearObjects to find helipads
+    
+-debug all new changes to airmobile
 -add alive checks all over helicopter script
--adapt arty script for delayed action
+?TEST-adapt arty script for delayed action
 TEST-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?

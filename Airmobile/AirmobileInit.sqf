@@ -8,7 +8,8 @@ Saber_fnc_AirmobileHeliSpawn 		= Compile preprocessFileLineNumbers "Airmobile\Ai
 Saber_fnc_AirmobileTroopSpawn       = Compile preprocessFileLineNumbers "Airmobile\AirmobileTroopSpawn.sqf";
 Saber_fnc_AirmobileHeliWaypoints    = Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliWaypoints.sqf";
 Saber_fnc_AirmobileTroopWaypoints   = Compile preprocessFileLineNumbers "Airmobile\AirmobileTroopWaypoints.sqf";
-Saber_fnc_AirmobileEnableCollision  = Compile preprocessFileLineNumbers "Airmobile\AirmobileEnableCollision.sqf";
+Saber_fnc_AirmobileSingleTroopWaypoints   = Compile preprocessFileLineNumbers "Airmobile\AirmobilesingleTroopWaypoints.sqf";
+Saber_fnc_AirmobileMissionMonitor   = Compile preprocessFileLineNumbers "Airmobile\AirmobileMissionMonitor.sqf";
 
 //Saber_fnc_AirmobileDustoff          = Compile preprocessFileLineNumbers "Airmobile\AirmobileDustoff.sqf";
 //Saber_fnc_AirmobileHeliDustoff      = Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliDustoff.sqf";

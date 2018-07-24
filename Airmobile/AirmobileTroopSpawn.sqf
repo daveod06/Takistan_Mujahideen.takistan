@@ -118,16 +118,17 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	
 	// remove extra troops
 	_heli = (_spawnedTransportHelis select _s) select 0;
-	_totalSeats = [_heli, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
-	_crewSeats = [_heli, false] call BIS_fnc_crewCount; // Number of crew seats only
-	//_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
-	//if (_numMen > _cargoSeats) then
-	//{
-	//	for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
-	//	{
-	//		deleteVehicle (units _group select _d);
-	//	};
-	//};
+    _heliType = typeOf _heli;
+	_totalSeats = [_heliType, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
+	_crewSeats = [_heliType, false] call BIS_fnc_crewCount; // Number of crew seats only
+	_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
+	if (_numMen > _cargoSeats) then
+	{
+		for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
+		{
+			deleteVehicle (units _group select _d);
+		};
+	};
 	
 	//hint format ["units _group: %1",units _group];
 	//sleep 2.0;

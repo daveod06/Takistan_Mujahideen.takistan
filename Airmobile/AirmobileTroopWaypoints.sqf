@@ -35,10 +35,10 @@ private _t = _numSpawnedAttackHelis;
     _group = _x;
     
     // Find nearest enemies
-    private _enemyPos = _lzHelipad findNearestEnemy (getPos _lzHelipad);
+    private _enemyPos = (leader _group) findNearestEnemy (getPos _lzHelipad);
     if (isNull _enemyPos) then
     {
-        _enemyPos = _lzHelipad getPos [500.0, random[0.0,180.0,360.0]];
+        _enemyPos = _lzHelipad getPos [300.0, random[0.0,180.0,360.0]];
     };
     
     // Get out waypoint

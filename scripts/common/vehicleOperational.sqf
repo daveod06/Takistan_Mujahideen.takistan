@@ -15,7 +15,14 @@ fnc_vehicleOk =
 	{
 		if (alive _vehicleName) then
 		{
-		    _vehicleOk = true;
+            _driver = driver _vehicleName;
+            if ([_driver] call Saber_fnc_unitOk) then
+            {
+                if (canMove _vehicleName) then 
+                {
+                    _vehicleOk = true;
+                };
+            };
 		};
 	};
 	_vehicleOk

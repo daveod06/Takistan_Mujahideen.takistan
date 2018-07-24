@@ -33,7 +33,8 @@ fnc_AirmobileMaster =
 	//hint _message;
 	//sleep 3.0;
 	
-	private _input = _this select 0;
+	//private _input = _this select 0;
+	private _input = _this;
 	
 	
 	//_message = format ["fnc_AirmobileMaster _input: %1",_input];
@@ -85,12 +86,19 @@ fnc_AirmobileMaster =
 	sleep 1.0;
 	
 	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileHeliWaypoints;
-	//[_spawnHeliOutput] spawn Saber_fnc_AirmobileEnableCollision;
-	_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
+
+    // moved into heliWaypoints
+	//_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
 	// if crew leave helicopter
 	// delete remaining waypoints
 	// set to aware
+    // https://community.bistudio.com/wiki/land
+    // https://community.bistudio.com/wiki/landAt
+    // https://community.bistudio.com/wiki/unitReady
+
+    // mission progress monitor
+    //[_spawnHeliOutput] spawn Saber_fnc_AirmobileMissionMonitor; // TEST FIXME
 	
 	//if _dustoff then
 	//{
@@ -104,7 +112,7 @@ if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_AirmobileMaster.";
     //sleep 1.0;
-    [_this] call fnc_AirmobileMaster;
+    _this call fnc_AirmobileMaster;
 }
 else
 {
@@ -112,7 +120,7 @@ else
     {
         //hint "Calling fnc_AirmobileMaster.";
         //sleep 1.0;
-        [_this] call fnc_AirmobileMaster;
+        _this call fnc_AirmobileMaster;
     };
 };
 
