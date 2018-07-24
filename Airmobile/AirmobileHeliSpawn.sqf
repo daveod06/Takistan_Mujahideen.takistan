@@ -201,7 +201,8 @@ _output;
 //// _this = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,[_totalHelicoptersToSpawn, _baseHelipads, _lzHelipads]];
 //if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 //{
-//    hint "Calling fnc_AirmobileSpawn.";
+//    _message = "Calling fnc_AirmobileSpawn.";
+//    if Saber_DEBUG then {hint _message;};
 //    sleep 1.0;
 //    _output = [_this] call fnc_AirmobileSpawn;
 //}
@@ -209,7 +210,8 @@ _output;
 //{
 //    if(isServer) then
 //    {
-//        hint "Calling fnc_AirmobileSpawn.";
+//        _message = "Calling fnc_AirmobileSpawn.";
+//    if Saber_DEBUG then {hint _message;};
 //        sleep 1.0;
 //        _output = [_this] call fnc_AirmobileSpawn;
 //    };

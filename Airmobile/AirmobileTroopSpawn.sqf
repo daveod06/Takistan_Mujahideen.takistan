@@ -105,7 +105,8 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	};
 	
 	// Spawn Troops
-	hint format ["Trying to spawn troops. (%1)", _s];
+	_message = format ["Trying to spawn troops. (%1)", _s];
+	if Saber_DEBUG then {hint _message;};
 	//[pos, side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 	_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> _sideStr >> _faction >> _category >> _spawnClass)] call BIS_fnc_spawnGroup;
 	//_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
@@ -114,11 +115,15 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
     _group setBehaviour 'AWARE';
     _group setSpeedMode 'NORMAL';
 	_spawnedTroopGroups pushBack _group;
-	_numMen = units _group;
+	_numMen = count (units _group);
 	
 	// remove extra troops
 	_heli = (_spawnedTransportHelis select _s) select 0;
     _heliType = typeOf _heli;
+    
+    //_message = format ["_heli: %1 _heliType: %2", _heli,_heliType];
+    //if (Saber_DEBUG) then {hint _message;};
+    
 	_totalSeats = [_heliType, true] call BIS_fnc_crewCount; // Number of total seats: crew + non-FFV cargo/passengers + FFV cargo/passengers
 	_crewSeats = [_heliType, false] call BIS_fnc_crewCount; // Number of crew seats only
 	_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
@@ -129,11 +134,12 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 			deleteVehicle (units _group select _d);
 		};
 	};
-	
-	//hint format ["units _group: %1",units _group];
+	//_message = format ["units _group: %1",units _group];
+	//if Saber_DEBUG then {hint _message;};
 	//sleep 2.0;
 	
-	//hint format ["_heli: %1",_heli];
+	//_message = format ["_heli: %1",_heli];
+	//if Saber_DEBUG then {hint _message;};
 	//sleep 2.0;
 	
 	// put troops in heli
@@ -152,7 +158,8 @@ _output;
 //// _this = [_side,_faction,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,[_totalHelicoptersToSpawn, _baseHelipads, _lzHelipads]];
 //if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 //{
-//    hint "Calling fnc_AirmobileSpawn.";
+//    _message = "Calling fnc_AirmobileSpawn.";
+//    if Saber_DEBUG then {hint _message;};
 //    sleep 1.0;
 //    _output = [_this] call fnc_AirmobileSpawn;
 //}
@@ -160,7 +167,8 @@ _output;
 //{
 //    if(isServer) then
 //    {
-//        hint "Calling fnc_AirmobileSpawn.";
+//		  _message = "Calling fnc_AirmobileSpawn.";
+//        if Saber_DEBUG then {hint _message;};
 //        sleep 1.0;
 //        _output = [_this] call fnc_AirmobileSpawn;
 //    };

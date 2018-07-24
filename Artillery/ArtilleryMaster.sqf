@@ -6,20 +6,31 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 
 fnc_selectTarget = {
+	_message = format["fnc_selectTarget input _this: %1",_this];
+    if Saber_DEBUG then {hint _message;sleep 3.0;};
+
+
 	private _targetGroupsArray = _this select 0;
     private _targetUnit = objNull;
+    private _targetGroup = objNull;
+    
+    _message = format["fnc_selectTarget _targetGroupsArray: %1 _targetUnit: %2 _targetGroup: %3",_targetGroupsArray,_targetUnit,_targetGroup];
+    if Saber_DEBUG then {hint _message;sleep 3.0;};
+    
     if (count _targetGroupsArray > 0) then // if target array is not empty
     {
 	    _targetGroup = selectRandom _targetGroupsArray;
         //private _targetGroupSize = count (units _targetGroup);
-        
-        _message = format["_targetGroupsArray: %1 _targetGroup: %2 _targetGroupSize:  _targetUnit: %4 ",_targetGroupsArray,_targetGroup,_targetUnit];
-        if Saber_DEBUG then {hint _message;};
         private _targetGroupSize = count (units _targetGroup);
+        
+        _message = format["_targetGroupsArray: %1 _targetGroup: %2 _targetGroupSize: %3",_targetGroupsArray,_targetGroup,_targetGroupSize];
+        if Saber_DEBUG then {hint _message;sleep 3.0;};
         
         if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
         {
             _targetUnit = selectRandom (units _targetGroup);
+            _message = format["_targetUnit: %1",_targetUnit];
+        	if Saber_DEBUG then {hint _message;sleep 3.0;};
         };
     };
     _targetUnit;

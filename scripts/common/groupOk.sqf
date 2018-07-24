@@ -12,7 +12,7 @@ fnc_groupOk =
     _groupOk = false;
     if (!(isNull _groupName)) then
     {
-    	if ({alive _x} count units _groupName > 0) then
+    	if ({alive _x} count (units _groupName) > 0) then
     	{
     	    _groupOk = true;
     	};

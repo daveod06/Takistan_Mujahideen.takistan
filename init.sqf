@@ -38,10 +38,14 @@ call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Init.sqf";
 
 // Compile Convoy, Airmobile, and Artillery
-[] execVM "Convoy\ConvoyInit.sqf";
-[] execVM "Airmobile\AirmobileInit.sqf";
-[] execVM "Artillery\ArtilleryInit.sqf";
 [] execVM "scripts\common\CommonInit.sqf";
+sleep 1.0;
+[] execVM "Convoy\ConvoyInit.sqf";
+sleep 1.0;
+[] execVM "Airmobile\AirmobileInit.sqf";
+sleep 1.0;
+[] execVM "Artillery\ArtilleryInit.sqf";
+sleep 1.0;
 
 init_fnc =
 {

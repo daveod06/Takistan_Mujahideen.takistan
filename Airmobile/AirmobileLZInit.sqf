@@ -12,15 +12,15 @@ private _lzHelipadsArray           = _this select 0;
 private _baseHelipadsArray         = _this select 1;
 private _lzTrigger                = "";
 private _baseTrigger              = "";
-private _lzHelipads               = [];
+//private _lzHelipads               = [];
 private _message                  = "";
-private _objectsInsideLZ          = [];
+//private _objectsInsideLZ          = [];
 private _numBaseHelipads          = 0;
-private _baseHelipads             = [];
+//private _baseHelipads             = [];
 private _message                  = "";
-private _objectsInsideBase        = [];
+//private _objectsInsideBase        = [];
 private _totalHelicoptersToSpawn  = 0;
-private _output                   = [];
+//private _output                   = [];
 
 // Select base and LZ triggers
 //_lzTrigger                = _lzHelipadsArray select 0; // FIXME
@@ -39,6 +39,9 @@ sleep 1.0;
 _objectsInsideLZ = _lzHelipadsArray;
 _objectsInsideBase = _baseHelipadsArray;
 
+//_message = format ["_objectsInsideLZ: %1 _objectsInsideBase: %2 count _objectsInsideLZ: %3 count _objectsInsideBase: %4 ",_objectsInsideLZ,_objectsInsideBase,count _objectsInsideLZ,count _objectsInsideBase];
+//if Saber_DEBUG then {hint _message;};
+
 if ((count _objectsInsideLZ < 1) or (count _objectsInsideBase < 1)) exitWith
 {
 	if Saber_DEBUG then {hint "No helipads in either base or LZ.";};
@@ -54,15 +57,17 @@ _numLZHelipads = 0;
 _lzHelipads = [];
 _message = "";
 {
-	_obj = _x;
-    if ([_obj] call Saber_fnc_objectExists) then {
-	    if (typeOf _obj == "Land_HelipadEmpty_F") then
+	_message = format ["_objectsInsideLZ _x: %1 type: %2",_x,typeOf _x];
+	if Saber_DEBUG then {hint _message;};
+	//_a =_x;
+    //if ([_x] call Saber_fnc_objectExists) then {
+	    if (typeOf _x == "Land_HelipadEmpty_F") then
 	    {
 	    	_numLZHelipads = _numLZHelipads + 1;
 	    	//_LZHelipads pushBack vehicleVarName _x;
-	    	_lzHelipads pushBack _obj;
+	    	_lzHelipads pushBack _x;
 	    };
-    };
+    //};
 } forEach _objectsInsideLZ;
 _message = format ["%1 Helipads in the LZ.", _numLZHelipads];
 if Saber_DEBUG then {hint _message;};
@@ -73,15 +78,17 @@ _numBaseHelipads = 0;
 _baseHelipads = [];
 _message = "";
 {
-    _obj = _x;
-    if ([_obj] call Saber_fnc_objectExists) then {
+	_message = format ["_objectsInsideBase _x: %1 type: %2",_x,typeOf _x];
+	if Saber_DEBUG then {hint _message;};
+    //_obj = _x;
+    //if ([_obj] call Saber_fnc_objectExists) then {
 	    if (typeOf _x == "Land_HelipadEmpty_F") then
 	    {
 	    	_numBaseHelipads = _numBaseHelipads + 1;
 	    	//_BaseHelipads pushBack vehicleVarName _obj;
-	    	_baseHelipads pushBack _obj;
+	    	_baseHelipads pushBack _x;
 	    };
-    };
+    //};
 } forEach _objectsInsideBase;
 _message = format ["%1 Helipads in the base.", _numBaseHelipads];
 if Saber_DEBUG then {hint _message;};

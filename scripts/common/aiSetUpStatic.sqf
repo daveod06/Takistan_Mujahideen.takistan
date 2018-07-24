@@ -21,7 +21,7 @@ fnc_aiSetUpStatic =
 
     _groupOk = [_group] call Saber_fnc_groupOk;
     _groupUnits = units _group;
-    if (!_groupOk or (count _groupUnits < 3) or ()) exitWith {};
+    if (!_groupOk or (count _groupUnits < 3)) exitWith {};
 
     _leader = leader _group;
     _restofunits = (units _group - [_leader]);
@@ -33,11 +33,11 @@ fnc_aiSetUpStatic =
     if ((isNull _gunnerBackpack) or (isNull _assistantBackpack)) exitWith {};
 
     _backpacksOk = false;
-    while (_backpacksOk == false) do
+    while {_backpacksOk == false} do
     {
         {
             _backpackCombo = _x;
-            if (_gunnerBackpack not in _backpackCombo) then
+            if !(_gunnerBackpack in _backpackCombo) then
             {
                 _backpacksOk = false;
             }
@@ -73,7 +73,7 @@ fnc_aiSetUpStatic =
     };
     
     [_group, _leader getPos [5, random 360], _watchPos, _leader getPos [5, random 360]] call BIS_fnc_unpackStaticWeapon;
-}
+};
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {

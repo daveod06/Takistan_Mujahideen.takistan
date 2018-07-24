@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=6204;
+		nextID=6207;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=411;
+		nextID=427;
 	};
 	class Camera
 	{
-		pos[]={9447.6406,647.349,4434.5396};
-		dir[]={-0.71035969,-0.61808264,0.33706239};
-		up[]={-0.55844676,0.78607416,0.2649776};
-		aside[]={0.42874601,5.9156446e-007,0.90356869};
+		pos[]={9262.6875,1346.5344,4068.2908};
+		dir[]={-0.016995264,-0.93428159,-0.35648295};
+		up[]={-0.044484228,0.35669592,-0.93315142};
+		aside[]={-0.99898958,2.1728702e-006,0.047628593};
 	};
 };
 binarizationWanted=0;
@@ -436,7 +436,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=405;
+		items=406;
 		class Item0
 		{
 			dataType="Object";
@@ -557,7 +557,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_0";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad0_0,helipad0_1,helipad0_2,helipad0_3,helipad0_4,helipad0_5,helipad0_6,helipad0_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=900;
 				sizeB=900;
@@ -577,7 +577,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_1";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad1_0,helipad1_1,helipad1_2,helipad1_3,helipad1_4,helipad1_5,helipad1_6,helipad1_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=750;
 				sizeB=750;
@@ -732,7 +732,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_2";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad2_0,helipad2_1,helipad2_2,helipad2_3,helipad2_4,helipad2_5,helipad2_6,helipad2_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=500;
 				sizeB=600;
@@ -888,7 +888,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_3";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad3_0,helipad3_1,helipad3_2,helipad3_3,helipad3_4,helipad3_5,helipad3_6,helipad3_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=400;
 				sizeB=600;
@@ -1044,7 +1044,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_4";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad4_0,helipad4_1,helipad4_2,helipad4_3,helipad4_4,helipad4_5,helipad4_6,helipad4_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=650;
 				sizeB=750;
@@ -1203,7 +1203,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_5";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad5_0,helipad5_1,helipad5_2,helipad5_3,helipad5_4,helipad5_5,helipad5_6,helipad5_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=450;
 				sizeB=700;
@@ -1364,7 +1364,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_6";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad6_0,helipad6_1,helipad6_2,helipad6_3,helipad6_4,helipad6_5,helipad6_6,helipad6_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=400;
 				sizeB=600;
@@ -1522,7 +1522,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_7";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad7_0,helipad7_1,helipad7_2,helipad7_3,helipad7_4,helipad7_5,helipad7_6,helipad7_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=500;
 				sizeB=600;
@@ -1560,7 +1560,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_8";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad8_0,helipad8_1,helipad8_2,helipad8_3,helipad8_4,helipad8_5,helipad8_6,helipad8_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=350;
 				sizeB=500;
@@ -1836,7 +1836,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_9";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad9_0,helipad9_1,helipad9_2,helipad9_3,helipad9_4,helipad9_5,helipad9_6,helipad9_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=600;
 				sizeB=800;
@@ -1985,7 +1985,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_10";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
 				sizeA=250;
 				sizeB=700;
@@ -2145,7 +2145,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_11";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad11_0,helipad11_1,helipad11_2,helipad11_3,helipad11_4,helipad11_5,helipad11_6,helipad11_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=250;
 				sizeB=500;
@@ -2315,7 +2315,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_12";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[small_helipad12_0,small_helipad12_1,small_helipad12_2,small_helipad12_4,small_helipad12_5,small_helipad12_6,small_helipad12_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=500;
 				sizeB=300;
@@ -2454,7 +2454,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_13";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad13_0,helipad13_1,helipad13_2,helipad13_3,helipad13_4,helipad13_5,helipad13_6,helipad13_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=300;
 				sizeB=500;
@@ -2609,7 +2609,7 @@ class Mission
 			class Attributes
 			{
 				name="helizone_14";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[helipad14_0,helipad14_1,helipad14_2,helipad14_3,helipad14_4,helipad14_5,helipad14_6,helipad14_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=600;
 				sizeB=400;
@@ -2773,8 +2773,8 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_0";
-				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad0_0,small_helipad0_1,small_helipad0_2,small_helipad0_3,small_helipad0_4,small_helipad0_5,small_helipad0_6],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
+				condition="call{this;}";
+				onActivation="call{_handle = [[small_helipad0_0,small_helipad0_1,small_helipad0_2,small_helipad0_3,small_helipad0_4,small_helipad0_5,small_helipad0_6],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_0!"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={900,900,900};
@@ -2794,8 +2794,8 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_1";
-				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad1_0,small_helipad1_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
+				condition="call{this;}";
+				onActivation="call{_handle = [[small_helipad1_0,small_helipad1_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_1!"";}";
 				sizeA=300;
 				sizeB=300;
 				timeout[]={900,900,900};
@@ -2851,11 +2851,11 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_2";
-				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad2_0,small_helipad2_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
+				condition="call{this;}";
+				onActivation="call{[[small_helipad2_0,small_helipad2_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_2!"";}";
 				sizeA=250;
 				sizeB=500;
-				timeout[]={900,900,900};
+				timeout[]={5,5,5};
 				interuptable=1;
 				activationBy="GUER SEIZED";
 				isRectangle=1;
@@ -2904,8 +2904,8 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_3";
-				condition="call{true;}";
-				onActivation="call{_handle = [[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger; " \n "[10,bm21_1,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #2"";}";
+				condition="call{this;}";
+				onActivation="call{[[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger; " \n "hint ""IND captured small_helizone_3!"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={10,10,10};
@@ -2973,7 +2973,7 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_4";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[small_helipad4_0,small_helipad4_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=400;
 				sizeB=700;
@@ -3245,8 +3245,8 @@ class Mission
 				condition="call{this}";
 				onActivation="call{ind_near_base = true;" \n "[3,bm21_3,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				onDeactivation="call{ind_near_base = false;}";
-				sizeA=2000;
-				sizeB=2000;
+				sizeA=3000;
+				sizeB=3000;
 				timeout[]={240,300,500};
 				repeatable=1;
 				activationType="EAST D";
@@ -3515,7 +3515,7 @@ class Mission
 			class Attributes
 			{
 				name="spawn_helizone_0";
-				condition="call{true;}";
+				condition="call{this;}";
 				sizeA=900;
 				sizeB=900;
 				activationBy="ANY";
@@ -7500,7 +7500,7 @@ class Mission
 			class Attributes
 			{
 				name="small_helizone_5";
-				condition="call{true;}";
+				condition="call{this;}";
 				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
 				sizeA=250;
 				sizeB=400;
@@ -15944,7 +15944,7 @@ class Mission
 			side="East";
 			class Entities
 			{
-				items=5;
+				items=6;
 				class Item0
 				{
 					dataType="Object";
@@ -16068,6 +16068,8 @@ class Mission
 				{
 					dataType="Waypoint";
 					position[]={9610.0146,561.51965,4605.1362};
+					combatMode="RED";
+					combat="COMBAT";
 					expCond="call{true}";
 					expActiv="call{attack_heli0 reveal [target_1, 4];" \n "attack_heli0 doTarget target_1;" \n "attack_heli0 doFire target_1;}";
 					class Effects
@@ -16083,8 +16085,11 @@ class Mission
 					dataType="Waypoint";
 					position[]={9871.5859,490.50482,4301.2461};
 					type="Destroy";
+					combatMode="BLUE";
+					speed="FULL";
 					combat="CARELESS";
 					expCond="call{true}";
+					expActiv="call{attack_heli0 reveal [target_0, 4];" \n "attack_heli0 doTarget target_0;" \n "attack_heli0 doFire target_0;}";
 					class Effects
 					{
 					};
@@ -16098,6 +16103,20 @@ class Mission
 					};
 				};
 				class Item4
+				{
+					dataType="Waypoint";
+					position[]={8671.9756,342.62485,5689.7031};
+					combatMode="BLUE";
+					speed="FULL";
+					combat="CARELESS";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=6206;
+					type="Move";
+				};
+				class Item5
 				{
 					dataType="Waypoint";
 					position[]={7353.896,310.07507,8601.8135};
@@ -16484,7 +16503,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9533.5488,567.26465,3986.7114};
+						position[]={10330.366,724.71106,4664.2939};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16497,7 +16516,7 @@ class Mission
 					};
 					id=5979;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-0.00018310547;
+					atlOffset=6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16584,7 +16603,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9534.6563,567.9967,3982.1523};
+						position[]={10331.474,724.99658,4659.7354};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16597,7 +16616,7 @@ class Mission
 					};
 					id=5980;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-6.1035156e-005;
+					atlOffset=6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16665,7 +16684,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9537.5518,568.0564,3978.8965};
+						position[]={10334.369,725.30817,4656.4795};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16678,7 +16697,7 @@ class Mission
 					};
 					id=5981;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-6.1035156e-005;
+					atlOffset=6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16746,7 +16765,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9540.2549,568.50415,3973.686};
+						position[]={10337.072,725.19092,4651.2686};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16759,7 +16778,6 @@ class Mission
 					};
 					id=5982;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-0.00018310547;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16827,7 +16845,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9544.6416,567.96619,3971.3442};
+						position[]={10341.459,724.93152,4648.9268};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16840,7 +16858,7 @@ class Mission
 					};
 					id=5983;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-0.00012207031;
+					atlOffset=-6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16908,7 +16926,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9547.1885,566.65295,3975.9883};
+						position[]={10344.006,725.07428,4653.5713};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -16921,7 +16939,7 @@ class Mission
 					};
 					id=6039;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=0.049865723;
+					atlOffset=0.049987793;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16989,7 +17007,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9548.3174,565.72302,3979.3301};
+						position[]={10345.135,724.83594,4656.9131};
 						angles[]={0,5.4679766,0};
 					};
 					side="Independent";
@@ -17002,7 +17020,7 @@ class Mission
 					};
 					id=6041;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=0.050964355;
+					atlOffset=0.051147461;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -17074,7 +17092,7 @@ class Mission
 				speedMode="LIMITED";
 			};
 			id=5978;
-			atlOffset=-0.00018310547;
+			atlOffset=6.1035156e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -19282,7 +19300,7 @@ class Mission
 		class Item398
 		{
 			dataType="Trigger";
-			position[]={7922.6138,513.24408,4122.2588};
+			position[]={7650.8921,503.15833,4029.6487};
 			class Attributes
 			{
 				text="Outpost 3 Mortar Zone";
@@ -19486,23 +19504,6 @@ class Mission
 		};
 		class Item402
 		{
-			dataType="Trigger";
-			position[]={8523.8271,185.47063,7495.6108};
-			class Attributes
-			{
-				condition="call{this}";
-				onActivation="call{_message = format [""OPFOR detected: %1"",thisList];" \n "hint _message;}";
-				repeatable=1;
-				activationType="EAST D";
-				activationBy="GUER";
-				isServerOnly=1;
-			};
-			id=6171;
-			type="EmptyDetectorAreaR50";
-			atlOffset=-1.5258789e-005;
-		};
-		class Item403
-		{
 			dataType="Marker";
 			position[]={10228.749,351.215,2363.7749};
 			name="BAS_spawn_0";
@@ -19510,7 +19511,7 @@ class Mission
 			id=6174;
 			atlOffset=-0.00030517578;
 		};
-		class Item404
+		class Item403
 		{
 			dataType="Object";
 			class PositionInfo
@@ -19526,6 +19527,41 @@ class Mission
 			id=6197;
 			type="Soviet_Spetsnaz_Gear_70s_80s";
 			atlOffset=6.1035156e-005;
+		};
+		class Item404
+		{
+			dataType="Trigger";
+			position[]={9912.1514,503.92017,4246.4331};
+			angle=0.84973103;
+			class Attributes
+			{
+				text="Set Waypoint to last";
+				condition="call{attack_heli0 in thislist;}";
+				onActivation="call{(attack_heli_group0) setCurrentWaypoint [attack_heli_group0,3];}";
+				sizeA=100;
+				sizeB=400;
+				activationBy="ANY";
+				isRectangle=1;
+			};
+			id=6204;
+			type="EmptyDetectorAreaR50";
+			atlOffset=-3.0517578e-005;
+		};
+		class Item405
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10326.836,724.65283,4668.0684};
+				angles[]={0.12730594,0,6.2799835};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=6205;
+			type="Soviet_Spetsnaz_Gear_70s_80s";
 		};
 	};
 };

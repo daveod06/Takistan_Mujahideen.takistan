@@ -21,16 +21,38 @@ while {_checkHelis} do
 	    _veh   = _x select 0;
         _vehGroup = _x select 2;
 
+		_message = format ["_veh: %1, _vehGroup: %2 _veh type: %3",_veh,_vehGroup,typeOf _veh];
+		if Saber_DEBUG then {hint _message; sleep 3.0;};
+		//_message = format ["OKs: %1 ",[_veh] call Saber_fnc_vehicleOk]; // FIXME ERRORS HERE
+		//if Saber_DEBUG then {hint _message; sleep 3.0;};
+		//_message = format ["OKs: %1 ",[_vehGroup] call Saber_fnc_groupOk];
+		//if Saber_DEBUG then {hint _message; sleep 3.0;};
+
         // lock cargo when far away from unload waypoint or when far from the ground
-        if (([_vehGroup] call Saber_fnc_groupOk) && ([_veh] call Saber_fnc_vehicleOk)) then
+        //if (([_vehGroup] call Saber_fnc_groupOk) && ([_veh] call Saber_fnc_vehicleOk)) then
+        _distToWp = 1000.0;
+        if (true) then
         {
 
             // calculate lock conditions
             _wpIndex = currentWaypoint _vehGroup;
             _wpName = waypointName [_vehGroup,_wpIndex];
             _wpPos = waypointPosition [_vehGroup, _wpIndex];
-            if ((_wpName find "_LZ_LAND") >= 0) then {_
+            
+            _message = format ["_wpIndex: %1, _wpName: %2 _veh _wpPos: %3 _wpName find: %4",_wpIndex,_wpName,_wpPos,_wpName find "_LZ_LAND"];
+			if Saber_DEBUG then {hint _message; sleep 1.0;};
+            
+            if ((_wpName find "_LZ_LAND") >= 0) then {
                 _distToWp = _veh distance _wpPos;
+                
+			    private _vehCargo = fullCrew [_veh,"cargo", false];
+			    private _cargoUnit = _vehCargo select 0;
+			    private _transportSquad = group (_cargoUnit select 0);
+			    
+			    _message = format ["_distToWp: %1, _vehCargo: %2 _cargoUnit: %3 _transportSquad: %4",_distToWp,_vehCargo,_cargoUnit,_transportSquad];
+				if Saber_DEBUG then {hint _message; sleep 1.0;};
+                
+                [_wpPos,_transportSquad,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
             }
             else
             {
@@ -50,11 +72,15 @@ while {_checkHelis} do
         };
 
         // if helicopter damaged or crew killed, land
-        if (([_vehGroup] call Saber_fnc_groupOk) && ([_veh] call Saber_fnc_vehicleOk)) then
+        //if (([_vehGroup] call Saber_fnc_groupOk) and ([_veh] call Saber_fnc_vehicleOk)) then
+        if (false) then
         {
             // check if heli damaged
             if !(canMove _veh) then
             {
+            	_message = format ["vehicle %1 is damaged, proceeding to last WP",_veh];
+				if Saber_DEBUG then {hint _message; sleep 1.0;};
+            
                 // remove all waypoints
                 _vehGroup setCurrentWaypoint [_vehGroup, (count (waypoints _vehGroup) - 1)];
                 sleep 0.5;
@@ -69,7 +95,7 @@ while {_checkHelis} do
                 // make helicopter land
                 _veh move (getPos _veh);
                 sleep 3.0;
-                while {((alive _veh) && !(unitReady _veh)) } do
+                while {((alive _veh) and !(unitReady _veh)) } do
                 {
                     sleep 1.0;
                 };
@@ -77,14 +103,14 @@ while {_checkHelis} do
                 {
                     _veh land "LAND";
                 };
-                while {((alive _veh) && !(unitReady _veh)) } do
+                while {((alive _veh) and !(unitReady _veh)) } do
                 {
                     sleep 1.0;
                 };
                 {
                     doGetOut _x;
                     _x leaveVehicle _veh;
-                } forEach (fullCrew vehicle);
+                } forEach (fullCrew _veh);
 
             };
         };
@@ -93,12 +119,28 @@ while {_checkHelis} do
         {
             _aVeh   = _x select 0;
             _aVehGroup = _x select 2;
-            if (([_aVeh] call Saber_fnc_vehicleOk) && ([_veh] call Saber_fnc_vehicleOk)) then
+            //if (([_aVeh] call Saber_fnc_vehicleOk) and ([_veh] call Saber_fnc_vehicleOk)) then
+            if (true) then
             {
                 _aVeh disableCollisionWith _veh;
 	            _veh disableCollisionWith _aVeh;
+	            _veh disableCollisionWith _aVeh;
             };
+            {
+            	_bVeh = _x select 0;
+            	_aVeh disableCollisionWith _bVeh;
+            	
+            } forEach _spawnedAttackHelis;
 	    } forEach _spawnedAttackHelis;
+	    {
+            _bVeh   = _x select 0;
+            //if (([_bVeh] call Saber_fnc_vehicleOk) and ([_veh] call Saber_fnc_vehicleOk)) then
+            if (true) then
+            {
+            	_bVeh = _x select 0;
+	            _veh disableCollisionWith _bVeh;
+            };
+	    } forEach _spawnedTransportHelis;
         
 	} forEach _spawnedTransportHelis;
 
