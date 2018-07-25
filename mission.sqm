@@ -1986,7 +1986,7 @@ class Mission
 			{
 				name="helizone_10";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
+				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
 				sizeA=250;
 				sizeB=700;
 				timeout[]={900,900,900};
@@ -7501,7 +7501,7 @@ class Mission
 			{
 				name="small_helizone_5";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group player],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
+				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={900,900,900};

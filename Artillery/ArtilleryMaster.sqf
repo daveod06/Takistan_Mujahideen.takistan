@@ -9,31 +9,59 @@ fnc_selectTarget = {
 	_message = format["fnc_selectTarget input _this: %1",_this];
     if Saber_DEBUG then {hint _message;sleep 3.0;};
 
-
-	private _targetGroupsArray = _this select 0;
+	private _targetArray = _this select 0;
     private _targetUnit = objNull;
-    private _targetGroup = objNull;
+    private _target = objNull;
+    private _pos = [0,0,0];
     
-    _message = format["fnc_selectTarget _targetGroupsArray: %1 _targetUnit: %2 _targetGroup: %3",_targetGroupsArray,_targetUnit,_targetGroup];
+    _message = format["fnc_selectTarget _targetArray: %1 _targetUnit: %2 _target: %3",_targetArray,_targetUnit,_target];
     if Saber_DEBUG then {hint _message;sleep 3.0;};
     
-    if (count _targetGroupsArray > 0) then // if target array is not empty
+    if (count _targetArray > 0) then // if target array is not empty
     {
-	    _targetGroup = selectRandom _targetGroupsArray;
-        //private _targetGroupSize = count (units _targetGroup);
-        private _targetGroupSize = count (units _targetGroup);
-        
-        _message = format["_targetGroupsArray: %1 _targetGroup: %2 _targetGroupSize: %3",_targetGroupsArray,_targetGroup,_targetGroupSize];
+	    _target = selectRandom _targetArray;
+        if (typeName _target == "OBJECT") then
+        {
+            //if ([_target] call Saber_fnc_unitOk) then
+            if !(isNull _target) then
+            {
+                _targetUnit = _target;
+                _pos = getPosATL _targetUnit;
+        };
+        if (typeName _target == "GROUP") then
+        {
+            //if ([_target] call Saber_fnc_groupOk) then
+            if (!(isNull _groupName) && count (units _target) > 0) then
+            {
+                _targetUnit = selectRandom (units _target)
+                _pos = getPosATL _targetUnit;
+            };
+        };
+        //if (typeof _target == "MARKER") then
+        //{
+        //    //if ([_target] call Saber_fnc_unitOk) then
+        //    _markerColor = getMarkerColor _target;
+        //    if (_markerColor != "")
+        //    {
+        //        _targetUnit = _target;
+        //        _pos = getPos _targetUnit;
+        //    };
+        //};
+        if (typeName _target == "ARRAY") then
+        {
+            //if ([_target] call Saber_fnc_unitOk) then
+            if ((count _target == 2) or (count _target == 3))
+            {
+                _targetUnit = _objNull;
+                _pos = _target;
+            };
+        };
+
+        _message = format["_targetArray: %1 typeName _target: %2 _targetUnit: %3 target _pos: %4",_targetArray,typeName _target,_targetUnit,_pos];
         if Saber_DEBUG then {hint _message;sleep 3.0;};
         
-        if ((!isNull _targetGroup) && (_targetGroupSize > 0)) then  // if target group is not null and has units
-        {
-            _targetUnit = selectRandom (units _targetGroup);
-            _message = format["_targetUnit: %1",_targetUnit];
-        	if Saber_DEBUG then {hint _message;sleep 3.0;};
-        };
     };
-    _targetUnit;
+    [_targetUnit,_pos];
 };
 
 
@@ -70,10 +98,6 @@ fnc_setAiFireAware = {
         _gunner enableAI "TARGET";
         _gunner enableAI "AUTOTARGET";
         _gunner enableAI "WEAPONAIM";
-        _gunner reveal [_targetUnit,4.0];
-        // look in direction of target
-        // reveal
-        // 
 
         //if (_forceFire) then
 		//{
@@ -87,7 +111,15 @@ fnc_setAiFireAware = {
 		//	_gunner disableAI "AUTOTARGET";
 		//	_gunner disableAI "WEAPONAIM";
 		//};
-		_awareness = _gunner knowsAbout _targetUnit;
+        if !(isNull _targetUnit) then
+        {
+            _gunner reveal [_targetUnit,4.0];
+		    _awareness = _gunner knowsAbout _targetUnit;
+        }
+        else
+        {
+            _awareness = 0.0;
+        };
     };
     _awareness;
 };
@@ -107,13 +139,17 @@ fnc_artilleryDoArtilleryFire =
     {
         private _eta = _artillery getArtilleryETA [_correctedTargetPos, _ammo];
         private _message = format ["Artillery target in range with %1 ammunition. ETA %2 seconds.",_ammo,_eta];
-        if Saber_DEBUG then {hint _message;};
-        _artillery doArtilleryFire [_correctedTargetPos, _ammo, 1];
+        if Saber_DEBUG then {hint _message; sleep 3.0;};
+        _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
+        if (_artilleryOk) then
+        {
+            _artillery doArtilleryFire [_correctedTargetPos, _ammo, 1];
+        };
     }
     else
     {
         private _message = format ["Artillery target not in range with %1 ammunition.",_ammo];
-        if Saber_DEBUG then {hint _message;};
+        if Saber_DEBUG then {hint _message; sleep 3.0;};
     };
     sleep _delay;
 };
@@ -126,12 +162,11 @@ fnc_artilleryFireMaster =
 	//_input = _this select 0;
     _input = _this;
 	_message = format ["fnc_artilleryFireMaster input: %1",_input];
-	if Saber_DEBUG then {hint _message;};
-	sleep 3.0;
+	if Saber_DEBUG then {hint _message; sleep 3.0;};
 
     private _numRounds = _input select 0; // number of round to shoot
     private _artillery = _input select 1; // artillery object
-    private _targetGroupsArray = _input select 2; // array of possible target units
+    private _targetArray = _input select 2; // array of possible target units or groups
     private _errorRadius = _input select 3; // self explanatory
     private _initialDelay = _input select 4; // seconds delay before shooting starts
     private _shotDelay = _input select 5; // seconds delay between shots
@@ -142,18 +177,24 @@ fnc_artilleryFireMaster =
     private _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
     if (_artilleryOk) then
     {
-        _targetUnit = [_targetGroupsArray] call fnc_selectTarget;
-        _awareness = [_artillery,_forceFire,_targetUnit,_shotDelay] call fnc_setAiFireAware;
+        _target = [_targetArray] call fnc_selectTarget;
+        _targetUnit = _target select 0;
+        _targetPos = _target select 1;
+        _awareness = [_artillery,_forceFire,_targetUnit] call fnc_setAiFireAware;
     }
     else
-    {   _targetUnit = objNull;
+    {
+        _targetUnit = objNull;
+        _targetPos = [0,0,0];
         _awareness = 0.0;
+        _message = "Artillery check failed!";
+        if Saber_DEBUG then {hint _message; sleep 2.0;};
     };
-    if (isNull _targetUnit) exitWith {
-        if Saber_DEBUG then {hint "Artillery target is null!";};
+    if ((isNull _targeUnit) && (_targetPos == [0,0,0])) exitWith {
+        _message = "Artillery target is null!";
+        if Saber_DEBUG then {hint _message; sleep 2.0;};
     };
 
-    private _targetPos = getPosAtl _targetUnit;
     sleep _initialDelay;
 
     if (_forceFire) then

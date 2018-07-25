@@ -124,7 +124,6 @@ while {_checkHelis} do
             {
                 _aVeh disableCollisionWith _veh;
 	            _veh disableCollisionWith _aVeh;
-	            _veh disableCollisionWith _aVeh;
             };
             {
             	_bVeh = _x select 0;
