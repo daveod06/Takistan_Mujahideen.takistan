@@ -13,10 +13,14 @@ private _checkHelis = true;
 //private _aVeh = objNull;
 //private _aGroup = objNull;
 //private _tVeh = objNull;
+private _groupLanded = [false,false,false];
+private _t = 0;
+private _lzLandPos = [0,0,0];
 
 // Enable collisions
 while {_checkHelis} do
 {
+	_t = 0;
     {
 	    _veh   = _x select 0;
         _vehGroup = _x select 2;
@@ -38,12 +42,19 @@ while {_checkHelis} do
             _wpIndex = currentWaypoint _vehGroup;
             _wpName = waypointName [_vehGroup,_wpIndex];
             _wpPos = waypointPosition [_vehGroup, _wpIndex];
+            //_cargo = fullCrew [_veh, "cargo"];
+            //_unitArray = _cargo select 0;
+            //if (count _unitArray > 0) then
+            //{
+            //	_group = group (_unitArray select 0);
+            //};
             
             _message = format ["_wpIndex: %1, _wpName: %2 _veh _wpPos: %3 _wpName find: %4",_wpIndex,_wpName,_wpPos,_wpName find "_LZ_LAND"];
 			if Saber_DEBUG then {hint _message; sleep 1.0;};
             
             if ((_wpName find "_LZ_LAND") >= 0) then {
                 _distToWp = _veh distance _wpPos;
+                _lzLandPos = _wpPos;
                 
 			    private _vehCargo = fullCrew [_veh,"cargo", false];
 			    private _cargoUnit = _vehCargo select 0;
@@ -52,7 +63,7 @@ while {_checkHelis} do
 			    _message = format ["_distToWp: %1, _vehCargo: %2 _cargoUnit: %3 _transportSquad: %4",_distToWp,_vehCargo,_cargoUnit,_transportSquad];
 				if Saber_DEBUG then {hint _message; sleep 1.0;};
                 
-                [_wpPos,_transportSquad,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                //[_wpPos,_transportSquad,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
             }
             else
             {
@@ -64,6 +75,17 @@ while {_checkHelis} do
             if ((_distToWp < 5.0 ) or (_vehAltAGL < 3.0)) then
             {
                 _veh lockCargo false;
+                _cargo = fullCrew [_veh, "cargo"];
+                if (count _cargo > 0) then
+                {
+                    _unitArray = _cargo select 0;
+                    _group = group (_unitArray select 0);
+                    _group setCombatMode "RED";
+                    _group setFormation "WEDGE";
+                    _group setBehaviour "AWARE";
+                    _group setSpeedMode "FULL";
+                    [(getPosATL _veh),_group,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                };
             }
             else
             {
@@ -79,7 +101,7 @@ while {_checkHelis} do
             if !(canMove _veh) then
             {
             	_message = format ["vehicle %1 is damaged, proceeding to last WP",_veh];
-				if Saber_DEBUG then {hint _message; sleep 1.0;};
+				if Saber_DEBUG then {hint _message; sleep 3.0;};
             
                 // remove all waypoints
                 _vehGroup setCurrentWaypoint [_vehGroup, (count (waypoints _vehGroup) - 1)];
@@ -141,6 +163,7 @@ while {_checkHelis} do
             };
 	    } forEach _spawnedTransportHelis;
         
+    	_t = _t + 1;
 	} forEach _spawnedTransportHelis;
 
 	sleep 5.0;

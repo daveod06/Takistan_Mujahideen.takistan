@@ -223,7 +223,7 @@ private _t = _a;
     _message = format ["_lzLandPos: %1, _transportSquad: %2, _group: %3",_lzLandPos,_transportSquad,_group];
 	if Saber_DEBUG then {hint _message; sleep 3.0;};
     
-    _command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; %6 land ""GET OUT"";",_veh,_speed_kph,_veh,_veh,_speed_mps,_veh];
+    _command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5;",_veh,_speed_kph,_veh,_veh,_speed_mps,_veh];
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints;",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group];
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints; %9 land ""GET OUT"";",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group,_veh]; // FIXME TEST
 
