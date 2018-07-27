@@ -43,7 +43,7 @@ private _attackPos = _enemyPos;
 _wpName = format ["%1_SAD", str _group];
 private _wp1 = _x addWaypoint [_attackPos, 20.0, _wpIndex, _wpName];
 _wp1 setWaypointCombatMode "RED";
-_wp1 setWaypointBehaviour "UNCHANGED";
+_wp1 setWaypointBehaviour "AWARE";
 _wp1 setWaypointSpeed "FULL";
 _wp1 setWaypointType "SAD";
 _wp1 setWaypointFormation "WEDGE";

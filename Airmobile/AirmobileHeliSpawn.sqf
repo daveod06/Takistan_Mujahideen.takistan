@@ -182,15 +182,27 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	sleep 0.3;
 };
 
-// Prevent collisions initially
-//{
-//    _aVeh = _x select 0;
-//    {
-//        _tVeh = _x select 0;
-//        _aVeh disableCollisionWith _tVeh;
-//        _tVeh disableCollisionWith _aVeh;
-//    } forEach _spawnedTransportHelis;
-//} forEach _spawnedAttackHelis;
+ Prevent collisions initially
+{
+    _attackVehA = _x select 0;
+    {
+        _transVehA = _x select 0;
+        {
+            _attackVehB = _x select 0;
+            _attackVehA disableCollisionWith _attackVehB;
+            _attackVehA disableCollisionWith _transVehA;
+
+        } forEach _spawnedAttackHelis;
+
+        {
+            _transVehB = _x select 0;
+            _transVehA disableCollisionWith _transVehB
+            _transVehA disableCollisionWith _attackVehA;
+
+        } forEach _spawnedTransportHelis;
+
+    } forEach _spawnedTransportHelis;
+} forEach _spawnedAttackHelis;
 
 _output = [_spawnedAttackHelis,_spawnedTransportHelis];
 _output;
