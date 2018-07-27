@@ -9,14 +9,47 @@ private _spawnHeliOutput = _this select 0;
 private _spawnedAttackHelis = _spawnHeliOutput select 0;
 private _spawnedTransportHelis = _spawnHeliOutput select 1;
 
+fnc_vehicleOk =
+{
+	private ["_vehicleName","_vehicleOk"];
+
+	_vehicleName = _this select 0;
+	_vehicleOk = false;
+	if (!(isNull _vehicleName)) then
+	{
+		if (alive _vehicleName) then
+		{
+		    _vehicleOk = true;
+		};
+	};
+	_vehicleOk
+};
+
+fnc_groupOk =
+{
+    private ["_groupName","_groupOk"];
+    _groupName = _this select 0;
+    _groupOk = false;
+    if (!(isNull _groupName)) then
+    {
+    	if ({alive _x} count (units _groupName) > 0) then
+    	{
+    	    _groupOk = true;
+    	};
+    };
+    _groupOk
+};
+
 // initialize
 fnc_heliStatusCheck =
 {
     _veh = _this select 0;
-    _vehGroup = _this select 0;
+    _vehGroup = _this select 1;
 
-    _vehOk = [_veh] call Saber_fnc_vehicleOk;
-    _groupOk = [_vehGroup] call Saber_fnc_groupOk;
+    _vehOk = [_veh] call fnc_vehicleOk;
+    _groupOk = [_vehGroup] call fnc_groupOk;
+    //_message = format ["MISSION MONITOR: _veh: %1 typeName _veh: %2 _vehGroup %3 typeName _vehGroup: %4",_veh,typeName _veh,_vehGroup,typeName _vehGroup];
+	//if Saber_DEBUG then {hint _message; sleep 3.0;};
 
     if (_vehOk && _groupOk) then
     {
@@ -41,7 +74,7 @@ fnc_heliStatusCheck =
             _hasCargo = true;
 	    	_cargoUnit = _vehCargo select 0;
 		    _cargoGroup = group (_cargoUnit select 0);
-            _cargoGroupOk = [_cargoGroup] call Saber_fnc_groupOk;
+            _cargoGroupOk = [_cargoGroup] call fnc_groupOk;
         }
         else
         {
@@ -80,7 +113,7 @@ while {true} do
         _veh   = _x select 0;
         _vehGroup = _x select 2;
         
-        _heliStatusArray = [_veh,_vehGroup] call fnc_heliStatusCheck;
+        _heliStatusArray = [_veh,_vehGroup] call fnc_heliStatusCheck; // ERRORS HERE FIXME
         _vehOk = _heliStatusArray select 0;
         _groupOk = _heliStatusArray select 1;
         _wpIndex = _heliStatusArray select 2;
@@ -110,7 +143,7 @@ while {true} do
                     _cargoGroup setFormation "WEDGE";
                     _cargoGroup setBehaviour "AWARE";
                     _cargoGroup setSpeedMode "FULL";
-                    //[(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                    [(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
                     _transportUnloaded set [_t, true];
                     _message = format ["vehicle %1 is unlocked",_veh];
     	            if Saber_DEBUG then {hint _message; sleep 1.0;};

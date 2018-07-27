@@ -126,14 +126,14 @@ private _a = 0;
     _finalPos = getPos _spawnHelipad;
     //_finalPos = _finalPos set [2, (_finalPos select 2) + 100];
     private _wpName = format ["%1_Final", _veh];
-    private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh];
+    //private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh];
     private _wp5 = _group addWaypoint [_finalPos, 0.0, 5, _wpName];
     _wp5 setWaypointCombatMode "RED";
     _wp5 setWaypointBehaviour "CARELESS";
     _wp5 setWaypointSpeed "LIMITED";
     _wp5 setWaypointType "MOVE";
     _wp5 setWaypointTimeout [0, 0, 0];
-    _wp5 setWaypointStatements ["true",_despawnCommand];
+    //_wp5 setWaypointStatements ["true",_despawnCommand];
     
     _a = _a + 1;
     sleep 1.0;
@@ -227,7 +227,7 @@ private _t = _a;
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints;",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group];
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints; %9 land ""GET OUT"";",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group,_veh]; // FIXME TEST
 
-    private _script = format ["[%1,%2,%3] call Saber_fnc_AirmobileSingleTroopWaypoints",_lzLandPos,_transportSquad,_group]; 
+    //private _script = format ["[%1,%2,%3] call Saber_fnc_AirmobileSingleTroopWaypoints",_lzLandPos,_transportSquad,_group]; 
     private _wp3 = _group addWaypoint [_lzLandPos, 0.0, _wpIndex, _wpName];
     _wp3 setWaypointCombatMode "RED"; //NO CHANGE
     _wp3 setWaypointBehaviour "CARELESS"; //UNCHANGED
@@ -269,14 +269,14 @@ private _t = _a;
     _finalPos = getPos _spawnHelipad;
     ////_finalPos = _finalPos set [2, (_finalPos select 2) + 100];
     _wpName = format ["%1_Final", _veh];
-    private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh];
+    //private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh]; // FIXME TEST
     private _wp6 = _group addWaypoint [_finalPos, 0.0, _wpIndex, _wpName];
     _wp6 setWaypointCombatMode "NO CHANGE";
     _wp6 setWaypointBehaviour "CARELESS";
     _wp6 setWaypointSpeed "LIMITED";
     _wp6 setWaypointType "MOVE";
     _wp6 setWaypointTimeout [0, 0, 0];
-    _wp6 setWaypointStatements ["true",_despawnCommand];
+    //_wp6 setWaypointStatements ["true",_despawnCommand]; // FIXME TEST
     
     _t = _t + 1;
     sleep 5.0;

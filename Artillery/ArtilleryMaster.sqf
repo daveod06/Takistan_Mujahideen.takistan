@@ -27,13 +27,14 @@ fnc_selectTarget = {
             {
                 _targetUnit = _target;
                 _pos = getPosATL _targetUnit;
+            };
         };
         if (typeName _target == "GROUP") then
         {
             //if ([_target] call Saber_fnc_groupOk) then
-            if (!(isNull _groupName) && count (units _target) > 0) then
+            if (!(isNull _target) && count (units _target) > 0) then
             {
-                _targetUnit = selectRandom (units _target)
+                _targetUnit = selectRandom (units _target);
                 _pos = getPosATL _targetUnit;
             };
         };
@@ -50,7 +51,7 @@ fnc_selectTarget = {
         if (typeName _target == "ARRAY") then
         {
             //if ([_target] call Saber_fnc_unitOk) then
-            if ((count _target == 2) or (count _target == 3))
+            if ((count _target == 2) or (count _target == 3)) then
             {
                 _targetUnit = _objNull;
                 _pos = _target;
@@ -190,7 +191,7 @@ fnc_artilleryFireMaster =
         _message = "Artillery check failed!";
         if Saber_DEBUG then {hint _message; sleep 2.0;};
     };
-    if ((isNull _targeUnit) && (_targetPos == [0,0,0])) exitWith {
+    if ((isNull _targetUnit) && (_targetPos == [0,0,0])) exitWith {
         _message = "Artillery target is null!";
         if Saber_DEBUG then {hint _message; sleep 2.0;};
     };

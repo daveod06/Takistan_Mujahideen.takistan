@@ -1,5 +1,5 @@
 // ConvoyInit.sqf
-// � v.2.5 MARCH 2016 - Devastator_cm
+// v.2.5 MARCH 2016 - Devastator_cm
 
 [] call compile preprocessFile "scripts\common\CommonInit.sqf";
 Saber_fnc_Artillery          = Compile preprocessFileLineNumbers "Artillery\ArtilleryMaster.sqf";

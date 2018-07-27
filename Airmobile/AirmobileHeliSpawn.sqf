@@ -182,7 +182,7 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	sleep 0.3;
 };
 
- Prevent collisions initially
+// Prevent collisions initially
 {
     _attackVehA = _x select 0;
     {
@@ -196,7 +196,7 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 
         {
             _transVehB = _x select 0;
-            _transVehA disableCollisionWith _transVehB
+            _transVehA disableCollisionWith _transVehB;
             _transVehA disableCollisionWith _attackVehA;
 
         } forEach _spawnedTransportHelis;
