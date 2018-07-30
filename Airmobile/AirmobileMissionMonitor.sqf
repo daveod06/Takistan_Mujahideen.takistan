@@ -96,6 +96,9 @@ fnc_heliStatusCheck =
     };
     
     _heliStatusArray = [_vehOk,_groupOk,_wpIndex,_wpName,_distToWp,_hasCargo,_cargoGroup,_cargoGroupOk,_vehAltAGL];
+    _message = format ["fnc_heliStatusCheck: %1",_heliStatusArray];
+    if Saber_DEBUG then {hint _message; sleep 3.0;};
+    _heliStatusArray;
 };
 
 
