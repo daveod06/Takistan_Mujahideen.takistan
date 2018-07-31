@@ -49,6 +49,12 @@ fnc_heliStatusCheck =
     _vehOk = [_veh] call fnc_vehicleOk;
     _groupOk = [_vehGroup] call fnc_groupOk;
     _wpIndex = -1;
+    _wpName = "";
+    _distToWp = 100000.0;
+    _hasCargo = true;
+    _cargoGroup = objNull;
+    _cargoGroupOk = false;
+    _vehAltAGL =  100000.0;
     //_message = format ["MISSION MONITOR: _veh: %1 typeName _veh: %2 _vehGroup %3 typeName _vehGroup: %4",_veh,typeName _veh,_vehGroup,typeName _vehGroup];
 	//if Saber_DEBUG then {hint _message; sleep 3.0;};
 
