@@ -85,7 +85,7 @@ fnc_AirmobileMaster =
 	if Saber_DEBUG then {hint _message;};
 	sleep 1.0;
 	
-	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileHeliWaypoints;
+	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput] call Saber_fnc_AirmobileHeliWaypoints;
 
     // moved into heliWaypoints
 	//_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;

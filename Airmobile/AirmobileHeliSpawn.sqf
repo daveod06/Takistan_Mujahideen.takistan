@@ -151,6 +151,7 @@ for "_a" from 0 to (_attackHeliToSpawn - 1) do
 	sleep 0.3;
 };
 
+_iterator = 0;
 // Spawn Transport Helicopters
 for "_t" from 0 to (_transportHeliToSpawn - 1) do
 {

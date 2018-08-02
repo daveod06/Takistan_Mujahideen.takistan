@@ -11,6 +11,7 @@ fnc_findNearestEnemy =
     private _input = _this select 0;
     private _distance = _this select 1;
     private _obj = objNull;
+    _nearestEnemy = objNull;
     if (typeName _input == "OBJECT") then
     {
         if ([_input] call Saber_fnc_unitOk) then

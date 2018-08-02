@@ -102,8 +102,8 @@ fnc_heliStatusCheck =
     };
     
     _heliStatusArray = [_vehOk,_groupOk,_wpIndex,_wpName,_distToWp,_hasCargo,_cargoGroup,_cargoGroupOk,_vehAltAGL];
-    _message = format ["fnc_heliStatusCheck: %1",_heliStatusArray];
-    if Saber_DEBUG then {hint _message; sleep 3.0;};
+    _message = format ["fnc_heliStatusCheck  _wpName:%1 _distToWp:%2 _vehAltAGL:%3 _hasCargo:%4",_wpName,_distToWp,_vehAltAGL,_hasCargo];
+    if Saber_DEBUG then {hint _message; sleep 1.0;};
     _heliStatusArray;
 };
 
@@ -114,7 +114,12 @@ _transportUnloaded = [];
 } forEach _spawnedTransportHelis;
 
 _message = format ["MISSION MONITOR: %1 helicopters, _transportUnloaded: %2",count _transportUnloaded,_transportUnloaded];
-if Saber_DEBUG then {hint _message; sleep 3.0;};
+if Saber_DEBUG then {hint _message; sleep 1.0;};
+
+
+// vehicle_25_LZ_Land
+
+_unlock = false;
 
 while {true} do
 {
@@ -134,7 +139,9 @@ while {true} do
         _cargoGroupOk = _heliStatusArray select 7;
         _vehAltAGL = _heliStatusArray select 8;
         
-        _unlock = ((_wpName find "_LZ_LAND") >= 0) && (_distToWp < 5.0) && (_vehAltAGL < 3.0);
+        _unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 2.0) || (_wpName find "LZ_Post_Unload") >= 0);
+        _message = format ["UNLOCK STATUS %1 !!!!!!!!!!!!!!!!!!!!!!!! _wpName: %2 find _LZ_Land: %3",_unlock,_wpName,(_wpName find "_LZ_Land")];
+        if Saber_DEBUG then {hint _message; sleep 1.0;};
     
         if (_vehOk && _groupOk && _cargoGroupOk) then
         {
@@ -144,7 +151,7 @@ while {true} do
                 {
                     if (!local _veh) then {
                         _message = format ["vehicle %1 is not local!!!!!",_veh];
-    	    	        if Saber_DEBUG then {hint _message; sleep 1.0;};
+    	    	        if Saber_DEBUG then {hint _message; sleep 2.0;};
                     };
                     _veh lockCargo false; // This command must be executed where vehicle is local
                     _veh setVehicleLock "UNLOCKED";
@@ -155,8 +162,8 @@ while {true} do
                     _cargoGroup setSpeedMode "FULL";
                     [(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
                     _transportUnloaded set [_t, true];
-                    _message = format ["vehicle %1 is unlocked",_veh];
-    	            if Saber_DEBUG then {hint _message; sleep 1.0;};
+                    _message = format ["VEHICLE %1 is UNLOCKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",_veh];
+    	            if Saber_DEBUG then {hint _message; sleep 2.0;};
                 }
                 else
                 {
@@ -214,6 +221,27 @@ while {true} do
         _t = _t + 1;
     
     } forEach _spawnedTransportHelis;
+
+    {
+        _attackVehA = _x select 0;
+        {
+            _transVehA = _x select 0;
+            {
+                _attackVehB = _x select 0;
+                _attackVehA disableCollisionWith _attackVehB;
+                _attackVehA disableCollisionWith _transVehA;
+
+            } forEach _spawnedAttackHelis;
+
+            {
+                _transVehB = _x select 0;
+                _transVehA disableCollisionWith _transVehB;
+                _transVehA disableCollisionWith _attackVehA;
+
+            } forEach _spawnedTransportHelis;
+
+        } forEach _spawnedTransportHelis;
+    } forEach _spawnedAttackHelis;
 
     sleep 2.0;
 };
