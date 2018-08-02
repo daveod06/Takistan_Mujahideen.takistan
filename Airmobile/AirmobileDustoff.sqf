@@ -50,8 +50,7 @@ waitUntil (groupsReadyForPickup)
 	_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] call Saber_fnc_AirmobileHeliSpawn;
 	//_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
 	private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
-	hint _message;
-	sleep 10.0;
+    if Saber_DEBUG then {hint _message;sleep 1.0;};
 	
 	
 	// create helicopter dustoff waypoints

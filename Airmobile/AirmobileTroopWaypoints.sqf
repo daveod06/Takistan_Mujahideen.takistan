@@ -12,10 +12,10 @@ private _spawnHeliOutput = _this select 1;
 private _spawnTroopOutput = _this select 2;
 
 private _message = format ["_lzInitOutput: %1",_lzInitOutput];
-hint _message;
+if Saber_DEBUG then {hint _message;sleep 1.0;};
 sleep 3.0;
 private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
-hint _message;
+if Saber_DEBUG then {hint _message;sleep 1.0;};
 sleep 3.0;
 
 private _lzHelipads = _lzInitOutput select 2;
