@@ -43,12 +43,10 @@ fnc_AirmobileMaster =
 
     private _lzHelipadsArray = _input select 0;
     _message = format ["fnc_AirmobileMaster _lzHelipadsArray: %1",_lzHelipadsArray];
-	if Saber_DEBUG then {hint _message;};
-	sleep 3.0;
+	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	private _baseHelipadsArray = _input select 1;
 	_message = format ["fnc_AirmobileMaster _baseHelipadsArray: %1",_baseHelipadsArray];
-	if Saber_DEBUG then {hint _message;};
-	sleep 3.0;
+	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	private _side = _input select 2;
 	private _faction = _input select 3;
 	private _category = _input select 4;
@@ -66,8 +64,7 @@ fnc_AirmobileMaster =
 	_lzInitOutput = [_lzHelipadsArray, _baseHelipadsArray] call Saber_fnc_AirmobileLzInit;
 	// _lzInitOutput = [_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger]
 	private _message = format ["_lzInitOutput: %1",_lzInitOutput];
-	if Saber_DEBUG then {hint _message;};
-	sleep 1.0;
+	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	//if ((_lzInitOutput select 0 == 0) || (isNull (_lzInitOutput select 1)) || (isNull (_lzInitOutput select 2)) || (_lzInitOutput select 3 == "") || (_lzInitOutput select 4 == "")) exitWith
 	//{
 	//    hint "Can't initialize Airmobile scripts.";
@@ -76,50 +73,39 @@ fnc_AirmobileMaster =
 	_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] call Saber_fnc_AirmobileHeliSpawn;
 	//_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
 	private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
-	if Saber_DEBUG then {hint _message;};
-	sleep 1.0;
+	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	
 	_spawnTroopOutput = [_side,_faction,_squadType,_spawnHeliOutput,_category] call Saber_fnc_AirmobileTroopSpawn;
 	//_spawnTroopOutput = [_spawnedTroopGroups]
 	private _message = format ["_spawnTroopOutput: %1",_spawnTroopOutput];
-	if Saber_DEBUG then {hint _message;};
-	sleep 1.0;
+	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	
 	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput] call Saber_fnc_AirmobileHeliWaypoints;
 
     // moved into heliWaypoints
 	//_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
-	// if crew leave helicopter
-	// delete remaining waypoints
-	// set to aware
-    // https://community.bistudio.com/wiki/land
-    // https://community.bistudio.com/wiki/landAt
-    // https://community.bistudio.com/wiki/unitReady
-
     // mission progress monitor
-    [_spawnHeliOutput] spawn Saber_fnc_AirmobileMissionMonitor; // TEST FIXME
+    [_spawnHeliOutput] spawn Saber_fnc_AirmobileInsertionMonitor;
 	
-	//if _dustoff then
-	//{
-	//    _spawnAttackHelis = false;
-	//    _dustoffOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput,_spawnTroopOutput] spawn Saber_fnc_AirmobileDustoff;
-	//};
+	if _dustoff then
+	{
+	    _spawnAttackHelis = false;
+	    [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput,_spawnTroopOutput] spawn Saber_fnc_AirmobileDustoff;
+	};
 };
 
 //_this = [_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff]
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    //if Saber_DEBUG then {hint "Calling fnc_AirmobileMaster.";};
-    //sleep 1.0;
+    //if Saber_DEBUG then {hint "Calling fnc_AirmobileMaster.";sleep 1.0;};
     _this call fnc_AirmobileMaster;
 }
 else
 {
     if(isServer) then
     {
-        //if Saber_DEBUG then {hint "Calling fnc_AirmobileMaster.";};
-        //sleep 1.0;
+        //if Saber_DEBUG then {hint "Calling fnc_AirmobileMaster.";sleep 1.0;};
         _this call fnc_AirmobileMaster;
     };
 };

@@ -109,21 +109,29 @@ fnc_heliStatusCheck =
 
 
 _transportUnloaded = [];
+_heliAliveCount = 0;
 {
     _transportUnloaded pushBack false;
+    _heliAliveCount = _heliAliveCount + 1;
 } forEach _spawnedTransportHelis;
+{
+    _heliAliveCount = _heliAliveCount + 1;
+} forEach _spawnedAttackHelis; 
+
 
 _message = format ["MISSION MONITOR: %1 helicopters, _transportUnloaded: %2",count _transportUnloaded,_transportUnloaded];
-if Saber_DEBUG then {hint _message; sleep 1.0;};
+//if Saber_DEBUG then {hint _message; sleep 1.0;};
 
 
 // vehicle_25_LZ_Land
 
 _unlock = false;
 
-while {true} do
+
+while {_heliAliveCount > 0} do
 {
     _t = 0;
+    _heliAliveCount = 0;
     {
         _veh   = _x select 0;
         _vehGroup = _x select 2;
@@ -140,7 +148,7 @@ while {true} do
         _vehAltAGL = _heliStatusArray select 8;
         
         _unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 2.0) || (_wpName find "LZ_Post_Unload") >= 0);
-        _message = format ["UNLOCK STATUS %1 !!!!!!!!!!!!!!!!!!!!!!!! _wpName: %2 find _LZ_Land: %3",_unlock,_wpName,(_wpName find "_LZ_Land")];
+        _message = format ["UNLOCK STATUS %1 !!!!!!!!!!!!!!!!!!!!!!!! _wpName:%2 _distToWp:%3 _vehAltAGL:%4 _hasCargo:%5 ",_unlock,_wpName,_distToWp,_vehAltAGL,_hasCargo];
         if Saber_DEBUG then {hint _message; sleep 1.0;};
     
         if (_vehOk && _groupOk && _cargoGroupOk) then
@@ -156,14 +164,19 @@ while {true} do
                     _veh lockCargo false; // This command must be executed where vehicle is local
                     _veh setVehicleLock "UNLOCKED";
                     _veh lock false;
+                    _veh allowCrewInImmobile false;
                     _cargoGroup setCombatMode "RED";
                     _cargoGroup setFormation "WEDGE";
                     _cargoGroup setBehaviour "AWARE";
                     _cargoGroup setSpeedMode "FULL";
                     [(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                    {
+                        //doGetOut _x;
+                        _x enableAI "FSM";
+                    } forEach (units _cargoGroup);
                     _transportUnloaded set [_t, true];
                     _message = format ["VEHICLE %1 is UNLOCKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",_veh];
-    	            if Saber_DEBUG then {hint _message; sleep 2.0;};
+    	            //if Saber_DEBUG then {hint _message; sleep 1.0;};
                 }
                 else
                 {
@@ -174,6 +187,11 @@ while {true} do
                     _veh lockCargo true; // This command must be executed where vehicle is local
                     _veh setVehicleLock "LOCKED";
                     _veh lock true;
+                    _veh allowCrewInImmobile true;
+                    {
+                        _x moveInCargo _veh;
+                        _x disableAI "FSM";
+                    } forEach (units _cargoGroup);
                     _cargoGroup setCombatMode "BLUE";
                     _cargoGroup setFormation "WEDGE";
                     _cargoGroup setBehaviour "CARELESS";
@@ -185,7 +203,14 @@ while {true} do
             {
                	_message = format ["vehicle %1 is DAMAGED!!!!!! Proceeding to last WP",_veh];
     	    	if Saber_DEBUG then {hint _message; sleep 1.0;};
-    
+   
+                // if crew leave helicopter
+	            // delete remaining waypoints
+	            // set to aware
+                // https://community.bistudio.com/wiki/land
+                // https://community.bistudio.com/wiki/landAt
+                // https://community.bistudio.com/wiki/unitReady
+
                 //// remove all waypoints
                 ////_vehGroup setCurrentWaypoint [_vehGroup, (count (waypoints _vehGroup) - 1)];
                 //sleep 0.5;
@@ -219,8 +244,20 @@ while {true} do
             };
         };
         _t = _t + 1;
-    
+        if _vehOk then {
+            _heliAliveCount = _heliAliveCount + 1;
+        };
+        
     } forEach _spawnedTransportHelis;
+
+    {
+        _veh = _x select 0;
+        _vehOk = [_veh] call fnc_vehicleOk;
+        if _vehOk then
+        {
+            _heliAliveCount = _heliAliveCount + 1;
+        };
+    } forEach _spawnedAttackHelis;
 
     {
         _attackVehA = _x select 0;

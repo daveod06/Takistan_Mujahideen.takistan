@@ -6,6 +6,37 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
+fnc_vehicleOk =
+{
+	private ["_vehicleName","_vehicleOk"];
+
+	_vehicleName = _this select 0;
+	_vehicleOk = false;
+	if (!(isNull _vehicleName)) then
+	{
+		if (alive _vehicleName) then
+		{
+		    _vehicleOk = true;
+		};
+	};
+	_vehicleOk
+};
+
+fnc_groupOk =
+{
+    private ["_groupName","_groupOk"];
+    _groupName = _this select 0;
+    _groupOk = false;
+    if (!(isNull _groupName)) then
+    {
+    	if ({alive _x} count (units _groupName) > 0) then
+    	{
+    	    _groupOk = true;
+    	};
+    };
+    _groupOk
+};
+
 fnc_AirmobileGroupCheck =
 {
     private _group = _this select 0;
@@ -16,7 +47,7 @@ fnc_AirmobileGroupCheck =
     };
     if ({ alive _x } count units _group == 0) then
     {
-        _groupIsDead = false;
+        _groupIsAlive = false;
     };
     _groupIsAlive;
 };
@@ -46,52 +77,94 @@ private _spawnedTroopGroups = _spawnOutput select 2;
 private _numSpawnedAttackHelis = count _spawnedAttackHelis;
 private _t = _numSpawnedAttackHelis;
 private _h = 0;
-private _loadWpIndex = 3;
+private _loadWpIndex = -1;
 private _vehArray = [];
 private _veh = objNull;
+_checkHeliWaypoints = true;
 
+while {_checkHeliWaypoints} do
 {
-    _group = _x;
     _vehArray = _spawnedTransportHelis select _t;
     _vehName = _vehArray select 0;
     _vehGroup  = _vehArray select 2;
-    
-    
-    // Assign helipad
-    _lzHelipad = _lzHelipads select _t;
-    
-    
-    // remove all old waypoints
-    _group setCurrentWaypoint [_group, (count (waypoints _group) - 1)];
-    while {(count (waypoints _group)) > 0} do
+    _wpIndex = currentWaypoint _vehGroup;
+    if (_wpIndex >= 0) then
     {
-        ((waypoints _group) select 0) setWPPos (getPos leader _group);
-        sleep 0.1;
-        deleteWaypoint ((waypoints _group) select 0);
+        _wpName = waypointName [_vehGroup,_wpIndex];
+        _wpPos = waypointPosition [_vehGroup, _wpIndex];
+        _distToWp = _veh distance _wpPos;
+    }
+    else
+    {
+        _wpName = "";
+        _wpPos = [0,0,0];
+        _distToWp = 100000.0;
     };
-    
-    // Get In waypoint
-    private _GetInPos = getPos _lzHelipad;
-    _wpName = format ["%1_Get_In", str _group];
-    private _wp1 = _x addWaypoint [_GetInPos, 0.0, 0, _wpName];
-    _wp1 setWaypointCombatMode "RED";
-    _wp1 setWaypointBehaviour "AWARE";
-    _wp1 setWaypointSpeed "FULL";
-    _wp1 setWaypointType "GETIN";
-    _wp1 setWaypointFormation "WEDGE";
-    _wp1 setWaypointTimeout [0, 0, 0];
-    
-    _heliWaypoints = waypoints _vehGroup;
-    _heliLoadWp = _heliWaypoints select _loadWpIndex;
-    _wp1 waypointAttachVehicle _vehName;
-    _wp1 synchronizeWaypoint [_heliLoadWp];
-    
-    private _smokeClasses = ["G_40mm_SmokeRed","G_40mm_SmokeBlue","G_40mm_Smoke","G_40mm_SmokeGreen","G_40mm_SmokeYellow","G_40mm_SmokePurple","G_40mm_SmokeOrange"];
-    _smokeObj = (selectRandom _smokeClasses) createVehicle (getPos _lzHelipad);
-    
-    _t = _t + 1;
-    _h = _h + 1;
-} forEach _aliveGroups;
+
+    if ((_wpName find "LZ_Load") >= 0) then
+    {
+        _loadWpIndex = _wpIndex;
+        _checkHeliWaypoints = false;
+    };
+
+    sleep 3.0;
+};
+
+
+waitUntil (_checkHeliWaypoints == false)
+{
+    {
+        _group = _x;
+        _vehArray = _spawnedTransportHelis select _t;
+        _vehName = _vehArray select 0;
+        _vehGroup  = _vehArray select 2;
+
+        _vehOk = [_vehName] call fnc_vehicleOk;
+        _vehGroupOk = [_vehGroup] call fnc_groupOk;
+        _groupOk = [_group] call fnc_groupOk;
+
+        if (_vehOk && _vehGroupOk && _groupOk) then
+        {
+            // Assign helipad
+            _lzHelipad = _lzHelipads select _t;
+            
+            // remove all old waypoints
+            _group setCurrentWaypoint [_group, (count (waypoints _group) - 1)];
+            while {(count (waypoints _group)) > 0} do
+            {
+                ((waypoints _group) select 0) setWPPos (getPos leader _group);
+                sleep 0.1;
+                deleteWaypoint ((waypoints _group) select 0);
+            };
+       
+            // Get In waypoint
+            private _getInPos = getPos _lzHelipad;
+            _wpName = format ["%1_Get_In", str _group];
+            private _wp1 = _x addWaypoint [_getInPos, 0.0, 0, _wpName];
+            _wp1 setWaypointCombatMode "RED";
+            _wp1 setWaypointBehaviour "AWARE";
+            _wp1 setWaypointSpeed "FULL";
+            _wp1 setWaypointType "GETIN";
+            _wp1 setWaypointFormation "WEDGE";
+            _wp1 setWaypointTimeout [0, 0, 0];
+            
+            _heliWaypoints = waypoints _vehGroup;
+            _heliLoadWp = _heliWaypoints select _loadWpIndex;
+            _wp1 waypointAttachVehicle _vehName;
+            _wp1 synchronizeWaypoint [_heliLoadWp];
+            
+            private _smokeClasses = ["G_40mm_SmokeRed","G_40mm_SmokeBlue","G_40mm_Smoke","G_40mm_SmokeGreen","G_40mm_SmokeYellow","G_40mm_SmokePurple","G_40mm_SmokeOrange"];
+            _smokeObj = (selectRandom _smokeClasses) createVehicle (getPos _lzHelipad);
+
+            (units _group) allowGetIn true;
+            (units _group) assignAsCargo _vehName;
+            (units _group) orderGetIn true;
+            
+            _t = _t + 1;
+            _h = _h + 1;
+        };
+    } forEach _aliveGroups;
+};
 //};
 
 // _this = [[_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger],[_spawnedAttackHelis,_spawnedTransportHelis,_spawnedTroopGroups]];

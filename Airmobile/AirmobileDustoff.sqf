@@ -47,7 +47,7 @@ waitUntil (groupsReadyForPickup)
 	_lzInitOutput = _lzInitOutput set [0, count _aliveGroups];
 	
 	// spawn pickup helicopters
-	_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] spawn Saber_fnc_AirmobileHeliSpawn;
+	_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] call Saber_fnc_AirmobileHeliSpawn;
 	//_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
 	private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
 	hint _message;
@@ -55,14 +55,11 @@ waitUntil (groupsReadyForPickup)
 	
 	
 	// create helicopter dustoff waypoints
-	_heliDustoffOutput = [_lzInitOutput, _spawnHeliOutput] spawn Saber_fnc_AirmobileHeliDustoff;
+	_heliDustoffOutput = [_lzInitOutput, _spawnHeliOutput] call Saber_fnc_AirmobileHeliDustoff;
 
     _spawnedTransportHelis = _spawnHeliOutput select 1;
     _heliGroup0 = (_spawnedTransportHelis select 0) select 2;
-    if (currentWaypoint _heliGroup0 == 3) then 
-    {
-        // create troops dustoff waypoints
-        _troopDustoffOutput = [_lzInitOutput, _spawnHeliOutput, _aliveGroups] spawn Saber_fnc_AirmobileTroopDustoff;
-    };
+    // create troops dustoff waypoints
+    _troopDustoffOutput = [_lzInitOutput, _spawnHeliOutput, _aliveGroups] call Saber_fnc_AirmobileTroopDustoff;
 
 };

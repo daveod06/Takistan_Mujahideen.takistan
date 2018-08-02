@@ -165,7 +165,13 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
 	_spawnClass = _transportType;
 	
 	// Spawn Helicopter
-	_vehArray = [_spawnPos, _spawnDir, _spawnClass, _side] call bis_fnc_spawnvehicle;
+    _vehName = createVehicle [_spawnClass, _spawnPos, [], 0.0, "FLY"];
+    _vehName allowCrewInImmobile true; // prevent AI from ejecting
+    sleep 0.2;
+    createVehicleCrew _vehName;
+    _vehArray = [_vehName,crew _vehName,group ((crew _vehName) select 0)];
+
+	//_vehArray = [_spawnPos, _spawnDir, _spawnClass, _side] call bis_fnc_spawnvehicle;
     _vehName 	= _vehArray select 0;
     //_vehCrew 	= _vehArray select 1;
     _vehGroup 	= _vehArray select 2;
@@ -175,7 +181,6 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
     _vehGroup deleteGroupWhenEmpty true;
     //{(driver _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     //{(commander _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
-    _vehName allowCrewInImmobile true; // prevent AI from ejecting
     //_vehName flyInHeight (160 - _iterator*10); // make helis fly in a different heights
     
 	_spawnedTransportHelis pushBack _vehArray;

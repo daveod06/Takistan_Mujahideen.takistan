@@ -156,7 +156,7 @@ private _t = _a;
     private _transportSquad = group (_cargoUnit select 0);
     
     _message = format ["_group: %1, _veh: %2, _vehCargo: %3, _cargoUnit: %4, _transportSquad: %5",_group,_veh,_vehCargo,_cargoUnit,_transportSquad];
-	if Saber_DEBUG then {hint _message; sleep 3.0;};
+	if Saber_DEBUG then {hint _message; sleep 1.0;};
 
     // Assign helipads
     private _spawnHelipad = _baseHelipads select _t;
@@ -197,21 +197,21 @@ private _t = _a;
     //_wp1 setWaypointTimeout [0, 0, 0];
     //_wp1 setWaypointStatements ["true",_command];
     
-    // Approach waypoint
-    //_wpIndex = _wpIndex + 1;
-    //private _lzApproachPos = _lzHelipad getPos [160.0, _lzToBaseBearing];
+     Approach waypoint
+    _wpIndex = _wpIndex + 1;
+    private _lzApproachPos = _lzHelipad getPos [160.0, _lzToBaseBearing];
     //_lzApproachPos = _lzApproachPos set [2, (_lzApproachPos select 2) + 50];
-    //_wpName = format ["%1_LZ_Approach", _veh];
-    //_speed_kph = 50;
-    //_speed_mps = _speed_kph * _kph_to_mps;
-    //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5;",_veh,_speed_kph,_veh,_veh,_speed_mps];
-    //private _wp2 = _group addWaypoint [_lzApproachPos, 0.0, _wpIndex, _wpName];
-    //_wp2 setWaypointCombatMode "NO CHANGE";
-    //_wp2 setWaypointBehaviour "UNCHANGED";
-    //_wp2 setWaypointSpeed "LIMITED";
-    //_wp2 setWaypointType "MOVE";
-    //_wp2 setWaypointTimeout [0, 0, 0];
-    //_wp2 setWaypointStatements ["true",_command];
+    _wpName = format ["%1_LZ_Approach", _veh];
+    _speed_kph = 50;
+    _speed_mps = _speed_kph * _kph_to_mps;
+    _command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5;",_veh,_speed_kph,_veh,_veh,_speed_mps];
+    private _wp2 = _group addWaypoint [_lzApproachPos, 0.0, _wpIndex, _wpName];
+    _wp2 setWaypointCombatMode "NO CHANGE";
+    _wp2 setWaypointBehaviour "UNCHANGED";
+    _wp2 setWaypointSpeed "LIMITED";
+    _wp2 setWaypointType "MOVE";
+    _wp2 setWaypointTimeout [0, 0, 0];
+    _wp2 setWaypointStatements ["true",_command];
     
     // Transport Unload waypoint
     _wpIndex = _wpIndex + 1;
@@ -220,14 +220,9 @@ private _t = _a;
     _wpName = format ["%1_LZ_Land", _veh];
     _speed_kph = 50;
     _speed_mps = _speed_kph * _kph_to_mps;
-    
-    _message = format ["_lzLandPos: %1, _transportSquad: %2, _group: %3",_lzLandPos,_transportSquad,_group];
-	if Saber_DEBUG then {hint _message; sleep 3.0;};
-    
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5;",_veh,_speed_kph,_veh,_veh,_speed_mps];
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints;",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group];
     //_command = format ["%1 limitSpeed %2; %3 flyInHeight 25; %4 forceSpeed %5; [%6,%7,%8] call Saber_fnc_AirmobileSingleTroopWaypoints; %9 land ""GET OUT"";",_veh,_speed_kph,_veh,_veh,_speed_mps,_lzLandPos,_transportSquad,_group,_veh]; // FIXME TEST
-
     //private _script = format ["[%1,%2,%3] call Saber_fnc_AirmobileSingleTroopWaypoints",_lzLandPos,_transportSquad,_group]; 
     private _wp3 = _group addWaypoint [_lzLandPos, 0.0, _wpIndex, _wpName];
     _wp3 setWaypointCombatMode "NO CHANGE"; //NO CHANGE
@@ -238,21 +233,21 @@ private _t = _a;
     //_wp3 setWaypointStatements ["true",_command];
     //_wp3 setWaypointScript _script;
     _wp3 waypointAttachVehicle _lzHelipad;
-    _wp3 setWaypointCompletionRadius 3;
+    _wp3 setWaypointCompletionRadius 2.0;
     
     // Post Unload waypoint
     _wpIndex = _wpIndex + 1;
     private _postPos = _spawnHelipad getPos [200.0, _baseToLzBearing];
     ////_postPos = _postPos set [2, (_postPos select 2) + 100];
     _wpName = format ["%1_LZ_Post_Unload", _veh];
-    {(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
-    {(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     private _wp4 = _group addWaypoint [_postPos, 0.0, _wpIndex, _wpName];
     _wp4 setWaypointCombatMode "NO CHANGE";
     _wp4 setWaypointBehaviour "CARELESS";
     _wp4 setWaypointSpeed "FULL";
     _wp4 setWaypointType "MOVE";
     _wp4 setWaypointTimeout [0, 0, 0];
+    _command = '{(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];{(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];'
+    _wp4 setWaypointStatements ["true",_command];
 
     //// Egress waypoint
     //_wpIndex = _wpIndex + 1;
@@ -270,14 +265,14 @@ private _t = _a;
     _finalPos = getPos _spawnHelipad;
     ////_finalPos = _finalPos set [2, (_finalPos select 2) + 100];
     _wpName = format ["%1_Final", _veh];
-    //private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh]; // FIXME TEST
+    private _despawnCommand = format ["{{deleteVehicle _x} forEach crew %1} forEach thisList; deleteVehicle %2;",_veh,_veh]; // FIXME TEST
     private _wp6 = _group addWaypoint [_finalPos, 0.0, _wpIndex, _wpName];
     _wp6 setWaypointCombatMode "NO CHANGE";
     _wp6 setWaypointBehaviour "CARELESS";
     _wp6 setWaypointSpeed "LIMITED";
     _wp6 setWaypointType "MOVE";
     _wp6 setWaypointTimeout [0, 0, 0];
-    //_wp6 setWaypointStatements ["true",_despawnCommand]; // FIXME TEST
+    _wp6 setWaypointStatements ["true",_despawnCommand]; // FIXME TEST
     
     _t = _t + 1;
     sleep 10.0;

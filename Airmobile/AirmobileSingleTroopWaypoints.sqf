@@ -89,7 +89,7 @@ fnc_findNearestEnemy =
     {
         _list = _pos nearEntities _distance;
         _enemyFactions = [_obj] call fnc_getEnemyFactions;
-        _nearEnemies = _enemyFactions select {side _x in _enemyFactions;}; // side: type side, expcted object,group,location
+        _nearEnemies = _list select {side _x in _enemyFactions;}; 
 
         if (count _nearestEnemies > 0) then
         {
