@@ -47,7 +47,7 @@ fnc_AirmobileTrigger =
 	private _squadType = selectRandom ["SovietArmy_OKSVA_specops_vdv_company_hq_section","SovietArmy_OKSVA_specops_vdv_rifle_squad","SovietArmy_OKSVA_specops_vdv_rifle_squad","SovietArmy_OKSVA_specops_vdv_rifle_squad"];
 	private _spawnAttackHelis = true;
 	private _spawnInAir = true;
-	private _dustoff = false;
+	private _dustoff = true;
 	[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;
 };
 

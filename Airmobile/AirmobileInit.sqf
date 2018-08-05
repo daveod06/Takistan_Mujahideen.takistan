@@ -12,6 +12,6 @@ Saber_fnc_AirmobileSingleTroopWaypoints   = Compile preprocessFileLineNumbers "A
 Saber_fnc_AirmobileInsertionMonitor = Compile preprocessFileLineNumbers "Airmobile\AirmobileInsertionMonitor.sqf";
 Saber_fnc_AirmobileDustoffMonitor  = Compile preprocessFileLineNumbers "Airmobile\AirmobileDustoffMonitor.sqf";
 
-//Saber_fnc_AirmobileDustoff          = Compile preprocessFileLineNumbers "Airmobile\AirmobileDustoff.sqf";
-//Saber_fnc_AirmobileHeliDustoff      = Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliDustoff.sqf";
-//Saber_fnc_AirmobileTroopDustoff     = Compile preprocessFileLineNumbers "Airmobile\AirmobileTroopDustoff.sqf";
+Saber_fnc_AirmobileDustoff          = Compile preprocessFileLineNumbers "Airmobile\AirmobileDustoff.sqf";
+Saber_fnc_AirmobileHeliDustoff      = Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliDustoff.sqf";
+Saber_fnc_AirmobileTroopDustoff     = Compile preprocessFileLineNumbers "Airmobile\AirmobileTroopDustoff.sqf";

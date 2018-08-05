@@ -91,6 +91,7 @@ fnc_AirmobileMaster =
 	if _dustoff then
 	{
 	    _spawnAttackHelis = false;
+	    groupsReadyForPickup = false;
 	    [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput,_spawnTroopOutput] spawn Saber_fnc_AirmobileDustoff;
 	};
 };

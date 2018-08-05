@@ -52,7 +52,7 @@ private _t = _numSpawnedAttackHelis;
     _wp0 setWaypointType "GETOUT";
     _wp0 setWaypointFormation "WEDGE";
     _wp0 setWaypointTimeout [0, 0, 0];
-    _wp0 setWaypointCompletionRadius 3;
+    //_wp0 setWaypointCompletionRadius 3;
     
     // Attack waypoint
     private _attackPos = _enemyPos;

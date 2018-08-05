@@ -91,7 +91,7 @@ fnc_findNearestEnemy =
         _enemyFactions = [_obj] call fnc_getEnemyFactions;
         _nearEnemies = _list select {side _x in _enemyFactions;}; 
 
-        if (count _nearestEnemies > 0) then
+        if (count _nearEnemies > 0) then
         {
             _closest = _distance;
             _nearestEnemy = _nearEnemies select 0;
@@ -132,11 +132,13 @@ _nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
 _enemyPos = _lzPos;
 if !(isNull _nearestEnemy) then
 {
-    _enemyPos = getPos _nearestEnemy;
+    _enemyPos = getPosATL _nearestEnemy;
+    //_enemyPos set [2, 0.0];
 }
 else
 {
-    _enemyPos = _lzPos getPos [300.0, random[0.0,180.0,360.0]];
+    _enemyPos = _lzPos; //getPos [300.0, random[0.0,180.0,360.0]];
+    _enemyPos set [2, 0.0];
 };
 
 
@@ -165,18 +167,20 @@ _wp1 setWaypointSpeed "FULL";
 _wp1 setWaypointType "SAD";
 _wp1 setWaypointFormation "WEDGE";
 _wp1 setWaypointTimeout [0, 0, 0];
+_wp1 setWaypointCompletionRadius 5.0;
 
 // Patrol waypoint
-private _patrolSuccess = [];
-private _success = [_group, _attackPos, 500.0] call BIS_fnc_taskPatrol;
-private _message = format ["%1 has completed their patrol",_group];
+//private _patrolSuccess = [];
+//private _success = [_group, _attackPos, 500.0] call BIS_fnc_taskPatrol;
+//private _message = format ["%1 has completed their patrol",_group];
 //_patrolSuccess pushBack [_success,_message,_group];
 
 // Pick up waypoint
 _wpIndex = _wpIndex + 1;
-private _PickUpPos = getPos _lzPos;
+private _pickUpPos = _lzPos;
+_pickUpPos set [2, 0.0];
 _wpName = format ["%1_Pick_Up", str _group];
-private _wp2 = _group addWaypoint [_PickUpPos, 30.0, _wpIndex, _wpName];
+private _wp2 = _group addWaypoint [_pickUpPos, 30.0, _wpIndex, _wpName];
 _wp2 setWaypointCombatMode "RED";
 _wp2 setWaypointBehaviour "UNCHANGED";
 _wp2 setWaypointSpeed "FULL";
@@ -185,6 +189,7 @@ _wp2 setWaypointFormation "WEDGE";
 _wp2 setWaypointTimeout [0, 0, 0];
 private _command = format ["groupsReadyForPickup = true;"];
 _wp2 setWaypointStatements ["true",_command];
+_wp2 setWaypointCompletionRadius 30.0;
     
     
 

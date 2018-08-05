@@ -169,10 +169,14 @@ while {_heliAliveCount > 0} do
                     _cargoGroup setFormation "WEDGE";
                     _cargoGroup setBehaviour "AWARE";
                     _cargoGroup setSpeedMode "FULL";
+                    _pos = getPosATL _veh;
+                    _pos set [2,getTerrainHeightASL _pos];
                     [(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
                     {
-                        //doGetOut _x;
+                        doGetOut _x;
+                        _x leaveVehicle _veh;
                         _x enableAI "FSM";
+                        unassignVehicle _x;
                     } forEach (units _cargoGroup);
                     _transportUnloaded set [_t, true];
                     _message = format ["VEHICLE %1 is UNLOCKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",_veh];

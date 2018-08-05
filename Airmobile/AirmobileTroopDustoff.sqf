@@ -111,8 +111,8 @@ while {_checkHeliWaypoints} do
 };
 
 
-waitUntil (_checkHeliWaypoints == false)
-{
+waitUntil {_checkHeliWaypoints == false};
+//{
     {
         _group = _x;
         _vehArray = _spawnedTransportHelis select _t;
@@ -162,9 +162,10 @@ waitUntil (_checkHeliWaypoints == false)
             
             _t = _t + 1;
             _h = _h + 1;
+            sleep 1.0;
         };
     } forEach _aliveGroups;
-};
+//};
 //};
 
 // _this = [[_totalHelicoptersToSpawn,_baseHelipads,_lzHelipads,_baseTrigger,_lzTrigger],[_spawnedAttackHelis,_spawnedTransportHelis,_spawnedTroopGroups]];
