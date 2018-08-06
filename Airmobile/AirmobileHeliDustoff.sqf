@@ -240,7 +240,7 @@ private _t = _a;
     _wp4 setWaypointSpeed "FULL";
     _wp4 setWaypointType "MOVE";
     _wp4 setWaypointTimeout [0, 0, 0];
-    _command = '{(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];{(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];'
+    _command = '{(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];{(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];';
     _wp4 setWaypointStatements ["true",_command];
 
     //// Egress waypoint

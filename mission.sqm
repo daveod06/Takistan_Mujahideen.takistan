@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=6210;
+		nextID=6216;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=571;
+		nextID=603;
 	};
 	class Camera
 	{
-		pos[]={10428.137,744.06219,4564.0698};
-		dir[]={-0.87751156,-0.26777104,0.39815009};
-		up[]={-0.24395095,0.96343267,0.11068026};
-		aside[]={0.41323185,2.1217274e-006,0.91075671};
+		pos[]={10139.952,958.28284,4384.3442};
+		dir[]={-0.66628861,-0.45387483,-0.59186935};
+		up[]={-0.3393811,0.89100617,-0.30148274};
+		aside[]={-0.66420126,1.6712438e-006,0.74771124};
 	};
 };
 binarizationWanted=0;
@@ -436,7 +436,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=404;
+		items=407;
 		class Item0
 		{
 			dataType="Object";
@@ -2311,7 +2311,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8880.3486,475.30423,3732.7229};
-			angle=4.2824955;
+			angle=4.282496;
 			class Attributes
 			{
 				name="helizone_12";
@@ -2847,7 +2847,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={10358.916,722.84241,4626.7231};
-			angle=5.8162198;
+			angle=5.8162212;
 			class Attributes
 			{
 				name="small_helizone_2";
@@ -2855,7 +2855,7 @@ class Mission
 				onActivation="call{[[small_helipad2_0,small_helipad2_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_2!"";}";
 				sizeA=250;
 				sizeB=500;
-				timeout[]={5,5,5};
+				timeout[]={900,900,900};
 				interuptable=1;
 				activationBy="GUER SEIZED";
 				isRectangle=1;
@@ -2885,7 +2885,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={9481.5264,586.7973,3808.114};
-			angle=5.8396945;
+			angle=5.8396969;
 			class Attributes
 			{
 				name="small_helizone_3";
@@ -3121,7 +3121,7 @@ class Mission
 		class Item156
 		{
 			dataType="Marker";
-			position[]={9037.8779,345.14807,7443.8257};
+			position[]={6083.6611,63.325371,11075.271};
 			name="convoy_route_0";
 			markerType="RECTANGLE";
 			type="rectangle";
@@ -3129,6 +3129,7 @@ class Mission
 			b=10;
 			angle=314.68301;
 			id=246;
+			atlOffset=0.00031280518;
 		};
 		class Item157
 		{
@@ -3222,17 +3223,17 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8138.0288,296.04001,1969.391};
-			angle=0.90291083;
+			angle=0.90291107;
 			class Attributes
 			{
 				name="base_defense_zone";
 				text="Base Defense Zone";
-				condition="call{false;}";
+				condition="call{this;}";
 				onActivation="call{ind_near_base = true;" \n "[3,bm21_3,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				onDeactivation="call{ind_near_base = false;}";
-				sizeA=3000;
-				sizeB=3000;
-				timeout[]={240,300,500};
+				sizeA=4000;
+				sizeB=4000;
+				timeout[]={60,100,120};
 				repeatable=1;
 				activationType="EAST D";
 				activationBy="GUER";
@@ -3496,7 +3497,7 @@ class Mission
 		class Item169
 		{
 			dataType="Trigger";
-			position[]={9166.6445,333.71347,7324.8755};
+			position[]={6212.4277,66.900314,10956.32};
 			class Attributes
 			{
 				name="spawn_helizone_0";
@@ -3507,14 +3508,14 @@ class Mission
 			};
 			id=319;
 			type="EmptyDetectorAreaR250";
-			atlOffset=3.0517578e-005;
+			atlOffset=0.00031280518;
 		};
 		class Item170
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9091.6426,353.35858,7404.7827};
+				position[]={6137.4258,66.900627,11036.228};
 				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
@@ -3524,15 +3525,15 @@ class Mission
 			};
 			id=321;
 			type="Land_HelipadEmpty_F";
-			atlOffset=0.00045776367;
+			atlOffset=0.00074768066;
 		};
 		class Item171
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9231.3984,324.97339,7275.3667};
-				angles[]={5.7150059,0.80552179,0.1973955};
+				position[]={6277.1816,66.900314,10906.812};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
 			class Attributes
@@ -3541,14 +3542,15 @@ class Mission
 			};
 			id=322;
 			type="Land_HelipadEmpty_F";
+			atlOffset=0.00031280518;
 		};
 		class Item172
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8986.3115,292.689,7333.3979};
-				angles[]={5.7702622,0.80552179,0.21578643};
+				position[]={6032.0947,67.294136,10964.843};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
 			class Attributes
@@ -3557,13 +3559,14 @@ class Mission
 			};
 			id=323;
 			type="Land_HelipadEmpty_F";
+			atlOffset=0.00031280518;
 		};
 		class Item173
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9113.7354,257.58679,7169.5737};
+				position[]={6159.5186,66.900955,10801.019};
 				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
@@ -3573,15 +3576,15 @@ class Mission
 			};
 			id=324;
 			type="Land_HelipadEmpty_F";
-			atlOffset=0.00064086914;
+			atlOffset=0.00095367432;
 		};
 		class Item174
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8857.3447,203.69246,7231.2007};
-				angles[]={5.7666273,0.80552179,0.34271926};
+				position[]={5903.1279,80.582474,10862.646};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
 			class Attributes
@@ -3590,13 +3593,14 @@ class Mission
 			};
 			id=325;
 			type="Land_HelipadEmpty_F";
+			atlOffset=0.00031280518;
 		};
 		class Item175
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9003.7813,239.75337,7097.6763};
+				position[]={6049.5645,66.665039,10729.121};
 				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
@@ -3606,15 +3610,15 @@ class Mission
 			};
 			id=326;
 			type="Land_HelipadEmpty_F";
-			atlOffset=1.5258789e-005;
+			atlOffset=0.00031280518;
 		};
 		class Item176
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9338.7852,400.93198,7383.728};
-				angles[]={6.032567,0.80552179,0.16021661};
+				position[]={6384.5684,60.94059,11015.173};
+				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
 			class Attributes
@@ -3623,13 +3627,14 @@ class Mission
 			};
 			id=327;
 			type="Land_HelipadEmpty_F";
+			atlOffset=0.00031280518;
 		};
 		class Item177
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9216.4971,347.41855,7498.2495};
+				position[]={6262.2803,60.070526,11129.694};
 				angles[]={0,0.80552179,0};
 			};
 			side="Empty";
@@ -3639,7 +3644,7 @@ class Mission
 			};
 			id=328;
 			type="Land_HelipadEmpty_F";
-			atlOffset=0.00048828125;
+			atlOffset=0.00077438354;
 		};
 		class Item178
 		{
@@ -7491,7 +7496,7 @@ class Mission
 			{
 				name="small_helizone_5";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_0,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #1"";}";
+				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""Captured Outpost #1"";}";
 				sizeA=250;
 				sizeB=400;
 				timeout[]={900,900,900};
@@ -15322,7 +15327,6 @@ class Mission
 			class Attributes
 			{
 				lock="UNLOCKED";
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="mortar_0";
 			};
 			id=5788;
@@ -15627,7 +15631,6 @@ class Mission
 			class Attributes
 			{
 				lock="UNLOCKED";
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="mortar_1";
 			};
 			id=5794;
@@ -15789,7 +15792,6 @@ class Mission
 			class Attributes
 			{
 				lock="UNLOCKED";
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="mortar_2";
 			};
 			id=5797;
@@ -16496,7 +16498,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10314.966,722.43524,4706.9106};
+						position[]={9528.1719,576.85883,3942.4399};
 						angles[]={0,0.8476541,0};
 					};
 					side="Independent";
@@ -16595,7 +16597,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10310.325,723.51514,4706.2275};
+						position[]={9523.5313,578.20746,3941.7568};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -16608,6 +16610,7 @@ class Mission
 					};
 					id=5980;
 					type="LOP_AM_Infantry_Rifleman_3";
+					atlOffset=-6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16675,7 +16678,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10306.816,723.86426,4703.6436};
+						position[]={9520.0225,579.62567,3939.1729};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -16688,7 +16691,6 @@ class Mission
 					};
 					id=5981;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16756,7 +16758,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10301.379,723.37,4701.4312};
+						position[]={9514.585,581.5462,3936.9604};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -16837,7 +16839,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10298.644,722.42908,4697.2783};
+						position[]={9511.8496,583.16565,3932.8076};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -16850,7 +16852,7 @@ class Mission
 					};
 					id=5983;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=-0.00012207031;
+					atlOffset=6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16918,7 +16920,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10303.034,723.41809,4694.3149};
+						position[]={9516.2402,582.47382,3929.8442};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -16931,7 +16933,7 @@ class Mission
 					};
 					id=6039;
 					type="LOP_AM_Infantry_Rifleman_3";
-					atlOffset=0.049865723;
+					atlOffset=0.049743652;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16999,7 +17001,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10306.259,723.82214,4692.8838};
+						position[]={9519.4648,581.78894,3928.4131};
 						angles[]={0,0.8476522,0};
 					};
 					side="Independent";
@@ -18111,7 +18113,6 @@ class Mission
 			flags=6;
 			class Attributes
 			{
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="bm21_0";
 			};
 			id=6075;
@@ -18305,7 +18306,6 @@ class Mission
 			flags=6;
 			class Attributes
 			{
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="bm21_1";
 			};
 			id=6081;
@@ -18499,7 +18499,6 @@ class Mission
 			flags=6;
 			class Attributes
 			{
-				init="call{[] spawn FFE_fnc_Master;}";
 				name="bm21_2";
 			};
 			id=6084;
@@ -19257,8 +19256,7 @@ class Mission
 			class Attributes
 			{
 				text="Outpost 1 Mortar Zone";
-				condition="call{false;}";
-				onActivation="call{[3,mortar_0,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
+				condition="call{this;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
@@ -19277,8 +19275,7 @@ class Mission
 			class Attributes
 			{
 				text="Outpost 2 Mortar Zone";
-				condition="call{false;}";
-				onActivation="call{[5,mortar_1,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
+				condition="call{this;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
@@ -19298,8 +19295,7 @@ class Mission
 			class Attributes
 			{
 				text="Outpost 3 Mortar Zone";
-				condition="call{false;}";
-				onActivation="call{[3,mortar_2,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
+				condition="call{this;}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={120,140,180};
@@ -19391,7 +19387,7 @@ class Mission
 			class Attributes
 			{
 				lock="LOCKEDPLAYER";
-				init="call{this addEventHandler [""fired"",{(_this select 0) setVehicleAmmo 1}];" \n "[] spawn FFE_fnc_Master;}";
+				init="call{this addEventHandler [""fired"",{(_this select 0) setVehicleAmmo 1}];}";
 				name="bm21_3";
 			};
 			id=6170;
@@ -19539,6 +19535,287 @@ class Mission
 			};
 			id=6209;
 			type="Land_HelipadEmpty_F";
+		};
+		class Item404
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9440.4141,610.13947,3890.76};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=6211;
+					type="OKSVA_Officer_MSV";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male04RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=6210;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Outpost 2 Officer";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item405
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10933.295,758.84058,3588.1702};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=6213;
+					type="OKSVA_Officer_MSV";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male04RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=6212;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Outpost 1 Officer";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item406
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7404.6392,561.52338,3915.915};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=6215;
+					type="OKSVA_Officer_MSV";
+					atlOffset=6.1035156e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male04RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=6214;
+			atlOffset=6.1035156e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Outpost 3 Officer";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

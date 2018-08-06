@@ -3,7 +3,7 @@
 HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
-
+// [5,mortar_1,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;
 
 fnc_selectTarget = {
 	_message = format["fnc_selectTarget input _this: %1",_this];
