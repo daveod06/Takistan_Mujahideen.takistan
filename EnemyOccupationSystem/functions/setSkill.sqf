@@ -10,6 +10,6 @@ _skillArray=(_this select 1);
 				} forEach ["aimingAccuracy","aimingShake","aimingSpeed","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
 				
 					if (EOS_DAMAGE_MULTIPLIER != 1) then {_unit removeAllEventHandlers "HandleDamage";_unit addEventHandler ["HandleDamage",{_damage = (_this select 2)*EOS_DAMAGE_MULTIPLIER;_damage}];};
-					if (EOS_KILLCOUNTER) then {_unit addEventHandler ["killed", "null=[] execVM ""scripts\eos\functions\EOS_KillCounter.sqf"""]};
+					if (EOS_KILLCOUNTER) then {_unit addEventHandler ["killed", "null=[] spawn EOS_fnc_KillCounter;"]};
 					// ADD CUSTOM SCRIPTS TO UNIT HERE
 						} forEach (units _grp); 

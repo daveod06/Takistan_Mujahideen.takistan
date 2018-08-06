@@ -10,3 +10,4 @@ Saber_fnc_ConvoyEnemy			= Compile preprocessFileLineNumbers "Convoy\ConvoyEnemy.
 Saber_fnc_ConvoySearch			= Compile preprocessFileLineNumbers "Convoy\ConvoySearch.sqf";
 Saber_fnc_ConvoySearch			= Compile preprocessFileLineNumbers "Convoy\ConvoySearch.sqf";
 Saber_fnc_ConvoySpawnVehicles   = Compile preprocessFileLineNumbers "Convoy\ConvoySpawnVehicles.sqf";
+Saber_fnc_ConvoyMaster          = Compile preprocessFileLineNumbers "Convoy\ConvoyMaster.sqf";

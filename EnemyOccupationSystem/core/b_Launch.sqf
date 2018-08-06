@@ -44,7 +44,7 @@ _basSettings=(_this select 7);
 	if (isnil "_eosMarkers") then {_eosMarkers=[];};
 		_eosMarkers set [count _eosMarkers,_x];
 		server setvariable ["EOSmarkers",_eosMarkers,true];
-		null = [_x,_spawn,[_PApatrols,_PAgroupArray],[_LVehGroups,_LVgroupArray],[_AVehGroups],[_CHGroups,_CHgroupArray],_settings,_basSettings] execVM "scripts\eos\core\b_core.sqf";
+		null = [_x,_spawn,[_PApatrols,_PAgroupArray],[_LVehGroups,_LVgroupArray],[_AVehGroups],[_CHGroups,_CHgroupArray],_settings,_basSettings] spawn EOS_fnc_b_core;// execVM "scripts\eos\core\b_core.sqf";
 }foreach _JIPmkr;
 
 };

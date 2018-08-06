@@ -127,7 +127,7 @@ if (_debug) then {player sidechat format ["Armoured:%1 - r%2",_counter,_AVehGrou
 			0=[_cargoGrp,"INFskill"] call eos_fnc_grouphandlers;
 			
 				_fGroup set [count _fGroup,_cargoGrp];
-				null = [_mkr,_fGroup,_counter] execvm "scripts\eos\functions\TransportUnload_fnc.sqf";
+				null = [_mkr,_fGroup,_counter] spawn EOS_fnc_TransportUnload_fnc;//execvm "scripts\eos\functions\TransportUnload_fnc.sqf";
 												
 												}else{
 						_wp1 = (_fGroup select 2) addWaypoint [(markerpos _mkr), 0];  
@@ -181,7 +181,7 @@ waituntil {triggeractivated _bastActive};
 					_mkr setmarkeralpha _mAN;
 					
 						if (_eosZone) then {
-null = [_mkr,[_PApatrols,_PAgroupSize],[_PApatrols,_PAgroupSize],[_LVehGroups,_LVgroupSize],[_AVehGroups,0,0,0],[_faction,_mA,350,_CHside]] execVM "scripts\eos\core\EOS_Core.sqf";
+null = [_mkr,[_PApatrols,_PAgroupSize],[_PApatrols,_PAgroupSize],[_LVehGroups,_LVgroupSize],[_AVehGroups,0,0,0],[_faction,_mA,350,_CHside]] spawn EOS_fnc_Core;//execVM "scripts\eos\core\EOS_Core.sqf";
 
 										};
 							_waves=0;
@@ -199,7 +199,7 @@ null = [_mkr,[_PApatrols,_PAgroupSize],[_PApatrols,_PAgroupSize],[_LVehGroups,_L
 					}else{
 					if (_waves >= 1) then {
 						if (_hints) then  {hint "Reinforcements inbound";};
-null = [_mkr,_spawn,[_PApatrols,_PAgroupSize],[_LVehGroups,_LVgroupSize],[_AVehGroups],[_CHGroups,_fSize],_settings,[_pause,_waves,_timeout,_eosZone,_hints],true] execVM "scripts\eos\core\b_core.sqf";
+null = [_mkr,_spawn,[_PApatrols,_PAgroupSize],[_LVehGroups,_LVgroupSize],[_AVehGroups],[_CHGroups,_fSize],_settings,[_pause,_waves,_timeout,_eosZone,_hints],true] spawn EOS_fnc_b_core;//execVM "scripts\eos\core\b_core.sqf";
 						};};
 	
 waituntil {getmarkercolor _mkr == "colorblack" OR getmarkercolor _mkr == VictoryColor OR getmarkercolor _mkr == hostileColor or !triggeractivated  _bastActive};

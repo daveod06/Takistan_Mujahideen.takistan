@@ -71,7 +71,7 @@ if (!(getmarkercolor _mkr == "colorblack"))then {
 							if (_debug)then{player sidechat format ["ID:%1,restore - %2",_cacheGrp,_units];};
 							};
 								if (_aMin > 0) then {
-										_aGroup=[_mPos,_aSize,_faction,_side] call EOS_fnc_spawngroup;	
+										_aGroup=[_mPos,_aSize,_faction,_side] call EOS_fnc_spawngroup;// "scripts\eos\functions\infantry_fnc.sqf";
 										if (!surfaceiswater _mPos) then {
 											0=[_mPos,units _aGroup,_mkrX,0,[0,20],true,true] call shk_fnc_fillhouse;
 												}else{
@@ -95,7 +95,7 @@ if (_debug) then {PLAYER SIDECHAT (format ["Spawned House Patrol: %1",_counter])
 						};
 							if (_bMin > 0) then {	
 									_pos = [_mkr,true] call SHK_pos;			
-									_bGroup=[_pos,_bSize,_faction,_side] call EOS_fnc_spawngroup;
+									_bGroup=[_pos,_bSize,_faction,_side] call EOS_fnc_spawngroup; // "scripts\eos\functions\infantry_fnc.sqf";
 										0 = [_bGroup,_mkr] call EOS_fnc_taskpatrol;
 										_bGrp set [count _bGrp,_bGroup];
 										
@@ -168,7 +168,7 @@ if ((_fSize select 0) > 0) then {
 		0=[(_fGroup select 0),_fSize,_cargoGrp,_faction,9] call eos_fnc_setcargo;
 			0=[_cargoGrp,"INFskill"] call eos_fnc_grouphandlers;
 		_fGroup set [count _fGroup,_cargoGrp];
-			null = [_mkr,_fGroup,_counter] execvm "scripts\eos\functions\TransportUnload_fnc.sqf";
+			null = [_mkr,_fGroup,_counter] spawn EOS_fnc_TransportUnload_fnc;//execvm "scripts\eos\functions\TransportUnload_fnc.sqf";
 				}else{
 					_wp1 = (_fGroup select 2) addWaypoint [(markerpos _mkr), 0];  
 					_wp1 setWaypointSpeed "FULL";  
@@ -336,6 +336,6 @@ _eosAct=false;
 deletevehicle _clear;deletevehicle _taken;	
 	
 if (!(getmarkercolor _mkr == "colorblack")) then {	
-	null = [_mkr,[_aGrps,_aSize],[_bGrps,_bSize],[_cGrps,_cSize],[_dGrps,_eGrps,_fGrps,_fSize],_settings,true] execVM "scripts\eos\core\eos_core.sqf";
+	null = [_mkr,[_aGrps,_aSize],[_bGrps,_bSize],[_cGrps,_cSize],[_dGrps,_eGrps,_fGrps,_fSize],_settings,true] spawn EOS_fnc_Core;//execVM "scripts\eos\core\eos_core.sqf";
 	}else{_Mkr setmarkeralpha 0;};
 	};

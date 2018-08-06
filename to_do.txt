@@ -27,11 +27,8 @@ laserT0 = "LaserTargetE" createVehicle getposatl target_0;
 laserT0 attachTo [target_0,[0,0,0]];
 
 
--use https://community.bistudio.com/wiki/nearObjects to find helipads
-    
--debug all new changes to airmobile
--add alive checks all over helicopter script
-?TEST-adapt arty script for delayed action
+TEST-debug all new changes to airmobile
+DONE-add alive checks all over helicopter script
 TEST-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?
@@ -43,12 +40,10 @@ TEST-use EOS zones to spawn fellow mujahideen
 DONE-add one mortar at each outpost to hit other outpost with fire
     DONE-set up triggers
     DONE-copy and paste mortar from the base and name it
-WIP-add one big mortar zone around the base
+DONE-add one big mortar zone around the base
 DONE-add triggers to make gunners get out
     DONE-use concept from isis raid
     DONE-might be a script alrady written, make it into function and init it
--add objectives to take out each outpost
--add objective to kill mortars at base
 DONE-update unit loadout sqf files for EOS mujahideen
     DONE-use virtual arsenal
     DONE-get classnames of project opfor men
@@ -62,28 +57,26 @@ DONE-fix soviet ammo boxes
     DONE- check model and inheritance
 DONE-add soviets at airbase guarding it
 DONE-add parked soviet aircraft
-TEST-add soviet artillery support
-    FIX-test out new mortar script
+DONE-add soviet artillery support
+    DONE-test out new mortar script
 DONE-add civilians
 DONE-add civilian vehicles
--add spawn points to all members of player's squad
-    -should be the same as the tanoa raid 
 DONE-add boxes of IEDs for IND
 DONE-add weapon caches
 DONE-add hiluxes for IND use
+DONE-debug new changes to airmobile script
 -export mission to sqf script   https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_script_form/
 -make convoy vehicles a targeted objective
 -detect when convoy vehicles are dead
 -after they're dead or convoy complete, create new convoy
-DONE-debug new changes to airmobile script
 -debug new changes to convoy script
 -make sure all markers aren't visible to players
 -make battery of BM-21s shelling for asthetic effect
     -use the updated artillery script
-
-NA-add ambient soviet aircraft coming and going from the base
-NA-add soviet CAS support
-NA-add sector control???
+-add spawn points to all members of player's squad
+    -should be the same as the tanoa raid 
+-add objectives to take out each outpost
+-add objective to kill mortars at base
 
 
 
@@ -94,7 +87,7 @@ removeAllItems this;
 removeAllAssignedItems this;
 
 this addItemToUniform "FirstAidKit";
-for "_i" from 1 to 6 do {this addItemToUniform "rhsgref_5Rnd_762x54_m38";};
+for "_i" from 1 to 8 do {this addItemToUniform "rhsgref_5Rnd_762x54_m38";};
 
 
 comment "Add weapons";

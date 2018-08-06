@@ -99,18 +99,27 @@ fnc_ConvoyMaster =
     private _pos_name_prefix = "convoy_pos_";
     private _convoy_type = selectRandom _possible_convoys;
     private _speed_kph = 55;
-    private _threat_radius_m = 400;
-    private _convoy_id = 1;
+    private _threat_radius_m = 300;
     private _speed_str = "NORMAL";
     private _behavior = "CARELESS";
 
-    hint "Calling Saber_fnc_ConvoySpawnVehicles.";
-    sleep 1.0;
-    _vehicles = [_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type] call Saber_fnc_ConvoySpawnVehicles;
-    
-    hint "Calling Saber_fnc_ConvoyMove.";
-    sleep 1.0;
-    _handle = [_convoy_route,_vehicles select 0, _speed_kph, _threat_radius_m, _vehicles select 1, _speed_str, _behavior] spawn Saber_fnc_ConvoyMove;
+    private _numConvoys = 5;
+    private _i = 0;
+    private _waitTime = 60*20;
+
+    while _{_i <= _numConvoys} do
+    {
+        _message = "Calling Saber_fnc_ConvoySpawnVehicles.";
+        if Saber_DEBUG then {hint _message;sleep 1.0;};
+        _vehicles = [_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type] call Saber_fnc_ConvoySpawnVehicles;
+        
+        _message = "Calling Saber_fnc_ConvoyMove.";
+        if Saber_DEBUG then {hint _message;sleep 1.0;};
+        _handle = [_convoy_route,_vehicles select 0, _speed_kph, _threat_radius_m, _vehicles select 1, _speed_str, _behavior] spawn Saber_fnc_ConvoyMove;
+        
+        _i = _i + 1;
+        sleep _waitTime;
+    };
 
 };
 

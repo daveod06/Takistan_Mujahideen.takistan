@@ -79,6 +79,6 @@ if (_CHgroupProbability > floor random 100) then {
 	if (isnil "_eosMarkers") then {_eosMarkers=[];};
 		_eosMarkers set [count _eosMarkers,_x];
 		server setvariable ["EOSmarkers",_eosMarkers,true];
-		null = [_x,[_HPpatrols,_HPgroupArray],[_PApatrols,_PAgroupArray],[_LVehGroups,_LVgroupArray],[_AVehGroups,_SVehGroups,_CHGroups,_CHgroupArray],_settings] execVM "scripts\eos\core\EOS_Core.sqf";
+		null = [_x,[_HPpatrols,_HPgroupArray],[_PApatrols,_PAgroupArray],[_LVehGroups,_LVgroupArray],[_AVehGroups,_SVehGroups,_CHGroups,_CHgroupArray],_settings] spawn EOS_fnc_Core;//execVM "scripts\eos\core\EOS_Core.sqf";
 }foreach _JIPmkr;
 };

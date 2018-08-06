@@ -1,3 +1,5 @@
+if (isMultiplayer) exitWith {};
+
 //check if HC1 is present
 HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
@@ -5,33 +7,8 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 Saber_DEBUG = true;
 
-// Enemy Occupation System (EOS) Setup
-if HC3Present then
-{
-	//EOS Dynamic Combat System
-	[] execVM "scripts\eos\OpenMe.sqf";
-}
-else
-{
-	if HC2Present then
-	{
-		//EOS Dynamic Combat System
-		[] execVM "scripts\eos\OpenMe.sqf";
-	}
-	else
-	{
-		if HC1Present then
-		{
-			//EOS Dynamic Combat System
-			[] execVM "scripts\eos\OpenMe.sqf";
-		}
-		else
-		{
-			//EOS Dynamic Combat System
-			[] execVM "scripts\eos\OpenMe.sqf";
-		};
-	};
-};
+// Compile EOS
+call compile preprocessFileLineNumbers "EnemyOccupationSystem\EOSInit.sqf";
 
 // Civilians & Traffic
 call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
@@ -46,6 +23,15 @@ sleep 1.0;
 sleep 1.0;
 [] execVM "Artillery\ArtilleryInit.sqf";
 sleep 1.0;
+
+// start up EOS
+[] spawn EOS_fnc_Master;
+
+setViewDistance 9000;
+setTerrainGrid 6.25;
+setObjectViewDistance [4000,800];
+setDetailMapBlendPars [50, 150];
+
 
 init_fnc =
 {

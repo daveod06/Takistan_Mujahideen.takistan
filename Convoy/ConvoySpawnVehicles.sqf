@@ -59,7 +59,8 @@ fnc_spawnConvoy = {
             sleep 1.0;
             if(_marker_color == "") then
             {
-                hint "Marker doesn't exist!!!!";
+                _message = "Marker doesn't exist!!!!";
+                if Saber_DEBUG then {hint _message;sleep 1.0;};
             };
         };
         sleep 0.5;
@@ -75,7 +76,8 @@ fnc_spawnConvoy = {
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    hint "Calling fnc_spawnConvoy.";
+    _message = "Calling fnc_spawnConvoy.";
+    if Saber_DEBUG then {hint _message;sleep 1.0;};
     sleep 1.0;
     _vehicles = [_this] call fnc_spawnConvoy;
 }
@@ -83,7 +85,8 @@ else
 {
     if(isServer) then
     {
-        hint "Calling fnc_spawnConvoy.";
+        _message = "Calling fnc_spawnConvoy.";
+        if Saber_DEBUG then {hint _message;sleep 1.0;};
         sleep 1.0;
         _vehicles = [_this] call fnc_spawnConvoy;
     };
