@@ -32,6 +32,8 @@ setTerrainGrid 6.25;
 setObjectViewDistance [4000,800];
 setDetailMapBlendPars [50, 150];
 
+// Start up artillery
+_artyHandle = [] spawn FFE_fnc_Master;
 
 init_fnc =
 {
