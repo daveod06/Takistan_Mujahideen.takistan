@@ -174,6 +174,7 @@ fnc_artilleryFireMaster =
     private _forceFire = _input select 6; // command to fire instead of letting AI figure it out
     private _targetUnit = objNull;
     private _awareness = 0.0;
+    private _targetPos = [0,0,0];
 
     private _artilleryOk = [_artillery] call fnc_artilleryAliveCheck;
     if (_artilleryOk) then
@@ -191,7 +192,7 @@ fnc_artilleryFireMaster =
         _message = "Artillery check failed!";
         if Saber_DEBUG then {hint _message; sleep 2.0;};
     };
-    if ((isNull _targetUnit) && (_targetPos == [0,0,0])) exitWith {
+    if ((isNull _targetUnit) && (_targetPos isEqualTo [0,0,0])) exitWith {
         _message = "Artillery target is null!";
         if Saber_DEBUG then {hint _message; sleep 2.0;};
     };

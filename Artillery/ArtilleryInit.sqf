@@ -2,7 +2,7 @@
 // v.2.5 MARCH 2016 - Devastator_cm
 
 RydFFE_NoControl = []; // each arty group (battery) held inside this array will be excluded from FAW control
-RydFFE_ArtyShells = 10; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
+RydFFE_ArtyShells = 5; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
 //RydFFE_Interval = 30; // time gap (in seconds) between each “seek for targets cycle (each cycle each not busy battery on map looks for new fire mission opportunity)
 RydFFE_Debug = true; // if set as true, will be shown map markers that allows user to watch, what is going on. See DEBUG MARKERS chapter for details;
 RydFFE_ShellView = true;
@@ -37,8 +37,8 @@ RydFFE_Safe = 75; // salvo will be not planned for coordinates located within th
 RydFFE_Monogamy = true; // by default each enemy group can be a target for only one battery at the time. If set to false, there is no such limitation, so one target can be shelled by any number of batteries at the time;
 RydFFE_Add_SPMortar = []; // here you can list classnames of custom SP mortar units, that should be controlled by ;
 RydFFE_Add_Mortar = ["OKSVA_2B14"]; // here you can list classnames of custom mortar units, that should be controlled by ;
-RydFFE_Add_Rocket = ["oksva_bm21"]; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
-//RydFFE_Add_Other = []; // here you can list classnames of other custom artillery units (lowercase only!), that should be controlled by , if are using custom magazines (classes added here shouldn't be added to any other array). Format:
+RydFFE_Add_Rocket = []; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
+RydFFE_Add_Other = []; // here you can list classnames of other custom artillery units (lowercase only!), that should be controlled by , if are using custom magazines (classes added here shouldn't be added to any other array). Format:
 //RydFFE_Add_Other =
 //[
 //[["rds_d30_fia","rds_d30_aaf","rds_d30_csat"],["RDS_30Rnd_122mmHE_D30
@@ -48,10 +48,11 @@ RydFFE_Add_Rocket = ["oksva_bm21"]; // here you can list classnames of custom ro
 //"RDS_30Rnd_105mmLASER_M119","RDS_30Rnd_105mmSMOKE_M119","RDS_30Rnd_10
 //5mmILLUM_M119"]]
 //];
-RydFFE_Add_Other =
-[
-[["oksva_bm21"],["rhs_mag_40Rnd_122mm_rockets"]]
-];
+
+//RydFFE_Add_Other =
+//[
+//[["oksva_bm21"],["rhs_mag_40Rnd_122mm_rockets"]]
+//];
 
 [] call compile preprocessFile "scripts\common\CommonInit.sqf";
 Saber_fnc_Artillery          = Compile preprocessFileLineNumbers "Artillery\ArtilleryMaster.sqf";

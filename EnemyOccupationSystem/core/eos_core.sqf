@@ -73,7 +73,7 @@ if (!(getmarkercolor _mkr == "colorblack"))then {
 								if (_aMin > 0) then {
 										_aGroup=[_mPos,_aSize,_faction,_side] call EOS_fnc_spawngroup;// "scripts\eos\functions\infantry_fnc.sqf";
 										if (!surfaceiswater _mPos) then {
-											0=[_mPos,units _aGroup,_mkrX,0,[0,20],true,true] call shk_fnc_fillhouse;
+											0=[_mPos,units _aGroup,_mkrX,0,[0,20],true,true] call EOS_fnc_fillhouse;
 												}else{
 												0 = [_aGroup,_mkr] call EOS_fnc_taskpatrol;
 													};
@@ -96,10 +96,9 @@ if (_debug) then {PLAYER SIDECHAT (format ["Spawned House Patrol: %1",_counter])
 							if (_bMin > 0) then {	
 									_pos = [_mkr,true] call SHK_pos;			
 									_bGroup=[_pos,_bSize,_faction,_side] call EOS_fnc_spawngroup; // "scripts\eos\functions\infantry_fnc.sqf";
-										0 = [_bGroup,_mkr] call EOS_fnc_taskpatrol;
-										_bGrp set [count _bGrp,_bGroup];
-										
-										0=[_bGroup,"INFskill"] call eos_fnc_grouphandlers;
+									0 = [_bGroup,_mkr] call EOS_fnc_taskpatrol;
+									_bGrp set [count _bGrp,_bGroup];
+									0=[_bGroup,"INFskill"] call eos_fnc_grouphandlers;
 if (_debug) then {PLAYER SIDECHAT (format ["Spawned Patrol: %1",_counter]);0= [_mkr,_counter,"patrol",getpos (leader _bGroup)] call EOS_debug};
 												};
 		};	

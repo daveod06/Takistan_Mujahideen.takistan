@@ -107,10 +107,13 @@ fnc_ConvoyMaster =
     private _i = 0;
     private _waitTime = 60*20;
 
-    while _{_i <= _numConvoys} do
+    while {_i <= _numConvoys} do
     {
         _message = "Calling Saber_fnc_ConvoySpawnVehicles.";
         if Saber_DEBUG then {hint _message;sleep 1.0;};
+
+        //_message = format ["Calling Saber_fnc_ConvoySpawnVehicles: %1 %2 %3 %4 %5 %6 ",_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type];
+        //if Saber_DEBUG then {hint _message;sleep 1.0;};
         _vehicles = [_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type] call Saber_fnc_ConvoySpawnVehicles;
         
         _message = "Calling Saber_fnc_ConvoyMove.";

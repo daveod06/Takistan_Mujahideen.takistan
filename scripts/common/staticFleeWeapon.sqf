@@ -40,7 +40,7 @@ if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_staticFleeWeapon.";
     //sleep 1.0;
-    _return = _this call fnc_staticFleeWeapon;
+    _return = _this select 0 call fnc_staticFleeWeapon;
 }
 else
 {
@@ -48,6 +48,6 @@ else
     {
         //hint "Calling fnc_staticFleeWeapon.";
         //sleep 1.0;
-        _return = _this call fnc_staticFleeWeapon;
+        _return = _this select 0 call fnc_staticFleeWeapon;
     };
 };

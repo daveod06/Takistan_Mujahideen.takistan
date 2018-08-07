@@ -1,5 +1,5 @@
-
-__player = _this select 0;
+_player = player;
+//_player = _this select 0;
 //_loadout = _player getVariable "respawnLoadout";
 //if (!isNil "_loadout") then {
 //	_player setUnitLoadout _loadout;

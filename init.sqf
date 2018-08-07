@@ -11,8 +11,8 @@ Saber_DEBUG = true;
 call compile preprocessFileLineNumbers "EnemyOccupationSystem\EOSInit.sqf";
 
 // Civilians & Traffic
-call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
-call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Init.sqf";
+call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Init.sqf";
+call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Traffic\Init.sqf";
 
 // Compile Convoy, Airmobile, and Artillery
 [] execVM "scripts\common\CommonInit.sqf";
@@ -42,5 +42,4 @@ init_fnc =
 	attack_heli0 reveal attack_heli0;
 };
 
-
-
+[] spawn Saber_fnc_ConvoyMaster;

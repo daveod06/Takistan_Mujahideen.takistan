@@ -1,6 +1,7 @@
-diag_log format ["DRO: _player %1 waiting for _player init", _player];
+diag_log format ["DRO: player %1 waiting for player init", player];
 waitUntil {!isNull player};
 _player = _this select 0;
+_player = player;
 // Load function libraries
 
 addWeaponItemEverywhere = compileFinal " _this select 0 addPrimaryWeaponItem (_this select 1); ";
@@ -63,13 +64,13 @@ _player linkItem "ItemCompass";
 _player linkItem "ItemWatch";
 
 
-// Start saving _player loadout periodically
+// Start saving player loadout periodically
 [] spawn {
 	while {true} do {
 		sleep 5;
-		if (alive _player) then {
-			_player enableFatigue false;
-			_player setVariable ["respawnLoadout", getUnitLoadout _player]; 
+		if (alive player) then {
+			player enableFatigue false;
+			player setVariable ["respawnLoadout", getUnitLoadout player]; 
 		};
 	};
 };

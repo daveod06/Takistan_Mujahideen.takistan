@@ -6,7 +6,7 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 
 
 
-fnc_spawnConvoy = {
+//fnc_spawnConvoy = {
     private _convoy_route = _this select 0;
     private _convoy_spawn_points = _this select 1;
     private _convoy_side = _this select 2;
@@ -27,14 +27,14 @@ fnc_spawnConvoy = {
     publicVariable "vehCounterGlobal";
     publicVariable "convoyCounterGlobal";
 
-    if (isNil convoyId) then
-    {
-        convoyId = 0;
-    }
-    else
-    {
+    //if (isNil convoyId) then
+    //{
+    //    convoyId = 0;
+    //}
+    //else
+    //{
         convoyId = convoyId + 1;
-    };
+    //};
 
     _convoy_to_spawn = _convoy_type;
     _spawned_vehicles = [];
@@ -67,27 +67,9 @@ fnc_spawnConvoy = {
     }
     forEach _convoy_to_spawn;
     convoyCounterGlobal = convoyCounterGlobal + 1;
-    publicVariable "vehCounterGlobal";
-    publicVariable "convoyCounterGlobal";
-    publicVariable "convoyId";
-    
-    [_spawned_vehicles,convoyId];
-};
+    //publicVariable "vehCounterGlobal";
+    //publicVariable "convoyCounterGlobal";
+    //publicVariable "convoyId";
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
-{
-    _message = "Calling fnc_spawnConvoy.";
-    if Saber_DEBUG then {hint _message;sleep 1.0;};
-    sleep 1.0;
-    _vehicles = [_this] call fnc_spawnConvoy;
-}
-else
-{
-    if(isServer) then
-    {
-        _message = "Calling fnc_spawnConvoy.";
-        if Saber_DEBUG then {hint _message;sleep 1.0;};
-        sleep 1.0;
-        _vehicles = [_this] call fnc_spawnConvoy;
-    };
-};
+    [_spawned_vehicles,convoyId];
+//};
