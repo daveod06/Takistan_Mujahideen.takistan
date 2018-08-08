@@ -147,14 +147,15 @@ while {_heliAliveCount > 0} do
         _cargoGroupOk = _heliStatusArray select 7;
         _vehAltAGL = _heliStatusArray select 8;
         
-        _unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 2.0) || (_wpName find "LZ_Post_Unload") >= 0);
+        //_unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 2.0) || (_wpName find "LZ_Post_Unload") >= 0);
+        _unlock = (_vehAltAGL < 2.0);
         _message = format ["UNLOCK STATUS %1 !!!!!!!!!!!!!!!!!!!!!!!! _wpName:%2 _distToWp:%3 _vehAltAGL:%4 _hasCargo:%5 ",_unlock,_wpName,_distToWp,_vehAltAGL,_hasCargo];
         if Saber_DEBUG then {hint _message; sleep 1.0;};
     
         if (_vehOk && _groupOk && _cargoGroupOk) then
         {
-            if !(_transportUnloaded select _t) then
-            {
+            //if !(_transportUnloaded select _t) then
+            //{
                 if (_unlock) then
                 {
                     if (!local _veh) then {
@@ -201,7 +202,7 @@ while {_heliAliveCount > 0} do
                     _cargoGroup setBehaviour "CARELESS";
                     _cargoGroup setSpeedMode "FULL";
                 };
-            };
+            //};
             
             if !(canMove _veh) then
             {

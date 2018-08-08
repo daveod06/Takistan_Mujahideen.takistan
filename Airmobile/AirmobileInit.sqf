@@ -15,3 +15,5 @@ Saber_fnc_AirmobileDustoffMonitor  = Compile preprocessFileLineNumbers "Airmobil
 Saber_fnc_AirmobileDustoff          = Compile preprocessFileLineNumbers "Airmobile\AirmobileDustoff.sqf";
 Saber_fnc_AirmobileHeliDustoff      = Compile preprocessFileLineNumbers "Airmobile\AirmobileHeliDustoff.sqf";
 Saber_fnc_AirmobileTroopDustoff     = Compile preprocessFileLineNumbers "Airmobile\AirmobileTroopDustoff.sqf";
+Saber_fnc_AirmobileSetSkill         = Compile preprocessFileLineNumbers "Airmobile\AirmobileSetSkill.sqf";
+call compile preprocessFileLineNumbers "Airmobile\AirmobileAISkill.sqf";
