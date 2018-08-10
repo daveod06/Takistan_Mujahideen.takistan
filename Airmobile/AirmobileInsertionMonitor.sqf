@@ -182,6 +182,16 @@ while {_heliAliveCount > 0} do
         {
             //if !(_transportUnloaded select _t) then
             //{
+                if (((_wpName find "_LZ_Land") >= 0) || (_wpName find "LZ_Post_Unload") >= 0)) then
+                {
+                    _veh allowDamage false;
+                }
+                else
+                {
+                    _veh allowDamage true;
+                };
+
+
                 if (_unlock) then
                 {
                     if (!local _veh) then {

@@ -128,31 +128,33 @@ _group = _this select 1; // group of men in chopper
 _vehGroup = _this select 2; // group of chopper
 
 // Find nearest enemies
-//_nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
-_enemyPos = _lzPos;
-//if !(isNull _nearestEnemy) then
-//{
-//    _enemyPos = getPosATL _nearestEnemy;
-//    //_enemyPos set [2, 0.0];
-//}
-//else
-//{
-//    _enemyPos = _lzPos; //getPos [300.0, random[0.0,180.0,360.0]];
-//    _enemyPos set [2, 0.0];
-//};
+_nearestEnemy = objNull;
+_nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
+//_enemyPos = _lzPos;
+_enemyPos = _lzPos getPos [300.0, random [0.0,180.0,360.0]];
+if !(isNull _nearestEnemy) then
+{
+    _enemyPos = getPosATL _nearestEnemy;
+    _enemyPos set [2, 0.0];
+}
+else
+{
+    _enemyPos = _lzPos; //getPos [300.0, random [0.0,180.0,360.0]];
+    _enemyPos set [2, 0.0];
+};
 
 // Get out waypoint
 _wpIndex = 0; // DON'T COMMENT OUT
-//private _getOutPos = getPos _lzPos;
-////_getOutPos = _getOutPos set [2, (_getOutPos select 2) + 100];
-//_wpName = format ["%1_Get_Out", str _group];
-//private _wp0 = _group addWaypoint [_getOutPos, 5.0, _wpIndex, _wpName];
-//_wp0 setWaypointCombatMode "RED";
-//_wp0 setWaypointBehaviour "AWARE";
-//_wp0 setWaypointSpeed "FULL";
-//_wp0 setWaypointType "GETOUT";
-//_wp0 setWaypointFormation "WEDGE";
-//_wp0 setWaypointTimeout [0, 0, 0];
+private _getOutPos = _lzPos;
+_getOutPos set [2, 0.0];
+_wpName = format ["%1_Get_Out", str _group];
+private _wp0 = _group addWaypoint [_getOutPos, 5.0, _wpIndex, _wpName];
+_wp0 setWaypointCombatMode "RED";
+_wp0 setWaypointBehaviour "AWARE";
+_wp0 setWaypointSpeed "FULL";
+_wp0 setWaypointType "GETOUT";
+_wp0 setWaypointFormation "WEDGE";
+_wp0 setWaypointTimeout [0, 0, 0];
 //_wp0 setWaypointCompletionRadius 3;
 
 // Attack waypoint
@@ -163,7 +165,7 @@ private _wp1 = _group addWaypoint [_attackPos, 20.0, _wpIndex, _wpName]; // type
 _wp1 setWaypointCombatMode "RED";
 _wp1 setWaypointBehaviour "AWARE";
 _wp1 setWaypointSpeed "FULL";
-_wp1 setWaypointType "SAD";
+_wp1 setWaypointType "MOVE";
 _wp1 setWaypointFormation "WEDGE";
 _wp1 setWaypointTimeout [0, 0, 0];
 _wp1 setWaypointCompletionRadius 5.0;
