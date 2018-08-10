@@ -128,19 +128,18 @@ _group = _this select 1; // group of men in chopper
 _vehGroup = _this select 2; // group of chopper
 
 // Find nearest enemies
-_nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
+//_nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
 _enemyPos = _lzPos;
-if !(isNull _nearestEnemy) then
-{
-    _enemyPos = getPosATL _nearestEnemy;
-    //_enemyPos set [2, 0.0];
-}
-else
-{
-    _enemyPos = _lzPos; //getPos [300.0, random[0.0,180.0,360.0]];
-    _enemyPos set [2, 0.0];
-};
-
+//if !(isNull _nearestEnemy) then
+//{
+//    _enemyPos = getPosATL _nearestEnemy;
+//    //_enemyPos set [2, 0.0];
+//}
+//else
+//{
+//    _enemyPos = _lzPos; //getPos [300.0, random[0.0,180.0,360.0]];
+//    _enemyPos set [2, 0.0];
+//};
 
 // Get out waypoint
 _wpIndex = 0; // DON'T COMMENT OUT

@@ -4,7 +4,7 @@ HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
 ["JIP_id", "onplayerConnected", {[] spawn  execVM EOS_fnc_Markers;}] call BIS_fnc_addStackedEventHandler;
-/* EOS 1.98 by BangaBob 
+// EOS 1.98 by BangaBob 
 
 
 fnc_master =
@@ -47,21 +47,21 @@ fnc_master =
 
 
 // Enemy Occupation System (EOS) Setup
-if HC3Present then
+if (HC3Present) then
 {
 	//EOS Dynamic Combat System
 	[] spawn fnc_master;
 }
 else
 {
-	if HC2Present then
+	if (HC2Present) then
 	{
 		//EOS Dynamic Combat System
         [] spawn fnc_master;
 	}
 	else
 	{
-		if HC1Present then
+		if (HC1Present) then
 		{
 			//EOS Dynamic Combat System
             [] spawn fnc_master;

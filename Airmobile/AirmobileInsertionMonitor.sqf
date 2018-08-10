@@ -103,7 +103,7 @@ fnc_heliStatusCheck =
     
     _heliStatusArray = [_vehOk,_groupOk,_wpIndex,_wpName,_distToWp,_hasCargo,_cargoGroup,_cargoGroupOk,_vehAltAGL];
     _message = format ["fnc_heliStatusCheck  _wpName:%1 _distToWp:%2 _vehAltAGL:%3 _hasCargo:%4",_wpName,_distToWp,_vehAltAGL,_hasCargo];
-    if Saber_DEBUG then {hint _message; sleep 1.0;};
+    if Saber_DEBUG then {hint _message; sleep 0.1;};
     _heliStatusArray;
 };
 
@@ -128,6 +128,31 @@ _message = format ["MISSION MONITOR: %1 helicopters, _transportUnloaded: %2",cou
 _unlock = false;
 
 
+{
+    _attackVehA = _x select 0;
+    {
+        _transVehA = _x select 0;
+        {
+            _attackVehB = _x select 0;
+            _attackVehA disableCollisionWith _attackVehB;
+            _attackVehA disableCollisionWith _transVehA;
+
+        } forEach _spawnedAttackHelis;
+
+        {
+            _transVehB = _x select 0;
+            _transVehA disableCollisionWith _transVehB;
+            _transVehA disableCollisionWith _attackVehA;
+
+        } forEach _spawnedTransportHelis;
+        //_transVehA addEventHandler ["HandleDamage", {if (isNull (_this select 3)) then { 0; } else { _this select 2; }; }];
+
+    } forEach _spawnedTransportHelis;
+    //_attackVehA addEventHandler ["HandleDamage", {if (isNull (_this select 3)) then { 0; } else { _this select 2; }; }];
+} forEach _spawnedAttackHelis;
+
+
+
 while {_heliAliveCount > 0} do
 {
     _t = 0;
@@ -135,6 +160,7 @@ while {_heliAliveCount > 0} do
     {
         _veh   = _x select 0;
         _vehGroup = _x select 2;
+        //_veh allowDamage false;
         
         _heliStatusArray = [_veh,_vehGroup] call fnc_heliStatusCheck; // ERRORS HERE FIXME
         _vehOk = _heliStatusArray select 0;
@@ -147,19 +173,20 @@ while {_heliAliveCount > 0} do
         _cargoGroupOk = _heliStatusArray select 7;
         _vehAltAGL = _heliStatusArray select 8;
         
-        _unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 2.0) || (_wpName find "LZ_Post_Unload") >= 0);
+        _unlock = (((_wpName find "_LZ_Land") >= 0) && (_distToWp < 7.0) && (_vehAltAGL < 5.0) || (_wpName find "LZ_Post_Unload") >= 0);
+        //_unlock = (_vehAltAGL < 5.0);
         _message = format ["UNLOCK STATUS %1 !!!!!!!!!!!!!!!!!!!!!!!! _wpName:%2 _distToWp:%3 _vehAltAGL:%4 _hasCargo:%5 ",_unlock,_wpName,_distToWp,_vehAltAGL,_hasCargo];
-        if Saber_DEBUG then {hint _message; sleep 1.0;};
+        //if Saber_DEBUG then {hint _message; sleep 0.5;};
     
         if (_vehOk && _groupOk && _cargoGroupOk) then
         {
-            if !(_transportUnloaded select _t) then
-            {
+            //if !(_transportUnloaded select _t) then
+            //{
                 if (_unlock) then
                 {
                     if (!local _veh) then {
                         _message = format ["vehicle %1 is not local!!!!!",_veh];
-    	    	        if Saber_DEBUG then {hint _message; sleep 2.0;};
+    	    	        if Saber_DEBUG then {hint _message; sleep 1.0;};
                     };
                     _veh lockCargo false; // This command must be executed where vehicle is local
                     _veh setVehicleLock "UNLOCKED";
@@ -201,12 +228,12 @@ while {_heliAliveCount > 0} do
                     _cargoGroup setBehaviour "CARELESS";
                     _cargoGroup setSpeedMode "FULL";
                 };
-            };
+            //};
             
             if !(canMove _veh) then
             {
                	_message = format ["vehicle %1 is DAMAGED!!!!!! Proceeding to last WP",_veh];
-    	    	if Saber_DEBUG then {hint _message; sleep 1.0;};
+    	    	if Saber_DEBUG then {hint _message; sleep 0.5;};
    
                 // if crew leave helicopter
 	            // delete remaining waypoints
@@ -280,11 +307,13 @@ while {_heliAliveCount > 0} do
                 _transVehA disableCollisionWith _attackVehA;
 
             } forEach _spawnedTransportHelis;
+            //_transVehA addEventHandler ["HandleDamage", {if (isNull (_this select 3)) then { 0; } else { _this select 2; }; }];
 
         } forEach _spawnedTransportHelis;
+        //_attackVehA addEventHandler ["HandleDamage", {if (isNull (_this select 3)) then { 0; } else { _this select 2; }; }];
     } forEach _spawnedAttackHelis;
 
-    sleep 2.0;
+    sleep 0.2;
 };
 
 //{

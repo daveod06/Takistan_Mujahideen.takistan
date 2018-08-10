@@ -137,7 +137,7 @@ private _a = 0;
     //_wp5 setWaypointStatements ["true",_despawnCommand];
     
     _a = _a + 1;
-    sleep 1.0;
+    sleep 10.0;
     
 } forEach _spawnedAttackHelis;
 
@@ -228,15 +228,15 @@ private _t = _a;
     _wp3 setWaypointBehaviour "UNCHANGED"; //UNCHANGED
     _wp3 setWaypointSpeed "FULL";
     _wp3 setWaypointType "TR UNLOAD";
-    _wp3 setWaypointTimeout [3, 4, 5];
+    _wp3 setWaypointTimeout [5, 8, 9];
     _wp3 setWaypointStatements ["true",_command];
     //_wp3 setWaypointScript _script;
     _wp3 waypointAttachVehicle _lzHelipad;
-    _wp3 setWaypointCompletionRadius 2.0;
+    //_wp3 setWaypointCompletionRadius 2.0;
     
     // Post Unload waypoint
     _wpIndex = _wpIndex + 1;
-    private _postPos = _spawnHelipad getPos [200.0, _baseToLzBearing];
+    private _postPos = _lzLandPos getPos [700.0, _baseToLzBearing]; // _lzToBaseBearing _baseToLzBearing  origin getPos [distance, heading]
     ////_postPos = _postPos set [2, (_postPos select 2) + 100];
     _wpName = format ["%1_LZ_Post_Unload", _veh];
     private _wp4 = _group addWaypoint [_postPos, 0.0, _wpIndex, _wpName];
@@ -247,8 +247,10 @@ private _t = _a;
     _wp4 setWaypointType "MOVE";
     _wp4 setWaypointTimeout [0, 0, 0];
     //_command0 = format ["%1 limitSpeed %2; %3 flyInHeight 200; %4 forceSpeed %5; ",_veh,_speed_kph,_veh,_veh,_speed_mps];
+    //_command0 = format ["%1 flyInHeight 200; ",_veh];
+    _command0 = "";
     _command1 = '{(commander _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];{(driver _veh) enableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];';
-    _wp4 setWaypointStatements ["true",_command1];
+    _wp4 setWaypointStatements ["true",_command1+_command0];
 
     //// Egress waypoint
     //_wpIndex = _wpIndex + 1;

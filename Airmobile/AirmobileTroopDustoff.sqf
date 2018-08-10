@@ -153,7 +153,8 @@ waitUntil {_checkHeliWaypoints == false};
             _wp1 waypointAttachVehicle _vehName;
             _wp1 synchronizeWaypoint [_heliLoadWp];
             
-            private _smokeClasses = ["G_40mm_SmokeRed","G_40mm_SmokeBlue","G_40mm_Smoke","G_40mm_SmokeGreen","G_40mm_SmokeYellow","G_40mm_SmokePurple","G_40mm_SmokeOrange"];
+            //private _smokeClasses = ["G_40mm_SmokeRed","G_40mm_SmokeBlue","G_40mm_Smoke","G_40mm_SmokeGreen","G_40mm_SmokeYellow","G_40mm_SmokePurple","G_40mm_SmokeOrange"];
+            private _smokeClasses = ["G_40mm_SmokeOrange"];
             _smokeObj = (selectRandom _smokeClasses) createVehicle (getPos _lzHelipad);
 
             (units _group) allowGetIn true;

@@ -45,4 +45,4 @@ missionNameSpace setVariable ["serverReady", 1];
 publicVariable "serverReady";
 
 // Start up artillery
-_artyHandle = [] spawn FFE_fnc_Master;
+[] spawn FFE_fnc_Master;

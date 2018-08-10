@@ -8,7 +8,7 @@ HC3Present = if (isNil "HC3") then{False} else{True};
 fnc_staticFleeWeapon =
 {
     private ["_staticName","_loop","_string","_triggers","_enemyFactions","_staticTrigger","_numTriggersActive"];
-    _staticName = _this select 0;
+    _staticName = _this;
     _loop = 1;
     _numTriggersActive = 0;
 
@@ -33,21 +33,22 @@ fnc_staticFleeWeapon =
         {
             _loop = 0;
         };
+        sleep 6.0;
     };
 };
 
 if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
 {
-    //hint "Calling fnc_staticFleeWeapon.";
-    //sleep 1.0;
-    _return = _this select 0 call fnc_staticFleeWeapon;
+    hint "Calling fnc_staticFleeWeapon.";
+    sleep 1.0;
+    _return = (_this select 0) call fnc_staticFleeWeapon;
 }
 else
 {
     if(isServer) then
     {
-        //hint "Calling fnc_staticFleeWeapon.";
-        //sleep 1.0;
-        _return = _this select 0 call fnc_staticFleeWeapon;
+        hint "Calling fnc_staticFleeWeapon.";
+        sleep 1.0;
+        _return = (_this select 0) call fnc_staticFleeWeapon;
     };
 };
