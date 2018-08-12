@@ -34,10 +34,10 @@ RydFFE_FOClass = [
 RydFFE_Amount = 3; // this holds number of shells, that in summary should be fired in each fire mission. CLUSTER and GUIDED salvo amount is always divided by 3 (rounded up);
 RydFFE_Acc = 2; // multiplier of whole salvo drift radius. The bigger value, the bigger radius;
 RydFFE_Safe = 60; // salvo will be not planned for coordinates located within this radius (in meters) around any allied group leader;
-RydFFE_Monogamy = true; // by default each enemy group can be a target for only one battery at the time. If set to false, there is no such limitation, so one target can be shelled by any number of batteries at the time;
+RydFFE_Monogamy = false; // by default each enemy group can be a target for only one battery at the time. If set to false, there is no such limitation, so one target can be shelled by any number of batteries at the time;
 RydFFE_Add_SPMortar = []; // here you can list classnames of custom SP mortar units, that should be controlled by ;
 RydFFE_Add_Mortar = ["OKSVA_2B14"]; // here you can list classnames of custom mortar units, that should be controlled by ;
-RydFFE_Add_Rocket = []; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
+RydFFE_Add_Rocket = ["oksva_bm21"]; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
 RydFFE_Add_Other = []; // here you can list classnames of other custom artillery units (lowercase only!), that should be controlled by , if are using custom magazines (classes added here shouldn't be added to any other array). Format:
 //RydFFE_Add_Other =
 //[

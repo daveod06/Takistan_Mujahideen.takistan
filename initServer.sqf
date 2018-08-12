@@ -20,7 +20,7 @@ call compile preprocessFileLineNumbers "EnemyOccupationSystem\EOSInit.sqf";
 
 // Civilians & Traffic
 call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Init.sqf";
-call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Traffic\Init.sqf";
+//call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Traffic\Init.sqf";
 
 // Compile Convoy, Airmobile, and Artillery
 [] execVM "scripts\common\CommonInit.sqf";

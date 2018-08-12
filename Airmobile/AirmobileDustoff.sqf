@@ -52,13 +52,13 @@ waitUntil {groupsReadyForPickup};
 	_lzInitOutput set [0, count _aliveGroups];
 	
 	// spawn pickup helicopters
-	private _message = format ["Saber_fnc_AirmobileHeliSpawn:_side: %1 ,_faction: %2,_transportType: %3,_attackType: %4,_spawnAttackHelis: %5,_spawnInAir: %6,_lzInitOutput: %7",_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput];
-    if Saber_DEBUG then {hint _message;sleep 3.0;};
+	private _message = format ["DUSTOFF Saber_fnc_AirmobileHeliSpawn:_side: %1 ,_faction: %2,_transportType: %3,_attackType: %4,_spawnAttackHelis: %5,_spawnInAir: %6,_lzInitOutput: %7",_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput];
+    if Saber_DEBUG then {hint _message;sleep 10.0;};
 
 	_spawnHeliOutput = [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput] call Saber_fnc_AirmobileHeliSpawn;
 	//_spawnHeliOutput = [_spawnedAttackHelis,_spawnedTransportHelis]
-	private _message = format ["_spawnHeliOutput: %1",_spawnHeliOutput];
-    if Saber_DEBUG then {hint _message;sleep 1.0;};
+	private _message = format ["DUSTOFF _spawnHeliOutput: %1",_spawnHeliOutput];
+    if Saber_DEBUG then {hint _message;sleep 6.0;};
 	
 	
 	// create helicopter dustoff waypoints
@@ -67,6 +67,7 @@ waitUntil {groupsReadyForPickup};
     _spawnedTransportHelis = _spawnHeliOutput select 1;
     _heliGroup0 = (_spawnedTransportHelis select 0) select 2;
     // create troops dustoff waypoints
+    sleep 3.0;
     _troopDustoffOutput = [_lzInitOutput, _spawnHeliOutput, _aliveGroups] call Saber_fnc_AirmobileTroopDustoff;
 
 //};

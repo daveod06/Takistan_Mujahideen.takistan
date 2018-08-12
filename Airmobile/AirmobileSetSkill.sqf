@@ -1,6 +1,7 @@
 _grp=(_this select 0);
 _skillArray=(_this select 1);
-_skillset = server getvariable _skillArray;
+_skillset = _skillArray;
+//_skillset = server getvariable _skillArray;
 {
 	_unit = _x;
 	{

@@ -66,13 +66,13 @@ fnc_AirmobileVehicleCheck =
 
 //fnc_AirmobileTroopDustoff = {
 private _lzOutput = _this select 0;
-private _spawnOutput = _this select 1;
+private _spawnHeliOutput = _this select 1;
 private _aliveGroups = _this select 2;
 private _lzHelipads = _lzOutput select 2;
 private _lzTrigger = _lzOutput select 4;
-private _spawnedAttackHelis = _spawnOutput select 0;
-private _spawnedTransportHelis = _spawnOutput select 1;
-private _spawnedTroopGroups = _spawnOutput select 2;
+private _spawnedAttackHelis = _spawnHeliOutput select 0;
+private _spawnedTransportHelis = _spawnHeliOutput select 1;
+private _spawnedTroopGroups = _spawnHeliOutput select 2;
 
 private _numSpawnedAttackHelis = count _spawnedAttackHelis;
 private _t = _numSpawnedAttackHelis;
@@ -84,6 +84,9 @@ _checkHeliWaypoints = true;
 
 while {_checkHeliWaypoints} do
 {
+    _message = format ["TROOP DUSTOFF: _spawnedTransportHelis: %1 _vehArray: %2",_spawnedTransportHelis,_vehArray];
+    if Saber_DEBUG then {hint _message; sleep 3.0;};
+
     _vehArray = _spawnedTransportHelis select _t;
     _vehName = _vehArray select 0;
     _vehGroup  = _vehArray select 2;

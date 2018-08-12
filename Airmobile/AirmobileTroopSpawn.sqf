@@ -13,6 +13,22 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
+
+// INFANTRY SKILL
+_InfskillSet = [
+0.25,        // aimingAccuracy
+0.45,        // aimingShake
+0.5,        // aimingSpeed
+0.4,         // spotDistance
+0.3,        // spotTime
+1,        // courage
+1,        // reloadSpeed
+1,        // commanding
+1        // general
+];
+
+
+
 //fnc_AirmobileSpawn = {
 private _side                       = _this select 0;
 private _faction                    = _this select 1;
@@ -111,7 +127,7 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> _sideStr >> _faction >> _category >> _spawnClass)] call BIS_fnc_spawnGroup;
 	//_group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> "East" >> "SovietArmy_OKSVA" >> "Infantry" >> "SovietArmy_OKSVA_infantry_rifle_squad")] call BIS_fnc_spawnGroup;
 	_group deleteGroupWhenEmpty true;
-    [_group,AirmobileINFskill] call Saber_fnc_AirmobileSetSkill;
+    [_group,_InfskillSet] call Saber_fnc_AirmobileSetSkill;
 	//_group setCombatMode "BLUE";
 	//_group setFormation 'WEDGE';
     //_group setBehaviour 'CARELESS';

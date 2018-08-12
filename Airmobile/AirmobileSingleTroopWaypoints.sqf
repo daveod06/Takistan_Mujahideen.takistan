@@ -130,8 +130,8 @@ _vehGroup = _this select 2; // group of chopper
 // Find nearest enemies
 _nearestEnemy = objNull;
 _nearestEnemy = [(leader _group),500] call fnc_findNearestEnemy;
-//_enemyPos = _lzPos;
-_enemyPos = _lzPos getPos [300.0, random [0.0,180.0,360.0]];
+_enemyPos = _lzPos;
+//_enemyPos = _lzPos getPosATL [300.0, random [0.0,180.0,360.0]];
 if !(isNull _nearestEnemy) then
 {
     _enemyPos = getPosATL _nearestEnemy;
@@ -139,12 +139,12 @@ if !(isNull _nearestEnemy) then
 }
 else
 {
-    _enemyPos = _lzPos; //getPos [300.0, random [0.0,180.0,360.0]];
+    _enemyPos = _lzPos getPos [300.0, random [0.0,180.0,360.0]];
     _enemyPos set [2, 0.0];
 };
 
 // Get out waypoint
-_wpIndex = 0; // DON'T COMMENT OUT
+_wpIndex = 1; // DON'T COMMENT OUT
 private _getOutPos = _lzPos;
 _getOutPos set [2, 0.0];
 _wpName = format ["%1_Get_Out", str _group];
@@ -155,7 +155,7 @@ _wp0 setWaypointSpeed "FULL";
 _wp0 setWaypointType "GETOUT";
 _wp0 setWaypointFormation "WEDGE";
 _wp0 setWaypointTimeout [0, 0, 0];
-//_wp0 setWaypointCompletionRadius 3;
+_wp0 setWaypointCompletionRadius 1.0;
 
 // Attack waypoint
 _wpIndex = _wpIndex + 1;
@@ -168,17 +168,19 @@ _wp1 setWaypointSpeed "FULL";
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointFormation "WEDGE";
 _wp1 setWaypointTimeout [0, 0, 0];
-_wp1 setWaypointCompletionRadius 5.0;
+_wp1 setWaypointCompletionRadius 1.0;
+//private _command = format ["groupsReadyForPickup = true;"];
+//_wp1 setWaypointStatements ["true",_command];
 
 // Patrol waypoint
 //private _patrolSuccess = [];
-//private _success = [_group, _attackPos, 500.0] call BIS_fnc_taskPatrol;
+private _success = [_group, _attackPos, 500.0] call BIS_fnc_taskPatrol;
 //private _message = format ["%1 has completed their patrol",_group];
 //_patrolSuccess pushBack [_success,_message,_group];
 
 // Pick up waypoint
 _wpIndex = _wpIndex + 1;
-private _pickUpPos = _lzPos;
+private _pickUpPos = _getOutPos;
 _pickUpPos set [2, 0.0];
 _wpName = format ["%1_Pick_Up", str _group];
 private _wp2 = _group addWaypoint [_pickUpPos, 30.0, _wpIndex, _wpName];
@@ -188,10 +190,12 @@ _wp2 setWaypointSpeed "FULL";
 _wp2 setWaypointType "MOVE";
 _wp2 setWaypointFormation "WEDGE";
 _wp2 setWaypointTimeout [0, 0, 0];
-private _command = format ["groupsReadyForPickup = true;"];
+private _command = format ["groupsReadyForPickup = true; hint ""GROUPS READY FOR PICKUP"";"];
 _wp2 setWaypointStatements ["true",_command];
-_wp2 setWaypointCompletionRadius 30.0;
-    
-    
+_wp2 setWaypointCompletionRadius 1.0;
 
-
+//sleep 0.1;
+//_wp2 setWPPos (getPosATL (leader _group));
+//
+//sleep 3.0;
+//_wp2 setWPPos (getPosATL (leader _group));

@@ -80,19 +80,19 @@ fnc_AirmobileMaster =
 	private _message = format ["_spawnTroopOutput: %1",_spawnTroopOutput];
 	if Saber_DEBUG then {hint _message;sleep 1.0;};
 	
-	_heliWaypointsOutput = [_lzInitOutput, _spawnHeliOutput] call Saber_fnc_AirmobileHeliWaypoints;
+	[_lzInitOutput, _spawnHeliOutput] call Saber_fnc_AirmobileHeliWaypoints;
 
     // moved into heliWaypoints
 	//_troopWaypointsOutput = [_lzInitOutput, _spawnHeliOutput, _spawnTroopOutput] call Saber_fnc_AirmobileTroopWaypoints;
 	
     // mission progress monitor
-    [_spawnHeliOutput] spawn Saber_fnc_AirmobileInsertionMonitor;
+    [_spawnHeliOutput,_lzInitOutput] spawn Saber_fnc_AirmobileInsertionMonitor;
 	
 	if _dustoff then
 	{
 	    _spawnAttackHelis = false;
 	    groupsReadyForPickup = false;
-	    [_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput,_spawnTroopOutput] spawn Saber_fnc_AirmobileDustoff;
+	    //[_side,_faction,_transportType,_attackType,_spawnAttackHelis,_spawnInAir,_lzInitOutput,_spawnTroopOutput] spawn Saber_fnc_AirmobileDustoff;
 	};
 };
 

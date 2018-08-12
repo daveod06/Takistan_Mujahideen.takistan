@@ -13,6 +13,21 @@ HC1Present = if (isNil "HC1") then{False} else{True};
 HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
+
+// HELICOPTER SKILL
+_AIRskillSet = [
+0.25,        // aimingAccuracy
+0.45,        // aimingShake
+0.6,        // aimingSpeed
+0.4,         // spotDistance
+0.4,        // spotTime
+1,        // courage
+1,        // reloadSpeed
+1,        // commanding
+1        // general
+];
+
+
 //fnc_AirmobileSpawn = {
 private _side                       = _this select 0;
 private _faction                    = _this select 1;
@@ -152,7 +167,7 @@ for "_a" from 0 to (_attackHeliToSpawn - 1) do
     _vehGroup setBehaviour 'CARELESS';
     _vehGroup setSpeedMode 'NORMAL';
     _vehGroup deleteGroupWhenEmpty true;
-    [_vehGroup,AirmobileAIRskill] call Saber_fnc_AirmobileSetSkill;
+    [_vehGroup,_AIRskillSet] call Saber_fnc_AirmobileSetSkill;
 	_spawnedAttackHelis pushBack _vehArray;
 	_iterator = _iterator + 1;
 	sleep 0.3;
@@ -186,7 +201,7 @@ for "_t" from 0 to (_transportHeliToSpawn - 1) do
     _vehGroup setBehaviour 'CARELESS';
     _vehGroup setSpeedMode 'FULL';
     _vehGroup deleteGroupWhenEmpty true;
-    [_vehGroup,AirmobileAIRskill] call Saber_fnc_AirmobileSetSkill;
+    [_vehGroup,_AIRskillSet] call Saber_fnc_AirmobileSetSkill;
     //{(driver _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     //{(commander _vehName) disableAI _x} forEach ["TARGET","AUTOTARGET","FSM","AUTOCOMBAT"];
     //_vehName flyInHeight (160 - _iterator*10); // make helis fly in a different heights

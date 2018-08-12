@@ -15,7 +15,7 @@ _parameters = [
 	["UNITS_PER_BUILDING", 0.4],
 	["MAX_GROUPS_COUNT", 50],
 	["MIN_SPAWN_DISTANCE", 50],
-	["MAX_SPAWN_DISTANCE", 500],
+	["MAX_SPAWN_DISTANCE", 600],
 	["BLACKLIST_MARKERS", ["no_civ_0","no_civ_1","no_civ_2","EOSzone_1","EOSzone_2","EOSzone_3"]],
 	["HIDE_BLACKLIST_MARKERS", true],
 	["ON_UNIT_SPAWNED_CALLBACK", {}],

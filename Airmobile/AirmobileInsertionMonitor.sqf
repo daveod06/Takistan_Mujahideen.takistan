@@ -6,8 +6,14 @@ HC2Present = if (isNil "HC2") then{False} else{True};
 HC3Present = if (isNil "HC3") then{False} else{True};
 
 private _spawnHeliOutput = _this select 0;
+private _lzInitOutput = _this select 1;
 private _spawnedAttackHelis = _spawnHeliOutput select 0;
 private _spawnedTransportHelis = _spawnHeliOutput select 1;
+private _lzHelipadsArray = _lzInitOutput select 2;
+
+
+_message = format ["MISSION MONITOR: _lzHelipadsArray: %1 _lzInitOutput: %2",_lzHelipadsArray,_lzInitOutput];
+//if Saber_DEBUG then {hint _message; sleep 3.0;};
 
 fnc_vehicleOk =
 {
@@ -103,7 +109,7 @@ fnc_heliStatusCheck =
     
     _heliStatusArray = [_vehOk,_groupOk,_wpIndex,_wpName,_distToWp,_hasCargo,_cargoGroup,_cargoGroupOk,_vehAltAGL];
     _message = format ["fnc_heliStatusCheck  _wpName:%1 _distToWp:%2 _vehAltAGL:%3 _hasCargo:%4",_wpName,_distToWp,_vehAltAGL,_hasCargo];
-    if Saber_DEBUG then {hint _message; sleep 0.1;};
+    //if Saber_DEBUG then {hint _message; sleep 0.1;};
     _heliStatusArray;
 };
 
@@ -158,9 +164,14 @@ while {_heliAliveCount > 0} do
     _t = 0;
     _heliAliveCount = 0;
     {
+        _message = format ["MISSION MONITOR: _lzHelipadsArray: %1 _lzInitOutput: %2",_lzHelipadsArray,_lzInitOutput];
+        //if Saber_DEBUG then {hint _message; sleep 3.0;};
+
         _veh   = _x select 0;
         _vehGroup = _x select 2;
         //_veh allowDamage false;
+        _lz = _lzHelipadsArray select _t;
+        _lzPos = getPosATL _lz;
         
         _heliStatusArray = [_veh,_vehGroup] call fnc_heliStatusCheck; // ERRORS HERE FIXME
         _vehOk = _heliStatusArray select 0;
@@ -182,14 +193,15 @@ while {_heliAliveCount > 0} do
         {
             //if !(_transportUnloaded select _t) then
             //{
-                if (((_wpName find "_LZ_Land") >= 0) || (_wpName find "LZ_Post_Unload") >= 0)) then
-                {
-                    _veh allowDamage false;
-                }
-                else
-                {
-                    _veh allowDamage true;
-                };
+                //if (((_wpName find "_LZ_Land") >= 0) || ((_wpName find "LZ_Post_Unload") >= 0)) then
+                //{
+                //    _veh allowDamage false;
+                //}
+                //else
+                //{
+                //    _veh allowDamage true;
+                //};
+
 
 
                 if (_unlock) then
@@ -208,7 +220,10 @@ while {_heliAliveCount > 0} do
                     _cargoGroup setSpeedMode "FULL";
                     _pos = getPosATL _veh;
                     _pos set [2,getTerrainHeightASL _pos];
-                    [(getPosATL _veh),_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                    if !(_transportUnloaded select _t) then
+                    {
+                        [_lzPos,_cargoGroup,_vehGroup] call Saber_fnc_AirmobileSingleTroopWaypoints;
+                    };
                     {
                         doGetOut _x;
                         _x leaveVehicle _veh;
@@ -252,7 +267,7 @@ while {_heliAliveCount > 0} do
                 // https://community.bistudio.com/wiki/landAt
                 // https://community.bistudio.com/wiki/unitReady
 
-                //// remove all waypoints
+                // remove all waypoints
                 ////_vehGroup setCurrentWaypoint [_vehGroup, (count (waypoints _vehGroup) - 1)];
                 //sleep 0.5;
                 //if (count waypoints _vehGroup > 0) then
