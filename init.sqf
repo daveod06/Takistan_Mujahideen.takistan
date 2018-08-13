@@ -53,11 +53,18 @@ init_fnc =
 
 ToggleAmbush = false;
 
-//spawn 
-//{
-//	while {!ToggleAmbush} do
-//	{
-//
-//		sleep 5.0;
-//	};
-//};
+spawn 
+{
+	while {!ToggleAmbush} do
+	{
+		{
+			if (side _x == independent) then
+			{
+				_x setBehaviour "STEALTH"; 
+				_x setCombatMode "BLUE";
+				_x setSpeedMode "LIMITED";
+			};
+		} forEach allUnits;
+		sleep 5.0;
+	};
+};
