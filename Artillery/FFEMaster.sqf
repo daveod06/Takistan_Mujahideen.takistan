@@ -215,6 +215,8 @@ while {RydFFE_Active} do
 
 	sleep RydFFE_Interval;
 
+	if (Saber_DEBUG) then {hint "ARTY JUST CALLED INTERVAL!!!!!!!!!!!";};
+
 	_shells = missionNameSpace getVariable ["RydFFE_FiredShells",[]];
 
 		{

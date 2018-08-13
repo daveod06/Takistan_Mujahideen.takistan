@@ -50,3 +50,14 @@ init_fnc =
 };
 
 [] spawn Saber_fnc_ConvoyMaster;
+
+ToggleAmbush = false;
+
+//spawn 
+//{
+//	while {!ToggleAmbush} do
+//	{
+//
+//		sleep 5.0;
+//	};
+//};
