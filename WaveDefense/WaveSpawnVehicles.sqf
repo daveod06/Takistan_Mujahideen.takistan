@@ -8,9 +8,6 @@ _vehNum = _this select 5;
 
 _spawnedVehicles = [];
 
-//server setvariable ["WaveINFskill",_InfskillSet];
-//server setvariable ["WaveAIRskill",_AIRskillSet];
-
 _vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_SQUAD_" + (str _vehNum);
 
 _markerPos = getMarkerPos _spawnMarker;
@@ -37,7 +34,7 @@ _skills = WaveVEHskill;
 [_group,_skills] call Saber_fnc_WaveSetSkill;
 _veh setVehicleLock "UNLOCKED";
 
-_deadTracker = _vehName + "_DEAD";
+//_deadTracker = _vehName + "_DEAD";
 //server setvariable [_deadTracker,0];
 //// "INF_WAVE_0_SQUAD_0_DEAD";
 //
@@ -53,6 +50,10 @@ _deadTracker = _vehName + "_DEAD";
 //    }
 //    ];
 //} forEach units _group;
+
+
+_message = format ["Spawned vehicle: %1",_veh];
+if Saber_DEBUG then {hint _message; sleep 1.0;};
 
 _spawnedVehicles pushBack _vehArray;
 sleep 1.0;

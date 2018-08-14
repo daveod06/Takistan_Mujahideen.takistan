@@ -38,11 +38,6 @@ _markerPos = getMarkerPos _spawnMarker;
 _spawnPos = _markerPos getPos [(random [0,50,100]), (random [0,180,360])];
 _spawnPos = [_spawnPos, 1.0, 150.0, 3.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
 _group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> _sideStr >> _faction >> _category >> _squadClassname)] call BIS_fnc_spawnGroup;
-
-
-_message = format ["Spawned troop squad: %1",_group];
-if Saber_DEBUG then {hint _message; sleep 1.0;};
-
 _group deleteGroupWhenEmpty true;
 _group setGroupId [_squadName];
 _group setCombatMode "RED";
@@ -74,6 +69,9 @@ server setvariable [_deadTracker,0];
     }
     ];
 } forEach units _group;
+
+_message = format ["Spawned troop squad: %1",_group];
+if Saber_DEBUG then {hint _message; sleep 1.0;};
 
 _spawnedTroopGroups pushBack _group;
 sleep 1.0;

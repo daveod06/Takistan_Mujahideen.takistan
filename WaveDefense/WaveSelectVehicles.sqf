@@ -28,10 +28,6 @@ for [{_i=0},{_i<_maxVehicles},{_i=_i+1}] do
     };
 };
 
-_message = format ["Spawning %1 vehicles ",count _vehToSpawn];
-//if Saber_DEBUG then {hint _message; sleep 3.0;};
-
-
 _maxVehicles = _apcsPerWave select 0;
 _vehicleProb = _apcsPerWave select 1;
 _vehClasses = _apcsArray;
@@ -56,7 +52,7 @@ for [{_i=0},{_i<_maxVehicles},{_i=_i+1}] do
     };
 };
 
-_message = format ["Spawning %1 vehicles ",count _vehToSpawn];
-//if Saber_DEBUG then {hint _message; sleep 3.0;};
+_message = format ["Will spawn %1 vehicles: %2 ",count _vehToSpawn,_vehToSpawn];
+if Saber_DEBUG then {hint _message; sleep 3.0;};
 
 _vehToSpawn

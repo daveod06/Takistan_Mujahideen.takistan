@@ -4,8 +4,8 @@ _attackMarker = "";
 _squadArray = _this select 0;
 _attackMarker = _this select 1;
 
-_message = format ["WaveTroopWaypoints _squadArray: %1",_squadArray];
-if Saber_DEBUG then {hint _message;sleep 3.0;};
+//_message = format ["WaveTroopWaypoints _squadArray: %1",_squadArray];
+//if Saber_DEBUG then {hint _message;sleep 3.0;};
 
 {
     _group = _x;
