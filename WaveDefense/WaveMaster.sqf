@@ -11,15 +11,15 @@ fnc_WaveMaster =
 	//sleep 3.0;
 	private _input = _this;
 
-    private _intitialDelay = 0;
-    private _waveInterval = 60;
+    private _intitialDelay = 5;
+    private _waveInterval = 900;
     private _numWaves = 3;
-    private _spawnMarker = marker0;
-    private _attackMarker = marker1;
-    private _infantrySquadsPerWave = [4,50.0]
-    private _lightVehiclesPerWave = [4,50.0]
-    private _apcsPerWave = [4,50.0]
-    private _armorPerWave = [4,50.0]
+    private _spawnMarker = "IND_wave_spawn_0";
+    private _attackMarker = "EOSzone_1";
+    private _infantrySquadsPerWave = [4,100.0];
+    private _lightVehiclesPerWave = [4,100.0];
+    private _apcsPerWave = [4,100.0];
+    private _armorPerWave = [4,100.0];
     private _side = east;
     private _faction = "SovietArmy_OKSVA";
 
@@ -28,16 +28,27 @@ fnc_WaveMaster =
 
     // INTITIAL SETUP
     _waveHQ = createCenter _side;
+    [] call Saber_fnc_WaveAISkill;
+    _squadArray = [];
+    _vehArray = [];
+    _infToSpawn = [];
+    _vehToSpawn = [];
+    _i = 0;
 
     // PER WAVE
-    for [_i=0,_i<_numWaves,_i=_i+1] do
+    for [{_i=0},{_i<_numWaves},{_i=_i+1}] do
     {
+        _message = format ["Spawning wave %1",_i];
+        //if Saber_DEBUG then {hint _message; sleep 3.0;};
+
         // SELECT HOW MANY SQUADS AND WHAT TYPES TO SPAWN
         _infToSpawn = [_faction,_infantrySquadsPerWave] call Saber_fnc_WaveSelectTroops;
 
         // SPAWN TROOPS
         _t = 0;
         {
+            _message = format ["Spawning troops %1 for wave %2",_t,_i];
+            if Saber_DEBUG then {hint _message; sleep 3.0;};
             _squadType = _x;
             _squadArray = [_side,_faction,_squadType,_spawnMarker,_i,_t] call Saber_fnc_WaveSpawnTroops;
             _t = _t + 1;
@@ -53,6 +64,8 @@ fnc_WaveMaster =
         // SPAWN VEHICLES
         _v = 0;
         {
+            _message = format ["Spawning vehicles %1 for wave %2",_v,_i];
+            if Saber_DEBUG then {hint _message; sleep 3.0;};
             _vehType = _x;
             _vehArray = [_side,_faction,_vehType,_spawnMarker,_i,_v] call Saber_fnc_WaveSpawnVehicles;
             _v = _v + 1;
@@ -68,17 +81,33 @@ fnc_WaveMaster =
 
 };
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
+
+if (HC3Present && !isServer && !hasInterface) then
 {
-    //if Saber_DEBUG then {hint "Calling fnc_WaveMaster.";sleep 1.0;};
+    //EOS Dynamic Combat System
     [] spawn fnc_WaveMaster;
 }
 else
 {
-    if(isServer) then
+    if (HC2Present && !isServer && !hasInterface) then
     {
-        //if Saber_DEBUG then {hint "Calling fnc_WaveMaster.";sleep 1.0;};
+        //EOS Dynamic Combat System
         [] spawn fnc_WaveMaster;
+    }
+    else
+    {
+        if (HC1Present && !isServer && !hasInterface) then
+        {
+            //EOS Dynamic Combat System
+            [] spawn fnc_WaveMaster;
+        }
+        else
+        {
+            if (isServer) then
+            {
+                //EOS Dynamic Combat System
+                [] spawn fnc_WaveMaster;
+            };
+        };
     };
 };
-

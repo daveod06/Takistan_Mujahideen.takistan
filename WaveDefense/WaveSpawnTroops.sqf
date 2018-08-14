@@ -9,6 +9,7 @@ _squadNum = _this select 5;
 _category = _squadType select 0;
 _squadClassname = _squadType select 1;
 
+_sideStr = "";
 // Get side string
 if (_side == east) then
 {
@@ -23,23 +24,39 @@ if (_side == resistance) then
 	_sideStr = "Resistance"
 };
 
+//_message = format ["Spawned troop input: %1   _sideStr: %2",_this,_sideStr];
+//if Saber_DEBUG then {hint _message; sleep 3.0;};
+
 _spawnedTroopGroups = [];
 
-server setvariable ["WaveINFskill",_InfskillSet];
-server setvariable ["WaveAIRskill",_AIRskillSet];
+//server getVariable  ["WaveINFskill",_InfskillSet];
+//server getVariable  ["WaveAIRskill",_AIRskillSet];
 
 _squadName = "INF_WAVE_" + (str _waveNum) + "_SQUAD_" + (str _squadNum);
 
-_spawnPos = _spawnMarker getPos [(random [0,50,100]), (random [0,180,360])];
+_markerPos = getMarkerPos _spawnMarker;
+_spawnPos = _markerPos getPos [(random [0,50,100]), (random [0,180,360])];
 _spawnPos = [_spawnPos, 1.0, 150.0, 3.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
 _group = [ _spawnPos, _side, (configFile >> "CfgGroups" >> _sideStr >> _faction >> _category >> _squadClassname)] call BIS_fnc_spawnGroup;
+
+
+_message = format ["Spawned troop squad: %1",_group];
+if Saber_DEBUG then {hint _message; sleep 1.0;};
+
 _group deleteGroupWhenEmpty true;
 _group setGroupId [_squadName];
 _group setCombatMode "RED";
 _group setFormation "WEDGE";
 _group setBehaviour "AWARE";
 _group setSpeedMode "FULL";
-[_group,WaveINFskill] call Saber_fnc_WaveSetSkill;
+
+_skills = server getvariable "WaveINFskill";
+_skills = WaveINFskill;
+
+//_message = format ["Spawned troop _group: %1 skills: %2",_group,_skills];
+//if Saber_DEBUG then {hint _message; sleep 3.0;};
+
+[_group,_skills] call Saber_fnc_WaveSetSkill;
 
 _deadTracker = _squadName + "_DEAD";
 server setvariable [_deadTracker,0];

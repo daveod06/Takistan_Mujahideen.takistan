@@ -8,12 +8,13 @@ _vehNum = _this select 5;
 
 _spawnedVehicles = [];
 
-server setvariable ["WaveINFskill",_InfskillSet];
-server setvariable ["WaveAIRskill",_AIRskillSet];
+//server setvariable ["WaveINFskill",_InfskillSet];
+//server setvariable ["WaveAIRskill",_AIRskillSet];
 
 _vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_SQUAD_" + (str _vehNum);
 
-_spawnPos = _spawnMarker getPos [(random [0,50,100]), (random [0,180,360])];
+_markerPos = getMarkerPos _spawnMarker;
+_spawnPos = _markerPos getPos [(random [0,50,100]), (random [0,180,360])];
 _spawnPos = [_spawnPos, 1.0, 150.0, 3.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
 
 _spawnDir = random [0,180,360];
@@ -29,7 +30,11 @@ _group setCombatMode "RED";
 _group setFormation "WEDGE";
 _group setBehaviour "AWARE";
 _group setSpeedMode "FULL";
-[_group,WaveVEHskill] call Saber_fnc_WaveSetSkill;
+
+_skills = server getvariable "WaveVEHskill";
+_skills = WaveVEHskill;
+
+[_group,_skills] call Saber_fnc_WaveSetSkill;
 _veh setVehicleLock "UNLOCKED";
 
 _deadTracker = _vehName + "_DEAD";

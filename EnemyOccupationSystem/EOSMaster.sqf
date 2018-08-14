@@ -36,9 +36,9 @@ fnc_master =
     
     null = [["EOSzone_1"],[4,2,80],[5,2,60],[2,1,60],[1,50],[1,50],[0,0],[7,1,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
     null = [["EOSzone_2"],[2,2,60],[1,1,75],[0,0],[0],[0],[0,0],[7,1,400,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-    null = [["EOSzone_3"],[2,1,80],[1,2,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-    null = [["EOSzone_4"],[2,1,80],[1,2,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-    null = [["EOSzone_5"],[2,1,80],[1,2,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
+    null = [["EOSzone_3"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
+    null = [["EOSzone_4"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
+    null = [["EOSzone_5"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
     null = [["EOSzone_6"],[0,0,0],[4,1,100],[0,0,0],[0],[2,100],[0,0],[8,1,1000,Independent,TRUE]] call EOS_fnc_Spawn;  //EOS_Spawn;
     //null = [["EOSzone_1"],["BAS_spawn_0",5],[4,3,80],[1,1,80],[0],[0,0],[8,0,Independent],[10*60,2,5*60,FALSE,TRUE]] call EOS_fnc_Bastion_Spawn;//Bastion_Spawn;
     //null = [["EOSmot_1","EOSmot_2"],[0,0],[0,0],[3,1,90],[2,60],[0],[1,0,90],[0,0,350,EAST,FALSE]] call EOS_fnc_Spawn;//EOS_Spawn;
@@ -46,30 +46,32 @@ fnc_master =
 };
 
 
-// Enemy Occupation System (EOS) Setup
-if (HC3Present) then
+if (HC3Present  && !isServer && !hasInterface) then
 {
-	//EOS Dynamic Combat System
-	[] spawn fnc_master;
+    //EOS Dynamic Combat System
+    [] spawn fnc_master;
 }
 else
 {
-	if (HC2Present) then
-	{
-		//EOS Dynamic Combat System
+    if (HC2Present && !isServer && !hasInterface) then
+    {
+        //EOS Dynamic Combat System
         [] spawn fnc_master;
-	}
-	else
-	{
-		if (HC1Present) then
-		{
-			//EOS Dynamic Combat System
+    }
+    else
+    {
+        if (HC1Present && !isServer && !hasInterface) then
+        {
+            //EOS Dynamic Combat System
             [] spawn fnc_master;
-		}
-		else
-		{
-			//EOS Dynamic Combat System
-            [] spawn fnc_master;
-		};
-	};
+        }
+        else
+        {
+            if (isServer) then
+            {
+                //EOS Dynamic Combat System
+                [] spawn fnc_master;
+            };
+        };
+    };
 };

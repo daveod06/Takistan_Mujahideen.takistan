@@ -37,6 +37,9 @@ _VEHskillSet = [
 1        // general
 ];
 
+WaveINFskill = _INFskillSet;
+WaveAIRskill = _AIRskillSet;
+WaveVEHskill = _VEHskillSet;
 
 server setvariable ["WaveINFskill",_INFskillSet];
 server setvariable ["WaveAIRskill",_AIRskillSet];

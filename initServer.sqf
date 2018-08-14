@@ -1,8 +1,4 @@
 if (!isServer) exitWith {};
-//check if HC1 is present
-HC1Present = if (isNil "HC1") then{False} else{True};
-HC2Present = if (isNil "HC2") then{False} else{True};
-HC3Present = if (isNil "HC3") then{False} else{True};
 
 Saber_DEBUG = true;
 
@@ -25,9 +21,7 @@ sleep 2.0;
 sleep 2.0;
 [] execVM "Artillery\ArtilleryInit.sqf";
 sleep 2.0;
-
-// start up EOS
-[] spawn EOS_fnc_Master;
+[] execVM "WaveDefense\WaveInit.sqf";
 sleep 2.0;
 
 setViewDistance 9000;
@@ -35,9 +29,7 @@ setTerrainGrid 6.25;
 setObjectViewDistance [4000,800];
 setDetailMapBlendPars [50, 150];
 
-// Start up artillery
-[] spawn FFE_fnc_Master;
-sleep 2.0;
+
 
 init_fnc =
 {
@@ -48,4 +40,47 @@ init_fnc =
 	attack_heli0 reveal attack_heli0;
 };
 
-[] spawn Saber_fnc_ConvoyMaster;
+
+ToggleAmbush = false;
+
+// start up EOS
+[] spawn EOS_fnc_Master;
+sleep 1.0;
+
+[] spawn 
+{
+	while {!ToggleAmbush} do
+	{
+		{
+			if (side _x == independent) then
+			{
+				if (set_ind_ambush distance _x < 350.0) then
+				{
+					_x setBehaviour "STEALTH"; 
+					_x setCombatMode "BLUE";
+					_x setSpeedMode "LIMITED";
+					_x setUnitPos "DOWN";
+					//hint "SET SAFE.";
+				};
+			};
+		} forEach allUnits;
+		sleep 5.0;
+	};
+};
+
+
+//// start up EOS
+//[] spawn EOS_fnc_Master;
+//sleep 10.0;
+
+//// Start up convoy
+//[] spawn Saber_fnc_ConvoyMaster;
+//sleep 10.0;
+
+//// Start up artillery
+//[] spawn FFE_fnc_Master;
+//sleep 10.0;
+
+// Start up Waves
+[] spawn Saber_fnc_WaveMaster;
+sleep 10.0;

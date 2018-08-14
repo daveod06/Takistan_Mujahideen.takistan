@@ -19,7 +19,7 @@ _vehToSpawn = [];
 _maxVehicles = _lightVehiclesPerWave select 0;
 _vehicleProb = _lightVehiclesPerWave select 1;
 _vehClasses = _lightVehiclesArray;
-for [_i=0,_i<_maxVehicles,_i=_i+1] do
+for [{_i=0},{_i<_maxVehicles},{_i=_i+1}] do
 {
     if (_vehicleProb > floor random 100) then
     {
@@ -28,10 +28,14 @@ for [_i=0,_i<_maxVehicles,_i=_i+1] do
     };
 };
 
+_message = format ["Spawning %1 vehicles ",count _vehToSpawn];
+//if Saber_DEBUG then {hint _message; sleep 3.0;};
+
+
 _maxVehicles = _apcsPerWave select 0;
 _vehicleProb = _apcsPerWave select 1;
 _vehClasses = _apcsArray;
-for [_i=0,_i<_maxVehicles,_i=_i+1] do
+for [{_i=0},{_i<_maxVehicles},{_i=_i+1}] do
 {
     if (_vehicleProb > floor random 100) then
     {
@@ -43,7 +47,7 @@ for [_i=0,_i<_maxVehicles,_i=_i+1] do
 _maxVehicles = _armorPerWave select 0;
 _vehicleProb = _armorPerWave select 1;
 _vehClasses = _armorArray;
-for [_i=0,_i<_maxVehicles,_i=_i+1] do
+for [{_i=0},{_i<_maxVehicles},{_i=_i+1}] do
 {
     if (_vehicleProb > floor random 100) then
     {
@@ -51,5 +55,8 @@ for [_i=0,_i<_maxVehicles,_i=_i+1] do
         _vehToSpawn pushBack _veh;
     };
 };
+
+_message = format ["Spawning %1 vehicles ",count _vehToSpawn];
+//if Saber_DEBUG then {hint _message; sleep 3.0;};
 
 _vehToSpawn

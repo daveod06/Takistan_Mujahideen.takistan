@@ -60,5 +60,3 @@ Saber_fnc_Artillery          = Compile preprocessFileLineNumbers "Artillery\Arti
 [] call compile preprocessFile "Artillery\FFE_fnc.sqf";
 FFE_fnc_Shellview = compile preprocessFile "Artillery\Shellview.sqf";
 FFE_fnc_Master = compile preprocessFile "Artillery\FFEMaster.sqf";
-
-if (true) then {hint "ARTY INIT DONE!!!!!!!!!!!";};

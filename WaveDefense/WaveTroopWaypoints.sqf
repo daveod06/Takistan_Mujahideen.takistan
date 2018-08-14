@@ -1,13 +1,18 @@
 
+_squadArray = [];
+_attackMarker = "";
 _squadArray = _this select 0;
 _attackMarker = _this select 1;
 
+_message = format ["WaveTroopWaypoints _squadArray: %1",_squadArray];
+if Saber_DEBUG then {hint _message;sleep 3.0;};
+
 {
     _group = _x;
-    _wpIndex = 0;
+    _wpIndex = 1;
 
     // Attack waypoint
-    private _attackPos = getpos _attackMarker;
+    private _attackPos = getMarkerPos _attackMarker;
     _wpName = format ["%1_SAD", str _group];
     private _wp0 = _group addWaypoint [_attackPos, 20.0, _wpIndex, _wpName];
     _wp0 setWaypointCombatMode "RED";

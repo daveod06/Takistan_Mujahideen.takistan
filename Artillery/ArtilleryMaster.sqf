@@ -163,7 +163,7 @@ fnc_artilleryFireMaster =
 	//_input = _this select 0;
     _input = _this;
 	_message = format ["fnc_artilleryFireMaster input: %1",_input];
-	if Saber_DEBUG then {hint _message; sleep 3.0;};
+	//if Saber_DEBUG then {hint _message; sleep 3.0;};
 
     private _numRounds = _input select 0; // number of round to shoot
     private _artillery = _input select 1; // artillery object
