@@ -4,7 +4,9 @@ _vehArray = _this select 0;
 _attackMarker = _this select 1;
 
 {
-    _group = _x;
+    _veh = _x select 0;
+    _vehCrew = _x select 1;
+    _group = _x select 2;
     _wpIndex = 1;
 
     // Attack waypoint

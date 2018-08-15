@@ -11,7 +11,7 @@ fnc_WaveMaster =
 	//sleep 3.0;
 	private _input = _this;
 
-    private _intitialDelay = 5;
+    private _intitialDelay = 0;
     private _waveInterval = 900;
     private _numWaves = 3;
     private _spawnMarker = "IND_wave_spawn_0";
@@ -38,22 +38,23 @@ fnc_WaveMaster =
     // PER WAVE
     for [{_i=0},{_i<_numWaves},{_i=_i+1}] do
     {
-        _message = format ["Spawning wave %1",_i];
-        if Saber_DEBUG then {hint _message; sleep 1.0;};
+        //_message = format ["Spawning wave %1",_i];
+        //if Saber_DEBUG then {hint _message; sleep 1.0;};
 
         // SELECT HOW MANY SQUADS AND WHAT TYPES TO SPAWN
         _infToSpawn = [_faction,_infantrySquadsPerWave] call Saber_fnc_WaveSelectTroops;
 
-        _message = format ["About to spawn %1 infantry squads: %2 ",count _infToSpawn,_infToSpawn];
-        if Saber_DEBUG then {hint _message; sleep 4.0;};
+        _message = format ["About to spawn %1 infantry squads   _infToSpawn: %2 ",count _infToSpawn,_infToSpawn];
+        if Saber_DEBUG then {hint _message; sleep 1.0;};
 
         // SPAWN TROOPS
+        _squadArray = [];
         _t = 0;
         {
             _message = format ["Spawning troop squad %1 for wave %2",_t,_i];
             if Saber_DEBUG then {hint _message; sleep 1.0;};
             _squadType = _x;
-            _squadArray = [_side,_faction,_squadType,_spawnMarker,_i,_t] call Saber_fnc_WaveSpawnTroops;
+            _squadArray = [_side,_faction,_squadType,_spawnMarker,_i,_t,_squadArray] call Saber_fnc_WaveSpawnTroops;
             _t = _t + 1;
         } forEach _infToSpawn;
 
@@ -64,14 +65,14 @@ fnc_WaveMaster =
         // SELECT VEHICLES
         _vehToSpawn = [_faction,_lightVehiclesPerWave,_apcsPerWave,_armorPerWave] call Saber_fnc_WaveSelectVehicles;
 
-        _message = format ["About to spawn %1 vehicles: %2 ",count _vehToSpawn,_vehToSpawn];
-        if Saber_DEBUG then {hint _message; sleep 4.0;};
+        //_message = format ["About to spawn %1 vehicles: %2 ",count _vehToSpawn,_vehToSpawn];
+        //if Saber_DEBUG then {hint _message; sleep 1.0;};
 
         // SPAWN VEHICLES
         _v = 0;
         {
             _message = format ["Spawning vehicle %1 for wave %2",_v,_i];
-            if Saber_DEBUG then {hint _message; sleep 3.0;};
+            if Saber_DEBUG then {hint _message; sleep 1.0;};
             _vehType = _x;
             _vehArray = [_side,_faction,_vehType,_spawnMarker,_i,_v] call Saber_fnc_WaveSpawnVehicles;
             _v = _v + 1;
@@ -92,21 +93,21 @@ fnc_WaveMaster =
 if (HC3Present && !isServer && !hasInterface) then
 {
     //
-    [] spawn fnc_WaveMaster;
+    //[] spawn fnc_WaveMaster;
 }
 else
 {
     if (HC2Present && !isServer && !hasInterface) then
     {
         //
-        [] spawn fnc_WaveMaster;
+        //[] spawn fnc_WaveMaster;
     }
     else
     {
         if (HC1Present && !isServer && !hasInterface) then
         {
             //
-            [] spawn fnc_WaveMaster;
+            //[] spawn fnc_WaveMaster;
         }
         else
         {

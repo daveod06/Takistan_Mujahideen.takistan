@@ -5,6 +5,7 @@ _squadType = _this select 2;
 _spawnMarker = _this select 3;
 _waveNum = _this select 4;
 _squadNum = _this select 5;
+_spawnedTroopGroups = _this select 6;
 
 _category = _squadType select 0;
 _squadClassname = _squadType select 1;
@@ -24,10 +25,10 @@ if (_side == resistance) then
 	_sideStr = "Resistance"
 };
 
-//_message = format ["Spawned troop input: %1   _sideStr: %2",_this,_sideStr];
-//if Saber_DEBUG then {hint _message; sleep 3.0;};
+_message = format ["Spawned troop input: %1   _sideStr: %2",_this,_sideStr];
+if Saber_DEBUG then {hint _message; sleep 3.0;};
 
-_spawnedTroopGroups = [];
+//_spawnedTroopGroups = [];
 
 //server getVariable  ["WaveINFskill",_InfskillSet];
 //server getVariable  ["WaveAIRskill",_AIRskillSet];
@@ -74,6 +75,6 @@ _message = format ["Spawned troop squad: %1",_group];
 if Saber_DEBUG then {hint _message; sleep 1.0;};
 
 _spawnedTroopGroups pushBack _group;
-sleep 1.0;
+sleep 5.0;
 
 _spawnedTroopGroups

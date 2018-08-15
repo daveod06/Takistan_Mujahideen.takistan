@@ -35,7 +35,7 @@ for [{_i=0},{_i<_hqToSpawn},{_i=_i+1}] do
     _infToSpawn pushBack _hqSquad;
 };
 
-_message = format ["Will spawn %1 HQ squads ",count _hqToSpawn];
+_message = format ["Will spawn %1 HQ squads ",_hqToSpawn];
 if Saber_DEBUG then {hint _message; sleep 2.0;};
 
 
