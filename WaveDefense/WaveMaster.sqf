@@ -17,11 +17,15 @@ fnc_WaveMaster =
     private _spawnMarker = "IND_wave_spawn_0";
     private _attackMarker = "EOSzone_1";
     private _infantrySquadsPerWave = [3,100.0];
-    private _lightVehiclesPerWave = [2,100.0];
-    private _apcsPerWave = [2,100.0];
-    private _armorPerWave = [1,100.0];
+    private _lightVehiclesPerWave = [2,100.0,true];
+    private _apcsPerWave = [2,100.0,true];
+    private _armorPerWave = [1,100.0,false];
+    private _attackHelisPerWave = [1,100.0,false];
+    private _cargoHelisPerWave = [1,100.0,false];
+    private _boatsPerWave = [0,100.0,true];
     private _side = east;
     private _faction = "SovietArmy_OKSVA";
+
 
     // INITIAL DELAY
     sleep _intitialDelay;
@@ -38,21 +42,18 @@ fnc_WaveMaster =
     // PER WAVE
     for [{_i=0},{_i<_numWaves},{_i=_i+1}] do
     {
-        //_message = format ["Spawning wave %1",_i];
-        //if Saber_DEBUG then {hint _message; sleep 1.0;};
+        _message = format ["Spawning wave %1",_i];
+        if Saber_DEBUG then {hint _message; sleep 1.0;};
 
         // SELECT HOW MANY SQUADS AND WHAT TYPES TO SPAWN
         _infToSpawn = [_faction,_infantrySquadsPerWave] call Saber_fnc_WaveSelectTroops;
-
-        _message = format ["About to spawn %1 infantry squads   _infToSpawn: %2 ",count _infToSpawn,_infToSpawn];
-        if Saber_DEBUG then {hint _message; sleep 1.0;};
 
         // SPAWN TROOPS
         _squadArray = [];
         _t = 0;
         {
-            _message = format ["Spawning troop squad %1 for wave %2",_t,_i];
-            if Saber_DEBUG then {hint _message; sleep 1.0;};
+            //_message = format ["Spawning troop squad %1 for wave %2",_t,_i];
+            //if Saber_DEBUG then {hint _message; sleep 1.0;};
             _squadType = _x;
             _squadArray = [_side,_faction,_squadType,_spawnMarker,_i,_t,_squadArray] call Saber_fnc_WaveSpawnTroops;
             _t = _t + 1;
@@ -60,29 +61,54 @@ fnc_WaveMaster =
 
         // GIVE TROOPS WAYPOINTS
         [_squadArray,_attackMarker] spawn Saber_fnc_WaveTroopWaypoints;
-
         
-        // SELECT VEHICLES
+        // SELECT HOW MANY LAND VEHICLES AND WHAT TYPES TO SPAWN
         _vehToSpawn = [_faction,_lightVehiclesPerWave,_apcsPerWave,_armorPerWave] call Saber_fnc_WaveSelectVehicles;
 
-        //_message = format ["About to spawn %1 vehicles: %2 ",count _vehToSpawn,_vehToSpawn];
-        //if Saber_DEBUG then {hint _message; sleep 1.0;};
-
-        // SPAWN VEHICLES
+        // SPAWN LAND VEHICLES
         _v = 0;
         {
-            _message = format ["Spawning vehicle %1 for wave %2",_v,_i];
-            if Saber_DEBUG then {hint _message; sleep 1.0;};
-            _vehType = _x;
+            //_message = format ["Spawning vehicle %1 for wave %2",_v,_i];
+            //if Saber_DEBUG then {hint _message; sleep 1.0;};
+            _vehType = _x select 0;
+            _spawnTroopsInCargo = _x select 1;
             _vehArray = [_side,_faction,_vehType,_spawnMarker,_i,_v] call Saber_fnc_WaveSpawnVehicles;
+            if (_spawnTroopsInCargo) then
+            {
+                _infToSpawn = [_faction,1] call Saber_fnc_WaveSelectTroops;
+                _squadType = _infToSpawn select 0;
+                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray] call Saber_fnc_WaveSpawnCargoTroops;
+                [_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
+            };
             _v = _v + 1;
         } forEach _vehToSpawn;
 
-        // GIVE VEHICLES WAYPOINTS
+        // GIVE LAND VEHICLES WAYPOINTS
         [_vehArray,_attackMarker] spawn Saber_fnc_WaveVehicleWaypoints;
 
-        _message = format ["Should be sleeping for %1 seconds",_waveInterval];
-        if Saber_DEBUG then {hint _message; sleep 0.0;};
+        // SELECT HOW MANY SEA VEHICLES AND WHAT TYPES TO SPAWN
+        _boatToSpawn = [_faction,_boatsPerWave] call Saber_fnc_WaveSelectBoats;
+
+        // SPAWN SEA VEHICLES
+        _v = 0;
+        {
+            //_message = format ["Spawning boat %1 for wave %2",_v,_i];
+            //if Saber_DEBUG then {hint _message; sleep 1.0;};
+            _vehType = _x select 0;
+            _spawnTroopsInCargo = _x select 1;
+            _vehArray = [_side,_faction,_vehType,_spawnMarker,_attackMarker,_i,_v] call Saber_fnc_WaveSpawnBoats;
+            if (_spawnTroopsInCargo) then
+            {
+                _infToSpawn = [_faction,1] call Saber_fnc_WaveSelectTroops;
+                _squadType = _infToSpawn select 0;
+                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray] call Saber_fnc_WaveSpawnCargoTroops;
+                [_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
+            };
+            _v = _v + 1;
+        } forEach _boatToSpawn;
+
+        // GIVE SEA VEHICLES WAYPOINTS
+        [_vehArray,_attackMarker] spawn Saber_fnc_WaveBoatWaypoints;
 
         sleep _waveInterval;
     };
@@ -92,28 +118,24 @@ fnc_WaveMaster =
 
 if (HC3Present && !isServer && !hasInterface) then
 {
-    //
-    //[] spawn fnc_WaveMaster;
+    [] spawn fnc_WaveMaster;
 }
 else
 {
     if (HC2Present && !isServer && !hasInterface) then
     {
-        //
-        //[] spawn fnc_WaveMaster;
+        [] spawn fnc_WaveMaster;
     }
     else
     {
         if (HC1Present && !isServer && !hasInterface) then
         {
-            //
-            //[] spawn fnc_WaveMaster;
+            [] spawn fnc_WaveMaster;
         }
         else
         {
             if (isServer) then
             {
-                //
                 [] spawn fnc_WaveMaster;
             };
         };

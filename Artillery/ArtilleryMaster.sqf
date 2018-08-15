@@ -213,7 +213,7 @@ fnc_artilleryFireMaster =
 };
 
 //_this = [_numRounds,_artillery,_targetGroupsArray,_errorRadius,_shotDelay,_forceFire]
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
+if(HC1Present && !isServer && !hasInterface) then
 {
     //hint "Calling fnc_artilleryFireMaster.";
     //sleep 1.0;
@@ -226,5 +226,24 @@ else
         //hint "Calling fnc_artilleryFireMaster.";
         //sleep 1.0;
         _this call fnc_artilleryFireMaster;
+    };
+};
+
+if (HC2Present  && !isServer && !hasInterface) then
+{
+    [] spawn fnc_master;
+}
+else
+{
+    if (HC1Present && !isServer && !hasInterface) then
+    {
+        [] spawn fnc_master;
+    }
+    else
+    {
+        if (isServer) then
+        {
+            [] spawn fnc_master;
+        };
     };
 };

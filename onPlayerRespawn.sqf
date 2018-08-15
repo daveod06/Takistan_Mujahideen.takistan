@@ -19,7 +19,7 @@ removeAllWeapons _player;
 removeAllItems _player;
 removeAllAssignedItems _player;
 _player addItemToUniform "FirstAidKit";
-for "_i" from 1 to 8 do {_player addItemToUniform "rhsgref_5Rnd_762x54_m38";};
+for "_i" from 1 to 10 do {_player addItemToUniform "rhsgref_5Rnd_762x54_m38";};
 
 _player addWeapon "rhs_weap_m38";
 

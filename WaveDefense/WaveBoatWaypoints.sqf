@@ -8,6 +8,9 @@ private _spawnToAttackBearing = (getMarkerPos _spawnMarker) getDir (getMarkerPos
 private _AttackToSpawnBearing = (getMarkerPos _attackMarker) getDir (getMarkerPos _spawnMarker);
 private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _attackMarker);
 
+_unloadPositions = [];
+
+
 {
     _veh = _x select 0;
     _vehCrew = _x select 1;
@@ -29,7 +32,8 @@ private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _
     _wpIndex = 1;
     if (_hasCargo) {
         // Get out waypoint
-        private _getOutPos = (getMarkerPos _attackMarker) getPos [300.0, _AttackToSpawnBearing];
+        _attackPos = (getMarkerPos _attackMarker);
+        _getOutPos = [_attackPos, 0.0, 800.0, 5.0, 1, 1.0, 1] call BIS_fnc_findSafePos;
         _wpName = format ["%1_TRANSPORT_UNLOAD", str _group];
         private _wp0 = _group addWaypoint [_getOutPos, 20.0, _wpIndex, _wpName];
         _wp0 setWaypointCombatMode "RED";
@@ -39,21 +43,9 @@ private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _
         _wp0 setWaypointFormation "WEDGE";
         _wp0 setWaypointTimeout [5, 6, 8];
     }
-    else
-    {
-        // Attack waypoint
-        private _attackPos = getMarkerPos _attackMarker;
-        _wpName = format ["%1_MOVE", str _group];
-        private _wp0 = _group addWaypoint [_attackPos, 20.0, _wpIndex, _wpName];
-        _wp0 setWaypointCombatMode "RED";
-        _wp0 setWaypointBehaviour "UNCHANGED";
-        _wp0 setWaypointSpeed "FULL";
-        _wp0 setWaypointType "MOVE";
-        _wp0 setWaypointFormation "WEDGE";
-        _wp0 setWaypointTimeout [0, 0, 0];
-    };
 
-    _patrol = [_x, _attackPos, 500.0] call BIS_fnc_taskPatrol;
+
+    //_patrol = [_x, _attackPos, 500.0] call BIS_fnc_taskPatrol;
 
 
 } forEach _vehArray;

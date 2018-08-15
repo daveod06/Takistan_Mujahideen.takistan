@@ -3,18 +3,23 @@ _side = _this select 0;
 _faction = _this select 1;
 _vehType = _this select 2;
 _spawnMarker = _this select 3;
-_waveNum = _this select 4;
-_vehNum = _this select 5;
+_attackMarker = _this select 4;
+_waveNum = _this select 5;
+_vehNum = _this select 6;
 
 _spawnedVehicles = [];
 
-_vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_VEH_" + (str _vehNum);
+_vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_BOAT_" + (str _vehNum);
 
 _markerPos = getMarkerPos _spawnMarker;
 _spawnPos = _markerPos getPos [(random [0,50,100]), (random [0,180,360])];
-_spawnPos = [_spawnPos, 1.0, 150.0, 3.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
+_spawnPos = [_spawnPos, 1.0, 400.0, 10.0, 2, 1.0, 0] call BIS_fnc_findSafePos;
 
-_spawnDir = random [0,180,360];
+// Get distance and direction towards attack point
+private _spawnToAttackBearing = (getMarkerPos _spawnMarker) getDir (getMarkerPos _attackMarker);
+private _AttackToSpawnBearing = (getMarkerPos _attackMarker) getDir (getMarkerPos _spawnMarker);
+private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _attackMarker);
+_spawnDir = _spawnToAttackBearing;
 
 _vehArray = [_spawnPos, _spawnDir, _vehType, _side] call bis_fnc_spawnvehicle;
 _veh 	= _vehArray select 0;

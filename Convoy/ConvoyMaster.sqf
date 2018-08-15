@@ -127,14 +127,19 @@ fnc_ConvoyMaster =
 
 };
 
-if(HC1Present && isMultiplayer && !isServer && !hasInterface) then
+
+_HCs = [true,true];
+
+
+
+if(HC1Present && !isServer && !hasInterface) then
 {
-    _go = [] spawn fnc_ConvoyMaster;
+    [] spawn fnc_ConvoyMaster;
 }
 else
 {
     if(isServer) then
     {
-        _go = [] spawn fnc_ConvoyMaster;
+        [] spawn fnc_ConvoyMaster;
     };
 };

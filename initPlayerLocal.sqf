@@ -1,3 +1,4 @@
+if (!hasInterface) exitWith {};
 diag_log format ["DRO: player %1 waiting for player init", player];
 waitUntil {!isNull player};
 _player = _this select 0;

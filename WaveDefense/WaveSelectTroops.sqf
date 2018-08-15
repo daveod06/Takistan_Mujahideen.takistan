@@ -25,8 +25,8 @@ for [{_i=0},{_i<_maxInfSquads},{_i=_i+1}] do
     };
 };
 
-_message = format ["Will spawn %1 troop squads ",count _infToSpawn];
-if Saber_DEBUG then {hint _message; sleep 2.0;};
+//_message = format ["Will spawn %1 troop squads ",count _infToSpawn];
+//if Saber_DEBUG then {hint _message; sleep 2.0;};
 
 _hqToSpawn = floor ((count _infToSpawn)/3.0);
 for [{_i=0},{_i<_hqToSpawn},{_i=_i+1}] do
@@ -35,8 +35,8 @@ for [{_i=0},{_i<_hqToSpawn},{_i=_i+1}] do
     _infToSpawn pushBack _hqSquad;
 };
 
-_message = format ["Will spawn %1 HQ squads ",_hqToSpawn];
-if Saber_DEBUG then {hint _message; sleep 2.0;};
+//_message = format ["Will spawn %1 HQ squads ",_hqToSpawn];
+//if Saber_DEBUG then {hint _message; sleep 2.0;};
 
 
 

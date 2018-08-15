@@ -52,9 +52,21 @@ if (_faction isEqualTo "SovietArmy_OKSVA") then
     "OKSVA_T72B_1989",
     "OKSVA_T80"
     ];
+    private _attackHeliArray = [
+    "",
+    ""
+    ];
+    private _cargoHeliArray = [
+    "",
+    ""
+    ];
+    private _boatArray = [
+    "",
+    ""
+    ];
 };
 
-if (_faction isEqualTo "INSERT_FACTIOB_HERE") then
+if (_faction isEqualTo "INSERT_FACTION_HERE") then
 {
     private _squadArray = [
     ["Infantry",""],
@@ -76,10 +88,22 @@ if (_faction isEqualTo "INSERT_FACTIOB_HERE") then
     "",
     ""
     ];
+    private _attackHeliArray = [
+    "",
+    ""
+    ];
+    private _cargoHeliArray = [
+    "",
+    ""
+    ];
+    private _boatArray = [
+    "",
+    ""
+    ];
 };
 
 //_message = format ["GetUnitPools output: %1 HQs ",[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray]];
 //if Saber_DEBUG then {hint _message; sleep 3.0;};
 
-[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray]
+[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray,_attackHeliArray,_cargoHeliArray,_boatArray]
 

@@ -1,5 +1,3 @@
-if (isMultiplayer) exitWith {};
-
 //Saber_DEBUG = true;
 
 //// Compile EOS
@@ -31,21 +29,17 @@ setDetailMapBlendPars [50, 150];
 
 
 
-init_fnc =
-{
-	"traffic_area" setMarkerAlpha 0.0;
-	_laserT = createVehicle ["LaserTargetE", [0,0,0], [], 0, "NONE"]; 
-	_laserT attachto [attack_heli0, [0, 0, 0]];
-	attack_heli0 doTarget attack_heli0;
-	attack_heli0 reveal attack_heli0;
-};
+//init_fnc =
+//{
+//	"traffic_area" setMarkerAlpha 0.0;
+//	_laserT = createVehicle ["LaserTargetE", [0,0,0], [], 0, "NONE"]; 
+//	_laserT attachto [attack_heli0, [0, 0, 0]];
+//	attack_heli0 doTarget attack_heli0;
+//	attack_heli0 reveal attack_heli0;
+//};
 
 
 //ToggleAmbush = false;
-
-//// start up EOS
-//[] spawn EOS_fnc_Master;
-//sleep 1.0;
 
 //[] spawn 
 //{
@@ -68,18 +62,18 @@ init_fnc =
 //	};
 //};
 
-//// start up EOS
-//[] spawn EOS_fnc_Master;
-//sleep 10.0;
+// start up EOS
+[] spawn EOS_fnc_Master;
+sleep 10.0;
 
-//// Start up convoy
-//[] spawn Saber_fnc_ConvoyMaster;
-//sleep 10.0;
+// Start up convoy
+[] spawn Saber_fnc_ConvoyMaster;
+sleep 10.0;
 
-//// Start up artillery
-//[] spawn FFE_fnc_Master;
-//sleep 10.0;
+// Start up artillery
+[] spawn FFE_fnc_Master;
+sleep 10.0;
 
-// Start up Waves
-//[] spawn Saber_fnc_WaveMaster;
-//sleep 10.0;
+ Start up Waves
+[] spawn Saber_fnc_WaveMaster;
+sleep 10.0;

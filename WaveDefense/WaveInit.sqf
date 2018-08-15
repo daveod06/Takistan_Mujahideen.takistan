@@ -11,3 +11,9 @@ Saber_fnc_WaveSetSkill   		= Compile preprocessFileLineNumbers "WaveDefense\Wave
 Saber_fnc_WaveSpawnVehicles 	= Compile preprocessFileLineNumbers "WaveDefense\WaveSpawnVehicles.sqf";
 Saber_fnc_WaveVehicleWaypoints	= Compile preprocessFileLineNumbers "WaveDefense\WaveVehicleWaypoints.sqf";
 Saber_fnc_WaveSelectVehicles 	= Compile preprocessFileLineNumbers "WaveDefense\WaveSelectVehicles.sqf";
+Saber_fnc_WaveCargoTroopWaypoints 	= Compile preprocessFileLineNumbers "WaveDefense\WaveCargoTroopWaypoints.sqf";
+Saber_fnc_WaveCargoSpawnTroops 		= Compile preprocessFileLineNumbers "WaveDefense\WaveCargoSpawnTroops.sqf";
+Saber_fnc_WaveSelectBoats 	    = Compile preprocessFileLineNumbers "WaveDefense\WaveSelectBoats.sqf";
+Saber_fnc_WaveSpawnBoats 	    = Compile preprocessFileLineNumbers "WaveDefense\WaveSpawnBoats.sqf";
+Saber_fnc_WaveBoatWaypoints	    = Compile preprocessFileLineNumbers "WaveDefense\WaveBoatWaypoints.sqf";
+
