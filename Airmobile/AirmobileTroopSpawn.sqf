@@ -146,13 +146,18 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	_crewSeats = [_heliType, false] call BIS_fnc_crewCount; // Number of crew seats only
 	_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
 	if (_numMen > _cargoSeats) then
-	{
-		//_numToDel = _numMen - _cargoSeats;
-		for [{_i=_numMen-1},{_i<_cargoSeats},{_i=_i-1}] do
-		{
-			deleteVehicle ((units _group) select _i);
-		};
-	};
+    {
+    	_numToDel = _numMen - _cargoSeats;
+    	for [{_i=0},{_i>_numToDel-1},{_i=_i+1}] do
+    	{
+    		//_message = format ["deleting unit: %1",_i];
+    		//if Saber_DEBUG then {hint _message; sleep 3.0;};
+            _unit = (units _group) select _i;
+            [_unit] join grpNull;
+    		deleteVehicle _unit;
+    	};
+    };
+
 	//_message = format ["units _group: %1",units _group];
 	//if Saber_DEBUG then {hint _message;};
 	//sleep 2.0;
