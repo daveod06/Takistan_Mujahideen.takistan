@@ -68,7 +68,7 @@ _totalSeats = [_vehType, true] call BIS_fnc_crewCount; // Number of total seats:
 _crewSeats = [_vehType, false] call BIS_fnc_crewCount; // Number of crew seats only
 _cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
 
-_message = format ["STARTING WITH _cargoSeats: %1 , _numMen: %2",_cargoSeats,_numMen];
+_message = format ["STARTING WITH _numMen: %1 _cargoSeats: %2 _crewSeats: %3, _totalSeats: %4",_numMen,_cargoSeats,_crewSeats,_totalSeats];
 if Saber_DEBUG then {hint _message; sleep 5.0;};
 
 
