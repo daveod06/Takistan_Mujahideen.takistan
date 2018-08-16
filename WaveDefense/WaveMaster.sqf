@@ -81,14 +81,18 @@ fnc_WaveMaster =
             {
                 _infToSpawn = [_faction,[1,100.0]] call Saber_fnc_WaveSelectTroops;
                 _squadType = _infToSpawn select 0;
-                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray select 0] call Saber_fnc_WaveSpawnCargoTroops;
+                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray] call Saber_fnc_WaveSpawnCargoTroops;
                 //[_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
             };
+
+            // GIVE LAND VEHICLES WAYPOINTS
+            [_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveVehicleWaypoints;
+
             _v = _v + 1;
         } forEach _vehToSpawn;
 
-        // GIVE LAND VEHICLES WAYPOINTS
-        [_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveVehicleWaypoints;
+        //// GIVE LAND VEHICLES WAYPOINTS
+        //[_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveVehicleWaypoints;
 
         // SELECT HOW MANY SEA VEHICLES AND WHAT TYPES TO SPAWN
         _boatToSpawn = [_faction,_boatsPerWave] call Saber_fnc_WaveSelectBoats;
@@ -105,14 +109,18 @@ fnc_WaveMaster =
             {
                 _infToSpawn = [_faction,[1,100.0]] call Saber_fnc_WaveSelectTroops;
                 _squadType = _infToSpawn select 0;
-                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray select 0] call Saber_fnc_WaveSpawnCargoTroops;
+                _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray] call Saber_fnc_WaveSpawnCargoTroops;
                 [_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
             };
+
+            // GIVE SEA VEHICLES WAYPOINTS
+            [_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveBoatWaypoints;
+
             _v = _v + 1;
         } forEach _boatToSpawn;
 
-        // GIVE SEA VEHICLES WAYPOINTS
-        [_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveBoatWaypoints;
+        //// GIVE SEA VEHICLES WAYPOINTS
+        //[_vehArray,_attackMarker,_spawnMarker] spawn Saber_fnc_WaveBoatWaypoints;
 
         sleep _waveInterval;
     };

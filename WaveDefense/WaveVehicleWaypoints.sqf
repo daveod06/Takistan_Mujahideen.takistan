@@ -9,14 +9,14 @@ private _AttackToSpawnBearing = (getMarkerPos _attackMarker) getDir (getMarkerPo
 private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _attackMarker);
 
 
-_message = format ["Vehicle Waypoints  _vehArray %1",_vehArray select 0]; // FIXME
+_message = format ["Vehicle Waypoints  _vehArray %1",_vehArray]; // FIXME
 if Saber_DEBUG then {hint _message; sleep 5.0;};
 
 _hasCargo = false;
-{
-    _veh = _x select 0;
-    _vehCrew = _x select 1;
-    _group = _x select 2;
+//{
+    _veh = _vehArray select 0;
+    _vehCrew = _vehArray select 1;
+    _group = _vehArray select 2;
 
     private _attackPos = getMarkerPos _attackMarker;
 
@@ -53,12 +53,12 @@ _hasCargo = false;
     else
     {
         // Attack waypoint
-        _wpName = format ["%1_MOVE", str _group];
+        _wpName = format ["%1_SAD", str _group];
         private _wp0 = _group addWaypoint [_attackPos, 20.0, _wpIndex, _wpName];
         _wp0 setWaypointCombatMode "RED";
         _wp0 setWaypointBehaviour "UNCHANGED";
         _wp0 setWaypointSpeed "FULL";
-        _wp0 setWaypointType "MOVE";
+        _wp0 setWaypointType "SAD";
         _wp0 setWaypointFormation "WEDGE";
         _wp0 setWaypointTimeout [0, 0, 0];
     };
@@ -66,4 +66,4 @@ _hasCargo = false;
     _patrol = [_group, _attackPos, 500.0] call BIS_fnc_taskPatrol;
 
 
-} forEach _vehArray;
+//} forEach _vehArray;

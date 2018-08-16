@@ -12,7 +12,7 @@ _squadClassname = _squadType select 1;
 
 _veh 	= _vehArray select 0;
 _vehCrew 	= _vehArray select 1;
-//_vehGroup 	= _vehArray select 2;
+_vehGroup 	= _vehArray select 2;
 
 _sideStr = "";
 // Get side string
@@ -68,7 +68,7 @@ _totalSeats = [_vehType, true] call BIS_fnc_crewCount; // Number of total seats:
 _crewSeats = [_vehType, false] call BIS_fnc_crewCount; // Number of crew seats only
 _cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
 
-_message = format ["_cargoSeats: %1 , _numMen: %2",_cargoSeats,_numMen];
+_message = format ["STARTING WITH _cargoSeats: %1 , _numMen: %2",_cargoSeats,_numMen];
 if Saber_DEBUG then {hint _message; sleep 5.0;};
 
 
@@ -79,9 +79,15 @@ if (_numMen > _cargoSeats) then
 	{
 		_message = format ["deleting unit: %1",_i];
 		if Saber_DEBUG then {hint _message; sleep 3.0;};
-		deleteVehicle ((units _group) select _i);
+        _unit = (units _group) select _i;
+        [_unit] join grpNull;
+		deleteVehicle _unit;
 	};
 };
+
+_numMen = count (units _group);
+_message = format ["ENDING WITH _numMen: %2",_numMen];
+if Saber_DEBUG then {hint _message; sleep 5.0;};
 
 {
     _x moveInCargo _veh;

@@ -7,8 +7,6 @@ _attackMarker = _this select 4;
 _waveNum = _this select 5;
 _vehNum = _this select 6;
 
-_spawnedVehicles = [];
-
 _vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_BOAT_" + (str _vehNum);
 
 _markerPos = getMarkerPos _spawnMarker;
@@ -60,7 +58,6 @@ _veh setVehicleLock "UNLOCKED";
 //_message = format ["Spawned vehicle: %1",_veh];
 //if Saber_DEBUG then {hint _message; sleep 1.0;};
 
-_spawnedVehicles pushBack _vehArray;
 sleep 1.0;
 
-_spawnedVehicles
+_vehArray
