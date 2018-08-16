@@ -2,6 +2,7 @@ _vehArray = [];
 _attackMarker = "";
 _vehArray = _this select 0;
 _attackMarker = _this select 1;
+_spawnMarker = _this select 2;
 
 // Get distance and direction towards attack point
 private _spawnToAttackBearing = (getMarkerPos _spawnMarker) getDir (getMarkerPos _attackMarker);
@@ -9,12 +10,13 @@ private _AttackToSpawnBearing = (getMarkerPos _attackMarker) getDir (getMarkerPo
 private _attackDistance = (getMarkerPos _spawnMarker) distance2D (getMarkerPos _attackMarker);
 
 _unloadPositions = [];
-
+_hasCargo = false;
 
 {
     _veh = _x select 0;
     _vehCrew = _x select 1;
     _group = _x select 2;
+    _attackPos = (getMarkerPos _attackMarker);
 
     _vehCargo = fullCrew [_veh,"cargo", false];
     if (count _vehCargo > 0) then
@@ -30,9 +32,8 @@ _unloadPositions = [];
     };
     
     _wpIndex = 1;
-    if (_hasCargo) {
+    if (_hasCargo) then {
         // Get out waypoint
-        _attackPos = (getMarkerPos _attackMarker);
         _getOutPos = [_attackPos, 0.0, 800.0, 5.0, 1, 1.0, 1] call BIS_fnc_findSafePos;
         _wpName = format ["%1_TRANSPORT_UNLOAD", str _group];
         private _wp0 = _group addWaypoint [_getOutPos, 20.0, _wpIndex, _wpName];

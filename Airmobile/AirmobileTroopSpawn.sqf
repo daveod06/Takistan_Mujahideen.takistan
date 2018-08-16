@@ -147,9 +147,10 @@ for "_s" from 0 to (count _spawnedTransportHelis - 1) do
 	_cargoSeats = _totalSeats - _crewSeats; // Number of total cargo/passenger seats: non-FFV + FFV
 	if (_numMen > _cargoSeats) then
 	{
-		for "_d" from (_cargoSeats - 1) to (_numMen - 1) do
+		//_numToDel = _numMen - _cargoSeats;
+		for [{_i=_numMen-1},{_i<_cargoSeats},{_i=_i-1}] do
 		{
-			deleteVehicle (units _group select _d);
+			deleteVehicle ((units _group) select _i);
 		};
 	};
 	//_message = format ["units _group: %1",units _group];

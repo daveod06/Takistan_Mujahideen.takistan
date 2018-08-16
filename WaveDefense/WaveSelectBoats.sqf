@@ -6,7 +6,7 @@
 
 
 _faction = _this select 0;
-_boatsPerWave = _this select 6;
+_boatsPerWave = _this select 1;
 
 _unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
 _boatArray = _unitTypes select 6;

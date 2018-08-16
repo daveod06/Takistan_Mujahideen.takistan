@@ -15,6 +15,9 @@ _hqArray = [];
 _lightVehiclesArray = [];
 _apcsArray = [];
 _armorArray = [];
+_attackHeliArray = [];
+_cargoHeliArray = [];
+_boatArray = [];
 
 if (_faction isEqualTo "SovietArmy_OKSVA") then
 {

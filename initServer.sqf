@@ -1,28 +1,28 @@
 if (!isServer or hasInterface) exitWith {};
 
-Saber_DEBUG = true;
+//Saber_DEBUG = true;
 
 // Compile EOS
-call compile preprocessFileLineNumbers "EnemyOccupationSystem\EOSInit.sqf";
-sleep 1.0;
+//call compile preprocessFileLineNumbers "EnemyOccupationSystem\EOSInit.sqf";
+//sleep 1.0;
 
-// Civilians & Traffic
-call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Init.sqf";
-sleep 1.0;
+//// Civilians & Traffic
+//call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Init.sqf";
+//sleep 1.0;
 //call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Traffic\Init.sqf";
-sleep 1.0;
+//sleep 1.0;
 
-// Compile Convoy, Airmobile, and Artillery
-[] execVM "scripts\common\CommonInit.sqf";
-sleep 2.0;
-[] execVM "Convoy\ConvoyInit.sqf";
-sleep 2.0;
-[] execVM "Airmobile\AirmobileInit.sqf";
-sleep 2.0;
-[] execVM "Artillery\ArtilleryInit.sqf";
-sleep 2.0;
-[] execVM "WaveDefense\WaveInit.sqf";
-sleep 2.0;
+//// Compile Convoy, Airmobile, and Artillery
+//[] execVM "scripts\common\CommonInit.sqf";
+//sleep 2.0;
+//[] execVM "Convoy\ConvoyInit.sqf";
+//sleep 2.0;
+//[] execVM "Airmobile\AirmobileInit.sqf";
+//sleep 2.0;
+//[] execVM "Artillery\ArtilleryInit.sqf";
+//sleep 2.0;
+//[] execVM "WaveDefense\WaveInit.sqf";
+//sleep 2.0;
 
 setViewDistance 9000;
 setTerrainGrid 6.25;

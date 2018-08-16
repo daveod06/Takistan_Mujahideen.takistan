@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=763;
+		nextID=779;
 	};
 	class Camera
 	{
-		pos[]={9110.5215,525.42023,4641.0444};
-		dir[]={0.81301546,-0.57548499,-0.089811072};
-		up[]={0.57215583,0.81766903,-0.063199684};
-		aside[]={-0.10980494,-1.6811828e-007,-0.99402159};
+		pos[]={9251.8291,925.94275,4311.1797};
+		dir[]={0.23540188,-0.59756255,-0.76664621};
+		up[]={0.17544799,0.80167753,-0.57137418};
+		aside[]={-0.95601195,-1.1974771e-007,-0.29354835};
 	};
 };
 binarizationWanted=0;
@@ -3219,12 +3219,12 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8138.0288,296.04001,1969.391};
-			angle=0.90291083;
+			angle=0.90291113;
 			class Attributes
 			{
 				name="base_defense_zone";
 				text="Base Defense Zone";
-				condition="call{this;}";
+				condition="call{false;}";
 				onActivation="call{ind_near_base = true;" \n "[3,bm21_3,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;}";
 				onDeactivation="call{ind_near_base = false;}";
 				sizeA=4000;

@@ -12,7 +12,7 @@ _vehName = (str _vehType) + "_WAVE_" + (str _waveNum) + "_VEH_" + (str _vehNum);
 
 _markerPos = getMarkerPos _spawnMarker;
 _spawnPos = _markerPos getPos [(random [0,50,100]), (random [0,180,360])];
-_spawnPos = [_spawnPos, 1.0, 150.0, 3.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
+_spawnPos = [_spawnPos, 1.0, 150.0, 10.0, 0, 1.0, 0] call BIS_fnc_findSafePos;
 
 _spawnDir = random [0,180,360];
 

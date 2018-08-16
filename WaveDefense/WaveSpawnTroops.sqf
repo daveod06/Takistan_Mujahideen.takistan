@@ -70,6 +70,6 @@ server setvariable [_deadTracker,0];
 //if Saber_DEBUG then {hint _message; sleep 1.0;};
 
 _spawnedTroopGroups pushBack _group;
-sleep 5.0;
+sleep 1.0;
 
 _spawnedTroopGroups

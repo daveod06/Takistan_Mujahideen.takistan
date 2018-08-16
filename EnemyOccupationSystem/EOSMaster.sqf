@@ -46,7 +46,7 @@ fnc_master =
 };
 
 
-if (HC3Present  && !isServer && !hasInterface) then
+if (HC3Present && !isServer && !hasInterface) then
 {
     //EOS Dynamic Combat System
     [] spawn fnc_master;
