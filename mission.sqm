@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=795;
+		nextID=811;
 	};
 	class Camera
 	{
-		pos[]={9251.8291,925.94275,4311.1797};
-		dir[]={-0.12599455,-0.58714473,-0.79976678};
-		up[]={-0.09138906,0.8093375,-0.58013576};
-		aside[]={-0.98787999,-1.2281816e-007,0.15562901};
+		pos[]={9227.7607,629.11688,3898.7185};
+		dir[]={-0.88376027,-0.33296603,-0.32915848};
+		up[]={-0.31223342,0.94282615,-0.11629724};
+		aside[]={-0.34905475,5.660695e-008,0.93717253};
 	};
 };
 binarizationWanted=0;
@@ -403,8 +403,9 @@ class Mission
 	class Intel
 	{
 		resistanceWest=0;
-		timeOfChanges=1800.0002;
-		startWeather=0;
+		timeOfChanges=3562.4248;
+		startWeather=0.33349907;
+		startFog=0.13513376;
 		startWind=0.1;
 		startWaves=0.1;
 		forecastWeather=0;
@@ -413,11 +414,11 @@ class Mission
 		forecastLightnings=0.1;
 		year=2009;
 		day=28;
-		hour=13;
-		minute=6;
-		startFogBase=-1000;
+		hour=6;
+		minute=-13;
+		startFogBase=215.7804;
 		forecastFogBase=-1000;
-		startFogDecay=0;
+		startFogDecay=0.021185298;
 		forecastFogDecay=0;
 	};
 	class Entities
@@ -10714,6 +10715,7 @@ class Mission
 			};
 			id=4639;
 			type="OKSVA_GAZ66_R142";
+			atlOffset=-1.2499695;
 		};
 		class Item238
 		{
@@ -10730,6 +10732,7 @@ class Mission
 			};
 			id=4640;
 			type="OKSVA_GAZ66";
+			atlOffset=-0.25094604;
 		};
 		class Item239
 		{
@@ -10762,6 +10765,7 @@ class Mission
 			};
 			id=4642;
 			type="OKSVA_GAZ66_Open";
+			atlOffset=-0.25094604;
 		};
 		class Item241
 		{
@@ -15673,6 +15677,7 @@ class Mission
 			};
 			id=5803;
 			type="OKSVA_GAZ66_Open";
+			atlOffset=-0.25094604;
 		};
 		class Item349
 		{
@@ -21011,7 +21016,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={9241.5518,313.88419,2228.425};
-			angle=2.9590662;
+			angle=2.9590659;
 			class Attributes
 			{
 				name="helizone_15";
