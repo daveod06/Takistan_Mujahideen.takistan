@@ -16,15 +16,17 @@ fnc_WaveMaster =
     private _numWaves = 3;
     private _spawnMarker = "IND_wave_spawn_0";
     private _attackMarker = "EOSzone_1";
-    private _infantrySquadsPerWave = [3,100.0];
-    private _lightVehiclesPerWave = [2,100.0,true];
-    private _apcsPerWave = [2,100.0,true];
-    private _armorPerWave = [1,100.0,false];
-    private _attackHelisPerWave = [1,100.0,false];
-    private _cargoHelisPerWave = [1,100.0,false];
+    private _infantrySquadsPerWave = [4,100.0];
+    private _lightVehiclesPerWave = [3,50.0,true];
+    private _apcsPerWave = [0,100.0,true];
+    private _armorPerWave = [0,100.0,false];
+    private _attackHelisPerWave = [0,100.0,false];
+    private _cargoHelisPerWave = [0,100.0,false];
     private _boatsPerWave = [0,100.0,true];
-    private _side = east;
-    private _faction = "SovietArmy_OKSVA";
+    //private _side = east;
+    //private _faction = "SovietArmy_OKSVA";
+    private _side = independent;
+    private _faction = "LOP_AM";
 
 
     // INITIAL DELAY
@@ -82,7 +84,7 @@ fnc_WaveMaster =
                 _infToSpawn = [_faction,[1,100.0]] call Saber_fnc_WaveSelectTroops;
                 _squadType = _infToSpawn select 0;
                 _cargoSquadGroup = [_side,_faction,_squadType,_spawnMarker,_i,_v,_vehArray] call Saber_fnc_WaveSpawnCargoTroops;
-                //[_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
+                [_cargoSquadGroup,_attackMarker,_spawnMarker] call Saber_fnc_WaveCargoTroopWaypoints;
             };
 
             // GIVE LAND VEHICLES WAYPOINTS

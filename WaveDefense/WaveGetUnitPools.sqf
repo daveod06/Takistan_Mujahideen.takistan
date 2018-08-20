@@ -69,15 +69,41 @@ if (_faction isEqualTo "SovietArmy_OKSVA") then
     ];
 };
 
-if (_faction isEqualTo "INSERT_FACTION_HERE") then
+if (_faction isEqualTo "LOP_AM") then
 {
-    private _squadArray = [
-    ["Infantry",""],
-    ["Infantry",""]
+    _squadArray = [
+    ["Infantry","LOP_AM_Rifle_Squad"]
     ];
-    private _hqArray = [
-    ["Infantry",""],
-    ["Infantry",""]
+    _hqArray = [
+    ["Infantry","LOP_AM_Support_section"],
+    ["Infantry","LOP_AM_AT_section"]
+    ];
+    private _lightVehiclesArray = [
+    LOP_AM_Nissan_PKM",
+    "LOP_AM_UAZ_DshKM",
+    "LOP_AM_UAZ_Open",
+    "LOP_AM_UAZ_SPG"
+    ];
+    private _apcsArray = [
+    ];
+    private _armorArray = [
+    ];
+    private _attackHeliArray = [
+    ];
+    private _cargoHeliArray = [
+    ];
+    private _boatArray = [
+    ];
+};
+
+if (_faction isEqualTo "LOP_AM") then
+{
+    _squadArray = [
+    ["Infantry","LOP_AM_Rifle_Squad"]
+    ];
+    _hqArray = [
+    ["Infantry","LOP_AM_Support_section"],
+    ["Infantry","LOP_AM_AT_section"]
     ];
     private _lightVehiclesArray = [
     "",

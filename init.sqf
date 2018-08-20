@@ -62,18 +62,18 @@ setDetailMapBlendPars [50, 150];
 //	};
 //};
 
-//// start up EOS
-//[] spawn EOS_fnc_Master;
-//sleep 10.0;
-
-//// Start up convoy
-//[] spawn Saber_fnc_ConvoyMaster;
-//sleep 10.0;
-
-//// Start up artillery
-//[] spawn FFE_fnc_Master;
-//sleep 10.0;
-
-// Start up Waves
-[] spawn Saber_fnc_WaveMaster;
+// start up EOS
+[] spawn EOS_fnc_Master;
 sleep 10.0;
+
+// Start up convoy
+[] spawn Saber_fnc_ConvoyMaster;
+sleep 10.0;
+
+// Start up artillery
+[] spawn FFE_fnc_Master;
+sleep 10.0;
+
+//// Start up Waves
+//[] spawn Saber_fnc_WaveMaster;
+//sleep 10.0;

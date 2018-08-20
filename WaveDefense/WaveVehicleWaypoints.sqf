@@ -46,7 +46,7 @@ _hasCargo = false;
         _wp0 setWaypointCombatMode "RED";
         _wp0 setWaypointBehaviour "UNCHANGED";
         _wp0 setWaypointSpeed "FULL";
-        _wp0 setWaypointType "TL UNLOAD";
+        _wp0 setWaypointType "TR UNLOAD";
         _wp0 setWaypointFormation "WEDGE";
         _wp0 setWaypointTimeout [5, 6, 8];
     }

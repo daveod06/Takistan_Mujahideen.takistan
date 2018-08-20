@@ -21,7 +21,7 @@ private _wp0 = _group addWaypoint [_getOutPos, 20.0, _wpIndex, _wpName];
 _wp0 setWaypointCombatMode "RED";
 _wp0 setWaypointBehaviour "AWARE";
 _wp0 setWaypointSpeed "FULL";
-_wp0 setWaypointType "GETOUT";
+_wp0 setWaypointType "MOVE";
 _wp0 setWaypointFormation "WEDGE";
 _wp0 setWaypointTimeout [0, 0, 0];
 
