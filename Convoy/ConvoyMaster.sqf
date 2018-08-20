@@ -45,6 +45,7 @@ fnc_ConvoyMaster =
 	"OKSVA_BMD1",
 	"OKSVA_BMD1",
 	"OKSVA_BMD1",
+    "OKSVA_GAZ66_Ammo",
 	"OKSVA_BRDM2UM_Armed"
 	];
 	
@@ -98,9 +99,9 @@ fnc_ConvoyMaster =
     private _enemy_side = resistance;
     private _pos_name_prefix = "convoy_pos_";
     private _convoy_type = selectRandom _possible_convoys;
-    private _speed_kph = 55;
+    private _speed_kph = 65;
     private _threat_radius_m = 300;
-    private _speed_str = "NORMAL";
+    private _speed_str = "FULL";
     private _behavior = "CARELESS";
 
     private _numConvoys = 5;
@@ -118,7 +119,7 @@ fnc_ConvoyMaster =
         
         _message = "Calling Saber_fnc_ConvoyMove.";
         if Saber_DEBUG then {hint _message;sleep 1.0;};
-        _handle = [_convoy_route,_vehicles select 0, _speed_kph, _threat_radius_m, _vehicles select 1, _speed_str, _behavior] spawn Saber_fnc_ConvoyMove;
+        _handle = [_convoy_route,_vehicles select 0,_speed_kph,_threat_radius_m,_vehicles select 1,_speed_str,_behavior] spawn Saber_fnc_ConvoyMove;
         
         vehiclesObjective = _vehicles select 0;
         _i = _i + 1;
@@ -126,10 +127,6 @@ fnc_ConvoyMaster =
     };
 
 };
-
-
-_HCs = [true,true];
-
 
 
 if(HC1Present && !isServer && !hasInterface) then

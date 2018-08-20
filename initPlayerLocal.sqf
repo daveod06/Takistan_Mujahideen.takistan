@@ -2,7 +2,7 @@ if (!hasInterface) exitWith {};
 diag_log format ["DRO: player %1 waiting for player init", player];
 waitUntil {!isNull player};
 _player = _this select 0;
-_player = player;
+//_player = player;
 // Load function libraries
 
 addWeaponItemEverywhere = compileFinal " _this select 0 addPrimaryWeaponItem (_this select 1); ";
@@ -56,7 +56,7 @@ removeAllWeapons _player;
 removeAllItems _player;
 removeAllAssignedItems _player;
 _player addItemToUniform "FirstAidKit";
-for "_i" from 1 to 8 do {_player addItemToUniform "rhsgref_5Rnd_762x54_m38";};
+for "_i" from 1 to 10 do {_player addItemToUniform "rhsgref_5Rnd_762x54_m38";};
 
 _player addWeapon "rhs_weap_m38";
 
@@ -75,3 +75,6 @@ _player linkItem "ItemWatch";
 		};
 	};
 };
+
+ZeusVariable = [_player]; //ie player
+publicVariableServer "ZeusVariable";

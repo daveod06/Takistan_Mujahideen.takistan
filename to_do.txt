@@ -29,7 +29,7 @@ laserT0 attachTo [target_0,[0,0,0]];
 
 TEST-debug all new changes to airmobile
 DONE-add alive checks all over helicopter script
-TEST-use EOS zones to spawn fellow mujahideen
+DONE-use EOS zones to spawn fellow mujahideen
     -set up small EOS zone at bend in road
     -try to come up with ambush logic - global behavior?
 -add a few mujahideen to your group after clearing each of the 3 outposts
@@ -65,20 +65,24 @@ DONE-add boxes of IEDs for IND
 DONE-add weapon caches
 DONE-add hiluxes for IND use
 DONE-debug new changes to airmobile script
+DONE-debug new changes to convoy script
 -export mission to sqf script   https://www.reddit.com/r/armadev/comments/4f0yqh/convert_3den_missionsqm_to_script_form/
--make convoy vehicles a targeted objective
--detect when convoy vehicles are dead
--after they're dead or convoy complete, create new convoy
--debug new changes to convoy script
 -make sure all markers aren't visible to players
--make battery of BM-21s shelling for asthetic effect
-    -use the updated artillery script
 -add spawn points to all members of player's squad
-    -should be the same as the tanoa raid 
--add objectives to take out each outpost
--add objective to kill mortars at base
+-make sure Zeus and MCC work in single and multiplayer
+-make players respawn with same gear
+-make sure AI spawn with right weapons
+-reduce respawn times
+-where should we respawn?
+-add respawning truck
 
 
+-make objects zeus manipulated
+https://forums.bohemia.net/forums/topic/163919-manipulate-preplaced-objects/
+
+-make all players be able to be zeus
+https://forums.bohemia.net/forums/topic/188881-if-i-want-to-make-a-player-zeus-by-uid-what-do-i-have-to-type-in-in-the-owner-field-the-number-or-the-number-with/
+https://steamcommunity.com/app/107410/discussions/17/1471966894887720536/
 
 
 comment "Remove existing items";
