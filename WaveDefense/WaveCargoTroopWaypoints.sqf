@@ -1,5 +1,5 @@
 
-_attackMarker = "";
+//_attackMarker = "";
 _group = _this select 0;
 _attackMarker = _this select 1;
 _spawnMarker = _this select 2;

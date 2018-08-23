@@ -7,6 +7,9 @@
 
 _faction = _this select 0;
 _infantrySquadPerWave = _this select 1;
+_infantryTypes =  [];
+_infHqTypes = [];
+_infSquadTypes = "";
 
 _unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
 _infantryTypes =  _unitTypes select 0;
