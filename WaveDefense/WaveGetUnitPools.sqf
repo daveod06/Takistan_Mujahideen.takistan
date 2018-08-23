@@ -96,7 +96,7 @@ if (_faction isEqualTo "LOP_AM") then
     ];
 };
 
-if (_faction isEqualTo "LOP_AM") then
+if (_faction isEqualTo "FIXME") then
 {
     _squadArray = [
     ["Infantry","LOP_AM_Rifle_Squad"]
