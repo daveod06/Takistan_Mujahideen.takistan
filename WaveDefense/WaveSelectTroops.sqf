@@ -7,12 +7,9 @@
 
 _faction = _this select 0;
 _infantrySquadPerWave = _this select 1;
-_infantryTypes =  [];
-_infHqTypes = [];
-_unitTypes = [];
-_infSquadTypes = "";
+_unitTypes = _this select 2;
 
-_unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
+//_unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
 _infantryTypes = _unitTypes select 0;
 _infHqTypes = _infantryTypes select 0;
 _infSquadTypes = _infantryTypes select 1;
@@ -20,7 +17,6 @@ _infSquadTypes = _infantryTypes select 1;
 _maxInfSquads = _infantrySquadPerWave select 0;
 _infSquadProb = _infantrySquadPerWave select 1;
 _infToSpawn = [];
-
 
 _message = format ["Will spawn up to %1 troop squads. _infHqTypes: %2 _infSquadTypes: %3",_maxInfSquads,_infHqTypes,_infSquadTypes];
 if Saber_DEBUG then {hint _message; sleep 2.0;};

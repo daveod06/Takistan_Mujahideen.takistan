@@ -118,8 +118,8 @@ if (_faction isEqualTo "FIXME") then
     ];
 };
 
-_message = format ["GetUnitPools output: %1 HQs %2 %3 %4",[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray]];
+_message = format ["GetUnitPools output: %1 %2 %3 %4",[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray];
 if Saber_DEBUG then {hint _message; sleep 3.0;};
 
-[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray,_attackHeliArray,_cargoHeliArray,_boatArray]
-
+_output = [[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray,_attackHeliArray,_cargoHeliArray,_boatArray]
+_output
