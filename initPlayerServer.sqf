@@ -2,7 +2,9 @@ if !(isServer) exitWith {};
 _player = _this select 0;
 //_player = player;
 
-
+// set up zeus for 4 players
+missionCurators = [];
+CuratorLogicGroup = creategroup sideLogic;
 
 // if this doesn't work, un-comment zeus code in initserver.sqf
 _curator = CuratorLogicGroup createunit ["ModuleCurator_F", [0, 90, 90],[],0.5,"NONE"];    

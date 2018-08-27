@@ -23,10 +23,10 @@ fnc_WaveMaster =
     private _attackHelisPerWave = [0,100.0,false];
     private _cargoHelisPerWave = [0,100.0,false];
     private _boatsPerWave = [0,100.0,true];
-    //private _side = east;
-    //private _faction = "SovietArmy_OKSVA";
-    private _side = independent;
-    private _faction = "LOP_AM";
+    private _side = east;
+    private _faction = "SovietArmy_OKSVA";
+    //private _side = independent;
+    //private _faction = "LOP_AM";
 
 
     // INITIAL DELAY

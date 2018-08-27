@@ -1,14 +1,7 @@
-// spawn n helicopters with crew
-// group helicopters
-// spawn n squads
-// group squads
-// try to put squads in helicopter cargo depending on size of each helicopter cargo, delete extra troops
-
-
 _faction = _this select 0;
 
-//_message = format ["GetUnitPools faction input: %1\n _faction isEqualTo SovietArmy_OKSVA: %2 %3",_faction,(_faction isEqualTo "SovietArmy_OKSVA"),(_faction == "SovietArmy_OKSVA")];
-//if Saber_DEBUG then {hint _message; sleep 5.0;};
+_message = format ["WaveGetUnitPools faction input: %1\n _faction isEqualTo SovietArmy_OKSVA: %2 %3",_faction,(_faction isEqualTo "SovietArmy_OKSVA"),(_faction == "SovietArmy_OKSVA")];
+if Saber_DEBUG then {hint _message; sleep 5.0;};
 
 _squadArray = [];
 _hqArray = [];
@@ -56,16 +49,10 @@ if (_faction isEqualTo "SovietArmy_OKSVA") then
     "OKSVA_T80"
     ];
     private _attackHeliArray = [
-    "",
-    ""
     ];
     private _cargoHeliArray = [
-    "",
-    ""
     ];
     private _boatArray = [
-    "",
-    ""
     ];
 };
 
@@ -131,8 +118,8 @@ if (_faction isEqualTo "FIXME") then
     ];
 };
 
-//_message = format ["GetUnitPools output: %1 HQs ",[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray]];
-//if Saber_DEBUG then {hint _message; sleep 3.0;};
+_message = format ["GetUnitPools output: %1 HQs %2 %3 %4",[[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray]];
+if Saber_DEBUG then {hint _message; sleep 3.0;};
 
 [[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray,_attackHeliArray,_cargoHeliArray,_boatArray]
 
