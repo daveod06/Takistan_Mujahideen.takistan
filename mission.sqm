@@ -20926,7 +20926,7 @@ class Mission
 			{
 				name="helizone_15";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad15_0,helipad15_1,helipad15_2,helipad15_3,helipad15_4,helipad15_5,helipad15_6,helipad15_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[] spawn Saber_fnc_WaveMaster;}";
+				onActivation="call{_handle = [[helipad15_0,helipad15_1,helipad15_2,helipad15_3,helipad15_4,helipad15_5,helipad15_6,helipad15_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
 				sizeA=900;
 				sizeB=700;
 				timeout[]={600,650,700};

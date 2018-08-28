@@ -39,6 +39,7 @@ fnc_WaveMaster =
     _vehArray = [];
     _infToSpawn = [];
     _vehToSpawn = [];
+    _unitTypes = [];
     _i = 0;
 
     // PER WAVE
