@@ -12,6 +12,9 @@ _attackHeliArray = [];
 _cargoHeliArray = [];
 _boatArray = [];
 
+_message = format ["GetUnitPools before selection: %1 %2 %3 %4",[_hqArray,_squadArray],_lightVehiclesArray,_apcsArray,_armorArray];
+if Saber_DEBUG then {hint _message; sleep 3.0;};
+
 if (_faction isEqualTo "SovietArmy_OKSVA") then
 {
     _squadArray = [

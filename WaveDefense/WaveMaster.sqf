@@ -49,6 +49,11 @@ fnc_WaveMaster =
 
         // SELECT HOW MANY SQUADS AND WHAT TYPES TO SPAWN
         _unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
+
+        _message = format ["_unitTypes: %1 typeOf _unitTypes:",_unitTypes,(typeOf _unitTypes)];
+        if Saber_DEBUG then {hint _message; sleep 3.0;};
+
+        sleep 1.0;
         _infToSpawn = [_faction,_infantrySquadsPerWave,_unitTypes] call Saber_fnc_WaveSelectTroops;
 
         //// SPAWN TROOPS
