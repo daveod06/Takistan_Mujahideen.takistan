@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=6297;
+		nextID=6299;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=875;
+		nextID=891;
 	};
 	class Camera
 	{
-		pos[]={10366.838,538.63727,2399.8069};
-		dir[]={0.93928528,-0.33100578,0.091775827};
-		up[]={0.32966927,0.94351351,0.032216623};
-		aside[]={0.097248398,-2.1474625e-006,-0.99533176};
+		pos[]={9208.7842,465.51611,4700.707};
+		dir[]={-0.97046852,-0.24143527,-0.012169518};
+		up[]={-0.24167562,0.97031546,-0.0030357921};
+		aside[]={-0.012537509,-2.0107582e-006,0.99999303};
 	};
 };
 binarizationWanted=0;
@@ -20136,26 +20136,6 @@ class Mission
 		};
 		class Item407
 		{
-			dataType="Trigger";
-			position[]={9179.0908,446.07526,4696.314};
-			class Attributes
-			{
-				name="set_ind_ambush";
-				text="SET AMBUSH";
-				condition="call{ToggleAmbush;}";
-				onActivation="call{{" \n "    _x setBehaviour ""COMBAT"";" \n "    _x setCombatMode ""RED"";" \n "    _x setSpeedMode ""FULL"";" \n "    _x setUnitPos ""AUTO"";" \n "    hint ""ALLAH AKBAR!!!!!"";" \n "} forEach thisList;}";
-				sizeA=350;
-				sizeB=350;
-				repeatable=1;
-				activationBy="GUER";
-				isServerOnly=1;
-				effectSound="Alive_Allah";
-			};
-			id=6257;
-			type="EmptyDetectorAreaR250";
-		};
-		class Item408
-		{
 			dataType="Object";
 			class PositionInfo
 			{
@@ -20166,13 +20146,13 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{radio0 addAction [""Set Mujahideen Attack"", ""ToggleAmbush = true;""];" \n "radio0 addAction [""Set Mujadhideen Stealth"", ""ToggleAmbush = false;""];}";
+				init="call{radio0 addAction [""Set Mujahideen Attack"", ""ToggleAmbush = true;""];" \n "radio0 addAction [""Set Mujadhideen Stealth"", ""ToggleSafe = true;""];}";
 				name="radio0";
 			};
 			id=6267;
 			type="Vysilacka";
 		};
-		class Item409
+		class Item408
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20190,7 +20170,7 @@ class Mission
 			type="LOP_TAK_Civ_Landrover";
 			atlOffset=-0.0002746582;
 		};
-		class Item410
+		class Item409
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20207,7 +20187,7 @@ class Mission
 			id=6270;
 			type="LOP_TAK_Civ_Landrover";
 		};
-		class Item411
+		class Item410
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20225,7 +20205,7 @@ class Mission
 			type="LOP_TAK_Civ_Landrover";
 			atlOffset=-0.00021362305;
 		};
-		class Item412
+		class Item411
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20243,7 +20223,7 @@ class Mission
 			type="LOP_TAK_Civ_Landrover";
 			atlOffset=-0.0076599121;
 		};
-		class Item413
+		class Item412
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20359,7 +20339,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item414
+		class Item413
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20476,7 +20456,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item415
+		class Item414
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20593,7 +20573,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item416
+		class Item415
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20709,7 +20689,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item417
+		class Item416
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20825,7 +20805,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item418
+		class Item417
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20842,7 +20822,7 @@ class Mission
 			type="LOP_TAK_Civ_Ural_open";
 			atlOffset=-3.0517578e-005;
 		};
-		class Item419
+		class Item418
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20883,7 +20863,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item420
+		class Item419
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20901,7 +20881,7 @@ class Mission
 			id=6280;
 			type="Vysilacka";
 		};
-		class Item421
+		class Item420
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20917,11 +20897,11 @@ class Mission
 			id=6283;
 			type="Land_TentA_F";
 		};
-		class Item422
+		class Item421
 		{
 			dataType="Trigger";
 			position[]={9241.5518,313.88419,2228.425};
-			angle=2.9590662;
+			angle=2.9590654;
 			class Attributes
 			{
 				name="helizone_15";
@@ -20939,7 +20919,7 @@ class Mission
 			type="EmptyDetectorAreaR250";
 			atlOffset=-1.8069763;
 		};
-		class Item423
+		class Item422
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20955,7 +20935,7 @@ class Mission
 			id=6286;
 			type="Land_HelipadEmpty_F";
 		};
-		class Item424
+		class Item423
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20973,7 +20953,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.089996338;
 		};
-		class Item425
+		class Item424
 		{
 			dataType="Object";
 			class PositionInfo
@@ -20991,7 +20971,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.081970215;
 		};
-		class Item426
+		class Item425
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21009,7 +20989,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.096984863;
 		};
-		class Item427
+		class Item426
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21027,7 +21007,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.071014404;
 		};
-		class Item428
+		class Item427
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21045,7 +21025,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.07901001;
 		};
-		class Item429
+		class Item428
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21063,7 +21043,7 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.10299683;
 		};
-		class Item430
+		class Item429
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21081,25 +21061,41 @@ class Mission
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.076965332;
 		};
-		class Item431
+		class Item430
 		{
 			dataType="Trigger";
-			position[]={9182.3779,446.67715,4698.5078};
+			position[]={9180.8086,446.51068,4695.0288};
 			class Attributes
 			{
-				name="set_ind_safe";
-				text="SET SAFE";
-				condition="call{!ToggleAmbush;}";
-				onActivation="call{{" \n "_x setBehaviour ""STEALTH"";  " \n "_x setCombatMode ""BLUE""; " \n "_x setSpeedMode ""LIMITED""; " \n "_x setUnitPos ""DOWN"";" \n "hint ""HIDE!!!!!"";" \n "} forEach thisList;}";
-				sizeA=350;
-				sizeB=350;
-				interuptable=1;
+				text="SET ATTACK";
+				condition="call{ToggleAmbush}";
+				onActivation="call{{" \n "    _x setBehaviour ""COMBAT""; " \n "    _x setCombatMode ""RED""; " \n "    _x setSpeedMode ""FULL""; " \n "    _x setUnitPos ""AUTO"";" \n "} forEach thisList;" \n "ToggleAmbush = false;" \n "ToggleSafe = false;}";
+				sizeA=250;
+				sizeB=250;
 				repeatable=1;
 				activationBy="GUER";
 				isServerOnly=1;
 				effectSound="Alive_Allah";
 			};
-			id=6296;
+			id=6297;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item431
+		{
+			dataType="Trigger";
+			position[]={9180.6611,446.44205,4696.2251};
+			class Attributes
+			{
+				text="SET SAFE";
+				condition="call{ToggleSafe}";
+				onActivation="call{{" \n "     _x setBehaviour ""STEALTH"";  " \n "     _x setCombatMode ""BLUE""; " \n "     _x setSpeedMode ""LIMITED""; " \n "     _x setUnitPos ""DOWN"";" \n "} forEach thisList;" \n "ToggleAmbush = false;" \n "ToggleSafe = false;}";
+				sizeA=250;
+				sizeB=250;
+				repeatable=1;
+				activationBy="GUER";
+				isServerOnly=1;
+			};
+			id=6298;
 			type="EmptyDetectorAreaR250";
 		};
 	};

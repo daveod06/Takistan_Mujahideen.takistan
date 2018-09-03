@@ -42,6 +42,7 @@ setDetailMapBlendPars [50, 150];
 
 
 ToggleAmbush = false;
+ToggleSafe = false;
 
 //[] spawn 
 //{
