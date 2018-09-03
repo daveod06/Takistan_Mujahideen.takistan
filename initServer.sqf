@@ -43,26 +43,26 @@ setDetailMapBlendPars [50, 150];
 
 ToggleAmbush = false;
 
-[] spawn 
-{
-	while {!ToggleAmbush} do
-	{
-		{
-			if (side _x == independent) then
-			{
-				if (set_ind_ambush distance _x < 350.0) then
-				{
-					_x setBehaviour "STEALTH"; 
-					_x setCombatMode "BLUE";
-					_x setSpeedMode "LIMITED";
-					_x setUnitPos "DOWN";
-					//hint "SET SAFE.";
-				};
-			};
-		} forEach allUnits;
-		sleep 5.0;
-	};
-};
+//[] spawn 
+//{
+//	while {!ToggleAmbush} do
+//	{
+//		{
+//			if (side _x == independent) then
+//			{
+//				if (set_ind_ambush distance _x < 350.0) then
+//				{
+//					_x setBehaviour "STEALTH"; 
+//					_x setCombatMode "BLUE";
+//					_x setSpeedMode "LIMITED";
+//					_x setUnitPos "DOWN";
+//					//hint "SET SAFE.";
+//				};
+//			};
+//		} forEach allUnits;
+//		sleep 5.0;
+//	};
+//};
 
 
 //// start up EOS
