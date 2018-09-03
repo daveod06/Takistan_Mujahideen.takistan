@@ -45,14 +45,15 @@ fnc_WaveMaster =
     // PER WAVE
     for [{_i=0},{_i<_numWaves},{_i=_i+1}] do
     {
-        _message = format ["Spawning wave %1",_i];
-        if Saber_DEBUG then {hint _message; sleep 1.0;};
+        _message = format ["Spawning wave %1 %2 ",_i,Saber_fnc_WaveGetUnitPools];
+        if Saber_DEBUG then {hint _message; sleep 2.0;};
 
         // SELECT HOW MANY SQUADS AND WHAT TYPES TO SPAWN
+        _unitTypes = [];
         _unitTypes = [_faction] call Saber_fnc_WaveGetUnitPools;
 
         _message = format ["_unitTypes: %1 typeOf _unitTypes:",_unitTypes,(typeOf _unitTypes)];
-        if Saber_DEBUG then {hint _message; sleep 3.0;};
+        if Saber_DEBUG then {hint _message; sleep 5.0;};
 
         sleep 1.0;
         _infToSpawn = [_faction,_infantrySquadsPerWave,_unitTypes] call Saber_fnc_WaveSelectTroops;
@@ -139,25 +140,25 @@ fnc_WaveMaster =
 
 if (HC3Present && !isServer && !hasInterface) then
 {
-    [] spawn fnc_WaveMaster;
+    [] call fnc_WaveMaster;
 }
 else
 {
     if (HC2Present && !isServer && !hasInterface) then
     {
-        [] spawn fnc_WaveMaster;
+        [] call fnc_WaveMaster;
     }
     else
     {
         if (HC1Present && !isServer && !hasInterface) then
         {
-            [] spawn fnc_WaveMaster;
+            [] call fnc_WaveMaster;
         }
         else
         {
             if (isServer) then
             {
-                [] spawn fnc_WaveMaster;
+                [] call fnc_WaveMaster;
             };
         };
     };

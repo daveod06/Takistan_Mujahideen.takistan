@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=6296;
+		nextID=6297;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=859;
+		nextID=875;
 	};
 	class Camera
 	{
-		pos[]={9686.8262,1016.9484,2994.7214};
-		dir[]={-0.6651811,-0.74514568,-0.050481129};
-		up[]={-0.74309337,0.6667648,-0.05639993};
-		aside[]={-0.075677738,-6.2149775e-007,0.99720955};
+		pos[]={9739.8086,1121.595,2872.6333};
+		dir[]={0.36838585,-0.79074293,-0.48914623};
+		up[]={0.47574636,0.61201489,-0.63169247};
+		aside[]={-0.79886299,7.4272975e-007,-0.60163379};
 	};
 };
 binarizationWanted=0;
@@ -417,7 +417,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=431;
+		items=432;
 		class Item0
 		{
 			dataType="Object";
@@ -19248,11 +19248,11 @@ class Mission
 		class Item392
 		{
 			dataType="Marker";
-			position[]={9892.0977,334.26855,2336.5066};
+			position[]={9892.0977,334.26901,2336.5071};
 			name="IND_wave_spawn_0";
 			type="Empty";
 			id=6174;
-			atlOffset=-6.2865906;
+			atlOffset=-6.2861328;
 		};
 		class Item393
 		{
@@ -20166,7 +20166,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{radio0 addAction [""Toggle Mujahideen Ambush / Stealth"", ""ToggleAmbush = true;""];}";
+				init="call{radio0 addAction [""Set Mujahideen Attack"", ""ToggleAmbush = true;""];" \n "radio0 addAction [""Set Mujadhideen Stealth"", ""ToggleAmbush = false;""];}";
 				name="radio0";
 			};
 			id=6267;
@@ -20921,7 +20921,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={9241.5518,313.88419,2228.425};
-			angle=2.959065;
+			angle=2.9590662;
 			class Attributes
 			{
 				name="helizone_15";
@@ -21080,6 +21080,27 @@ class Mission
 			id=6293;
 			type="Land_HelipadEmpty_F";
 			atlOffset=-0.076965332;
+		};
+		class Item431
+		{
+			dataType="Trigger";
+			position[]={9182.3779,446.67715,4698.5078};
+			class Attributes
+			{
+				name="set_ind_safe";
+				text="SET SAFE";
+				condition="call{!ToggleAmbush;}";
+				onActivation="call{{" \n "_x setBehaviour ""STEALTH"";  " \n "_x setCombatMode ""BLUE""; " \n "_x setSpeedMode ""LIMITED""; " \n "_x setUnitPos ""DOWN"";" \n "hint ""HIDE!!!!!"";" \n "} forEach thisList;}";
+				sizeA=350;
+				sizeB=350;
+				interuptable=1;
+				repeatable=1;
+				activationBy="GUER";
+				isServerOnly=1;
+				effectSound="Alive_Allah";
+			};
+			id=6296;
+			type="EmptyDetectorAreaR250";
 		};
 	};
 };

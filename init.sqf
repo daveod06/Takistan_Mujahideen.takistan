@@ -64,20 +64,20 @@ CuratorLogicGroup = creategroup sideLogic;
 //	};
 //};
 
-//// start up EOS FIXME
-//[] spawn EOS_fnc_Master;
-//sleep 10.0;
-
-//// Start up convoy
-//[] spawn Saber_fnc_ConvoyMaster;
-//sleep 10.0;
-
-//// Start up artillery FIXME
-//[] spawn FFE_fnc_Master;
-//sleep 10.0;
-
-// Start up Waves
-[] spawn Saber_fnc_WaveMaster;
+// start up EOS FIXME
+[] spawn EOS_fnc_Master;
 sleep 10.0;
+
+// Start up convoy
+[] spawn Saber_fnc_ConvoyMaster;
+sleep 10.0;
+
+// Start up artillery FIXME
+[] spawn FFE_fnc_Master;
+sleep 10.0;
+
+//// Start up Waves
+//[] spawn Saber_fnc_WaveMaster;
+//sleep 10.0;
 
 
