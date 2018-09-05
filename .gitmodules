@@ -1,0 +1,15 @@
+[submodule "airmobile-ops"]
+	path = airmobile-ops
+	url = https://github.com/daveod06/airmobile-ops
+[submodule "ai-artillery"]
+	path = ai-artillery
+	url = https://github.com/daveod06/ai-artillery
+[submodule "enemy-occupation-system"]
+	path = enemy-occupation-system
+	url = https://github.com/daveod06/enemy-occupation-system
+[submodule "wave-defense"]
+	path = wave-defense
+	url = https://github.com/daveod06/wave-defense
+[submodule "ai-convoys"]
+	path = ai-convoys
+	url = https://github.com/daveod06/ai-convoys
