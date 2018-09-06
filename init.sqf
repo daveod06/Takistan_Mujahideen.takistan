@@ -1,20 +1,90 @@
 Saber_DEBUG = true;
 
-// Compile EOS
-call compile preprocessFileLineNumbers "enemy-occupation-system\EOSInit.sqf";
-sleep 1.0;
+// Compile Convoy, Airmobile, and Artillery
+[] execVM "saber-common-scripts\CommonInit.sqf";
+sleep 2.0;
+[] execVM "airmobile-ops\AirmobileInit.sqf";
+sleep 2.0;
+[] execVM "wave-defense\WaveInit.sqf";
+sleep 2.0;
 
-// Civilians & Traffic
-//call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
-//sleep 1.0;
-//call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\Init.sqf";
-//sleep 1.0;
+setViewDistance 9000;
+setTerrainGrid 6.25;
+setObjectViewDistance [4000,800];
+setDetailMapBlendPars [50, 150];
+
+// set up zeus for 4 players
+missionCurators = [];
+CuratorLogicGroup = creategroup sideLogic;
+
+
+// --------------------------------------  COMPILE EOS
+call compile preprocessFileLineNumbers "enemy-occupation-system\EOSInit.sqf";
+// --------------------------------------  START UP EOS
+VictoryColor="colorGreen";	// Colour of marker after completion
+hostileColor="colorRed";	// Default colour when enemies active
+bastionColor="colorOrange";	// Colour for bastion marker
+EOS_DAMAGE_MULTIPLIER=1.0;	// 1 is default
+EOS_KILLCOUNTER=false;		// Counts killed units
+EOS_USE_FLASHLIGHTS=false;   // Attempts to make spawned units use flashlights
+EOS_SUICIDE_CHANCE=0.0;     // Attemps to % of units as suicide bombers 0.0 -1.0
+
+_eosZones = ["EOSzone_1","EOSzone_2"];
+_houseGroups = [4,2,100];
+_patrolGroups = [5,2,75];
+_lightVehicles = [2,1,75];
+_armoredVehicles = [1,50];
+_staticWeapons = [2,50];
+_helicopters = [0,0];
+_faction = 7;
+_markertype = 1;
+_distance = 1000;
+_side = east;
+_heightlimit = true;
+_debug = false;
+_cache = false;
+_settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache];
+[_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] call EOS_fnc_Master;
+
+_eosZones = ["EOSzone_3","EOSzone_4","EOSzone_5"];
+_houseGroups = [1,1,80];
+_patrolGroups = [2,2,75];
+_lightVehicles = [0,0,0];
+_armoredVehicles = [0,0];
+_staticWeapons = [0,0];
+_helicopters = [0,0];
+_faction = 7;
+_markertype = 2;
+_distance = 800;
+_side = east;
+_heightlimit = true;
+_debug = false;
+_cache = false;
+_settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache];
+[_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] call EOS_fnc_Master;
+
+_eosZones = ["EOSzone_6"];
+_houseGroups = [1,1,100];
+_patrolGroups = [4,1,100];
+_lightVehicles = [0,0,0];
+_armoredVehicles = [0,0];
+_staticWeapons = [2,100];
+_helicopters = [0,0];
+_faction = 8;
+_markertype = 1;
+_distance = 1000;
+_side = independent;
+_heightlimit = true;
+_debug = false;
+_cache = false;
+_settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache];
+[_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] call EOS_fnc_Master;
 
 
 // --------------------------------------  COMPILE CIVILIANS
 call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
 // --------------------------------------  START UP CIVILIANS
-_faction = 1; // FIXME???
+_faction = 0;
 _civSide = civilian;
 _civMinSkill = 0.3;
 _civMaxSkill = 0.5;
@@ -30,134 +100,51 @@ _hide_blacklist_markers = true;
 _on_unit_spawned_callback = {};
 _on_unit_remove_callback = {true};
 _debug = false;
-[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] spawn Saber_fnc_CiviliansMaster;
-sleep 1.0;
+[_faction,
+_unitsPerBuilding,
+_max_groups_count,
+_min_spawn_distance,
+_max_spawn_distance,
+_blacklist_markers,
+_hide_blacklist_markers,
+_on_unit_spawned_callback,
+_on_unit_spawned_callback,
+_on_unit_remove_callback,
+_debug] spawn Saber_fnc_CiviliansMaster;
+
 
 // --------------------------------------  COMPILE TRAFFIC
 call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
 // --------------------------------------  START UP TRAFFIC
 _faction = 1;
-_SIDE = civilian;
-_VEHICLES_COUNT = 10;
-_MAX_GROUPS_COUNT = 0;
-_MIN_SPAWN_DISTANCE = 600;
-_MAX_SPAWN_DISTANCE = 1200;
-_MIN_SKILL = 0.3;
-_MAX_SKILL = 0.6;
-_AREA_MARKER = "traffic_area";
-_HIDE_AREA_MARKER = true;
-_ON_UNIT_CREATING = {true};
-_ON_UNIT_CREATED = {};
-_ON_UNIT_REMOVING = {};
-[_faction,_SIDE,_VEHICLES_COUNT,_MAX_GROUPS_COUNT,_MIN_SPAWN_DISTANCE,_MAX_SPAWN_DISTANCE,_MIN_SKILL,_MAX_SKILL,_AREA_MARKER,_HIDE_AREA_MARKER,_ON_UNIT_CREATING,_ON_UNIT_CREATED,_ON_UNIT_REMOVING] spawn Saber_fnc_TrafficMaster;
-sleep 1.0;
+_side = civilian;
+_vehicles_count = 10;
+_max_groups_count = 0;
+_min_spawn_distance = 600;
+_max_spawn_distance = 1200;
+_min_skill = 0.3;
+_max_skill = 0.6;
+_area_marker = "traffic_area";
+_hide_area_marker = true;
+_on_unit_creating = {true};
+_on_unit_created = {};
+_on_unit_removing = {};
+[_faction,_side,
+_vehicles_count,
+_max_groups_count,
+_min_spawn_distance,
+_max_spawn_distance,
+_min_skill,_max_skill,
+_area_marker,
+_hide_area_marker,
+_on_unit_creating,
+_on_unit_created,
+_on_unit_removing] spawn Saber_fnc_TrafficMaster;
 
-// Compile Convoy, Airmobile, and Artillery
-[] execVM "scripts\common\CommonInit.sqf";
-sleep 2.0;
+
+// --------------------------------------  COMPILE CONVOYS
 [] execVM "ai-convoys\ConvoyInit.sqf";
-sleep 2.0;
-[] execVM "airmobile-ops\AirmobileInit.sqf";
-sleep 2.0;
-[] execVM "ai-artillery\ArtilleryInit.sqf";
-sleep 2.0;
-[] execVM "wave-defense\WaveInit.sqf";
-sleep 2.0;
-
-setViewDistance 9000;
-setTerrainGrid 6.25;
-setObjectViewDistance [4000,800];
-setDetailMapBlendPars [50, 150];
-
-// set up zeus for 4 players
-missionCurators = [];
-CuratorLogicGroup = creategroup sideLogic;
-
-//init_fnc =
-//{
-//	"traffic_area" setMarkerAlpha 0.0;
-//	_laserT = createVehicle ["LaserTargetE", [0,0,0], [], 0, "NONE"]; 
-//	_laserT attachto [attack_heli0, [0, 0, 0]];
-//	attack_heli0 doTarget attack_heli0;
-//	attack_heli0 reveal attack_heli0;
-//};
-
-
-//ToggleAmbush = false;
-
-//[] spawn 
-//{
-//	while {!ToggleAmbush} do
-//	{
-//		{
-//			if (side _x == independent) then
-//			{
-//				if (set_ind_ambush distance _x < 350.0) then
-//				{
-//					_x setBehaviour "STEALTH"; 
-//					_x setCombatMode "BLUE";
-//					_x setSpeedMode "LIMITED";
-//					_x setUnitPos "DOWN";
-//					hint "SET SAFE.";
-//				    //_x setBehaviour "COMBAT";
-//				    //_x setCombatMode "RED";
-//				    //_x setSpeedMode "FULL";
-//				    //_x setUnitPos "AUTO";
-//				    //hint "ALLAH AKBAR!!!!!";
-//				};
-//			};
-//		} forEach allUnits;
-//		sleep 5.0;
-//	};
-//};
-
-// -------------------------------------- Start up EOS
-["JIP_id", "onplayerConnected", {[] spawn  execVM EOS_fnc_Markers;}] call BIS_fnc_addStackedEventHandler;
-VictoryColor="colorGreen";	// Colour of marker after completion
-hostileColor="colorRed";	// Default colour when enemies active
-bastionColor="colorOrange";	// Colour for bastion marker
-EOS_DAMAGE_MULTIPLIER=1;	// 1 is default
-EOS_KILLCOUNTER=false;		// Counts killed units
-EOS_USE_FLASHLIGHTS=false;   // Attempts to make spawned units use flashlights
-EOS_SUICIDE_CHANCE=0.0;     // Attemps to % of units as suicide bombers 0.0-1.0
-/*
-GROUP SIZES
- 0 = 1
- 1 = 2,4
- 2 = 4,8
- 3 = 8,12
- 4 = 12,16
- 5 = 16,20
-
-EXAMPLE CALL - EOS
- null = [["MARKERNAME","MARKERNAME2"],[2,1,70],[0,1],[1,2,30],[2,60],[2],[1,0,10],[1,0,250,WEST]] call EOS_Spawn;
- null=[["M1","M2","M3"],[HOUSE GROUPS,SIZE OF GROUPS,PROBABILITY],[PATROL GROUPS,SIZE OF GROUPS,PROBABILITY],[LIGHT VEHICLES,SIZE OF CARGO,PROBABILITY],[ARMOURED VEHICLES,PROBABILITY], [STATIC VEHICLES,PROBABILITY],[HELICOPTERS,SIZE OF HELICOPTER CARGO,PROBABILITY],[FACTION,MARKERTYPE,DISTANCE,SIDE,HEIGHTLIMIT,DEBUG]] call EOS_Spawn;
-
-EXAMPLE CALL - BASTION
- null = [["BAS_zone_1"],[3,1],[2,1],[2],[0,0],[0,0,EAST,false,false],[10,2,120,TRUE,TRUE]] call EOS_fnc_Bastion_Spawn;//Bastion_Spawn;
- null=[["M1","M2","M3"],[PATROL GROUPS,SIZE OF GROUPS],[LIGHT VEHICLES,SIZE OF CARGO],[ARMOURED VEHICLES],[HELICOPTERS,SIZE OF HELICOPTER CARGO],[FACTION,MARKERTYPE,SIDE,HEIGHTLIMIT,DEBUG],[INITIAL PAUSE, NUMBER OF WAVES, DELAY BETWEEN WAVES, INTEGRATE EOS, SHOW HINTS]] call Bastion_Spawn;
-*/
-VictoryColor="colorGreen";	// Colour of marker after completion
-hostileColor="colorRed";	// Default colour when enemies active
-bastionColor="colorOrange";	// Colour for bastion marker
-EOS_DAMAGE_MULTIPLIER=1;	// 1 is default
-EOS_KILLCOUNTER=false;		// Counts killed units
-EOS_USE_FLASHLIGHTS=false;   // Attempts to make spawned units use flashlights
-EOS_SUICIDE_CHANCE=0.0;     // Attemps to % of units as suicide bombers 0.0 -1.0
-
-null = [["EOSzone_1"],[4,2,80],[5,2,60],[2,1,60],[1,50],[1,50],[0,0],[7,1,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-null = [["EOSzone_2"],[2,2,60],[1,1,75],[0,0],[0],[0],[0,0],[7,1,400,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-null = [["EOSzone_3"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-null = [["EOSzone_4"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-null = [["EOSzone_5"],[1,1,80],[2,1,80],[0,0],[0],[0],[0,0],[7,2,1000,EAST,TRUE]] call EOS_fnc_Spawn; //EOS_Spawn;
-null = [["EOSzone_6"],[0,0,0],[4,1,100],[0,0,0],[0],[2,100],[0,0],[8,1,1000,Independent,TRUE]] call EOS_fnc_Spawn;  //EOS_Spawn;
-//null = [["EOSzone_1"],["BAS_spawn_0",5],[4,3,80],[1,1,80],[0],[0,0],[8,0,Independent],[10*60,2,5*60,FALSE,TRUE]] call EOS_fnc_Bastion_Spawn;//Bastion_Spawn;
-//null = [["EOSmot_1","EOSmot_2"],[0,0],[0,0],[3,1,90],[2,60],[0],[1,0,90],[0,0,350,EAST,FALSE]] call EOS_fnc_Spawn;//EOS_Spawn;
-//null = [["BAS_zone_1"],[0,1],[0,2],[0],[1,2],[0,0,EAST,TRUE],[0,2,120,TRUE,FALSE]] call EOS_fnc_Bastion_Spawn;//Bastion_Spawn;
-//[] spawn EOS_fnc_Master; // not needed
-sleep 10.0;
-
-// -------------------------------------- Start up convoy
+// --------------------------------------  START UP CONVOYS
 _btr_convoy = [
 "OKSVA_BRDM2",
 "OKSVA_BTR60PB",
@@ -248,10 +235,22 @@ _speed_str = "FULL";
 _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
-[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] spawn Saber_fnc_ConvoyMaster;
-sleep 10.0;
+[_convoy_route,
+_convoy_spawn_points,
+_convoy_side,_enemy_side,
+_pos_name_prefix,
+_convoy_type,
+_speed_kph,
+_threat_radius_m,
+_speed_str,
+_behavior,
+_numConvoys,
+_waitTime] call Saber_fnc_ConvoyMaster;
 
-// --------------------------------------  Start up artillery
+
+// --------------------------------------  COMPILE ARTILLERY
+[] execVM "ai-artillery\ArtilleryInit.sqf";
+// --------------------------------------  START UP ARTILLERY
 RydFFE_NoControl = []; // each arty group (battery) held inside this array will be excluded from FAW control
 RydFFE_ArtyShells = 10; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
 RydFFE_Interval = 20; // time gap (in seconds) between each “seek for targets cycle (each cycle each idle battery on map looks for new fire mission opportunity)
@@ -265,20 +264,20 @@ RydFFE_FOClass = [
 "OKSVA_Junior_Officer_MSV",
 "OKSVA_Officer_VDV"
 ]; // if this array is set as not empty (even with objNull), limited spotting modebecomes active, so only members of groups, which names are inside this array or whichleaders are of proper class (see below), will have ability of spotting targets for batteries.
-//RydFFE_FO = [objNull];
 RydFFE_Amount = 5; // this holds number of shells, that in summary should be fired in each fire mission. CLUSTER and GUIDED salvo amount is always divided by 3 (rounded up);
 RydFFE_Acc = 3; // multiplier of whole salvo drift radius. The bigger value, the bigger radius;
 RydFFE_Safe = 50; // salvo will be not planned for coordinates located within this radius (in meters) around any allied group leader;
 RydFFE_Monogamy = false; // by default each enemy group can be a target for only one battery at the time. If set to false, there is no such limitation, so one target can be shelled by any number of batteries at the time;
 RydFFE_Add_SPMortar = []; // here you can list classnames of custom SP mortar units, that should be controlled by ;
 RydFFE_Add_Mortar = ["OKSVA_2B14"]; // here you can list classnames of custom mortar units, that should be controlled by ;
-RydFFE_Add_Rocket = ["oksva_bm21"]; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
-RydFFE_Add_Other = []; // here you can list classnames of other custom artillery units (lowercase only!), that should be controlled by , if are using custom magazines (classes added here shouldn't be added to any other array).
-[] spawn FFE_fnc_Master;
-sleep 10.0;
+RydFFE_Add_Rocket = ["OKSVA_BM21"]; // here you can list classnames of custom rocket artillery units, that should be controlled by ;
+RydFFE_Add_Other = []; // here you can list classnames of other custom artillery units (lowercase only!), that should be controlled by , if are using custom magazines (classes added here shouldn't be added to any other array). Format:
+//RydFFE_Add_Other =
+//[
+//[["gun_classname_1","gun_classname_2"],["ammo_classname_1","ammo_classname_2"]],
+//[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
+//];
+[] spawn Saber_fnc_ArtilleryMaster;
 
-//// --------------------------------------  Start up Waves
-//[] spawn Saber_fnc_WaveMaster;
-//sleep 10.0;
 
 

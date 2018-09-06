@@ -13,7 +13,7 @@ if (!isServer or hasInterface) exitWith {};
 //sleep 1.0;
 
 //// Compile Convoy, Airmobile, and Artillery
-//[] execVM "scripts\common\CommonInit.sqf";
+//[] execVM "saber-common-scripts\CommonInit.sqf";
 //sleep 2.0;
 //[] execVM "Convoy\ConvoyInit.sqf";
 //sleep 2.0;

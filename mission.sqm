@@ -714,7 +714,7 @@ class Mission
 			{
 				name="helizone_2";
 				condition="call{this;}";
-				onActivation="call{_lzHelipads = [helipad1_0,helipad1_1,helipad1_2,helipad1_3,helipad1_4,helipad1_5,helipad1_6,helipad1_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+				onActivation="call{_lzHelipads = [helipad2_0,helipad2_1,helipad2_2,helipad2_3,helipad2_4,helipad2_5,helipad2_6,helipad2_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
 				sizeA=500;
 				sizeB=600;
 				timeout[]={600,650,700};
@@ -870,8 +870,8 @@ class Mission
 			{
 				name="helizone_3";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad3_0,helipad3_1,helipad3_2,helipad3_3,helipad3_4,helipad3_5,helipad3_6,helipad3_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=400;
+				onActivation="call{_lzHelipads = [helipad3_0,helipad3_1,helipad3_2,helipad3_3,helipad3_4,helipad3_5,helipad3_6,helipad3_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=400;
 				sizeB=600;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1026,8 +1026,8 @@ class Mission
 			{
 				name="helizone_4";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad4_0,helipad4_1,helipad4_2,helipad4_3,helipad4_4,helipad4_5,helipad4_6,helipad4_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=650;
+				onActivation="call{_lzHelipads = [helipad4_0,helipad4_1,helipad4_2,helipad4_3,helipad4_4,helipad4_5,helipad4_6,helipad4_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=650;
 				sizeB=750;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1185,8 +1185,8 @@ class Mission
 			{
 				name="helizone_5";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad5_0,helipad5_1,helipad5_2,helipad5_3,helipad5_4,helipad5_5,helipad5_6,helipad5_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=450;
+				onActivation="call{_lzHelipads = [helipad5_0,helipad5_1,helipad5_2,helipad5_3,helipad5_4,helipad5_5,helipad5_6,helipad5_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=450;
 				sizeB=700;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1346,8 +1346,8 @@ class Mission
 			{
 				name="helizone_6";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad6_0,helipad6_1,helipad6_2,helipad6_3,helipad6_4,helipad6_5,helipad6_6,helipad6_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=400;
+				onActivation="call{_lzHelipads = [helipad6_0,helipad6_1,helipad6_2,helipad6_3,helipad6_4,helipad6_5,helipad6_6,helipad6_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=400;
 				sizeB=600;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1504,8 +1504,8 @@ class Mission
 			{
 				name="helizone_7";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad7_0,helipad7_1,helipad7_2,helipad7_3,helipad7_4,helipad7_5,helipad7_6,helipad7_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=500;
+				onActivation="call{_lzHelipads = [helipad7_0,helipad7_1,helipad7_2,helipad7_3,helipad7_4,helipad7_5,helipad7_6,helipad7_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=500;
 				sizeB=600;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1542,8 +1542,8 @@ class Mission
 			{
 				name="helizone_8";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad8_0,helipad8_1,helipad8_2,helipad8_3,helipad8_4,helipad8_5,helipad8_6,helipad8_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=350;
+				onActivation="call{_lzHelipads = [helipad8_0,helipad8_1,helipad8_2,helipad8_3,helipad8_4,helipad8_5,helipad8_6,helipad8_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=350;
 				sizeB=500;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1818,8 +1818,8 @@ class Mission
 			{
 				name="helizone_9";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad9_0,helipad9_1,helipad9_2,helipad9_3,helipad9_4,helipad9_5,helipad9_6,helipad9_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=600;
+				onActivation="call{_lzHelipads = [helipad9_0,helipad9_1,helipad9_2,helipad9_3,helipad9_4,helipad9_5,helipad9_6,helipad9_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=600;
 				sizeB=800;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -1967,8 +1967,8 @@ class Mission
 			{
 				name="helizone_10";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "[10,bm21_2,[group selectRandom thisList],50,60,10,true] spawn Saber_fnc_Artillery;" \n "hint ""Captured Outpost #3"";}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [helipad10_0,helipad10_1,helipad10_2,helipad10_3,helipad10_4,helipad10_5,helipad10_6,helipad10_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=700;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2126,8 +2126,8 @@ class Mission
 			{
 				name="helizone_11";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad11_0,helipad11_1,helipad11_2,helipad11_3,helipad11_4,helipad11_5,helipad11_6,helipad11_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [helipad11_0,helipad11_1,helipad11_2,helipad11_3,helipad11_4,helipad11_5,helipad11_6,helipad11_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=500;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2295,8 +2295,8 @@ class Mission
 			{
 				name="helizone_12";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad12_0,helipad12_1,helipad12_2,helipad12_3,helipad12_4,helipad12_5,helipad12_6,helipad12_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=500;
+				onActivation="call{_lzHelipads = [helipad12_0,helipad12_1,helipad12_2,helipad12_3,helipad12_4,helipad12_5,helipad12_6,helipad12_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=500;
 				sizeB=300;
 				timeout[]={600,600,600};
 				activationBy="ANYPLAYER";
@@ -2435,8 +2435,8 @@ class Mission
 			{
 				name="helizone_13";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad13_0,helipad13_1,helipad13_2,helipad13_3,helipad13_4,helipad13_5,helipad13_6,helipad13_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=300;
+				onActivation="call{_lzHelipads = [helipad13_0,helipad13_1,helipad13_2,helipad13_3,helipad13_4,helipad13_5,helipad13_6,helipad13_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=300;
 				sizeB=500;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2590,8 +2590,8 @@ class Mission
 			{
 				name="helizone_14";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad14_0,helipad14_1,helipad14_2,helipad14_3,helipad14_4,helipad14_5,helipad14_6,helipad14_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=600;
+				onActivation="call{_lzHelipads = [helipad14_0,helipad14_1,helipad14_2,helipad14_3,helipad14_4,helipad14_5,helipad14_6,helipad14_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=600;
 				sizeB=400;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2754,8 +2754,8 @@ class Mission
 			{
 				name="small_helizone_0";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad0_0,small_helipad0_1,small_helipad0_2,small_helipad0_3,small_helipad0_4,small_helipad0_5,small_helipad0_6],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_0!"";}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [small_helipad0_0,small_helipad0_1,small_helipad0_2,small_helipad0_3,small_helipad0_4,small_helipad0_5,small_helipad0_6];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=400;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2775,8 +2775,8 @@ class Mission
 			{
 				name="small_helizone_1";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad1_0,small_helipad1_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_1!"";}";
-				sizeA=300;
+				onActivation="call{_lzHelipads = [small_helipad1_0,small_helipad1_1];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=300;
 				sizeB=300;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2831,8 +2831,8 @@ class Mission
 			{
 				name="small_helizone_2";
 				condition="call{this;}";
-				onActivation="call{[[small_helipad2_0,small_helipad2_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""IND captured small_helizone_2!"";}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [small_helipad2_0,small_helipad2_1];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=500;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -2869,8 +2869,8 @@ class Mission
 			{
 				name="small_helizone_3";
 				condition="call{this;}";
-				onActivation="call{[[small_helipad3_0,small_helipad3_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger; " \n "hint ""IND captured small_helizone_3!"";}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [small_helipad3_0,small_helipad3_1];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=400;
 				timeout[]={600,600,600};
 				interuptable=1;
@@ -2940,8 +2940,8 @@ class Mission
 			{
 				name="small_helizone_4";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad4_0,small_helipad4_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=400;
+				onActivation="call{_lzHelipads = [small_helipad4_0,small_helipad4_1];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=400;
 				sizeB=700;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -7381,8 +7381,8 @@ class Mission
 			{
 				name="small_helizone_5";
 				condition="call{this;}";
-				onActivation="call{_handle = [[small_helipad5_0,small_helipad5_1],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;" \n "hint ""Captured Outpost #1"";}";
-				sizeA=250;
+				onActivation="call{_lzHelipads = [small_helipad5_0,small_helipad5_1];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=250;
 				sizeB=400;
 				timeout[]={600,650,700};
 				interuptable=1;
@@ -20906,8 +20906,8 @@ class Mission
 			{
 				name="helizone_15";
 				condition="call{this;}";
-				onActivation="call{_handle = [[helipad15_0,helipad15_1,helipad15_2,helipad15_3,helipad15_4,helipad15_5,helipad15_6,helipad15_7],[spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7]] spawn Saber_fnc_AirmobileTrigger;}";
-				sizeA=900;
+				onActivation="call{_lzHelipads = [helipad15_0,helipad15_1,helipad15_2,helipad15_3,helipad15_4,helipad15_5,helipad15_6,helipad15_7];_baseHelipads = [spawn_helipad0_0,spawn_helipad0_1,spawn_helipad0_2,spawn_helipad0_3,spawn_helipad0_4,spawn_helipad0_5,spawn_helipad0_6,spawn_helipad0_7];_lzHelipadsArray = _lzHelipads;_baseHelipadsArray = _baseHelipads;_side = east;_faction = ""SovietArmy_OKSVA"";_category = ""SpecOps"";_transportType = ""OKSVA_MI8MT"";_attackType = selectRandom [""OKSVA_Mi8MTV3"",""OKSVA_Mi24P""];_squadType = selectRandom [""SovietArmy_OKSVA_specops_vdv_company_hq_section"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad"",""SovietArmy_OKSVA_specops_vdv_rifle_squad""];_spawnAttackHelis = true;_spawnInAir = true;_dustoff = true;[_lzHelipadsArray,_baseHelipadsArray,_side,_faction,_category,_transportType,_attackType,_squadType,_spawnAttackHelis,_spawnInAir,_dustoff] spawn Saber_fnc_AirmobileMaster;}";
+                sizeA=900;
 				sizeB=700;
 				timeout[]={600,650,700};
 				interuptable=1;
