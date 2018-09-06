@@ -16,3 +16,6 @@
 [submodule "saber-common-scripts"]
 	path = saber-common-scripts
 	url = https://github.com/daveod06/saber-common-scripts.git
+[submodule "civilians-and-traffic"]
+	path = civilians-and-traffic
+	url = https://github.com/daveod06/civilians-and-traffic.git
