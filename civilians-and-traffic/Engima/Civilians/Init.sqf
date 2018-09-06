@@ -1,5 +1,5 @@
-call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Common\Common.sqf";
-call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Common\Debug.sqf";
+call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Common\Common.sqf";
+call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Common\Debug.sqf";
 
 // The following constants may be used to tweak behaviour
 
@@ -20,6 +20,6 @@ ENGIMA_CIVILIANS_BEHAVIOURS = [
 ENGIMA_CIVILIANS_INSTANCE_NO = 0;
 
 if (isServer) then {
-	call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\Server\ServerFunctions.sqf";
-	call compile preprocessFileLineNumbers "CiviliansAndTraffic\Engima\Civilians\ConfigAndStart.sqf";
+	call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Server\ServerFunctions.sqf";
+	call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\ConfigAndStart.sqf";
 };
