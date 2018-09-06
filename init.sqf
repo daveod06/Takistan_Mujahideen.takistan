@@ -5,9 +5,51 @@ call compile preprocessFileLineNumbers "enemy-occupation-system\EOSInit.sqf";
 sleep 1.0;
 
 // Civilians & Traffic
-call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
-sleep 1.0;
+//call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
+//sleep 1.0;
 //call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\Init.sqf";
+//sleep 1.0;
+
+
+// --------------------------------------  COMPILE CIVILIANS
+call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
+// --------------------------------------  START UP CIVILIANS
+_faction = 1; // FIXME???
+_civSide = civilian;
+_civMinSkill = 0.3;
+_civMaxSkill = 0.5;
+_civMaxWaitTime = 300.0;
+_civRunChance = 0.01;
+_civInstanceNo = 0;
+_unitsPerBuilding = 0.4;
+_max_groups_count = 50;
+_min_spawn_distance = 50;
+_max_spawn_distance = 600;
+_blacklist_markers = ["no_civ_0","no_civ_1","no_civ_2","EOSzone_1","EOSzone_2","EOSzone_3"];
+_hide_blacklist_markers = true;
+_on_unit_spawned_callback = {};
+_on_unit_remove_callback = {true};
+_debug = false;
+[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] spawn Saber_fnc_CiviliansMaster;
+sleep 1.0;
+
+// --------------------------------------  COMPILE TRAFFIC
+call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
+// --------------------------------------  START UP TRAFFIC
+_faction = 1;
+_SIDE = civilian;
+_VEHICLES_COUNT = 10;
+_MAX_GROUPS_COUNT = 0;
+_MIN_SPAWN_DISTANCE = 600;
+_MAX_SPAWN_DISTANCE = 1200;
+_MIN_SKILL = 0.3;
+_MAX_SKILL = 0.6;
+_AREA_MARKER = "traffic_area";
+_HIDE_AREA_MARKER = true;
+_ON_UNIT_CREATING = {true};
+_ON_UNIT_CREATED = {};
+_ON_UNIT_REMOVING = {};
+[_faction,_SIDE,_VEHICLES_COUNT,_MAX_GROUPS_COUNT,_MIN_SPAWN_DISTANCE,_MAX_SPAWN_DISTANCE,_MIN_SKILL,_MAX_SKILL,_AREA_MARKER,_HIDE_AREA_MARKER,_ON_UNIT_CREATING,_ON_UNIT_CREATED,_ON_UNIT_REMOVING] spawn Saber_fnc_TrafficMaster;
 sleep 1.0;
 
 // Compile Convoy, Airmobile, and Artillery

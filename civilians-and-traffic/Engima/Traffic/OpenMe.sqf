@@ -1,8 +1,8 @@
 // put this in init.sqf
 
-// --------------------------------------  COMPILE CIVILIANS
+// --------------------------------------  COMPILE TRAFFIC
 call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
-// --------------------------------------  START UP CIVILIANS
+// --------------------------------------  START UP TRAFFIC
 _faction = 1;
 _SIDE = civilian;
 _VEHICLES_COUNT = 10;
