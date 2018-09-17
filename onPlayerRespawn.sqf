@@ -33,6 +33,12 @@ if (!isNil "respawnTime") then {
 //_handler = (_this select 0) addEventHandler ["HandleDamage", rev_handleDamage];
 deleteVehicle (_this select 1);
 
+// stamina stuff
+_newUnit setFatigue 0.0;
+_newUnit enableStamina false;
+
+// reduce damage
+_newUnit addEventhandler ["HandleDamage",{params ["_unit","_selection","_damage"];_damage * 0.25;_damage}];
 
 ZeusVariable = [_player]; //ie player
 publicVariableServer "ZeusVariable";

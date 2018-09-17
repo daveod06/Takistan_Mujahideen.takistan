@@ -64,6 +64,12 @@ _player linkItem "ItemMap";
 _player linkItem "ItemCompass";
 _player linkItem "ItemWatch";
 
+// stamina stuff
+_player setFatigue 0.0;
+_player enableStamina false;
+
+// reduce damage
+_player addEventhandler ["HandleDamage",{params ["_unit","_selection","_damage"];_damage * 0.25;_damage}];
 
 // Start saving player loadout periodically
 [] spawn {
