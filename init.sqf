@@ -82,9 +82,9 @@ _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache];
 
 
 // --------------------------------------  COMPILE CIVILIANS
-call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\Init.sqf";
+call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Civilians\CiviliansInit.sqf";
 // --------------------------------------  START UP CIVILIANS
-_faction = 0;
+_faction = 1;
 _civSide = civilian;
 _civMinSkill = 0.3;
 _civMaxSkill = 0.5;
@@ -100,17 +100,17 @@ _hide_blacklist_markers = true;
 _on_unit_spawned_callback = {};
 _on_unit_remove_callback = {true};
 _debug = false;
-[_faction,
-_unitsPerBuilding,
-_max_groups_count,
-_min_spawn_distance,
-_max_spawn_distance,
-_blacklist_markers,
-_hide_blacklist_markers,
-_on_unit_spawned_callback,
-_on_unit_spawned_callback,
-_on_unit_remove_callback,
-_debug] spawn Saber_fnc_CiviliansMaster;
+//[_faction,
+//_unitsPerBuilding,
+//_max_groups_count,
+//_min_spawn_distance,
+//_max_spawn_distance,
+//_blacklist_markers,
+//_hide_blacklist_markers,
+//_on_unit_spawned_callback,
+//_on_unit_spawned_callback,
+//_on_unit_remove_callback,
+//_debug] spawn Saber_fnc_CiviliansMaster;
 
 
 // --------------------------------------  COMPILE TRAFFIC
@@ -143,7 +143,7 @@ _on_unit_removing] spawn Saber_fnc_TrafficMaster;
 
 
 // --------------------------------------  COMPILE CONVOYS
-[] execVM "ai-convoys\ConvoyInit.sqf";
+call compile preprocessFileLineNumbers "ai-convoys\ConvoyInit.sqf";
 // --------------------------------------  START UP CONVOYS
 _btr_convoy = [
 "OKSVA_BRDM2",
@@ -237,7 +237,8 @@ _numConvoys = 5;
 _waitTime = 60*20;
 [_convoy_route,
 _convoy_spawn_points,
-_convoy_side,_enemy_side,
+_convoy_side,
+_enemy_side,
 _pos_name_prefix,
 _convoy_type,
 _speed_kph,
@@ -249,7 +250,7 @@ _waitTime] call Saber_fnc_ConvoyMaster;
 
 
 // --------------------------------------  COMPILE ARTILLERY
-[] execVM "ai-artillery\ArtilleryInit.sqf";
+call compile preprocessFileLineNumbers "ai-artillery\ArtilleryInit.sqf";
 // --------------------------------------  START UP ARTILLERY
 RydFFE_NoControl = []; // each arty group (battery) held inside this array will be excluded from FAW control
 RydFFE_ArtyShells = 10; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
@@ -277,7 +278,7 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[["gun_classname_1","gun_classname_2"],["ammo_classname_1","ammo_classname_2"]],
 //[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
 //];
-[] spawn Saber_fnc_ArtilleryMaster;
+[] spawn FFE_fnc_ArtilleryMaster;
 
 
 
