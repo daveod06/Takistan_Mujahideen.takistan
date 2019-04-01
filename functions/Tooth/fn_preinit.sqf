@@ -1,6 +1,6 @@
 Tooth_introMusic = "";
 Tooth_outroMusic = "";
-Tooth_year = 1970;
+Tooth_year = 1982;
 Tooth_month = 6;
 Tooth_day = 20;
 
