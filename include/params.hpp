@@ -72,35 +72,35 @@ class Params
         // Ultra = 3.125
 		values[]={16,8,4,2,1};
 		texts[]={"No Grass (50.0)", "Proximity (25.0)", "Normal (12.5)", "Far (6.25)", "Very Far (3.125)"};
-		default = 4;
+		default = 1;
 	};
     class Param_ViewDistance
 	{	
 		title="View Distance (setViewDistance)";
 		values[]={2000,4000,6000,10000};
 		texts[]={"Close (2000)", "Normal (4000)", "Far (6000)", "Very Far (10000)"};
-		default = 4000;
+		default = 6000;
 	};
     class Param_ObjectViewDistance
 	{	
 		title="Object View Distance (setObjectViewDistance)";
 		values[]={1000, 1750, 2500,4000,5000};
 		texts[]={"Super Close (1000)", "Close (1750)","Normal (2500)", "Far (4000)", "Very Far (5000)"};
-		default = 1750;
+		default = 4000;
 	};
 	class Param_ShadowViewDistance
 	{	
 		title="Shadow Draw Distance (setObjectViewDistance)";
 		values[]={50,75,100,150,200};
 		texts[]={"Super Close (50)", "Close (75)","Normal (100)", "Far (150)", "Very Far (200)"};
-		default = 150;
+		default = 200;
 	};
     class Param_DetailBlend
 	{	
 		title="Detail Blend Distance (setDetailMapBlendPars)";
 		values[]={12,25,50,100,200};
 		texts[]={"Super Close (12)","Close (25)", "Normal (50)", "Far (100)", "Very Far (200)"};
-		default = 50;
+		default = 25;
 	};
     class Param_Spacer3
     {

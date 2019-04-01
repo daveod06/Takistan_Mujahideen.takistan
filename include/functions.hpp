@@ -32,8 +32,11 @@ class CfgFunctions
 		};
 	};
 	#include "..\functions\aiArtillery\functions.hpp"
+	#include "..\functions\aiConvoys\functions.hpp"
 	#include "..\functions\airmobileOps\functions.hpp"
 	#include "..\functions\enemyOccupationSystem\functions.hpp"
 	#include "..\functions\civiliansAndTraffic\Engima\Civilians\functions.hpp"
+	#include "..\functions\civiliansAndTraffic\Engima\Traffic\functions.hpp"
 	#include "..\functions\saberCommonScripts\functions.hpp"
+	#include "..\functions\waveDefense\functions.hpp"
 };
