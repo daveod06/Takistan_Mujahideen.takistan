@@ -1,21 +1,36 @@
-if !(isServer) exitWith {};
-_player = _this select 0;
-//_player = player;
+params ["_player", "_didJIP"];
 
-// set up zeus for 4 players
-missionCurators = [];
-CuratorLogicGroup = creategroup sideLogic;
+//_player setvariable["A3E_PlayerInitializedServer",false,true];
 
-// if this doesn't work, un-comment zeus code in initserver.sqf
-_curator = CuratorLogicGroup createunit ["ModuleCurator_F", [0, 90, 90],[],0.5,"NONE"];    
-_curator setvariable ["text","_curator"];     
-_curator setvariable ["Addons",3,true];//3: allow all addons with proper use of CfgPatches
-_curator setvariable ["owner","objnull"];  
-_curator setvariable ["vehicleinit","_this setvariable ['Addons',3,true]; _this setvariable ['owner','objnull'];"]; 
-unassignCurator _curator;
-sleep 1.0;
-objnull assignCurator _curator;
-missionCurators pushBack _curator;
+diag_log format["initPlayerServer run for %1", name _player];
 
-[] execVM "setupmissionzeus.sqf";
-
+if(name _player == "HC1") then 
+{
+    diag_log format ["%1 present.",name _player];
+    A3E_HC_ID = owner _player;
+    if(A3E_HC_ID==0) exitwith {
+         diag_log "Getting HC1 ID failed!";
+    };
+}
+/*
+elif (name _player == "HC2") then 
+{
+    diag_log format ["%1 present.",name _player];
+    A3E_HC_ID = owner _player;
+    if(A3E_HC_ID==0) exitwith {
+         diag_log "Getting HC2 ID failed!";
+    };
+}
+elif (name _player == "HC3") then 
+{
+    diag_log format ["%1 present.",name _player];
+    A3E_HC_ID = owner _player;
+    if(A3E_HC_ID==0) exitwith {
+         diag_log "Getting HC3 ID failed!";
+    };
+}
+*/
+else 
+{
+	//_player setvariable["A3E_PlayerInitializedServer",true,true];
+};

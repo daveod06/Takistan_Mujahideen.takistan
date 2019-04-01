@@ -19,3 +19,24 @@
 [submodule "saber-common-scripts"]
 	path = saber-common-scripts
 	url = https://github.com/daveod06/saber-common-scripts.git
+[submodule "functions/civiliansAndTraffic"]
+	path = functions/civiliansAndTraffic
+	url = https://github.com/daveod06/civiliansAndTraffic.git
+[submodule "functions/enemyOccupationSystem"]
+	path = functions/enemyOccupationSystem
+	url = https://github.com/daveod06/enemyOccupationSystem.git
+[submodule "functions/aiArtillery"]
+	path = functions/aiArtillery
+	url = https://github.com/daveod06/aiArtillery.git
+[submodule "functions/saberCommonScripts"]
+	path = functions/saberCommonScripts
+	url = https://github.com/daveod06/saberCommonScripts.git
+[submodule "functions/airmobileOps"]
+	path = functions/airmobileOps
+	url = https://github.com/daveod06/airmobileOps.git
+[submodule "functions/waveDefense"]
+	path = functions/waveDefense
+	url = https://github.com/daveod06/waveDefense.git
+[submodule "functions/aiConvoys"]
+	path = functions/aiConvoys
+	url = https://github.com/daveod06/aiConvoys.git
