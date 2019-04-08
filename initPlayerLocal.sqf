@@ -2,6 +2,9 @@ params ["_player", "_didJIP"];
 
 diag_log format["initPlayerLocal run for %1 (prewaituntil)", name _player];
 if (!hasInterface || isDedicated) exitWith {};
+
+waituntil{!isNull(_player)};
+
 //Clientside Stuff
 
 titleText ["Loading...", "BLACK",0.1];
@@ -11,7 +14,6 @@ titleText ["Loading...", "BLACK",0.1];
 0.1 fadeSpeech 0;
 
 waituntil{!isNull(_player)};
-//_player setvariable["A3E_PlayerInitializedLocal",false,true];
 diag_log format["Tooth DEBUG: initPlayerLocal run for %1", name _player];
 
 
@@ -24,18 +26,18 @@ AT_Revive_Camera = 1;
 _player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
 
 //BIS
-_player unassignItem "ItemMap";
-_player removeItem "ItemMap";
-_player unassignItem "ItemCompass";
-_player removeItem "ItemCompass";
+//_player unassignItem "ItemMap";
+//_player removeItem "ItemMap";
+//_player unassignItem "ItemCompass";
+//_player removeItem "ItemCompass";
 _player unassignItem "itemGPS";
 _player removeItem "itemGPS";
-_player unassignItem "O_UavTerminal";
-_player removeItem "O_UavTerminal";
-_player unassignitem "B_UavTerminal"; 
-_player removeitem "B_UavTerminal";
-_player unassignitem "I_UavTerminal"; 
-_player removeitem "I_UavTerminal";
+//_player unassignItem "O_UavTerminal";
+//_player removeItem "O_UavTerminal";
+//_player unassignitem "B_UavTerminal"; 
+//_player removeitem "B_UavTerminal";
+//_player unassignitem "I_UavTerminal"; 
+//_player removeitem "I_UavTerminal";
 _player unassignItem "NVGoggles";
 _player removeItem "NVGoggles";
 _player unassignItem "NVGoggles_OPFOR";
@@ -171,9 +173,8 @@ _player enableStamina false;
 	};
 };
 
-//_player setvariable["A3E_PlayerInitializedLocal",true,true];
-//waituntil{sleep 0.1;( (_player getvariable["A3E_PlayerInitializedServer",false]) && (_player getvariable["A3E_PlayerInitializedLocal",false]) && (_player getvariable["A3E_InitializedLocal",false]) && (missionNameSpace getvariable["A3E_ServerInitialized",false]) )};
-waituntil{sleep 0.1;( (missionNameSpace getvariable["A3E_ServerInitialized",false]) )};
+_player setvariable["A3E_PlayerInitializedLocal",true,true];
+waituntil {sleep 0.5;((_player getvariable["A3E_PlayerInitializedServer",false]) && (_player getvariable["A3E_PlayerInitializedLocal",false]) && (missionNameSpace getvariable["A3E_ServerInitialized",false]))};
 
 
 diag_log format["Tooth DEBUG: %1 is now ready (clientside).", name _player];
@@ -191,7 +192,8 @@ titleFadeOut 0.5;
 	{
 		playMusic Tooth_introMusic;
 	};
-	["Prei Khmaoch Luong", "Cambodia" , "June 1970"] spawn BIS_fnc_infoText;
+    _monthString = [] call Toothfunctions_fnc_monthToString;
+	[worldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
 };
 
 ZeusVariable = [_player]; //ie _player

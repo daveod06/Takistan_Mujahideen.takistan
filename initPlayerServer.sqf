@@ -1,6 +1,5 @@
 params ["_player", "_didJIP"];
 
-//_player setvariable["A3E_PlayerInitializedServer",false,true];
 
 diag_log format["initPlayerServer run for %1", name _player];
 
@@ -32,5 +31,5 @@ elif (name _player == "HC3") then
 */
 else 
 {
-	//_player setvariable["A3E_PlayerInitializedServer",true,true];
 };
+_player setvariable["A3E_PlayerInitializedServer",true,true];

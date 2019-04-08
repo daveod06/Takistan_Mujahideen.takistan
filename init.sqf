@@ -5,8 +5,6 @@ private ["_showIntro", "_showPlayerMapAndCompass", "_fog", "_playerIsImmortal", 
 _player = player;
 
 diag_log format["init run for %1", name _player];
-//_player setvariable["A3E_InitializedLocal",false,true];
-//missionNameSpace setvariable["A3E_ServerInitialized",false,true];
 
 _isJipPlayer = false;
 if (!isServer && isNull player) then

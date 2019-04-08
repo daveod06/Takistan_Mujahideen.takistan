@@ -16496,7 +16496,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="[[[[""rhs_weap_kar98k"",""rhs_weap_m38"",""rhs_weap_tt33""],[1,1,5]],[[""rhsgref_5Rnd_762x54_m38"",""rhsgref_5Rnd_792x57_kar98k"",""rhs_mag_762x25_8"",""CUP_IED_V1_M"",""CUP_IED_V2_M"",""CUP_IED_V3_M"",""CUP_IED_V4_M""],[20,20,20,2,4,2,2]],[[""Binocular""],[5]],[[],[]]],false]";
+							value="[[[[""rhs_weap_kar98k"",""rhs_weap_m38"",""rhs_weap_tt33""],[1,1,5]],[[""rhsgref_5Rnd_762x54_m38"",""rhsgref_5Rnd_792x57_kar98k"",""rhs_mag_762x25_8""],[20,20,20]],[[""Binocular""],[5]],[[],[]]],false]";
 						};
 					};
 				};

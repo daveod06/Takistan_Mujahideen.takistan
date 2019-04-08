@@ -1,6 +1,5 @@
 //if (!isServer or hasInterface) exitWith {};
 
-missionNameSpace setvariable["A3E_ServerInitialized",false,true];
 
 // set up zeus for 4 players
 missionCurators = [];

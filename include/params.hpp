@@ -91,16 +91,16 @@ class Params
 	class Param_ShadowViewDistance
 	{	
 		title="Shadow Draw Distance (setObjectViewDistance)";
-		values[]={50,75,100,150,200};
+		values[]={50,75,100,150,200,500};
 		texts[]={"Super Close (50)", "Close (75)","Normal (100)", "Far (150)", "Very Far (200)", "Insane (500)"};
-		default = 200;
+		default = 500;
 	};
     class Param_DetailBlend
 	{	
 		title="Detail Blend Distance (setDetailMapBlendPars)";
 		values[]={12,25,50,100,200};
 		texts[]={"Super Close (12)","Close (25)", "Normal (50)", "Far (100)", "Very Far (200)"};
-		default = 25;
+		default = 12;
 	};
     class Param_Spacer3
     {

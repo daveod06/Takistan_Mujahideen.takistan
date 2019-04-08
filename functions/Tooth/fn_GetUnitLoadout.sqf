@@ -25,7 +25,7 @@ ToothFunctions_fnc_fileExists =
     }
     else
     {
-    	diag_log format ["ToothFunctions_fnc_fileExists: WARNING Did not find file: %1 ", _filePath];
+    	//diag_log format ["ToothFunctions_fnc_fileExists: WARNING Did not find file: %1 ", _filePath];
     };
     _fileExists
 };
@@ -59,7 +59,7 @@ if (_fileExists) then
 }
 else
 {
-    diag_log format ["ToothFunctions_fnc_getUnitLoadout: WARNING did not find matching %1 loadout file: %2",_classname,_fileName];
+    //diag_log format ["ToothFunctions_fnc_getUnitLoadout: WARNING did not find matching %1 loadout file: %2",_classname,_fileName];
     if (_useFlashlights) then
     {  
         _flashLightArray = [_initString,_addFlashlightString,_useFlashLightString];
