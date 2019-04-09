@@ -14,4 +14,6 @@ Tooth_playersHaveWatch = false;
 Tooth_playersHaveMap = false;
 Tooth_playersHaveCompass = false;
 
+A3E_WorldName = "Takistan";
+
 missionNameSpace setvariable["A3E_ServerInitialized",false,true];

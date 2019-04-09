@@ -139,7 +139,7 @@ _debug] call DJOCivilians_fnc_CiviliansMaster;
 
 
 // --------------------------------------  COMPILE TRAFFIC
-call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
+//call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
 // --------------------------------------  START UP TRAFFIC
 _faction = 0;
 _side = civilian;
@@ -262,6 +262,7 @@ _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
 
+
 [_convoy_route,
 _convoy_spawn_points,
 _convoy_side,_enemy_side,
@@ -275,10 +276,11 @@ _numConvoys,
 _waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
 
 
+
 // --------------------------------------  COMPILE ARTILLERY
 //[] execVM "aiArtillery\ArtilleryInit.sqf";
 // --------------------------------------  START UP ARTILLERY
-RydFFE_NoControl = [mortar_group,howitzer_group]; // ["camp_carrol_mortar","uns_M1_81mm_mortar","camp_carrol_howitzer","uns_m107sp"]; // each arty group (battery) held inside this array will be excluded from FAW control
+RydFFE_NoControl = []; // ["camp_carrol_mortar","uns_M1_81mm_mortar","camp_carrol_howitzer","uns_m107sp"]; // each arty group (battery) held inside this array will be excluded from FAW control
 RydFFE_ArtyShells = 300; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
 RydFFE_Interval = 20; // time gap (in seconds) between each “seek for targets cycle (each cycle each idle battery on map looks for new fire mission opportunity)
 RydFFE_Debug = true; // if set as true, will be shown map markers that allows user to watch, what is going on. See DEBUG MARKERS chapter for details;
