@@ -173,6 +173,10 @@ _player enableStamina false;
 	};
 };
 
+_player setUnitTrait ["medic",true];
+_player setUnitTrait ["engineer",true];
+_player setUnitTrait ["explosiveSpecialist",true];
+
 _player setvariable["A3E_PlayerInitializedLocal",true,true];
 waituntil {sleep 0.5;((_player getvariable["A3E_PlayerInitializedServer",false]) && (_player getvariable["A3E_PlayerInitializedLocal",false]) && (missionNameSpace getvariable["A3E_ServerInitialized",false]))};
 

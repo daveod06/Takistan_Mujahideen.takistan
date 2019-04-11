@@ -38,4 +38,8 @@ _player setUnitLoadout [(_player getVariable ["respawnLoadout", []]), true];
 	};
 };
 
+_player setUnitTrait ["medic",true];
+_player setUnitTrait ["engineer",true];
+_player setUnitTrait ["explosiveSpecialist",true];
+
 diag_log format ["Tooth DEBUG: onPlayerRespawn run for %1",name _player];
