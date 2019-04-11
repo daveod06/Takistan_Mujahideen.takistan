@@ -191,7 +191,7 @@ titleFadeOut 0.5;
 
 [] spawn 
 {
-	sleep 5.0;
+	sleep 15.0;
 	if (Tooth_introMusic != "") then
 	{
 		playMusic Tooth_introMusic;
