@@ -65,14 +65,14 @@ EOS_FLARE_ATTACK_SIGNAL=false; // shoot flare to signal beginning of wave
 EOS_TASK_INDEX=0; // set index for EOS tasks
 BAS_TASK_INDEX=0; // set index for BAS tasks
 
-_eosZones = ["EOSzone_1","EOSzone_2"];
+_eosZones = ["EOSzone_1"];
 _houseGroups = [4,2,100];
 _patrolGroups = [5,2,75];
 _lightVehicles = [2,1,75];
 _armoredVehicles = [1,50];
 _staticWeapons = [2,50];
 _helicopters = [0,0];
-_faction = 7;
+_faction = 12;
 _markertype = 1;
 _distance = 1000;
 _side = east;
@@ -83,9 +83,28 @@ _createTask = false;
 _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
 [_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
 
+
+_eosZones = ["EOSzone_2"];
+_houseGroups = [2,2,100];
+_patrolGroups = [2,3,75];
+_lightVehicles = [2,1,75];
+_armoredVehicles = [1,50];
+_staticWeapons = [1,50];
+_helicopters = [0,0];
+_faction = 12;
+_markertype = 1;
+_distance = 800;
+_side = east;
+_heightlimit = true;
+_debug = false;
+_cache = false;
+_createTask = false;
+_settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
+[_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
+
 _eosZones = ["EOSzone_3","EOSzone_4","EOSzone_5"];
 _houseGroups = [1,1,80];
-_patrolGroups = [2,2,75];
+_patrolGroups = [3,2,75];
 _lightVehicles = [0,0,0];
 _armoredVehicles = [0,0];
 _staticWeapons = [0,0];
@@ -136,7 +155,7 @@ _unitsPerBuilding = 0.4;
 _max_groups_count = 50;
 _min_spawn_distance = 50;
 _max_spawn_distance = 600;
-_blacklist_markers = ["no_civ_0","no_civ_1","no_civ_2","EOSzone_1","EOSzone_2","EOSzone_3"];
+_blacklist_markers = ["no_civ_0","no_civ_1","no_civ_2","no_civ_3","no_civ_4","no_civ_5","no_civ_6","no_civ_7","no_civ_8","no_civ_9","EOSzone_1","EOSzone_2","EOSzone_3","EOSzone_4","EOSzone_5","EOSzone_6"];
 _hide_blacklist_markers = true;
 _on_unit_spawned_callback = {};
 _on_unit_remove_callback = {true};

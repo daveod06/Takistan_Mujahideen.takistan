@@ -1,8 +1,8 @@
 Tooth_introMusic = "";
 Tooth_outroMusic = "";
-Tooth_year = 1982;
-Tooth_month = 6;
-Tooth_day = 7;
+Tooth_year = 1986;
+Tooth_month = 7;
+Tooth_day = 3;
 
 Tooth_playerUniform = "";
 Tooth_playerVest = "";
