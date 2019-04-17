@@ -13,7 +13,6 @@ titleText ["Loading...", "BLACK",0.1];
 0.1 fadeMusic 0;
 0.1 fadeSpeech 0;
 
-waituntil{!isNull(_player)};
 diag_log format["Tooth DEBUG: initPlayerLocal run for %1", name _player];
 
 
@@ -151,7 +150,7 @@ enableTeamSwitch false;
 // stamina stuff
 //_player setFatigue 0.0;
 _player enableStamina false;
-0 = [_player] spawn
+[_player] spawn
 {
 	_player = _this select 0;
     while {alive _player} do
@@ -197,7 +196,7 @@ titleFadeOut 0.5;
 		playMusic Tooth_introMusic;
 	};
     _monthString = [] call Toothfunctions_fnc_monthToString;
-	[A3E_WorldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
+	["Secret Mujahideen Training Camp",A3E_WorldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
 };
 
 ZeusVariable = [_player]; //ie _player
