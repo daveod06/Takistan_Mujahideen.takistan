@@ -150,16 +150,16 @@ enableTeamSwitch false;
 // stamina stuff
 //_player setFatigue 0.0;
 _player enableStamina false;
-[_player] spawn
-{
-	_player = _this select 0;
-    while {alive _player} do
-    {
-        //_player setFatigue 0.0;
-        _player enableStamina false;
-        sleep 10.0;
-    };
-};
+//[_player] spawn
+//{
+//	_player = _this select 0;
+//    while {alive _player} do
+//    {
+//        //_player setFatigue 0.0;
+//        _player enableStamina false;
+//        sleep 10.0;
+//    };
+//};
 
 // Start saving _player loadout periodically
 [_player] spawn {
@@ -190,13 +190,13 @@ titleFadeOut 0.5;
 
 [] spawn 
 {
-	sleep 15.0;
+	sleep 12.0;
 	if (Tooth_introMusic != "") then
 	{
 		playMusic Tooth_introMusic;
 	};
     _monthString = [] call Toothfunctions_fnc_monthToString;
-	["Mujahideen Camp",A3E_WorldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
+	["Mujahideen Camp",A3E_WorldName,format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
 };
 
 ZeusVariable = [_player]; //ie _player

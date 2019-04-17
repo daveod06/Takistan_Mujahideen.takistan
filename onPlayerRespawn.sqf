@@ -5,16 +5,16 @@ _player = _newUnit;
 // stamina stuff
 //_player setFatigue 0.0;
 _player enableStamina false;
-0 = [_player] spawn
-{
-	_player = _this select 0;
-    while {alive _player} do
-    {
-        //_player setFatigue 0.0;
-        _player enableStamina false;
-        sleep 10.0;
-    };
-};
+//0 = [_player] spawn
+//{
+//	_player = _this select 0;
+//    while {alive _player} do
+//    {
+//        //_player setFatigue 0.0;
+//        _player enableStamina false;
+//        sleep 10.0;
+//    };
+//};
 
 // reduce damage
 AT_Revive_StaticRespawns = [];

@@ -36,8 +36,7 @@ ToggleSafe = false;
 publicVariable "ToggleAmbush";
 publicVariable "ToggleSafe";
 
-// --------------------------------------  COMPILE EOS
-//call compile preprocessFileLineNumbers "enemyOccupationSystem\EOSInit.sqf";
+/*
 // --------------------------------------  START UP EOS
 VictoryColor="colorGreen";	// Colour of marker after completion
 hostileColor="colorRed";	// Default colour when enemies active
@@ -67,7 +66,6 @@ _cache = false;
 _createTask = false;
 _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
 [_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
-
 
 _eosZones = ["EOSzone_2"];
 _houseGroups = [2,2,100];
@@ -126,8 +124,6 @@ _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_cr
 
 
 
-// --------------------------------------  COMPILE CIVILIANS
-//call compile preprocessFileLineNumbers "\functions\civiliansAndTraffic\Engima\Civilians\Init.sqf"; // not necessary now
 // --------------------------------------  START UP CIVILIANS
 _faction = 0;
 _civSide = civilian;
@@ -150,8 +146,6 @@ _debug = false;
 
 
 
-// --------------------------------------  COMPILE TRAFFIC
-//call compile preprocessFileLineNumbers "civilians-and-traffic\Engima\Traffic\TrafficInit.sqf";
 // --------------------------------------  START UP TRAFFIC
 _faction = 0;
 _side = civilian;
@@ -170,8 +164,6 @@ _on_unit_removing = {};
 
 
 
-// --------------------------------------  COMPILE CONVOYS
-// [] execVM "aiConvoys\ConvoyInit.sqf";
 // --------------------------------------  START UP CONVOYS
 _btr_convoy = [
 "OKSVA_BRDM2",
@@ -263,14 +255,10 @@ _speed_str = "FULL";
 _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
-
-
 //[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
 
 
 
-// --------------------------------------  COMPILE ARTILLERY
-//[] execVM "aiArtillery\ArtilleryInit.sqf";
 // --------------------------------------  START UP ARTILLERY
 RydFFE_NoControl = []; // ["camp_carrol_mortar","uns_M1_81mm_mortar","camp_carrol_howitzer","uns_m107sp"]; // each arty group (battery) held inside this array will be excluded from FAW control
 RydFFE_ArtyShells = 300; // positive integer. Multiplier of default magazines loadout per kind per each artillery piece
@@ -300,5 +288,5 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
 //];
 //[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
-
+*/
 
