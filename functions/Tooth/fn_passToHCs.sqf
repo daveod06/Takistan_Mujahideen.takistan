@@ -30,7 +30,8 @@ if (isNil "currentHC_ID") then
 {
   currentHC_ID = -1;
 };
-publicVariable "currentHC_ID";
+//publicVariable "currentHC_ID";
+missionNamespace setVariable ["currentHC_ID",currentHC_ID];
 
 // Determine first HC to start with
 if (isNil "currentHC") then
@@ -40,17 +41,15 @@ if (isNil "currentHC") then
 if (!isNull HC1) then { currentHC = 1; } else { 
   if (!isNull HC2) then { currentHC = 2; } else { currentHC = 3; };
 };
-publicVariable "currentHC";
-
-
-
+//publicVariable "currentHC";
+missionNamespace setVariable ["currentHC",currentHC];
 
 diag_log format["passToHCs: First pass will begin in %1 seconds", rebalanceTimer];
 
 while {true} do {
   // Rebalance every rebalanceTimer seconds to avoid hammering the server
   //sleep rebalanceTimer;
-  waitUntil {currentHC_ID == -1};
+  waitUntil {(missionNamespace getVariable ["currentHC_ID",-1]) == -1};
 
   // Do not enable load balancing unless more than one HC is present
   // Leave this variable false, we'll enable it automatically under the right conditions  
@@ -143,8 +142,10 @@ while {true} do {
         default { diag_log format["passToHCs: [ERROR] No Valid HC to pass to.  currentHC = %1", currentHC]; };
       };
     };
-    publicVariable "currentHC_ID";
-    publicVariable "currentHC";
+    //publicVariable "currentHC_ID";
+    //publicVariable "currentHC";
+    missionNamespace setVariable ["currentHC",currentHC];
+    missionNamespace setVariable ["currentHC_ID",currentHC_ID];
   };
 
 };

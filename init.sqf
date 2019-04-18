@@ -259,7 +259,7 @@ _speed_str = "FULL";
 _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
-[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
+//[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
 
 
 
@@ -291,7 +291,7 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[["gun_classname_1","gun_classname_2"],["ammo_classname_1","ammo_classname_2"]],
 //[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
 //];
-[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
+//[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
 
 
 {
