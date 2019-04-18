@@ -290,3 +290,7 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
 */
 
+{
+	_x setMarkerAlpha 0.0;
+}
+forEach ["no_civ_0","no_civ_1","no_civ_2","no_civ_3","no_civ_4","no_civ_5","no_civ_6","no_civ_7","no_civ_8","no_civ_9","EOSzone_1","EOSzone_2","EOSzone_3","EOSzone_4","EOSzone_5","EOSzone_6"];
