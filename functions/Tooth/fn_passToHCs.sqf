@@ -25,18 +25,39 @@ _HC3_ID = -1; // Will become the Client ID of HC3
 rebalanceTimer = 60;  // Rebalance sleep timer in seconds
 cleanUpThreshold = 50; // Threshold of number of dead bodies + destroyed vehicles before forcing a clean up
 
+// set currentHC_ID public variable
+if (isNil "currentHC_ID") then
+{
+  currentHC_ID = -1;
+};
+publicVariable "currentHC_ID";
+
+// Determine first HC to start with
+if (isNil "currentHC") then
+{
+  currentHC = 0;
+};
+if (!isNull HC1) then { currentHC = 1; } else { 
+  if (!isNull HC2) then { currentHC = 2; } else { currentHC = 3; };
+};
+publicVariable "currentHC";
+
+
+
+
 diag_log format["passToHCs: First pass will begin in %1 seconds", rebalanceTimer];
 
 while {true} do {
   // Rebalance every rebalanceTimer seconds to avoid hammering the server
-  sleep rebalanceTimer;
+  //sleep rebalanceTimer;
+  waitUntil {currentHC_ID == -1};
 
   // Do not enable load balancing unless more than one HC is present
   // Leave this variable false, we'll enable it automatically under the right conditions  
   _loadBalance = false;
 
-   // Get HC Client ID else set variables to null
-   try {
+  // Get HC Client ID else set variables to null
+  try {
     _HC1_ID = owner HC1;
 
     if (_HC1_ID > 2) then {
@@ -94,80 +115,36 @@ while {true} do {
     diag_log "passToHCs: Starting transfer of AI groups to HC";
   };
 
-  // Determine first HC to start with
-  _currentHC = 0;
+  //// Determine first HC to start with
+  //currentHC = 0;
 
-  if (!isNull HC1) then { _currentHC = 1; } else { 
-    if (!isNull HC2) then { _currentHC = 2; } else { _currentHC = 3; };
-  };
+  //if (!isNull HC1) then { currentHC = 1; } else { 
+  //  if (!isNull HC2) then { currentHC = 2; } else { currentHC = 3; };
+  //};
 
   // Pass the AI
   _numTransfered = 0;
-  {
-    _swap = true;
+  _swap = true;
 
-    // If a player is in this group, don't swap to an HC
-    { if (isPlayer _x) then { _swap = false; }; } forEach (units _x);
-
-    // If load balance enabled, round robin between the HCs - else pass all to HC
-    if ( _swap ) then {
-      _rc = false;
-
-      if ( _loadBalance ) then {
-        switch (_currentHC) do {
-          case 1: { _rc = _x setGroupOwner _HC1_ID; if (!isNull HC2) then { _currentHC = 2; } else { _currentHC = 3; }; };
-          case 2: { _rc = _x setGroupOwner _HC2_ID; if (!isNull HC3) then { _currentHC = 3; } else { _currentHC = 1; }; };
-          case 3: { _rc = _x setGroupOwner _HC3_ID; if (!isNull HC1) then { _currentHC = 1; } else { _currentHC = 2; }; };
-          default { diag_log format["passToHCs: [ERROR] No Valid HC to pass to.  _currentHC = %1", _currentHC]; };
-        };
-      } else {
-        switch (_currentHC) do {
-          case 1: { _rc = _x setGroupOwner _HC1_ID; };
-          case 2: { _rc = _x setGroupOwner _HC2_ID; };
-          case 3: { _rc = _x setGroupOwner _HC3_ID; };
-          default { diag_log format["passToHCs: [ERROR] No Valid HC to pass to.  _currentHC = %1", _currentHC]; };
-        };
+  // If load balance enabled, round robin between the HCs - else pass all to HC
+  if ( _swap ) then {
+    if ( _loadBalance ) then {
+      switch (currentHC) do {
+        case 1: { currentHC_ID = _HC1_ID; if (!isNull HC2) then { currentHC = 2; } else { currentHC = 3; }; };
+        case 2: { currentHC_ID = _HC2_ID; if (!isNull HC3) then { currentHC = 3; } else { currentHC = 1; }; };
+        case 3: { currentHC_ID = _HC3_ID; if (!isNull HC1) then { currentHC = 1; } else { currentHC = 2; }; };
+        default { diag_log format["passToHCs: [ERROR] No Valid HC to pass to.  currentHC = %1", currentHC]; };
       };
-
-      // If the transfer was successful, count it for accounting and diagnostic information
-      if ( _rc ) then { _numTransfered = _numTransfered + 1; };
+    } else {
+      switch (currentHC) do {
+        case 1: { currentHC_ID = _HC1_ID; };
+        case 2: { currentHC_ID = _HC2_ID; };
+        case 3: { currentHC_ID = _HC3_ID; };
+        default { diag_log format["passToHCs: [ERROR] No Valid HC to pass to.  currentHC = %1", currentHC]; };
+      };
     };
-  } forEach (allGroups);
-
-  if (_numTransfered > 0) then {
-    // More accounting and diagnostic information
-
-    diag_log format ["passToHCs: Transfered %1 AI groups to HC(s)", _numTransfered];
-
-    _numHC1 = 0;
-    _numHC2 = 0;
-    _numHC3 = 0;
-
-    {
-      switch (owner ((units _x) select 0)) do {
-        case _HC1_ID: { _numHC1 = _numHC1 + 1; };
-        case _HC2_ID: { _numHC2 = _numHC2 + 1; };
-        case _HC3_ID: { _numHC3 = _numHC3 + 1; };
-      };
-    } forEach (allGroups);
-
-    if (_numHC1 > 0) then { diag_log format ["passToHCs: %1 AI groups currently on HC1", _numHC1]; };
-    if (_numHC2 > 0) then { diag_log format ["passToHCs: %1 AI groups currently on HC2", _numHC2]; };
-    if (_numHC3 > 0) then { diag_log format ["passToHCs: %1 AI groups currently on HC3", _numHC3]; };
-
-    diag_log format ["passToHCs: %1 AI groups total across all HC(s)", (_numHC1 + _numHC2 + _numHC3)];
-  } else {
-    diag_log "passToHCs: No rebalance or transfers required this round";
+    publicVariable "currentHC_ID";
+    publicVariable "currentHC";
   };
 
-  // Force clean up dead bodies and destroyed vehicles
-  if (count allDead > cleanUpThreshold) then {
-    _numDeleted = 0;
-    {
-      deleteVehicle _x;
-      _numDeleted = _numDeleted + 1;
-    } forEach allDead;
-
-    diag_log format ["passToHCs: Cleaned up %1 dead bodies/destroyed vehicles", _numDeleted];
-  };
 };
