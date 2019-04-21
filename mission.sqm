@@ -5,25 +5,25 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=521;
+	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=12035;
+		nextID=12072;
 	};
 	class MarkerIDProvider
 	{
-		nextID=3;
+		nextID=4;
 	};
 	class LayerIndexProvider
 	{
-		nextID=717;
+		nextID=752;
 	};
 	class Camera
 	{
-		pos[]={10483.76,372.89865,6445.623};
-		dir[]={-0.76659971,-0.50134999,0.40148017};
-		up[]={-0.44430664,0.86511302,0.2326912};
-		aside[]={0.46399176,-9.1813854e-007,0.88595974};
+		pos[]={10487.425,538.48364,6149.1772};
+		dir[]={0.41082501,-0.38295484,-0.82740009};
+		up[]={0.17031068,0.923765,-0.34300452};
+		aside[]={-0.89567745,1.641456e-008,-0.44472724};
 	};
 };
 binarizationWanted=0;
@@ -125,13 +125,14 @@ addons[]=
 	"alive_civ_placement",
 	"alive_amb_civ_placement",
 	"alive_amb_civ_population",
-	"alive_sup_multispawn"
+	"alive_sup_multispawn",
+	"BaBe_EM"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=53;
+		items=54;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -457,6 +458,11 @@ class AddonsMetaData
 			name="alive_sup_multispawn";
 			author="ALiVE Mod Team";
 		};
+		class Item53
+		{
+			className="BaBe_EM";
+			name="BaBe_EM";
+		};
 	};
 };
 class DynamicSimulation
@@ -518,24 +524,6 @@ class CustomAttributes
 							"ARRAY"
 						};
 					};
-					class value
-					{
-						items=1;
-						class Item0
-						{
-							class data
-							{
-								class type
-								{
-									type[]=
-									{
-										"STRING"
-									};
-								};
-								value="Counter";
-							};
-						};
-					};
 				};
 			};
 		};
@@ -564,7 +552,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=772;
+		items=776;
 		class Item0
 		{
 			dataType="Logic";
@@ -15944,13 +15932,13 @@ class Mission
 			side="Independent";
 			class Entities
 			{
-				items=7;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10720.336,345.42087,5814.708};
+						position[]={10728.267,345.74847,5806.9448};
 						angles[]={0,5.1061354,0};
 					};
 					side="Independent";
@@ -16052,184 +16040,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10732.153,345.47629,5804.48};
-						angles[]={0,5.1061354,0};
+						position[]={10727.188,346.64874,5803.0498};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
+						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
 						name="i1";
 						isPlayable=1;
-						stance="Up";
 					};
-					id=742;
-					type="LOP_AM_Infantry_Rifleman_3";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male02PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.99000001;
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={10724.294,346.54977,5806.3589};
-						angles[]={0,5.1061354,0};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
-						name="i2";
-						isPlayable=1;
-						stance="Up";
-					};
-					id=743;
-					type="LOP_AM_Infantry_Rifleman_3";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.04;
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={10731.768,343.83243,5817.978};
-						angles[]={0,1.4929546,0};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
-						name="i3";
-						isPlayable=1;
-						stance="Up";
-					};
-					id=744;
+					id=12040;
 					type="LOP_AM_Infantry_Rifleman_3";
 					class CustomAttributes
 					{
@@ -16267,14 +16088,36 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1;
+									value=0.97000003;
 								};
 							};
 						};
-						class Attribute2
+						nAttributes=2;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10729.254,346.4274,5802.001};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
+						name="i2";
+						isPlayable=1;
+					};
+					id=12067;
+					type="LOP_AM_Infantry_Rifleman_3";
+					class CustomAttributes
+					{
+						class Attribute0
 						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -16283,14 +16126,93 @@ class Mission
 									{
 										type[]=
 										{
-											"BOOL"
+											"STRING"
 										};
 									};
-									value=0;
+									value="Male01PER";
 								};
 							};
 						};
-						nAttributes=3;
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10732.434,345.77881,5802.293};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
+						name="i3";
+						isPlayable=1;
+					};
+					id=12069;
+					type="LOP_AM_Infantry_Rifleman_3";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
 					};
 				};
 				class Item4
@@ -16298,103 +16220,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10727.084,344.33194,5816.3047};
-						angles[]={0,1.4929546,0};
+						position[]={10733.303,345.25104,5804.3408};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
-						name="i4";
-						isPlayable=1;
-						stance="Up";
-					};
-					id=745;
-					type="LOP_AM_Infantry_Rifleman_3";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.94999999;
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={10728.809,344.92908,5811.2979};
-						angles[]={0,1.4929546,0};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
+						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
 						name="i5";
 						isPlayable=1;
-						stance="Up";
 					};
-					id=746;
+					id=12071;
 					type="LOP_AM_Infantry_Rifleman_3";
+					atlOffset=3.0517578e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16412,7 +16250,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03PER";
+									value="Male01PER";
 								};
 							};
 						};
@@ -16431,112 +16269,11 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.94999999;
+									value=0.97000003;
 								};
 							};
 						};
-						class Attribute2
-						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={10730.524,345.17825,5808.2139};
-						angles[]={0,1.4929546,0};
-					};
-					side="Independent";
-					flags=5;
-					class Attributes
-					{
-						skill=0.58149922;
-						init="call{[this,this] call BIS_fnc_addRespawnPosition;" \n "comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio""; }";
-						name="i6";
-						isPlayable=1;
-						stance="Up";
-					};
-					id=747;
-					type="LOP_AM_Infantry_Rifleman_3";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.94999999;
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=3;
+						nAttributes=2;
 					};
 				};
 			};
@@ -43705,14 +43442,14 @@ class Mission
 			side="Independent";
 			class Entities
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10717.132,338.58911,5846.6338};
-						angles[]={0.19277161,6.2706709,0.073478363};
+						position[]={10715.306,339.16531,5843.7612};
+						angles[]={0.22036141,4.3557773,0.030390549};
 					};
 					side="Independent";
 					flags=6;
@@ -43721,7 +43458,7 @@ class Mission
 					};
 					id=11636;
 					type="LOP_AM_Infantry_Rifleman";
-					atlOffset=-3.0517578e-005;
+					atlOffset=-6.1035156e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -43765,77 +43502,23 @@ class Mission
 						nAttributes=2;
 					};
 				};
-			};
-			class Attributes
-			{
-				garbageCollect=1;
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=11636;
-						item1=11635;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=11634;
-			atlOffset=-0.0028076172;
-		};
-		class Item649
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={10717.084,340.15408,5846.9575};
-				angles[]={0.19277161,6.2706709,0.073478363};
-			};
-			side="Independent";
-			flags=6;
-			class Attributes
-			{
-			};
-			id=11635;
-			type="LOP_AM_Static_DSHKM";
-			atlOffset=-0.0028076172;
-		};
-		class Item650
-		{
-			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=1;
-				class Item0
+				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10742.162,343.47668,5808.7256};
-						angles[]={0.08618436,3.1505985,6.1922359};
+						position[]={10735.807,344.26709,5808.2695};
+						angles[]={0.10521051,4.6369429,6.1401696};
 					};
 					side="Independent";
-					flags=6;
+					flags=4;
 					class Attributes
 					{
 						ignoreByDynSimulGrid=1;
 					};
 					id=11642;
 					type="LOP_AM_Infantry_Rifleman";
-					atlOffset=-3.0517578e-005;
+					atlOffset=-0.0002746582;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -43884,49 +43567,44 @@ class Mission
 			{
 				garbageCollect=1;
 			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=1;
-				};
-				class Links
-				{
-					items=1;
-					class Item0
-					{
-						linkID=0;
-						item0=11642;
-						item1=11641;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=11640;
-			atlOffset=-0.0024414063;
+			id=11634;
+			atlOffset=-6.1035156e-005;
 		};
-		class Item651
+		class Item649
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10742.391,345.06116,5808.8433};
+				position[]={10717.084,340.15408,5846.9575};
+				angles[]={0.19277161,6.2706709,0.073478363};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=11635;
+			type="LOP_AM_Static_DSHKM";
+			atlOffset=-0.0028076172;
+		};
+		class Item650
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10742.391,345.06155,5808.8433};
 				angles[]={0.08618436,3.1505985,6.1922359};
 			};
-			side="Independent";
-			flags=6;
+			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=11641;
 			type="LOP_AM_Static_DSHKM";
-			atlOffset=-0.0024414063;
+			atlOffset=-0.0020446777;
 		};
-		class Item652
+		class Item651
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44042,20 +43720,20 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item653
+		class Item652
 		{
 			dataType="Marker";
 			position[]={10725.985,344.48599,5833.6831};
 			name="no_civ_7";
 			markerType="RECTANGLE";
 			type="rectangle";
-			a=200;
-			b=200;
-			angle=313.29785;
+			a=350;
+			b=350;
+			angle=0.64899987;
 			id=11647;
 			atlOffset=2.7041016;
 		};
-		class Item654
+		class Item653
 		{
 			dataType="Marker";
 			position[]={9194.9619,449.604,4719.3149};
@@ -44068,7 +43746,7 @@ class Mission
 			id=11648;
 			atlOffset=3.2234802;
 		};
-		class Item655
+		class Item654
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44086,7 +43764,7 @@ class Mission
 			type="Land_fortified_nest_small_EP1";
 			atlOffset=0.00015258789;
 		};
-		class Item656
+		class Item655
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44127,7 +43805,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item657
+		class Item656
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44145,7 +43823,7 @@ class Mission
 			type="Vysilacka";
 			atlOffset=0.70187378;
 		};
-		class Item658
+		class Item657
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44163,7 +43841,7 @@ class Mission
 			type="Land_Market_shelter_EP1";
 			atlOffset=9.1552734e-005;
 		};
-		class Item659
+		class Item658
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44180,7 +43858,7 @@ class Mission
 			type="Land_WoodenShelter_01_F";
 			atlOffset=0.00018310547;
 		};
-		class Item660
+		class Item659
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44220,7 +43898,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item661
+		class Item660
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44621,7 +44299,7 @@ class Mission
 				nAttributes=20;
 			};
 		};
-		class Item662
+		class Item661
 		{
 			dataType="Object";
 			class PositionInfo
@@ -44983,7 +44661,7 @@ class Mission
 				nAttributes=18;
 			};
 		};
-		class Item663
+		class Item662
 		{
 			dataType="Object";
 			class PositionInfo
@@ -45000,7 +44678,7 @@ class Mission
 			id=11672;
 			type="LOP_TKA_Ural_open";
 		};
-		class Item664
+		class Item663
 		{
 			dataType="Object";
 			class PositionInfo
@@ -45116,7 +44794,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item665
+		class Item664
 		{
 			dataType="Object";
 			class PositionInfo
@@ -45133,7 +44811,7 @@ class Mission
 			id=11674;
 			type="LOP_TKA_T55";
 		};
-		class Item666
+		class Item665
 		{
 			dataType="Object";
 			class PositionInfo
@@ -45781,7 +45459,7 @@ class Mission
 				nAttributes=33;
 			};
 		};
-		class Item667
+		class Item666
 		{
 			dataType="Object";
 			class PositionInfo
@@ -45896,7 +45574,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item668
+		class Item667
 		{
 			dataType="Object";
 			class PositionInfo
@@ -46011,7 +45689,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item669
+		class Item668
 		{
 			dataType="Object";
 			class PositionInfo
@@ -46128,7 +45806,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item670
+		class Item669
 		{
 			dataType="Group";
 			side="East";
@@ -46182,7 +45860,7 @@ class Mission
 			id=11679;
 			atlOffset=-0.067993164;
 		};
-		class Item671
+		class Item670
 		{
 			dataType="Group";
 			side="East";
@@ -46254,7 +45932,7 @@ class Mission
 			};
 			id=11681;
 		};
-		class Item672
+		class Item671
 		{
 			dataType="Group";
 			side="East";
@@ -46316,7 +45994,7 @@ class Mission
 			};
 			id=11691;
 		};
-		class Item673
+		class Item672
 		{
 			dataType="Group";
 			side="East";
@@ -46429,7 +46107,7 @@ class Mission
 			};
 			id=11695;
 		};
-		class Item674
+		class Item673
 		{
 			dataType="Group";
 			side="East";
@@ -46503,7 +46181,7 @@ class Mission
 			};
 			id=11701;
 		};
-		class Item675
+		class Item674
 		{
 			dataType="Group";
 			side="East";
@@ -46565,7 +46243,7 @@ class Mission
 			id=11706;
 			atlOffset=4.394989;
 		};
-		class Item676
+		class Item675
 		{
 			dataType="Group";
 			side="East";
@@ -46640,7 +46318,7 @@ class Mission
 			};
 			id=11710;
 		};
-		class Item677
+		class Item676
 		{
 			dataType="Object";
 			class PositionInfo
@@ -46756,7 +46434,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item678
+		class Item677
 		{
 			dataType="Object";
 			class PositionInfo
@@ -46872,7 +46550,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item679
+		class Item678
 		{
 			dataType="Object";
 			class PositionInfo
@@ -46988,7 +46666,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item680
+		class Item679
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47103,7 +46781,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item681
+		class Item680
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47219,7 +46897,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item682
+		class Item681
 		{
 			dataType="Group";
 			side="East";
@@ -47359,7 +47037,7 @@ class Mission
 			};
 			id=11720;
 		};
-		class Item683
+		class Item682
 		{
 			dataType="Group";
 			side="East";
@@ -47413,7 +47091,7 @@ class Mission
 			id=11724;
 			atlOffset=-0.014007568;
 		};
-		class Item684
+		class Item683
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47473,7 +47151,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item685
+		class Item684
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47533,7 +47211,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item686
+		class Item685
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47573,7 +47251,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item687
+		class Item686
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47613,7 +47291,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item688
+		class Item687
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47653,7 +47331,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item689
+		class Item688
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47693,7 +47371,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item690
+		class Item689
 		{
 			dataType="Object";
 			class PositionInfo
@@ -47733,7 +47411,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item691
+		class Item690
 		{
 			dataType="Marker";
 			position[]={5999.2578,106.89907,9010.6289};
@@ -47746,7 +47424,7 @@ class Mission
 			id=11739;
 			atlOffset=4.5776367e-005;
 		};
-		class Item692
+		class Item691
 		{
 			dataType="Marker";
 			position[]={5964.75,105.76229,9007.3379};
@@ -47759,7 +47437,7 @@ class Mission
 			id=11740;
 			atlOffset=5.3405762e-005;
 		};
-		class Item693
+		class Item692
 		{
 			dataType="Marker";
 			position[]={5930.1226,104.62179,9003.5693};
@@ -47772,7 +47450,7 @@ class Mission
 			id=11741;
 			atlOffset=6.1035156e-005;
 		};
-		class Item694
+		class Item693
 		{
 			dataType="Marker";
 			position[]={5896.3345,103.08443,8993.3184};
@@ -47785,7 +47463,7 @@ class Mission
 			id=11742;
 			atlOffset=5.3405762e-005;
 		};
-		class Item695
+		class Item694
 		{
 			dataType="Marker";
 			position[]={5865.1104,100.84206,8985.4053};
@@ -47798,7 +47476,7 @@ class Mission
 			id=11743;
 			atlOffset=4.5776367e-005;
 		};
-		class Item696
+		class Item695
 		{
 			dataType="Marker";
 			position[]={5832.9238,98.6661,8976.833};
@@ -47811,7 +47489,7 @@ class Mission
 			id=11744;
 			atlOffset=5.3405762e-005;
 		};
-		class Item697
+		class Item696
 		{
 			dataType="Marker";
 			position[]={5798.8496,94.560326,8969.9512};
@@ -47824,7 +47502,7 @@ class Mission
 			id=11745;
 			atlOffset=6.1035156e-005;
 		};
-		class Item698
+		class Item697
 		{
 			dataType="Marker";
 			position[]={5768.8872,89.506851,8963.5186};
@@ -47837,7 +47515,7 @@ class Mission
 			id=11746;
 			atlOffset=5.3405762e-005;
 		};
-		class Item699
+		class Item698
 		{
 			dataType="Marker";
 			position[]={5741.353,86.047791,8956.5693};
@@ -47850,7 +47528,7 @@ class Mission
 			id=11747;
 			atlOffset=5.3405762e-005;
 		};
-		class Item700
+		class Item699
 		{
 			dataType="Marker";
 			position[]={9125.8379,203.28397,6756.8921};
@@ -47863,7 +47541,7 @@ class Mission
 			id=11748;
 			atlOffset=4.5776367e-005;
 		};
-		class Item701
+		class Item700
 		{
 			dataType="Marker";
 			position[]={8442.8945,457.81348,3804.353};
@@ -47876,7 +47554,7 @@ class Mission
 			id=11749;
 			atlOffset=-0.42480469;
 		};
-		class Item702
+		class Item701
 		{
 			dataType="Marker";
 			position[]={7534.1069,288.29199,1899.1959};
@@ -47889,7 +47567,7 @@ class Mission
 			id=11750;
 			atlOffset=-0.027709961;
 		};
-		class Item703
+		class Item702
 		{
 			dataType="Marker";
 			position[]={8197.7441,297.08105,2240.8936};
@@ -47902,7 +47580,7 @@ class Mission
 			id=11751;
 			atlOffset=-0.10198975;
 		};
-		class Item704
+		class Item703
 		{
 			dataType="Marker";
 			position[]={8528.6475,302.00772,1977.8745};
@@ -47915,7 +47593,7 @@ class Mission
 			id=11752;
 			atlOffset=-3.0517578e-005;
 		};
-		class Item705
+		class Item704
 		{
 			dataType="Marker";
 			position[]={8232.0391,296.04007,2010.9961};
@@ -47927,7 +47605,7 @@ class Mission
 			id=11753;
 			atlOffset=6.1035156e-005;
 		};
-		class Item706
+		class Item705
 		{
 			dataType="Marker";
 			position[]={10425.478,257.45532,6434.8584};
@@ -47939,7 +47617,7 @@ class Mission
 			id=11754;
 			atlOffset=3.0517578e-005;
 		};
-		class Item707
+		class Item706
 		{
 			dataType="Marker";
 			position[]={9446.6523,607.7959,3905.4639};
@@ -47950,7 +47628,7 @@ class Mission
 			b=50;
 			id=11755;
 		};
-		class Item708
+		class Item707
 		{
 			dataType="Marker";
 			position[]={10948.43,758.36609,3588.5042};
@@ -47962,7 +47640,7 @@ class Mission
 			id=11756;
 			atlOffset=-0.00012207031;
 		};
-		class Item709
+		class Item708
 		{
 			dataType="Marker";
 			position[]={7395.6445,562.44531,3917.1301};
@@ -47974,7 +47652,7 @@ class Mission
 			id=11757;
 			atlOffset=-0.079345703;
 		};
-		class Item710
+		class Item709
 		{
 			dataType="Marker";
 			position[]={9209.8125,449.61053,4719.0029};
@@ -47987,7 +47665,7 @@ class Mission
 			id=11758;
 			atlOffset=6.1035156e-005;
 		};
-		class Item711
+		class Item710
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48004,7 +47682,7 @@ class Mission
 			id=11759;
 			type="Land_fortified_nest_small_EP1";
 		};
-		class Item712
+		class Item711
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48023,7 +47701,7 @@ class Mission
 			id=11770;
 			type="Vysilacka";
 		};
-		class Item713
+		class Item712
 		{
 			dataType="Trigger";
 			position[]={9170.4717,445.27859,4693.5562};
@@ -48043,7 +47721,7 @@ class Mission
 			type="EmptyDetectorAreaR250";
 			atlOffset=3.0517578e-005;
 		};
-		class Item714
+		class Item713
 		{
 			dataType="Trigger";
 			position[]={9170.3242,445.0881,4694.7524};
@@ -48062,7 +47740,7 @@ class Mission
 			type="EmptyDetectorAreaR250";
 			atlOffset=3.0517578e-005;
 		};
-		class Item715
+		class Item714
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48103,7 +47781,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item716
+		class Item715
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48121,7 +47799,7 @@ class Mission
 			type="Fort_StoneWall_EP1";
 			atlOffset=3.0517578e-005;
 		};
-		class Item717
+		class Item716
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48138,7 +47816,7 @@ class Mission
 			id=11774;
 			type="Fort_StoneWall_EP1";
 		};
-		class Item718
+		class Item717
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48156,7 +47834,7 @@ class Mission
 			type="Fort_StoneWall_EP1";
 			atlOffset=-6.1035156e-005;
 		};
-		class Item719
+		class Item718
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48174,7 +47852,7 @@ class Mission
 			type="Land_fortified_nest_small_EP1";
 			atlOffset=0.00018310547;
 		};
-		class Item720
+		class Item719
 		{
 			dataType="Marker";
 			position[]={8591.0693,485.88702,4242.3735};
@@ -48187,7 +47865,7 @@ class Mission
 			id=11777;
 			atlOffset=-25.505768;
 		};
-		class Item721
+		class Item720
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48227,7 +47905,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item722
+		class Item721
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -48394,7 +48072,7 @@ class Mission
 				nAttributes=8;
 			};
 		};
-		class Item723
+		class Item722
 		{
 			dataType="Trigger";
 			position[]={8422.252,297.16699,2111.0825};
@@ -48409,7 +48087,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=-0.00061035156;
 		};
-		class Item724
+		class Item723
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48428,7 +48106,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=-0.00024414063;
 		};
-		class Item725
+		class Item724
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48447,7 +48125,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=-0.00012207031;
 		};
-		class Item726
+		class Item725
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48466,7 +48144,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=6.1035156e-005;
 		};
-		class Item727
+		class Item726
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48485,7 +48163,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=6.1035156e-005;
 		};
-		class Item728
+		class Item727
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48504,7 +48182,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=-0.00012207031;
 		};
-		class Item729
+		class Item728
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48522,7 +48200,7 @@ class Mission
 			type="Soviet_Ammmo_70s_80s";
 			atlOffset=-0.00012207031;
 		};
-		class Item730
+		class Item729
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48540,7 +48218,7 @@ class Mission
 			type="Soviet_Basic_Weapons_70s_80s";
 			atlOffset=6.1035156e-005;
 		};
-		class Item731
+		class Item730
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48559,7 +48237,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=-0.00018310547;
 		};
-		class Item732
+		class Item731
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48577,7 +48255,7 @@ class Mission
 			type="Soviet_Ammmo_70s_80s";
 			atlOffset=-0.00012207031;
 		};
-		class Item733
+		class Item732
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48595,7 +48273,7 @@ class Mission
 			type="Soviet_Basic_Weapons_70s_80s";
 			atlOffset=-0.0024414063;
 		};
-		class Item734
+		class Item733
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48614,7 +48292,7 @@ class Mission
 			type="Land_WoodenBox_F";
 			atlOffset=-0.00042724609;
 		};
-		class Item735
+		class Item734
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48632,7 +48310,7 @@ class Mission
 			id=11805;
 			type="Land_WoodenBox_F";
 		};
-		class Item736
+		class Item735
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48650,7 +48328,7 @@ class Mission
 			id=11806;
 			type="Land_WoodenBox_F";
 		};
-		class Item737
+		class Item736
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48668,7 +48346,7 @@ class Mission
 			type="Soviet_Ammmo_70s_80s";
 			atlOffset=-0.0043945313;
 		};
-		class Item738
+		class Item737
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48686,7 +48364,7 @@ class Mission
 			type="Soviet_Basic_Weapons_70s_80s";
 			atlOffset=0.00012207031;
 		};
-		class Item739
+		class Item738
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48704,7 +48382,7 @@ class Mission
 			type="OKSVA_2B14";
 			atlOffset=0.00085449219;
 		};
-		class Item740
+		class Item739
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48722,7 +48400,7 @@ class Mission
 			type="LOP_TKA_Ural_open";
 			atlOffset=-0.0008392334;
 		};
-		class Item741
+		class Item740
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48740,7 +48418,7 @@ class Mission
 			type="LOP_TKA_Ural_open";
 			atlOffset=-3.0517578e-005;
 		};
-		class Item742
+		class Item741
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48857,7 +48535,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item743
+		class Item742
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48875,7 +48553,7 @@ class Mission
 			type="LOP_TKA_Ural_open";
 			atlOffset=-0.0014343262;
 		};
-		class Item744
+		class Item743
 		{
 			dataType="Object";
 			class PositionInfo
@@ -48893,7 +48571,7 @@ class Mission
 			type="LOP_TKA_Ural_open";
 			atlOffset=-0.00021362305;
 		};
-		class Item745
+		class Item744
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49009,7 +48687,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item746
+		class Item745
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49125,7 +48803,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item747
+		class Item746
 		{
 			dataType="Group";
 			side="East";
@@ -49288,7 +48966,7 @@ class Mission
 			id=11830;
 			atlOffset=6.1035156e-005;
 		};
-		class Item748
+		class Item747
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49305,7 +48983,7 @@ class Mission
 			type="rhsgref_ins_DSHKM";
 			atlOffset=-0.00018310547;
 		};
-		class Item749
+		class Item748
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49322,7 +49000,7 @@ class Mission
 			id=11855;
 			type="lop_Flag_tak_F";
 		};
-		class Item750
+		class Item749
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49439,7 +49117,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item751
+		class Item750
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49457,7 +49135,7 @@ class Mission
 			type="Soviet_Basic_Weapons_50s_60s";
 			atlOffset=-9.1552734e-005;
 		};
-		class Item752
+		class Item751
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49475,7 +49153,7 @@ class Mission
 			type="Soviet_Ammmo_50s_60s";
 			atlOffset=-6.1035156e-005;
 		};
-		class Item753
+		class Item752
 		{
 			dataType="Group";
 			side="Civilian";
@@ -49611,7 +49289,7 @@ class Mission
 			id=11900;
 			atlOffset=0.00012207031;
 		};
-		class Item754
+		class Item753
 		{
 			dataType="Group";
 			side="East";
@@ -49685,7 +49363,7 @@ class Mission
 			id=11931;
 			atlOffset=0.023010254;
 		};
-		class Item755
+		class Item754
 		{
 			dataType="Group";
 			side="East";
@@ -49750,7 +49428,7 @@ class Mission
 			};
 			id=11933;
 		};
-		class Item756
+		class Item755
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49767,7 +49445,7 @@ class Mission
 			id=12005;
 			type="Soviet_Launchers_50s_60s";
 		};
-		class Item757
+		class Item756
 		{
 			dataType="Object";
 			class PositionInfo
@@ -49784,7 +49462,7 @@ class Mission
 			id=12006;
 			type="Soviet_Explosives";
 		};
-		class Item758
+		class Item757
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -50007,7 +49685,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item759
+		class Item758
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -50383,7 +50061,7 @@ class Mission
 				nAttributes=19;
 			};
 		};
-		class Item760
+		class Item759
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -50625,7 +50303,7 @@ class Mission
 				nAttributes=12;
 			};
 		};
-		class Item761
+		class Item760
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -50906,7 +50584,7 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item762
+		class Item761
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -51338,7 +51016,7 @@ class Mission
 				nAttributes=22;
 			};
 		};
-		class Item763
+		class Item762
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -51694,7 +51372,7 @@ class Mission
 				nAttributes=18;
 			};
 		};
-		class Item764
+		class Item763
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -51917,7 +51595,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item765
+		class Item764
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52140,7 +51818,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item766
+		class Item765
 		{
 			dataType="Marker";
 			position[]={7523.0249,425.164,6000.8921};
@@ -52153,7 +51831,7 @@ class Mission
 			id=12017;
 			atlOffset=0.00021362305;
 		};
-		class Item767
+		class Item766
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52528,18 +52206,18 @@ class Mission
 				nAttributes=19;
 			};
 		};
-		class Item768
+		class Item767
 		{
 			dataType="Marker";
 			position[]={10725.744,342.302,5830.2031};
-			name="terrorist_camp";
+			name="ALIVE_SUP_MULTISPAWN_DESTINATION_SOVIETARMY_OKSVA";
 			text="Mujahideen Camp";
 			type="mil_flag";
 			colorName="ColorGreen";
 			id=12028;
 			atlOffset=-9.1552734e-005;
 		};
-		class Item769
+		class Item768
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52726,7 +52404,7 @@ class Mission
 				nAttributes=9;
 			};
 		};
-		class Item770
+		class Item769
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52912,17 +52590,16 @@ class Mission
 				nAttributes=9;
 			};
 		};
-		class Item771
+		class Item770
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={7145.3901,83.316406,11476.486};
-				angles[]={6.1985884,0,0.22796766};
+				position[]={10723.867,349.59973,5793.8301};
+				angles[]={0.27003735,0,6.0476356};
 			};
-			id=12034;
+			id=12039;
 			type="ALiVE_sup_multispawn";
-			atlOffset=-0.00017547607;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -52959,7 +52636,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="60";
+							value="20";
 						};
 					};
 				};
@@ -53023,16 +52700,295 @@ class Mission
 				nAttributes=5;
 			};
 		};
+		class Item771
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10742.388,343.42963,5808.9658};
+				angles[]={0.086187214,0,6.1922359};
+			};
+			side="Empty";
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=12041;
+			type="babe_helper";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item772
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10716.596,338.43573,5847.1606};
+				angles[]={0.086187214,0,6.1922359};
+			};
+			side="Empty";
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=12042;
+			type="babe_helper";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item773
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9809.7236,356.84506,6525.7866};
+						angles[]={0,2.0091705,0};
+					};
+					side="East";
+					flags=2;
+					class Attributes
+					{
+					};
+					id=12056;
+					type="LOP_TKA_Infantry_Pilot";
+					atlOffset=112.70399;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9809.7236,356.84506,6525.7866};
+						angles[]={0,2.0091705,0};
+					};
+					side="East";
+					class Attributes
+					{
+					};
+					id=12057;
+					type="LOP_TKA_Infantry_Pilot";
+					atlOffset=112.70399;
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					position[]={11434.341,545.62775,5261.3745};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=12052;
+					type="Move";
+					atlOffset=6.1035156e-005;
+				};
+				class Item3
+				{
+					dataType="Waypoint";
+					position[]={9825.1885,389.42203,2768.4128};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=12053;
+					type="Move";
+					atlOffset=-9.1552734e-005;
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					position[]={8421.7832,308.61884,1732.5798};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=12054;
+					type="Move";
+					atlOffset=6.1035156e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=12056;
+						item1=12055;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=12057;
+						item1=12055;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=12044;
+			atlOffset=112.70399;
+		};
+		class Item774
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9809.5283,359.60492,6524.0669};
+				angles[]={0,2.0091705,0};
+			};
+			side="East";
+			flags=2;
+			class Attributes
+			{
+			};
+			id=12055;
+			type="LOP_TKA_Mi8MT_Cargo";
+			atlOffset=112.70399;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="rhs_decalNumber_type";
+					expression="if(_value != 'NoChange')then{ _this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cRHSAIRMI8NumberPlaces, _value]]] call rhs_fnc_decalsInit}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="NoChange";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item775
+		{
+			dataType="Marker";
+			position[]={5995.8428,83.040001,11535.249};
+			name="ALIVE_SUP_MULTISPAWN_INSERTION_SOVIETARMY_OKSVA";
+			type="o_hq";
+			id=12058;
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=25;
+			nextID=47;
 		};
 		class Links
 		{
-			items=25;
+			items=47;
 			class Item0
 			{
 				linkID=0;
@@ -53278,6 +53234,226 @@ class Mission
 				linkID=24;
 				item0=12032;
 				item1=12033;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item25
+			{
+				linkID=25;
+				item0=12041;
+				item1=11641;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item26
+			{
+				linkID=26;
+				item0=12042;
+				item1=11635;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item27
+			{
+				linkID=27;
+				item0=11641;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item28
+			{
+				linkID=28;
+				item0=11635;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item29
+			{
+				linkID=29;
+				item0=11560;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item30
+			{
+				linkID=30;
+				item0=11563;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item31
+			{
+				linkID=31;
+				item0=761;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item32
+			{
+				linkID=32;
+				item0=763;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item33
+			{
+				linkID=33;
+				item0=762;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item34
+			{
+				linkID=34;
+				item0=760;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item35
+			{
+				linkID=35;
+				item0=11636;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item36
+			{
+				linkID=36;
+				item0=11642;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item37
+			{
+				linkID=37;
+				item0=12040;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item38
+			{
+				linkID=38;
+				item0=741;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item39
+			{
+				linkID=39;
+				item0=3534;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item40
+			{
+				linkID=40;
+				item0=3546;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item41
+			{
+				linkID=41;
+				item0=3543;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item42
+			{
+				linkID=42;
+				item0=3549;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item43
+			{
+				linkID=43;
+				item0=3501;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item44
+			{
+				linkID=44;
+				item0=4474;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item45
+			{
+				linkID=45;
+				item0=4475;
+				item1=12009;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item46
+			{
+				linkID=46;
+				item0=12055;
+				item1=12009;
 				class CustomData
 				{
 					type="Sync";
