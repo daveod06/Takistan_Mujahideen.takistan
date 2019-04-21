@@ -166,7 +166,7 @@ _hide_area_marker = true;
 _on_unit_creating = {true};
 _on_unit_created = {};
 _on_unit_removing = {};
-[_faction,_side,_vehicles_count,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_min_skill,_max_skill,_area_marker,_hide_area_marker,_on_unit_creating,_on_unit_created,_on_unit_removing] spawn DJOTraffic_fnc_TrafficMaster;
+//[_faction,_side,_vehicles_count,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_min_skill,_max_skill,_area_marker,_hide_area_marker,_on_unit_creating,_on_unit_created,_on_unit_removing] spawn DJOTraffic_fnc_TrafficMaster;
 
 
 
