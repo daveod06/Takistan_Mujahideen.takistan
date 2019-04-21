@@ -21,6 +21,11 @@ if (!hasInterface && !isDedicated) then {
     publicVariable "headlessClientsOwners";
 };
 
+if (isServer) then
+{
+    [] call ToothFunctions_fnc_passToHCs;
+};
+
 //call compile preprocessFileLineNumbers "config.sqf"; // FIXME
 
 //enableSaving [true, true];
@@ -36,7 +41,6 @@ ToggleSafe = false;
 publicVariable "ToggleAmbush";
 publicVariable "ToggleSafe";
 
-/*
 // --------------------------------------  START UP EOS
 VictoryColor="colorGreen";	// Colour of marker after completion
 hostileColor="colorRed";	// Default colour when enemies active
@@ -288,7 +292,7 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
 //];
 //[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
-*/
+
 
 {
 	_x setMarkerAlpha 0.0;
