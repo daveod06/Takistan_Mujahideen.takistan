@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=752;
+		nextID=822;
 	};
 	class Camera
 	{
-		pos[]={10487.425,538.48364,6149.1772};
-		dir[]={0.41082501,-0.38295484,-0.82740009};
-		up[]={0.17031068,0.923765,-0.34300452};
-		aside[]={-0.89567745,1.641456e-008,-0.44472724};
+		pos[]={8229.7764,644.50757,2076.9082};
+		dir[]={0.32278669,-0.40487495,0.85555655};
+		up[]={0.1429216,0.91436815,0.37881842};
+		aside[]={0.9356637,-2.1810411e-007,-0.35301077};
 	};
 };
 binarizationWanted=0;
@@ -125,14 +125,13 @@ addons[]=
 	"alive_civ_placement",
 	"alive_amb_civ_placement",
 	"alive_amb_civ_population",
-	"alive_sup_multispawn",
 	"BaBe_EM"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=54;
+		items=53;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -454,12 +453,6 @@ class AddonsMetaData
 		};
 		class Item52
 		{
-			className="ALiVE_sup_multispawn";
-			name="alive_sup_multispawn";
-			author="ALiVE Mod Team";
-		};
-		class Item53
-		{
 			className="BaBe_EM";
 			name="BaBe_EM";
 		};
@@ -479,7 +472,6 @@ randomSeed=5461940;
 class ScenarioData
 {
 	author="SaberSnack";
-	respawn=3;
 	wreckRemovalMaxTime=2402.897;
 	corpseLimit=25;
 	corpseRemovalMaxTime=740.51099;
@@ -492,7 +484,7 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveMode";
+			property="ReviveBleedOutDelay";
 			expression="false";
 			class Value
 			{
@@ -505,7 +497,7 @@ class CustomAttributes
 							"SCALAR"
 						};
 					};
-					value=1;
+					value=300;
 				};
 			};
 		};
@@ -524,10 +516,47 @@ class CustomAttributes
 							"ARRAY"
 						};
 					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="EndMission";
+							};
+						};
+					};
 				};
 			};
 		};
-		nAttributes=2;
+		class Attribute2
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
 	};
 };
 class Mission
@@ -552,7 +581,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=776;
+		items=775;
 		class Item0
 		{
 			dataType="Logic";
@@ -52592,116 +52621,6 @@ class Mission
 		};
 		class Item770
 		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={10723.867,349.59973,5793.8301};
-				angles[]={0.27003735,0,6.0476356};
-			};
-			id=12039;
-			type="ALiVE_sup_multispawn";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ALiVE_sup_multispawn_spawntype";
-					expression="_this setVariable ['spawntype',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="forwardspawn";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ALiVE_sup_multispawn_timeout";
-					expression="_this setVariable ['timeout',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="20";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ALiVE_sup_multispawn_spawningnearenemiesallowed";
-					expression="_this setVariable ['spawningnearenemiesallowed',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="true";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ALiVE_sup_multispawn_respawnWithGear";
-					expression="_this setVariable ['respawnWithGear',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="true";
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="ALiVE_sup_multispawn_debug";
-					expression="_this setVariable ['debug',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="false";
-						};
-					};
-				};
-				nAttributes=5;
-			};
-		};
-		class Item771
-		{
 			dataType="Object";
 			class PositionInfo
 			{
@@ -52758,7 +52677,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item772
+		class Item771
 		{
 			dataType="Object";
 			class PositionInfo
@@ -52816,7 +52735,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item773
+		class Item772
 		{
 			dataType="Group";
 			side="East";
@@ -52931,7 +52850,7 @@ class Mission
 			id=12044;
 			atlOffset=112.70399;
 		};
-		class Item774
+		class Item773
 		{
 			dataType="Object";
 			class PositionInfo
@@ -52971,7 +52890,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item775
+		class Item774
 		{
 			dataType="Marker";
 			position[]={5995.8428,83.040001,11535.249};
