@@ -21,10 +21,12 @@ if (!hasInterface && !isDedicated) then {
     publicVariable "headlessClientsOwners";
 };
 
+/*
 if (isServer) then
 {
     [] call ToothFunctions_fnc_passToHCs;
 };
+*/
 
 //call compile preprocessFileLineNumbers "config.sqf"; // FIXME
 
@@ -259,7 +261,7 @@ _speed_str = "FULL";
 _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
-//[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
+[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
 
 
 
