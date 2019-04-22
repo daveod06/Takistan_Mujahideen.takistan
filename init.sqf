@@ -62,7 +62,7 @@ _lightVehicles = [2,1,75];
 _armoredVehicles = [1,50];
 _staticWeapons = [2,50];
 _helicopters = [0,0];
-_faction = 12;
+_faction = 12; // TKA
 _markertype = 1;
 _distance = 1000;
 _side = east;
@@ -80,7 +80,7 @@ _lightVehicles = [2,1,75];
 _armoredVehicles = [1,50];
 _staticWeapons = [1,50];
 _helicopters = [0,0];
-_faction = 12;
+_faction = 12; // TKA
 _markertype = 1;
 _distance = 800;
 _side = east;
@@ -98,7 +98,7 @@ _lightVehicles = [0,0,0];
 _armoredVehicles = [0,0];
 _staticWeapons = [0,0];
 _helicopters = [0,0];
-_faction = 7;
+_faction = 7; // OKSVA
 _markertype = 2;
 _distance = 800;
 _side = east;
@@ -116,7 +116,7 @@ _lightVehicles = [0,0,0];
 _armoredVehicles = [0,0];
 _staticWeapons = [2,100];
 _helicopters = [0,0];
-_faction = 8;
+_faction = 8; // MIDDLE EASTERN MILITIA
 _markertype = 1;
 _distance = 1000;
 _side = independent;
@@ -261,7 +261,7 @@ _speed_str = "FULL";
 _behavior = "CARELESS";
 _numConvoys = 5;
 _waitTime = 60*20;
-[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
+//[_convoy_route,_convoy_spawn_points,_convoy_side,_enemy_side,_pos_name_prefix,_convoy_type,_speed_kph,_threat_radius_m,_speed_str,_behavior,_numConvoys,_waitTime] call DJOAiConvoys_fnc_ConvoyMaster;
 
 
 
