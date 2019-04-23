@@ -22,7 +22,7 @@ diag_log format["Tooth DEBUG: initPlayerLocal run for %1", name _player];
 //AT_Revive_Camera = 1;
 
 //[] call ATR_FNC_ReviveInit;
-_player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
+//_player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
 
 //BIS
 //_player unassignItem "ItemMap";

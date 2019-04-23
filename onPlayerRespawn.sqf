@@ -23,7 +23,7 @@ _player enableStamina false;
 //AT_Revive_Camera = 1;
 
 //[] call ATR_FNC_ReviveInit;
-_player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
+//_player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
 
 //_player setUnitLoadout [(_player getVariable ["respawnLoadout", []]), true]; 
 //
