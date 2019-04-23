@@ -55,7 +55,7 @@ EOS_FLARE_ATTACK_SIGNAL=false; // shoot flare to signal beginning of wave
 EOS_TASK_INDEX=0; // set index for EOS tasks
 BAS_TASK_INDEX=0; // set index for BAS tasks
 
-_eosZones = ["EOSzone_1"];
+_eosZones = ["south_base"];
 _houseGroups = [4,2,100];
 _patrolGroups = [5,2,75];
 _lightVehicles = [2,1,75];
@@ -73,7 +73,7 @@ _createTask = false;
 _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
 [_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
 
-_eosZones = ["EOSzone_2"];
+_eosZones = ["garmsar_base"];
 _houseGroups = [2,2,100];
 _patrolGroups = [2,3,75];
 _lightVehicles = [2,1,75];
@@ -91,7 +91,7 @@ _createTask = false;
 _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
 [_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
 
-_eosZones = ["EOSzone_3","EOSzone_4","EOSzone_5"];
+_eosZones = ["spetsnaz_camp_0","spetsnaz_camp_1","spetsnaz_camp_2"];
 _houseGroups = [1,1,80];
 _patrolGroups = [3,2,75];
 _lightVehicles = [0,0,0];
@@ -109,9 +109,9 @@ _createTask = false;
 _settings = [_faction,_markertype,_distance,_side,_heightlimit,_debug,_cache,_createTask];
 [_eosZones,_houseGroups,_patrolGroups,_lightVehicles,_armoredVehicles,_staticWeapons,_helicopters,_settings] spawn EOS_fnc_EOSMaster;
 
-_eosZones = ["EOSzone_6"];
+_eosZones = ["naran_darre_pass_south","naran_darre_pass_north"];
 _houseGroups = [1,1,100];
-_patrolGroups = [4,1,100];
+_patrolGroups = [1,2,100];
 _lightVehicles = [0,0,0];
 _armoredVehicles = [0,0];
 _staticWeapons = [2,100];
@@ -142,12 +142,12 @@ _unitsPerBuilding = 0.1;
 _max_groups_count = 50;
 _min_spawn_distance = 50;
 _max_spawn_distance = 500;
-_blacklist_markers = ["no_civ_0","no_civ_1","no_civ_2","no_civ_3","no_civ_4","no_civ_5","no_civ_6","no_civ_7","no_civ_8","no_civ_9","EOSzone_1","EOSzone_2","EOSzone_3","EOSzone_4","EOSzone_5","EOSzone_6"];
+_blacklist_markers = ["naran_darre_pass_south","naran_darre_pass_north","mujahideen_camp","north_base","spetsnaz_camp_0","spetsnaz_camp_1","spetsnaz_camp_2","south_base","garmsar_base","feruz_abad_base","jilavur_base"];
 _hide_blacklist_markers = true;
 _on_unit_spawned_callback = {};
 _on_unit_remove_callback = {true};
 _debug = false;
-//[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] call DJOCivilians_fnc_CiviliansMaster;
+[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] call DJOCivilians_fnc_CiviliansMaster;
 
 
 
@@ -293,10 +293,31 @@ RydFFE_Add_Other = []; // here you can list classnames of other custom artillery
 //[["gun_classname_1","gun_classname_2"],["ammo_classname_1","ammo_classname_2"]],
 //[["gun_classname_3"],["ammo_classname_3","ammo_classname_4"]]
 //];
-//[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
+[] spawn DJOAiArtillery_fnc_FFE_ArtilleryMaster;
 
 
 {
 	_x setMarkerAlpha 0.0;
 }
-forEach ["no_civ_0","no_civ_1","no_civ_2","no_civ_3","no_civ_4","no_civ_5","no_civ_6","no_civ_7","no_civ_8","no_civ_9","EOSzone_1","EOSzone_2","EOSzone_3","EOSzone_4","EOSzone_5","EOSzone_6"];
+forEach ["naran_darre_pass_south","naran_darre_pass_north","mujahideen_camp","north_base","spetsnaz_camp_0","spetsnaz_camp_1","spetsnaz_camp_2","south_base","garmsar_base","feruz_abad_base","jilavur_base"];
+
+
+
+
+
+
+
+
+// NO SOVIETS
+// naran_darre_pass_south,naran_darre_pass_north,mujahideen_camp,south_base,garmsar_base,feruz_abad_base,jilavur_base
+
+
+
+
+// no TKA
+// naran_darre_pass_south,naran_darre_pass_north,mujahideen_camp,north_base,spetsnaz_camp_0,spetsnaz_camp_1,spetsnaz_camp_2
+
+
+
+// no civs
+// "naran_darre_pass_south","naran_darre_pass_north","mujahideen_camp","north_base","spetsnaz_camp_0","spetsnaz_camp_1","spetsnaz_camp_2","south_base","garmsar_base","feruz_abad_base","jilavur_base"

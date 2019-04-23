@@ -29,9 +29,9 @@ EscapeVersion = VERSION;
 EscapeRelease = RELEASE;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-respawn=3;
-reviveRequiredTrait = 0;
-reviveRequiredItems = 0;
+//respawn=3;
+//reviveRequiredTrait = 0;
+//reviveRequiredItems = 0;
 
 disabledAI = 0;
 enableDebugConsole = 1;
