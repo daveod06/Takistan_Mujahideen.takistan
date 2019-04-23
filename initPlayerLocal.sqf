@@ -196,7 +196,7 @@ titleFadeOut 0.5;
 		playMusic Tooth_introMusic;
 	};
     _monthString = [] call Toothfunctions_fnc_monthToString;
-	["Mujahideen Camp",A3E_WorldName,format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
+	[A3E_WorldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
 };
 
 ZeusVariable = [_player]; //ie _player
