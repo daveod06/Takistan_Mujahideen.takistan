@@ -169,3 +169,7 @@ class RscTitles {
             };
     };
 };
+
+
+// AIS Revive Stuff
+#include "functions\AIS\Effects\BarDlg.hpp"
