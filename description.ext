@@ -29,7 +29,7 @@ EscapeVersion = VERSION;
 EscapeRelease = RELEASE;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-//respawn=3;
+//Respawn = 3; // FIXME
 //reviveRequiredTrait = 0;
 //reviveRequiredItems = 0;
 

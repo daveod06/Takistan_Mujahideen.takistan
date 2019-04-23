@@ -16,10 +16,10 @@ titleText ["Loading...", "BLACK",0.1];
 diag_log format["Tooth DEBUG: initPlayerLocal run for %1", name _player];
 
 
-AT_Revive_StaticRespawns = [];
-AT_Revive_enableRespawn = false;
-AT_Revive_clearedDistance = 0;
-AT_Revive_Camera = 1;
+//AT_Revive_StaticRespawns = [];
+//AT_Revive_enableRespawn = false;
+//AT_Revive_clearedDistance = 0;
+//AT_Revive_Camera = 1;
 
 //[] call ATR_FNC_ReviveInit;
 _player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
@@ -161,16 +161,16 @@ _player enableStamina false;
 //    };
 //};
 
-// Start saving _player loadout periodically
-[_player] spawn {
-	_player = _this select 0;
-	while {true} do {
-		sleep 10;
-		if (alive _player) then {
-			_player setVariable ["respawnLoadout", getUnitLoadout _player]; 
-		};
-	};
-};
+//// Start saving _player loadout periodically
+//[_player] spawn {
+//	_player = _this select 0;
+//	while {true} do {
+//		sleep 10;
+//		if (alive _player) then {
+//			_player setVariable ["respawnLoadout", getUnitLoadout _player]; 
+//		};
+//	};
+//};
 
 _player setUnitTrait ["medic",true];
 _player setUnitTrait ["engineer",true];
