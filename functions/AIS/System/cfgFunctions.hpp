@@ -2,7 +2,7 @@ class AIS_System
 {
     class AIS_System
     {
-        file = "AIS\System";
+        file = "functions\AIS\System";
         class postInit { postInit = 1; };
 		class addMedEvacObj;
 		class AIselfCheck;

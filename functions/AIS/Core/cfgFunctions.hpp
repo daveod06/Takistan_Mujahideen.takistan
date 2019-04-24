@@ -1,8 +1,8 @@
-class AIS_Core
-{
+//class AIS_Core
+//{
     class AIS_Core
     {
-        file = "AIS\Core";
+        file = "functions\AIS\Core";
         class preInit { preInit = 1; };
         class postInit { postInit = 1; };
 		class addAction;
@@ -27,4 +27,4 @@ class AIS_Core
 		class handleDisconnect;
 		class resetOnTeamSwitch;
     };
-};
+//};
