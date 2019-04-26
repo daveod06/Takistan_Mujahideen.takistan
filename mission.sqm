@@ -8,7 +8,7 @@ class EditorData
 	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=12123;
+		nextID=12125;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1032;
+		nextID=1067;
 	};
 	class Camera
 	{
 		pos[]={10659.758,388.75583,5838.2427};
-		dir[]={0.70746076,-0.69319612,0.1382426};
-		up[]={0.68037331,0.72070229,0.13294928};
-		aside[]={0.19179684,-1.6178783e-006,-0.98150551};
+		dir[]={0.023383467,-0.20131427,0.97931755};
+		up[]={0.0048085218,0.97950166,0.20137054};
+		aside[]={0.99978715,1.00537e-006,-0.023867982};
 	};
 };
 binarizationWanted=0;
@@ -54115,7 +54115,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="naran_darre_pass_south,naran_darre_pass_north,mujahideen_camp,north_base,spetsnaz_camp_0,spetsnaz_camp_1,spetsnaz_camp_2,south_base";
+							value="garmsar_base,naran_darre_pass_south,naran_darre_pass_north,mujahideen_camp,north_base,spetsnaz_camp_0,spetsnaz_camp_1,spetsnaz_camp_2,south_base";
 						};
 					};
 				};

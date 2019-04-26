@@ -147,7 +147,7 @@ _hide_blacklist_markers = true;
 _on_unit_spawned_callback = {};
 _on_unit_remove_callback = {true};
 _debug = false;
-[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] call DJOCivilians_fnc_CiviliansMaster;
+//[_faction,_unitsPerBuilding,_max_groups_count,_min_spawn_distance,_max_spawn_distance,_blacklist_markers,_hide_blacklist_markers,_on_unit_spawned_callback,_on_unit_remove_callback,_debug] call DJOCivilians_fnc_CiviliansMaster;
 
 
 
