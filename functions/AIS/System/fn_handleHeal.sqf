@@ -10,7 +10,7 @@
 	1: Healer (Object)
 	
  * Example:
-	[p1, player] call AIS_System_fnc_handleHeal;
+	[p1, player] call AIS_fnc_handleHeal;
  
  * Return value:
 	BOOL - true to block the engine handling, false to do the engine action
@@ -23,9 +23,9 @@ if (_injured getVariable ["ais_unconscious", false]) then {
 
 	// remove FAKS to avoid the damage processing
 	if (local _healer) then {
-		[_healer] call AIS_System_fnc_removeFaks;
+		[_healer] call AIS_fnc_removeFaks;
 	} else {
-		[_healer] remoteExec ["[_this select 0] call AIS_System_fnc_removeFaks", _healer, false];
+		[_healer] remoteExec ["[_this select 0] call AIS_fnc_removeFaks", _healer, false];
 	};
 	
 	
@@ -35,20 +35,20 @@ if (_injured getVariable ["ais_unconscious", false]) then {
 		} else {
 			"First you have to Stabilize the injured."
 		};
-		[_txt] remoteExecCall ["AIS_Core_fnc_dynamicText", _healer, false];
+		[_txt] remoteExecCall ["AIS_fnc_dynamicText", _healer, false];
 	} else {
 		// we can use the AI handling at this point to start our own revive process...
 		if (isNull (_injured getVariable ["ais_hasHelper", objNull])) then {
-			[_healer, _injured] spawn AIS_System_fnc_ReviveAI;
+			[_healer, _injured] spawn AIS_fnc_ReviveAI;
 		};
 	};
 
 	// give Faks back after healing process
 	private _startTime = diag_tickTime + 8;
 	if (local _healer) then {
-		[{diag_tickTime > (_this select 1)},{[(_this select 0)] call AIS_System_fnc_restoreFaks;},[_healer, _startTime]] call AIS_Core_fnc_waitUntilAndExecute;
+		[{diag_tickTime > (_this select 1)},{[(_this select 0)] call AIS_fnc_restoreFaks;},[_healer, _startTime]] call AIS_fnc_waitUntilAndExecute;
 	} else {
-		[_healer, _startTime] remoteExec ["[{diag_tickTime > (_this select 1)},{[(_this select 0)] call AIS_System_fnc_restoreFaks;},[_this selct 0, _this selct 1]] call AIS_Core_fnc_waitUntilAndExecute", _healer, false];
+		[_healer, _startTime] remoteExec ["[{diag_tickTime > (_this select 1)},{[(_this select 0)] call AIS_fnc_restoreFaks;},[_this selct 0, _this selct 1]] call AIS_fnc_waitUntilAndExecute", _healer, false];
 	};
 	
 	_return = true;

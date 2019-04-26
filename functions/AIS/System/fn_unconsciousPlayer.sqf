@@ -10,7 +10,7 @@
 	Nothing
 	
 * Exapmle:
-	[player] call AIS_System_fnc_unconsciousPlayer;
+	[player] call AIS_fnc_unconsciousPlayer;
  */
 
 params ["_unit"];
@@ -21,7 +21,7 @@ _unit setVariable ["ais_CarryDrop_Torso", false];
 
 // if player drag or carry someone release the body
 if (!(isNull (_unit getVariable ["ais_DragDrop_Torso", objNull]))) then {
-	[_unit] call AIS_System_fnc_release;
+	[_unit] call AIS_fnc_release;
 };
 
 // do some actions for some special situations...
@@ -33,7 +33,7 @@ if (animationState _unit in ["ladderriflestatic", "laddercivilstatic"]) then {
 };
 
 // animation and other actions across the network
-[_unit, true] remoteExecCall ["AIS_System_fnc_unconcsiousRemote", 0, false];
+[_unit, true] remoteExecCall ["AIS_fnc_unconcsiousRemote", 0, false];
 
 
 // camera actions
@@ -47,15 +47,15 @@ if (sunOrMoon isEqualTo 0) then {
 };
 
 // remove medic euqipment from unconscious unit
-[_unit] call AIS_System_fnc_removeFaks;
+[_unit] call AIS_fnc_removeFaks;
 
 // disable radios
 if (AIS_TOGGLE_RADIO) then {
-	[false] call AIS_Effects_fnc_toggleRadio;
+	[false] call AIS_fnc_toggleRadio;
 };
 
 // random screaming
-[_unit, 50] call AIS_Effects_fnc_Scream;
+[_unit, 50] call AIS_fnc_Scream;
 
 // set unit as captive
 [_unit, true] remoteExec ["setCaptive", 0, false];
@@ -66,14 +66,14 @@ _unit addEventHandler ["fired", {
 
 // value >= 0.5 break the crawl-feature from agony action! (canMove false)
 if ((_unit getHitIndex 10) > 0.49) then {
-	[{(_this select 0) setHitIndex [10, 0.49]}, [_unit]] call AIS_Core_fnc_onNextFrame;
+	[{(_this select 0) setHitIndex [10, 0.49]}, [_unit]] call AIS_fnc_onNextFrame;
 };
 
 // countdown and visual effects
-[_unit] call AIS_System_fnc_bloodloss;
+[_unit] call AIS_fnc_bloodloss;
 
 // correkt animation if unit get pushed out of a vehicle on other ways except the pull-out action
-_unit addEventHandler ["getOutMan", {_this call AIS_System_fnc_getOutMan}];
+_unit addEventHandler ["getOutMan", {_this call AIS_fnc_getOutMan}];
 
 // disable teamSwitch while unc
 if (teamswitchenabled) then {

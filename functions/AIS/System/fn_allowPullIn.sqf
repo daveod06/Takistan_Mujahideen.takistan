@@ -12,7 +12,7 @@
 
 private _targetVehicle = _this;
 
-_canload = [false, true] select (count ([_targetVehicle] call AIS_System_fnc_getCargoIndex) > 0);
+_canload = [false, true] select (count ([_targetVehicle] call AIS_fnc_getCargoIndex) > 0);
 
 
 _canload

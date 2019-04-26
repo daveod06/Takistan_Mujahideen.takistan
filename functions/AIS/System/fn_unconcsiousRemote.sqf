@@ -16,7 +16,7 @@ params [
 	["_is_unoncsious", false, [false]]
 ];
 
-if (isNull _unit) exitWith {diag_log format ["Non existing unit or wrong data type passed. AIS_System_fnc_unconcsiousRemote.sqf"];};
+if (isNull _unit) exitWith {diag_log format ["Non existing unit or wrong data type passed. AIS_fnc_unconcsiousRemote.sqf"];};
 
 
 if (_is_unoncsious) then {
@@ -36,7 +36,7 @@ if (_is_unoncsious) then {
 		};
 		
 		if (AIS_SHOW_UNC_MARKERS && {side _unit isEqualTo playerSide}) then {
-			_unit call AIS_Effects_fnc_injuredMarker;
+			_unit call AIS_fnc_injuredMarker;
 		};
 	};
 	
@@ -45,7 +45,7 @@ if (_is_unoncsious) then {
 	[_unit, "agonyStop"] remoteExec ["playActionNow", 0, false];
 	//_unit playActionNow "agonyStop";
 	
-	[_unit, 50] call AIS_system_fnc_reveal;
+	[_unit, 50] call AIS_fnc_reveal;
 	
 	addSwitchableUnit _unit;
 	if (ais_reenable_teamswitch) then {
@@ -56,13 +56,13 @@ if (_is_unoncsious) then {
 		if (local player) then {
 			showHud true;
 			if (AIS_TOGGLE_RADIO) then {
-				[true] call AIS_Effects_fnc_toggleRadio;
+				[true] call AIS_fnc_toggleRadio;
 			};
 		};
 	};
 	
 	if (AIS_SHOW_UNC_MARKERS && {local player}) then {
-		_unit call AIS_Effects_fnc_removeinjuredMarker;
+		_unit call AIS_fnc_removeinjuredMarker;
 	};
 };
 

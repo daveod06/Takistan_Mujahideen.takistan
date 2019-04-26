@@ -17,5 +17,5 @@ if (!isNil "AIS_Core_eachFrameHandlerId") then {
 	removeMissionEventHandler ["EachFrame", AIS_Core_eachFrameHandlerId];
 };
 
-call AIS_Core_fnc_initEvents;
+call AIS_fnc_initEvents;
 AIS_Core_Interaction_Actions = [];

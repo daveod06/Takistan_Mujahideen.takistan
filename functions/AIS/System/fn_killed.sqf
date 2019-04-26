@@ -14,5 +14,5 @@
 params ["_unit", "_killer"];
 
 if (!(isNull (_unit getVariable ["ais_DragDrop_Torso", objNull]))) then {
-	[_unit] call AIS_System_fnc_release;
+	[_unit] call AIS_fnc_release;
 };

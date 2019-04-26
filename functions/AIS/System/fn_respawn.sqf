@@ -23,7 +23,7 @@ _unit setCaptive false;
 if (isPlayer _unit) then {
 	if (local player) then {showHud true};
 	if (AIS_TOGGLE_RADIO) then {
-		[true] call AIS_Effects_fnc_toggleRadio;
+		[true] call AIS_fnc_toggleRadio;
 	};
 } else {
 	_unit stop false;

@@ -8,7 +8,7 @@ class EditorData
 	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=12114;
+		nextID=12123;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=997;
+		nextID=1032;
 	};
 	class Camera
 	{
-		pos[]={5679.0693,299.75479,11322.025};
-		dir[]={0.51102585,-0.57121408,0.64237231};
-		up[]={0.35564092,0.82077092,0.44704908};
-		aside[]={0.78260332,-4.2289321e-007,-0.62258375};
+		pos[]={10659.758,388.75583,5838.2427};
+		dir[]={0.70746076,-0.69319612,0.1382426};
+		up[]={0.68037331,0.72070229,0.13294928};
+		aside[]={0.19179684,-1.6178783e-006,-0.98150551};
 	};
 };
 binarizationWanted=0;
@@ -587,7 +587,7 @@ class CustomAttributes
 							"SCALAR"
 						};
 					};
-					value=1;
+					value=0;
 				};
 			};
 		};
@@ -617,25 +617,31 @@ class Mission
 {
 	class Intel
 	{
-		timeOfChanges=1800.0002;
-		startWeather=0.40000001;
-		startWind=0.1;
+		timeOfChanges=9541.1816;
+		startWeather=0;
+		startFog=0.025238626;
+		startWind=0.11632793;
 		startWaves=0.1;
-		forecastWeather=0.40000001;
-		forecastWind=0.1;
+		startGust=0.13952109;
+		forecastWeather=0.50428396;
+		forecastWind=0.49374178;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
+		forecastGust=0.49585032;
+		windForced=1;
 		year=1986;
 		month=7;
 		day=3;
 		hour=5;
 		minute=0;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
+		startFogBase=307.01367;
+		forecastFogBase=-1000;
+		startFogDecay=0.0056340974;
+		forecastFogDecay=0;
 	};
 	class Entities
 	{
-		items=780;
+		items=779;
 		class Item0
 		{
 			dataType="Logic";
@@ -16216,7 +16222,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.58149922;
-						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
+						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "this addItemToBackpack ""IEDLandBig_Remote_Mag"";" \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
 						name="i0";
 						isPlayer=1;
 						isPlayable=1;
@@ -16316,7 +16322,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "this addItemToBackpack ""IEDLandBig_Remote_Mag"";" \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
 						name="i1";
 						isPlayable=1;
 					};
@@ -16376,7 +16382,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "this addItemToBackpack ""IEDLandBig_Remote_Mag"";" \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
 						name="i2";
 						isPlayable=1;
 					};
@@ -16436,7 +16442,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "this addItemToBackpack ""IEDLandBig_Remote_Mag"";" \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
 						name="i3";
 						isPlayable=1;
 					};
@@ -16496,8 +16502,8 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="call{comment ""Exported from Arsenal by SaberSnack""; " \n " " \n "comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "for ""_i"" from 1 to 2 do {this addItemToBackpack ""IEDLandBig_Remote_Mag"";}; " \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
-						name="i5";
+						init="call{comment ""Remove existing items""; " \n "removeAllWeapons this; " \n "removeAllItems this; " \n "removeAllAssignedItems this; " \n "removeVest this; " \n "removeBackpack this; " \n "removeHeadgear this; " \n "removeGoggles this; " \n " " \n "comment ""Add containers""; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""FirstAidKit"";}; " \n "this addItemToUniform ""rhs_mag_rgd5""; " \n "for ""_i"" from 1 to 10 do {this addItemToUniform ""rhsgref_5Rnd_762x54_m38"";}; " \n "for ""_i"" from 1 to 2 do {this addItemToUniform ""rhs_mag_f1"";}; " \n "this addItemToUniform ""rhs_mag_rdg2_white""; " \n "for ""_i"" from 1 to 4 do {this addItemToUniform ""rhs_mag_762x25_8"";}; " \n "this addVest ""LOP_6sh46""; " \n "this addBackpack ""rhssaf_alice_smb""; " \n "this addItemToBackpack ""IEDLandBig_Remote_Mag"";" \n "this addHeadgear ""LOP_H_Pakol""; " \n " " \n "comment ""Add weapons""; " \n "this addWeapon ""rhs_weap_m38""; " \n "this addWeapon ""rhs_weap_tt33""; " \n "this addWeapon ""Binocular""; " \n " " \n "comment ""Add items""; " \n "this addItem ""ItemRadio"";" \n "this linkItem ""ItemMap""; " \n "this linkItem ""ItemCompass""; " \n "this linkItem ""ItemWatch""; " \n "this linkItem ""ItemRadio"";}";
+						name="i4";
 						isPlayable=1;
 					};
 					id=12071;
@@ -51815,129 +51821,13 @@ class Mission
 		};
 		class Item753
 		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=5;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={9809.7236,356.84506,6525.7866};
-						angles[]={0,2.0091705,0};
-					};
-					side="East";
-					flags=2;
-					class Attributes
-					{
-					};
-					id=12056;
-					type="LOP_TKA_Infantry_Pilot";
-					atlOffset=112.70399;
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={9809.7236,356.84506,6525.7866};
-						angles[]={0,2.0091705,0};
-					};
-					side="East";
-					class Attributes
-					{
-					};
-					id=12057;
-					type="LOP_TKA_Infantry_Pilot";
-					atlOffset=112.70399;
-				};
-				class Item2
-				{
-					dataType="Waypoint";
-					position[]={11434.341,545.62775,5261.3745};
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=12052;
-					type="Move";
-					atlOffset=6.1035156e-005;
-				};
-				class Item3
-				{
-					dataType="Waypoint";
-					position[]={9825.1885,389.42203,2768.4128};
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=12053;
-					type="Move";
-					atlOffset=-9.1552734e-005;
-				};
-				class Item4
-				{
-					dataType="Waypoint";
-					position[]={8421.7832,308.61884,1732.5798};
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=12054;
-					type="Move";
-					atlOffset=6.1035156e-005;
-				};
-			};
-			class Attributes
-			{
-			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=2;
-				};
-				class Links
-				{
-					items=2;
-					class Item0
-					{
-						linkID=0;
-						item0=12056;
-						item1=12055;
-						class CustomData
-						{
-							role=1;
-						};
-					};
-					class Item1
-					{
-						linkID=1;
-						item0=12057;
-						item1=12055;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=12044;
-			atlOffset=112.70399;
-		};
-		class Item754
-		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={9809.5283,359.60492,6524.0669};
 				angles[]={0,2.0091705,0};
 			};
-			side="East";
-			flags=2;
+			side="Empty";
 			class Attributes
 			{
 			};
@@ -51968,7 +51858,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item755
+		class Item754
 		{
 			dataType="Marker";
 			position[]={5995.8428,83.040001,11535.249};
@@ -51976,7 +51866,7 @@ class Mission
 			type="o_hq";
 			id=12058;
 		};
-		class Item756
+		class Item755
 		{
 			dataType="Object";
 			class PositionInfo
@@ -51992,7 +51882,7 @@ class Mission
 			id=12073;
 			type="OKSVA_MIG23_CAS";
 		};
-		class Item757
+		class Item756
 		{
 			dataType="Object";
 			class PositionInfo
@@ -52008,7 +51898,7 @@ class Mission
 			id=12076;
 			type="OKSVA_MIG23_CAS";
 		};
-		class Item758
+		class Item757
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52441,7 +52331,7 @@ class Mission
 				nAttributes=22;
 			};
 		};
-		class Item759
+		class Item758
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -52799,7 +52689,7 @@ class Mission
 				nAttributes=18;
 			};
 		};
-		class Item760
+		class Item759
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -53022,7 +52912,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item761
+		class Item760
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -53398,7 +53288,7 @@ class Mission
 				nAttributes=19;
 			};
 		};
-		class Item762
+		class Item761
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -53622,7 +53512,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item763
+		class Item762
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -53902,7 +53792,7 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item764
+		class Item763
 		{
 			dataType="Marker";
 			position[]={8015.7461,425.7002,4433.8149};
@@ -53915,7 +53805,7 @@ class Mission
 			id=12084;
 			atlOffset=-70.1828;
 		};
-		class Item765
+		class Item764
 		{
 			dataType="Group";
 			side="East";
@@ -54030,7 +53920,7 @@ class Mission
 			};
 			id=12085;
 		};
-		class Item766
+		class Item765
 		{
 			dataType="Object";
 			class PositionInfo
@@ -54046,7 +53936,7 @@ class Mission
 			id=12093;
 			type="OKSVA_Mi8mt";
 		};
-		class Item767
+		class Item766
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -54422,7 +54312,7 @@ class Mission
 				nAttributes=19;
 			};
 		};
-		class Item768
+		class Item767
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -54646,7 +54536,7 @@ class Mission
 				nAttributes=11;
 			};
 		};
-		class Item769
+		class Item768
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -54947,7 +54837,7 @@ class Mission
 				nAttributes=15;
 			};
 		};
-		class Item770
+		class Item769
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -55229,7 +55119,7 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item771
+		class Item770
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -55586,7 +55476,7 @@ class Mission
 				nAttributes=18;
 			};
 		};
-		class Item772
+		class Item771
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -55829,7 +55719,7 @@ class Mission
 				nAttributes=12;
 			};
 		};
-		class Item773
+		class Item772
 		{
 			dataType="Object";
 			class PositionInfo
@@ -55907,7 +55797,7 @@ class Mission
 				nAttributes=3;
 			};
 		};
-		class Item774
+		class Item773
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -56510,7 +56400,7 @@ class Mission
 				nAttributes=31;
 			};
 		};
-		class Item775
+		class Item774
 		{
 			dataType="Object";
 			class PositionInfo
@@ -56526,7 +56416,7 @@ class Mission
 			id=12108;
 			type="LOP_AM_Static_SPG9";
 		};
-		class Item776
+		class Item775
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -56654,7 +56544,7 @@ class Mission
 				nAttributes=6;
 			};
 		};
-		class Item777
+		class Item776
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -56896,7 +56786,7 @@ class Mission
 				nAttributes=12;
 			};
 		};
-		class Item778
+		class Item777
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -57024,7 +56914,7 @@ class Mission
 				nAttributes=6;
 			};
 		};
-		class Item779
+		class Item778
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -57157,11 +57047,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=98;
+			nextID=99;
 		};
 		class Links
 		{
-			items=98;
+			items=99;
 			class Item0
 			{
 				linkID=0;
@@ -58137,6 +58027,16 @@ class Mission
 				linkID=97;
 				item0=12111;
 				item1=3543;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item98
+			{
+				linkID=98;
+				item0=11644;
+				item1=12009;
 				class CustomData
 				{
 					type="Sync";

@@ -26,7 +26,7 @@ detach _target;
 
 if (alive _target) then {
 	[_target, "AinjPpneMstpSnonWrflDb_release"] remoteExec ["switchMove", 0];
-	//[_target, _pos] call AIS_Core_fnc_setPosAGLS;
+	//[_target, _pos] call AIS_fnc_setPosAGLS;
 	_target setPos _pos;
 };
 

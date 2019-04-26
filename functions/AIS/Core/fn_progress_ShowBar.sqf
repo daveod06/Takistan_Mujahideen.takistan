@@ -30,7 +30,7 @@ _affectingObject = if (typeName _arguments == "ARRAY") then {_arguments select 0
 
 if (typeName _affectingObject == "OBJECT") then {
     if (_affectingObject getVariable ["AIS_Core_Progress_inUse", false]) exitWith {
-		["Object in use" call XOrangeText] call AIS_Core_fnc_dynamicText;
+		["Object in use" call XOrangeText] call AIS_fnc_dynamicText;
     };
 
     _affectingObject setVariable ["AIS_Core_Progress_inUse", true, true];
@@ -54,7 +54,7 @@ _time = time;
 //waitUntil {!dialog || time > _endTime || !alive player || _doAbort};
 while {dialog && {time < _endTime} && {alive player} && {!_doAbort}} do {
 	sleep 0.5;
-	[_title, ((time - _time) / (_duration)) min 1] spawn AIS_Core_fnc_progress_showBarText;
+	[_title, ((time - _time) / (_duration)) min 1] spawn AIS_fnc_progress_showBarText;
 };
 
 closeDialog 0;
@@ -65,7 +65,7 @@ player setVariable ["AIS_Core_displayText", _texts, true];
 if (time > _endTime) then {
     _arguments spawn _callback;
 } else {
-    ["Abbort..."] call AIS_Core_fnc_dynamicText;
+    ["Abbort..."] call AIS_fnc_dynamicText;
     _arguments spawn _onAbort;
 };
 

@@ -1,5 +1,5 @@
 ﻿/* ----------------------------------------------------------------------------
-Function: AIS_Core_fnc_waitUntilAndExecute
+Function: AIS_fnc_waitUntilAndExecute
 
 Description:
     Executes a code once in unscheduled environment after a condition is true.
@@ -17,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        [{(_this select 0) == vehicle (_this select 0)}, {(_this select 0) setDamage 1;}, [player]] call AIS_Core_fnc_waitUntilAndExecute;
+        [{(_this select 0) == vehicle (_this select 0)}, {(_this select 0) setDamage 1;}, [player]] call AIS_fnc_waitUntilAndExecute;
     (end)
 
 Author:

@@ -7,7 +7,7 @@
 	-
 	
  * Example:
-	[player] call AIS_Effects_fnc_garbage;
+	[player] call AIS_fnc_garbage;
  
  * Return value:
 	-

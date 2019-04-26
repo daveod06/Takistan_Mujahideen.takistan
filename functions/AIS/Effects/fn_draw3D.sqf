@@ -9,7 +9,7 @@ if (getClientStateNumber in [11,12]) exitWith {
 
 private _targets = [];
 
-_recognize_distance = if (player call AIS_System_fnc_isMedic) then {35} else {20};
+_recognize_distance = if (player call AIS_fnc_isMedic) then {35} else {20};
 _targets = player nearEntities ["CAManBase", _recognize_distance];
 if (count _targets < 1) exitWith {};
 

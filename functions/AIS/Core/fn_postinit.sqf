@@ -21,12 +21,12 @@ if (isServer) then {
 	//diag_log format ["ais init units: %1", _init_units];
 	if (count _init_units > 0) then {
 		{
-			[_x] call AIS_Core_fnc_aisInitHost;
+			[_x] call AIS_fnc_aisInitHost;
 			true
 		} count _init_units;
 	};
 	
-	addMissionEventHandler ["HandleDisconnect", {_this call AIS_Core_fnc_handleDisconnect}];
+	addMissionEventHandler ["HandleDisconnect", {_this call AIS_fnc_handleDisconnect}];
 };
 
 if (isNil "AIS_MEDEVAC_STATIONS") then {
@@ -42,7 +42,7 @@ if (isDedicated || !hasInterface) exitWith {};
 
 // This is needed to provide a player object for zeus controlled units. Important to ensure that player is not null here (which is done in autoload).
 AIS_Core_realPlayer = player;
-AIS_Core_realPlayer call AIS_Core_fnc_aisInitPlayer;
+AIS_Core_realPlayer call AIS_fnc_aisInitPlayer;
 AIS_Core_realSide = getNumber (configfile >> "CfgVehicles" >> (typeOf AIS_Core_realPlayer) >> "side");
 
 [{
@@ -54,20 +54,20 @@ AIS_Core_realSide = getNumber (configfile >> "CfgVehicles" >> (typeOf AIS_Core_r
 		removeAllActions AIS_Core_realPlayer;
 		AIS_Core_realPlayer enableAI "TEAMSWITCH";
 		
-        ["AIS_playerChanged", [_currentPlayer, AIS_Core_realPlayer]] call AIS_Core_fnc_triggerEvent;
+        ["AIS_playerChanged", [_currentPlayer, AIS_Core_realPlayer]] call AIS_fnc_triggerEvent;
 		
         AIS_Core_realPlayer = _currentPlayer;
 		AIS_Core_realSide = getNumber (configfile >> "CfgVehicles" >> (typeOf AIS_Core_realPlayer) >> "side");
     };
-}] call AIS_Core_fnc_onEachFrame;
+}] call AIS_fnc_onEachFrame;
 
-true call AIS_Core_fnc_Interaction_loop;
+true call AIS_fnc_Interaction_loop;
 
 if (AIS_SHOW_DIARYINFO) then {
-	call AIS_System_fnc_diary;
+	call AIS_fnc_diary;
 };
 
 true spawn {
 	waitUntil {time > 0};
-	AIS_Core_3DEHId = addMissionEventHandler ["Draw3D", {_this call AIS_Effects_fnc_draw3D}];
+	AIS_Core_3DEHId = addMissionEventHandler ["Draw3D", {_this call AIS_fnc_draw3D}];
 };

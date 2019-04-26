@@ -11,7 +11,7 @@
 	-
 */
 
-if (!canSuspend) exitWith {[] spawn AIS_Effects_fnc_bloodSplatterScreen;};
+if (!canSuspend) exitWith {[] spawn AIS_fnc_bloodSplatterScreen;};
 disableSerialization;
 
 if (isnil {uinamespace getvariable "RscHealthTextures"}) then {uinamespace setvariable ["RscHealthTextures",displaynull]};
@@ -56,9 +56,9 @@ _texUpper ctrlcommit 0.2;
 // remove effect if player get revived/stabilized or died or character changed (teamswitch or zeus f.e.)
 [
 	{!alive player || {!(player getVariable ["ais_unconscious", false])} || {(player getVariable ["ais_stabilized", false])}},
-	{_this spawn AIS_Effects_fnc_deleteBloodSplatterScreen},
+	{_this spawn AIS_fnc_deleteBloodSplatterScreen},
 	[_texLower,_texMiddle,_texUpper]
-] call AIS_Core_fnc_waitUntilAndExecute;
+] call AIS_fnc_waitUntilAndExecute;
 
 
 true

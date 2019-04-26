@@ -1,4 +1,4 @@
-class AIS_Core
+class AIS
 {
     class Core
     {

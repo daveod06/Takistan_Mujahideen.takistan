@@ -22,9 +22,9 @@ _behaviour = behaviour _healer;
 
 // move the wounded out of the vehicle
 if (!isNull objectParent _injured) exitWith {
-	[[_injured, vehicle _injured, 0], {_this call AIS_System_fnc_moveCargoRemote}] remoteExec ["call"];
+	[[_injured, vehicle _injured, 0], {_this call AIS_fnc_moveCargoRemote}] remoteExec ["call"];
 	_acc_time = diag_tickTime + 1.382;
-	[{diag_tickTime > (_this select 2)}, {[_this select 0, _this select 1] spawn AIS_System_fnc_ReviveAI}, [_healer, _injured, _acc_time]] call AIS_Core_fnc_waitUntilAndExecute;
+	[{diag_tickTime > (_this select 2)}, {[_this select 0, _this select 1] spawn AIS_fnc_ReviveAI}, [_healer, _injured, _acc_time]] call AIS_fnc_waitUntilAndExecute;
 };
 
 [_injured, "AinjPpneMstpSnonWrflDnon_rolltoback"] remoteExec ['playMove', 0];
@@ -48,7 +48,7 @@ if ((_relpos select 0) < 0) then {_offset = [-0.2,0.7,0]; _dir = 90} else {_offs
 _injured attachTo [_healer, _offset];
 [_injured, _dir] remoteExec ["setDir", 0, false];
 
-private _duration = [_healer, _injured] call AIS_System_fnc_calculateReviveTime;
+private _duration = [_healer, _injured] call AIS_fnc_calculateReviveTime;
 
 
 private _startTime = diag_tickTime + _duration;
@@ -82,23 +82,23 @@ if (alive _injured) then {
 	} else {
 		// make sure the unit can walk after revive
 		if ((_injured getHitIndex 10) > 0.49) then {
-			[{(_this select 0) setHitIndex [10, 0.49]}, [_injured]] call AIS_Core_fnc_onNextFrame;
+			[{(_this select 0) setHitIndex [10, 0.49]}, [_injured]] call AIS_fnc_onNextFrame;
 		};
 	};
 
-	[_injured] remoteExecCall ["AIS_System_fnc_restoreFaks", _injured, false];
+	[_injured] remoteExecCall ["AIS_fnc_restoreFaks", _injured, false];
 	
 	if (isPlayer _injured) then {
 		[true] remoteExec ['showHud', _injured];
 		if (AIS_TOGGLE_RADIO) then {
-			[true] remoteExecCall ["AIS_Effects_fnc_toggleRadio", _injured, false];
+			[true] remoteExecCall ["AIS_fnc_toggleRadio", _injured, false];
 		};
 	} else {
 		_injured stop false;
 		{_injured enableAI _x; nil} count ["MOVE","TARGET","AUTOTARGET","ANIM","AUTOCOMBAT"];
 	};
 	
-	[_injured, false] remoteExecCall ["AIS_System_fnc_unconcsiousRemote", 0]; 
+	[_injured, false] remoteExecCall ["AIS_fnc_unconcsiousRemote", 0]; 
 	[_injured, false] remoteExec ["setCaptive", 0, false];
 	
 	["GetOutMan"] remoteExec ["removeAllEventHandlers", _injured, false];

@@ -19,7 +19,7 @@ params [
 
 _ret = if (_hitValue isEqualType 0) then {
 
-	if (_hitValue > 10 || _hitValue < 0) exitWith {diag_log format ["AIS ERROR: AIS_Damage_fnc_getHitIndexValue, input number is out of range: %1", _hitValue]; ["",_hitValue, 0]};
+	if (_hitValue > 10 || _hitValue < 0) exitWith {diag_log format ["AIS ERROR: AIS_fnc_getHitIndexValue, input number is out of range: %1", _hitValue]; ["",_hitValue, 0]};
 	[((getAllHitPointsDamage _unit) select 1) select _hitValue, _hitValue, ((getAllHitPointsDamage _unit) select 2) select _hitValue]
 	
 } else {
