@@ -43,6 +43,9 @@ ToggleSafe = false;
 publicVariable "ToggleAmbush";
 publicVariable "ToggleSafe";
 
+// blacklist for Alive
+call compile preprocessFile "staticData.sqf";
+
 // --------------------------------------  START UP EOS
 VictoryColor="colorGreen";	// Colour of marker after completion
 hostileColor="colorRed";	// Default colour when enemies active
