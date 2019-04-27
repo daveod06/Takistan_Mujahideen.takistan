@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9806.2764,422.83264,2804.8997};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={9812.6572,1492.8881,3794.186};
+		dir[]={-0.029325224,-0.46602404,0.88429648};
+		up[]={-0.015445981,0.88477135,0.46577114};
+		aside[]={0.99946016,7.6223841e-008,0.03314478};
 	};
 };
 binarizationWanted=0;
@@ -57182,7 +57182,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="garmsar_base,north_base,spetsnaz_camp_0,spetsnaz_camp_1,spetsnaz_camp_2,south_base";
 						};
 					};
 				};
