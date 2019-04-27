@@ -42483,18 +42483,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10705.348,349.0542,5815.2329};
-						angles[]={0.28041416,4.6369429,5.8606644};
+						position[]={10705.09,349.12192,5815.2036};
+						angles[]={0.28042203,4.9529824,5.8606582};
 					};
 					side="Independent";
 					flags=4;
 					class Attributes
 					{
+						name="ind_mortar_0G";
 						ignoreByDynSimulGrid=1;
 					};
 					id=11642;
 					type="LOP_AM_Infantry_Rifleman";
-					atlOffset=-0.00036621094;
+					atlOffset=-0.057037354;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -52114,7 +52115,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="400";
+							value="200";
 						};
 					};
 				};
@@ -52995,7 +52996,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="400";
+							value="100";
 						};
 					};
 				};
@@ -54019,7 +54020,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="400";
+							value="200";
 						};
 					};
 				};
@@ -54528,7 +54529,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="2500";
+							value="1000";
 						};
 					};
 				};
@@ -55410,7 +55411,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="0.1";
+							value="0.05";
 						};
 					};
 				};
@@ -55479,11 +55480,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={10718.403,335.90036,5872.7549};
+				position[]={11160.902,539.74121,5765.7529};
+				angles[]={0.48203728,0,0.34129569};
 			};
 			id=12103;
 			type="ALiVE_sup_artillery";
-			atlOffset=3.0517578e-005;
+			atlOffset=0.00048828125;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -55722,17 +55724,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10705.378,349.76166,5815.3384};
-				angles[]={0.28041416,4.9529786,5.8606644};
+				position[]={10705.378,349.76126,5815.3384};
+				angles[]={0.28042203,4.9529824,5.8606582};
 			};
 			side="Independent";
 			flags=4;
 			class Attributes
 			{
+				name="ind_mortar_0";
 			};
 			id=12104;
 			type="rhsgref_nat_2b14";
-			atlOffset=-0.056640625;
+			atlOffset=-0.057037354;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -55800,11 +55803,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={10734.614,341.80453,5873.0112};
-				angles[]={6.2320294,0,0.34697145};
+				position[]={11277.346,333.7666,6128.2285};
+				angles[]={0.13045123,0,6.2240553};
 			};
 			id=12105;
 			type="ALiVE_MIL_C2ISTAR";
+			atlOffset=-0.0010070801;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -57258,7 +57262,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="200";
+							value="100";
 						};
 					};
 				};
