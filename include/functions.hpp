@@ -31,7 +31,8 @@ class CfgFunctions
 			#include "..\functions\HSC\hsc.hpp"
 		};
 	};
-    #include "..\functions\AIS\Functions.hpp"
+    //#include "..\functions\AIS\Functions.hpp"
+    #include "..\AIS\cfgFunctions.hpp"
 	#include "..\functions\aiArtillery\functions.hpp"
 	#include "..\functions\aiConvoys\functions.hpp"
 	#include "..\functions\airmobileOps\functions.hpp"

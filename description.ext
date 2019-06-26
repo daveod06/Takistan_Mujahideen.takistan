@@ -172,4 +172,8 @@ class RscTitles {
 
 
 // AIS Revive Stuff
-#include "functions\AIS\Effects\BarDlg.hpp"
+//#include "functions\AIS\Effects\BarDlg.hpp"
+#include "AIS\Effects\BarDlg.hpp"
+
+// mag repack
+#include "Scripts\outlw_magRepack\MagRepack_config.hpp"

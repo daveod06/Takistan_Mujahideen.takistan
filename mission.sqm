@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1172;
+		nextID=1242;
 	};
 	class Camera
 	{
-		pos[]={6037.1016,137.09016,11495.044};
-		dir[]={-0.45197639,-0.59427851,0.6653083};
-		up[]={-0.33396503,0.80423802,0.49159533};
-		aside[]={0.82720745,3.5885023e-008,0.56196165};
+		pos[]={6057.8242,599.27954,5639.6338};
+		dir[]={0.63133907,-0.3192983,0.70673084};
+		up[]={0.21272117,0.94765276,0.23812291};
+		aside[]={0.74576795,-2.3283064e-009,-0.6662122};
 	};
 };
 binarizationWanted=0;
@@ -7586,6 +7586,7 @@ class Mission
 					};
 					id=12307;
 					type="Land_BagFence_Round_F";
+					atlOffset=3.0517578e-005;
 				};
 				class Item55
 				{
@@ -8929,7 +8930,6 @@ class Mission
 					};
 					id=12344;
 					type="Land_BagFence_Short_F";
-					atlOffset=3.0517578e-005;
 				};
 				class Item62
 				{
@@ -44100,7 +44100,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6010.0078,83.312515,11521.898};
-				angles[]={0,1.2007966,0};
+				angles[]={0,1.200804,0};
 			};
 			side="Empty";
 			flags=4;
@@ -44110,6 +44110,29 @@ class Mission
 			};
 			id=10052;
 			type="Soviet_Basic_Weapons_70s_80s";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""rhs_weap_ak74"",""rhs_weap_ak74_gp25"",""rhs_weap_aks74"",""rhs_weap_aks74_gp25"",""rhs_weap_makarov_pm"",""hlc_rifle_rpk74n"",""rhs_weap_pkm""],[30,10,20,10,30,20,10]],[[""rhs_30Rnd_545x39_AK"",""rhs_30Rnd_545x39_AK_green"",""hlc_60Rnd_545x39_t_rpk"",""hlc_45Rnd_545x39_m_rpk"",""rhs_mag_9x18_8_57N181S"",""rhs_mag_rdg2_white"",""rhs_mag_rdg2_black"",""rhs_mag_rgd5"",""rhs_mag_rgo"",""rhs_mag_rgn"",""rhs_VOG25"",""rhs_VG40OP_white"",""rhs_100Rnd_762x54mmR"",""rhs_100Rnd_762x54mmR_green"",""rhs_30Rnd_762x39mm_bakelite""],[20,5,5,2,10,5,5,10,5,5,10,5,5,2,20]],[[""rhs_acc_dtk1983""],[50]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item620
 		{
@@ -59095,7 +59118,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="200";
+							value="400";
 						};
 					};
 				};
@@ -59657,7 +59680,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=100;
+							value=200;
 						};
 					};
 				};
@@ -59885,7 +59908,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -62336,7 +62359,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="100";
+							value="200";
 						};
 					};
 				};
@@ -63297,7 +63320,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5959.3931,83.040001,11514.269};
-				angles[]={-0,3.9207911,0};
+				angles[]={0,3.9207911,0};
 			};
 			side="Empty";
 			flags=4;
