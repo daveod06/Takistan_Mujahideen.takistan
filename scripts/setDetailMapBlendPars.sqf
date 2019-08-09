@@ -1,0 +1,1 @@
+setDetailMapBlendPars [("Param_DetailBlend" call BIS_fnc_getParamValue),("Param_DetailBlend" call BIS_fnc_getParamValue)*2.0];

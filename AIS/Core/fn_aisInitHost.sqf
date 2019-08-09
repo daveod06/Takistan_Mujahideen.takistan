@@ -10,6 +10,7 @@ if (!isNil {_unit getVariable "ais_aisInit"}) then {
 };
 _unit setVariable ["ais_aisInit", true];
 
+[_unit, [missionNamespace, format ["current_inv_%1", typeof (_unit)]]] call BIS_fnc_saveInventory;
 
 // set damage EH only for local and non-player units!
 // last check if unit is local

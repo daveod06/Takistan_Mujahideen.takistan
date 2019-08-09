@@ -31,5 +31,29 @@ if ( ("Param_UseCustomWeather" call BIS_fnc_getParamValue) == 1) then
 {
 };
 
+
+[] spawn
+{
+	{
+  		_x addCuratorEditableObjects [allUnits,true];
+  		_x addCuratorEditableObjects [vehicles,true];
+	} forEach allCurators;
+	sleep 30.0;
+};
+
+
+// disable AI respawning
+{
+	_x addMPEventHandler ["MPRespawn", {
+		_unit = _this select 0;
+		if (!isPlayer _unit) exitWith
+		{
+			deleteVehicle _unit
+		};
+		}
+	];
+} forEach playableUnits;
+
+
 sleep 1.0;
 missionNameSpace setvariable["A3E_ServerInitialized",true,true];

@@ -8,54 +8,61 @@
 // Mission Header
 class Header
 {
-  gameType = Zeus; // FIXME
+  gameType = Coop; // FIXME
   minPlayers = 1;
   maxPlayers = 10;
 };
 
-onLoadName = MISSIONNAME;
-onLoadMission = MISSIONNAMEFULL;
+onLoadName = "Takistan Mujahideen";
+onLoadMission = "A band of Mujahideen attack government forces";
+onLoadIntro = "Kill the Godless Communists"
 OnLoadMissionTime = FALSE;
 dev = "Tooth";
-briefingName = MISSIONNAMEFULL;
+briefingName = "Takistan Mujahideen";
 author = "Tooth";
 overviewPicture = "a3\Missions_F_Gamma\data\img\MP_COOP_m03_overview_CA.paa";
-overviewText = MISSIONNAMEFULL;
+overviewText = "Takistan Mujahideen";
 //loadScreen = "loadscreen.paa"; 
 
-EscapeIsland = ISLAND;
-EscapeMod = MOD;
-EscapeVersion = VERSION;
-EscapeRelease = RELEASE;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-//Respawn = 3; // FIXME
-//reviveRequiredTrait = 0;
-//reviveRequiredItems = 0;
+respawn = "BASE"; // aka 0
+respawnButton = 1; // 
+respwnDelay = 3; // 
+respawnOnStart = -1; // don't respawn on start or run script
+reviveMode = 0; // disabled
+reviveUnconsciousStateMode = 0; // basic
+reviveRequiredTrait = 0;
+reviveRequiredItemsFakConsumed = 0;
+reviveMedicSpeedMultiplier = 2;
+reviveDelay = 10;
+reviveForceRespawnDelay = 5;
+reviveBleedOutDelay = 300;
+reviveRequiredItems = 0;
 
 disabledAI = 0;
+
 enableDebugConsole = 1;
 
-corpseLimit = 30;
-corpseRemovalMinTime = 600;
-corpseRemovalMaxTime = 1800; //seconds
-
+corpseManagerMode = 2;
+corpseLimit = 45;
+corpseRemovalMinTime = 180;
+corpseRemovalMaxTime = 1200;
+wreckManagerMode = 2;
 wreckLimit = 10;
-wreckRemovalMinTime = 600; //seconds
-wreckRemovalMaxTime = 1800; //seconds
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 1800;
+minPlayerDistance = 100;
 
-///////////////////////////////////////////////////////////////////////////////////////////
-class CfgDebriefing
-{  
-};
-class CfgDebriefingSections
-{
-	class A3EStatistics
-	{
-		title = "Statistics";
-		variable = "A3E_EndStatistics";
-	};
-};
+forceRotorLibSimulation = 0;
+
+taskManagement_markers2D = 0;
+taskManagement_markers3D = 1;
+taskManagement_propagate = 1;
+taskManagement_drawDist = 10000;
+
+
+
 
 class CfgRemoteExec
 {        

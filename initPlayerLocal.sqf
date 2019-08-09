@@ -15,72 +15,6 @@ titleText ["Loading...", "BLACK",0.1];
 
 diag_log format["Tooth DEBUG: initPlayerLocal run for %1", name _player];
 
-
-//AT_Revive_StaticRespawns = [];
-//AT_Revive_enableRespawn = false;
-//AT_Revive_clearedDistance = 0;
-//AT_Revive_Camera = 1;
-
-//[] call ATR_FNC_ReviveInit;
-//_player addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
-
-//BIS
-//_player unassignItem "ItemMap";
-//_player removeItem "ItemMap";
-//_player unassignItem "ItemCompass";
-//_player removeItem "ItemCompass";
-_player unassignItem "itemGPS";
-_player removeItem "itemGPS";
-//_player unassignItem "O_UavTerminal";
-//_player removeItem "O_UavTerminal";
-//_player unassignitem "B_UavTerminal"; 
-//_player removeitem "B_UavTerminal";
-//_player unassignitem "I_UavTerminal"; 
-//_player removeitem "I_UavTerminal";
-_player unassignItem "NVGoggles";
-_player removeItem "NVGoggles";
-_player unassignItem "NVGoggles_OPFOR";
-_player removeItem "NVGoggles_OPFOR";
-_player unassignItem "NVGoggles_INDEP";
-_player removeItem "NVGoggles_INDEP";
-//RHS
-_player unassignItem "rhsusf_ANPVS_14";
-_player removeItem "rhsusf_ANPVS_14";
-_player unassignItem "rhsusf_ANPVS_15";
-_player removeItem "rhsusf_ANPVS_15";
-_player unassignItem "rhs_1PN138";
-_player removeItem "rhs_1PN138";
-_player unassignItem "rhsusf_ANPVS_15";
-_player removeItem "rhsusf_ANPVS_15";
-//
-_player unassignItem "A3_GPNVG18_REC_BLK_F";
-_player removeItem "A3_GPNVG18_REC_BLK_F";
-//BIS Apex
-_player unassignItem "O_NVGoggles_hex_F";
-_player removeItem "O_NVGoggles_hex_F";
-_player unassignItem "O_NVGoggles_urb_F";
-_player removeItem "O_NVGoggles_urb_F";
-_player unassignItem "O_NVGoggles_ghex_F";
-_player removeItem "O_NVGoggles_ghex_F";
-_player unassignItem "NVGoggles_tna_F";
-_player removeItem "NVGoggles_tna_F";
-_player unassignItem "NVGogglesB_blk_F";
-_player removeItem "NVGogglesB_blk_F";
-_player unassignItem "NVGogglesB_grn_F";
-_player removeItem "NVGogglesB_grn_F";
-_player unassignItem "NVGogglesB_gry_F";
-_player removeItem "NVGogglesB_gry_F";
-//CUP
-_player unassignItem "CUP_NVG_HMNVS";
-_player removeItem "CUP_NVG_HMNVS";
-_player unassignItem "CUP_NVG_PVS7";
-_player removeItem "CUP_NVG_PVS7";
-_player unassignItem "CUP_NVG_PVS14";
-_player removeItem "CUP_NVG_PVS14";
-
-
-//removeAllWeapons _player;
-//removeAllItems _player;
 if(hmd _player != "") then {
 	private _hmd = hmd _player;
 	_player unlinkItem _hmd;
@@ -148,18 +82,20 @@ enableTeamSwitch false;
 };
 
 // stamina stuff
-//_player setFatigue 0.0;
+_player setFatigue 0.0;
 _player enableStamina false;
-//[_player] spawn
-//{
-//	_player = _this select 0;
-//    while {alive _player} do
-//    {
-//        //_player setFatigue 0.0;
-//        _player enableStamina false;
-//        sleep 10.0;
-//    };
-//};
+
+[_player] spawn
+{
+	_player = _this select 0;
+    while {alive _player} do
+    {
+        _player setFatigue 0.0;
+        _player enableStamina false;
+        sleep 2.0;
+    };
+};
+
 
 //// Start saving _player loadout periodically
 //[_player] spawn {
@@ -195,6 +131,7 @@ titleFadeOut 0.5;
 	{
 		playMusic Tooth_introMusic;
 	};
+
     _monthString = [] call Toothfunctions_fnc_monthToString;
 	[A3E_WorldName , format ["%1 %2",_monthString,(date select 0)]] spawn BIS_fnc_infoText;
 };

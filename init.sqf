@@ -21,13 +21,6 @@ if (!hasInterface && !isDedicated) then {
     publicVariable "headlessClientsOwners";
 };
 
-/*
-if (isServer) then
-{
-    [] call ToothFunctions_fnc_passToHCs;
-};
-*/
-
 //call compile preprocessFileLineNumbers "config.sqf"; // FIXME
 
 //enableSaving [true, true];
@@ -322,5 +315,124 @@ forEach ["naran_darre_pass_south","naran_darre_pass_north","mujahideen_camp","no
 
 
 
-// no civs
-// "naran_darre_pass_south","naran_darre_pass_north","mujahideen_camp","north_base","spetsnaz_camp_0","spetsnaz_camp_1","spetsnaz_camp_2","south_base","garmsar_base","feruz_abad_base","jilavur_base"
+
+
+	_skillset = [
+		0.13,        // aimingAccuracy
+		0.13,        // aimingShake
+		0.23,        // aimingSpeed
+		0.5,         // spotDistance
+		0.5,        // spotTime
+		1.0,        // courage
+		0.5,        // reloadSpeed
+		0.8,        // commanding
+		0.8        // general
+		];
+
+	{
+		//_x addEventHandler ["HandleDamage", ATR_FNC_ReduceDamage];
+
+		_unit = _x;
+		{
+			_skillvalue = (_skillset select _forEachIndex);
+			_unit setSkill [_x,_skillvalue];
+		} forEach ["aimingAccuracy","aimingShake","aimingSpeed","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
+		_unit setUnitTrait ["camouflageCoef ", 0.6];
+		_unit setUnitTrait ["audibleCoef", 0.6];
+	} forEach units playerGroup;
+
+	playerGroup enableGunLights "ForceOff";
+
+	[] spawn
+	{
+		sleep 60*20;
+		{
+			_unit = _x;
+			if (!isPlayer _unit) then
+			{
+				_primaryWeapon = primaryWeapon _unit;
+				_magazineClass = "";
+
+				if (_primaryWeapon != "") then
+				{
+					_magazines = getArray (configFile / "CfgWeapons" / _primaryWeapon / "magazines");
+					if (count _magazines > 0) then
+					{
+						_magazineClass = _magazines select 0;
+					}
+					else
+					{
+						_magazineClass = "";
+					};
+					if (_magazineClass != "") then
+					{
+						_unit addMagazines [_magazineClass, 15];
+					};
+				};
+
+				_unit addMagazines ["rhs_mag_rgd5", 1];
+				_unit enableGunLights "ForceOff";
+			};
+		} forEach (units playerGroup);
+	};
+
+
+	_Param_EnemySkill = ("Param_EnemySkill" call BIS_fnc_getParamValue);
+
+	_aiSkillBase = 0.11;
+
+	switch (_Param_EnemySkill) do
+	{
+	    case 0: //conscript very low skill
+	    {
+	        _aiSkillBase = 0.1;
+	    };
+	    case 1: //rebels low skill
+	    {
+	        _aiSkillBase = 0.15;
+	    };
+	    case 2: //regular fair skill
+	    {
+	        _aiSkillBase = 0.2;
+	    };
+	    case 3: //elite soldiers medium skill
+	    {
+	        _aiSkillBase = 0.3;
+	    };
+	    case 4: // specops good skill
+	    {
+	        _aiSkillBase = 0.4;
+	    };
+	    default
+	    { 
+	        _aiSkillBase = 0.1;
+	    };
+	};
+
+	_skill = _aiSkillBase;
+
+	_InfSkillSet=
+	[
+	0.4 * _skill,        // aimingAccuracy
+	0.4 * _skill,        // aimingShake
+	0.4 * _skill,        // aimingSpeed
+	0.4 * _skill,         // spotDistance
+	1.0 * _skill,        // spotTime
+	2.0 * _skill,        // courage
+	2.5 * _skill,        // reloadSpeed
+	2.0 * _skill,        // commanding
+	0.8 * _skill        // general
+	];
+
+	{
+		_unit = _x;
+		if (side _unit isEqualTo WEST) then
+		{
+			{
+				_skillvalue = (_InfSkillSet select _forEachIndex);
+				_unit setSkill [_x,_skillvalue];
+			} forEach ["aimingAccuracy","aimingShake","aimingSpeed","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
+		};
+	} forEach allUnits;
+
+};

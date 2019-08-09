@@ -2,7 +2,7 @@ params ["_player", "_killer", "_respawn", "_respawnDelay"];
 waituntil{!isNull(_player)};
 if (isMultiplayer) then
 {
-	//_player setVariable ["respawnLoadout", (getUnitLoadout _player)];
+	_player setVariable ["respawnLoadout", (getUnitLoadout _player)];
 	//if ((paramsArray select 0) == 3) then {
 	//	[player, -2000, true] call BIS_fnc_respawnTickets;
 	//	diag_log ([player, 0, true] call BIS_fnc_respawnTickets);

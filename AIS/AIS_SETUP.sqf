@@ -15,11 +15,11 @@ AIS_MEDEVAC_STATIONS		=	[];				// Add one or more objects and a radius to activa
 //__________________________________________________________________________________________________________________________________________________________________
 //	v v v v v v v v v v v v  --- Optional Settings --- v v v v v v v v v v v v 
 
-AIS_DAMAGE_TOLLERANCE_FACTOR = 	0.60; 				// A higher value means more damage tolerance. 1 is Vanilla. 0.8 mean all damage will reduce to 80% of Vanilla.
+AIS_DAMAGE_TOLLERANCE_FACTOR = 	0.35; 				// A higher value means more damage tolerance. 1 is Vanilla. 0.8 mean all damage will reduce to 80% of Vanilla.
 AIS_BLEEDOUT_TIME 			= 	300; 			// Basic life time in seconds until the unit bleed out and die.. The real life time depends on the real damage of the unit. (can be less or more time from the basic value)
-AIS_REVIVETIME 				= 	20;				// Basic revive time in seconds. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
-AIS_STABILIZETIME 			= 	10;				// Basic stabilize time in seconds to stop the bleeding of a unconscious unit. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
-AIS_REVIVE_HEAL 			= 	false;			// If set to true the injured unit get completely healed after the revive. (casual gameplay without a medic)
+AIS_REVIVETIME 				= 	10;				// Basic revive time in seconds. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
+AIS_STABILIZETIME 			= 	6;				// Basic stabilize time in seconds to stop the bleeding of a unconscious unit. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
+AIS_REVIVE_HEAL 			= 	true;			// If set to true the injured unit get completely healed after the revive. (casual gameplay without a medic)
 AIS_TOGGLE_RADIO 			= 	true; 			// If set to true, unconscious players cannot use his TFAR or ACRE radios.
 AIS_NO_CHAT 				= 	false; 			// If set to true, a injured player cannot use text chat during he is uncoscious.
 AIS_AI_HELP_RADIUS 			= 	100; 			// Number, Radius in metres. Units in this radius will help to revive if no group member is able to revive. Max value is 200 metres.

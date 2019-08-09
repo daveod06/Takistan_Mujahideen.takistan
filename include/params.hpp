@@ -73,6 +73,7 @@ class Params
 		values[]={16,8,4,2,1};
 		texts[]={"No Grass (50.0)", "Proximity (25.0)", "Normal (12.5)", "Far (6.25)", "Very Far (3.125)"};
 		default = 1;
+		file="scripts\setTerrainGrid.sqf";
 	};
     class Param_ViewDistance
 	{	
@@ -80,6 +81,7 @@ class Params
 		values[]={2000,4000,6000,10000};
 		texts[]={"Close (2000)", "Normal (4000)", "Far (6000)", "Very Far (10000)"};
 		default = 6000;
+		file="scripts\setViewDistance.sqf";
 	};
     class Param_ObjectViewDistance
 	{	
@@ -87,6 +89,7 @@ class Params
 		values[]={1000, 1750, 2500,4000,5000};
 		texts[]={"Super Close (1000)", "Close (1750)","Normal (2500)", "Far (4000)", "Very Far (5000)"};
 		default = 4000;
+		file="scripts\setObjectViewDistance.sqf";
 	};
 	class Param_ShadowViewDistance
 	{	
@@ -101,6 +104,7 @@ class Params
 		values[]={12,25,50,100,200};
 		texts[]={"Super Close (12)","Close (25)", "Normal (50)", "Far (100)", "Very Far (200)"};
 		default = 25;
+		file="scripts\setDetailMapBlendPars.sqf";
 	};
     class Param_Spacer3
     {

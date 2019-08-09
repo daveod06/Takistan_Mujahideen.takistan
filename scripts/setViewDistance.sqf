@@ -1,0 +1,1 @@
+setViewDistance ("Param_ViewDistance" call BIS_fnc_getParamValue);

@@ -1,0 +1,1 @@
+setTerrainGrid ( ("Param_Grass" call BIS_fnc_getParamValue)*3.125 );

@@ -1,0 +1,1 @@
+setObjectViewDistance [("Param_ObjectViewDistance" call BIS_fnc_getParamValue),("Param_ShadowViewDistance" call BIS_fnc_getParamValue)];

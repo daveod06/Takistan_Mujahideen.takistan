@@ -28,4 +28,5 @@ if (isPlayer _unit) then {
 } else {
 	_unit stop false;
 	{_unit enableAI _x; nil} count ["MOVE","TARGET","AUTOTARGET","ANIM"];
+	[_unit, [missionNamespace, format ["current_inv_%1", typeof (_unit)]]] call BIS_fnc_loadInventory;
 };
