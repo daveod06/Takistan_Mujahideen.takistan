@@ -194,8 +194,8 @@ addons[]=
 "niaweapons_c96",
 "niarms_416",
 "hlcweapons_sg550",
-"hlc_compat_rhs_ak",
-"hlc_compat2_rhs_ak",
+"Vanilla_NiArms_RHS_AK_Compat",
+"Vanilla_NiArms_RHS_2AK_Compat",
 "hlc_compat_rhs_aug",
 "hlc_compat_rhs_awc",
 "hlc_compat_rhs_m14",
@@ -601,9 +601,9 @@ class AddonsMetaData
 		};
 		class Item58
 		{
-			className="HLC_COMPAT_RHS_AK";
-			name="HLC_COMPAT_RHS_AK";
-			author="Toadie";
+			className="Vanilla_NiArms_RHS_AK_Compat";
+			name="Vanilla_NiArms_RHS_AK_Compat";
+			author="Sabersnack";
 		};
 		class Item59
 		{
