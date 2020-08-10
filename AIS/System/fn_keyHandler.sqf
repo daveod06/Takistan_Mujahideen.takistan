@@ -43,7 +43,7 @@ if (!(isNull objectParent player)) then {
 		_return = true;
 	};
 	Nil
-} count ['ReloadMagazine','Gear','SwitchWeapon','Diary','DeployWeaponAuto','Chat','Throw','ShowMap','turnIn','turnOut','curatorInterface','Eject'];
+} count ['ReloadMagazine','Gear','SwitchWeapon','Diary','DeployWeaponAuto','Chat','Throw','ShowMap','turnIn','turnOut','Eject'];
 
 
 _return
